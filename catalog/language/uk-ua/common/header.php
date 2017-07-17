@@ -19,3 +19,5 @@ $_['text_logout']        = 'Вихід';
 $_['text_checkout']      = 'Оформлення замовлення';
 $_['text_search']        = 'Пошук';
 $_['text_all']           = 'Переглянути всі';
+$_['text_wherefrom']     = 'Звідки';
+$_['text_from']          = 'Куди';
