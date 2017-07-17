@@ -50,18 +50,22 @@
 <body class="<?php echo $class; ?>">
 <header>
   <div class="block-bg-overlay"></div>
-
-          <div class="header-content">
-            <div class="header-content-inner">
-                <img src="../image/catalog/logo-b.png" title="<?php echo $name; ?>" alt="<?php echo $name; ?>"/>            
-                <h1>Комфортабельні автобусні перевезення <br><span>за найнижчими цінами</span></h1>
-            </div>
-               <div class="header-search-form">
-               <div class="form-item"><input type="text" id="wherefrom" placeholder="<?php echo $text_wherefrom; ?>"><span><i class="fa fa-map-marker" aria-hidden="true"></i></span>
-               </div>
-               <div class="form-item"><input type="text" id="where" placeholder="<?php echo $text_from; ?>"></div>                              
-              </div>           
-        </div>
+  <div class="header-content">
+    <div class="header-content-inner">
+      <img src="../image/catalog/logo-b.png" title="<?php echo $name; ?>" alt="<?php echo $name; ?>"/>            
+      <h1>Комфортабельні автобусні перевезення <br><span>за найнижчими цінами</span></h1>
+    </div>
+    <div class="header-search-form">
+      <div class="form-item">
+        <span><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+        <input type="text" id="wherefrom" placeholder="<?php echo $text_wherefrom; ?>">
+      </div>
+      <div class="form-item">
+        <span><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+        <input type="text" id="where" placeholder="<?php echo $text_from; ?>">
+      </div>                              
+    </div>           
+  </div>
 
 <!--           <div id="logo">
           <?php if ($logo) { ?>

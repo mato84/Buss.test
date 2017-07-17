@@ -11,10 +11,7 @@ h1, h2, h3, h4, h5, h6 {
 	color: #444;
 	text-transform: uppercase;
 }
-/* default font size */
-.fa {
-	font-size: 14px;
-}
+
 /* Override the bootstrap defaults */
 h1 {
 	font-size: 33px;
@@ -117,14 +114,14 @@ header {
 	display: block;
     position: absolute;
     text-align: center;
-    padding: 100px 15px;
+    padding: 20px 15px;
     width: 100%;
     top: 10%;
 }
 
 @media (min-width: 768px){
 	.common-home .header-content {
-    top: 30%;
+    top: 40%;
     -webkit-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
@@ -146,12 +143,25 @@ header {
 }
 
 .header-content .header-search-form {
-	margin-top: 30px;
+    margin: 30px auto;
+    padding: 40px 10px;
+    background-color: rgba(205, 79, 56, 0.5);
+    max-width: 700px;
 }
 
 .header-content .header-search-form .form-item {
+	position: relative;
 	display: inline-block;
 	vertical-align: top;
+	width: 100%;
+	margin-bottom: 20px;
+	padding: 0 3px;
+}
+
+@media (min-width:768px) {
+	.header-content .header-search-form .form-item {
+		width: 49%;
+	}
 }
 
 .header-content .header-search-form input {
@@ -167,11 +177,20 @@ header {
    color: #333;
    font-size: 15px;
    text-transform: uppercase;
-   padding: 0  10px 0 30px;
+   padding: 0  10px 0 40px;
 }
 
+.header-content .header-search-form .fa {
+	position: absolute;
+	left: 15px;
+    top: 4px;
+	color: #c3c3c3;
+	font-size: 30px;
+}
 
-
+.header-content .header-search-form .form-item:hover .fa {
+	color: #cd4f38;
+}
 
 
 /* Fix some bootstrap issues */
@@ -341,7 +360,7 @@ div.required .control-label:before {
 
 .d10 {
     height: 0px;
-    border-bottom: 80px solid rgba(203, 77, 61, 0.65);
+    border-bottom: 80px solid rgba(205, 79, 56, 0.5);
     border-left: 20px solid transparent;
 }
 
