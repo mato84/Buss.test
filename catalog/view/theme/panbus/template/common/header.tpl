@@ -63,7 +63,10 @@
       <div class="form-item">
         <span><i class="fa fa-map-marker" aria-hidden="true"></i></span>
         <input type="text" id="where" placeholder="<?php echo $text_from; ?>">
-      </div>                              
+      </div>
+      <div class="form-item">
+        <button class="btn btn-primary"><?php echo $text_search; ?></button>
+      </div>                                    
     </div>           
   </div>
 
