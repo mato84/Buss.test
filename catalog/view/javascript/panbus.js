@@ -36,11 +36,5 @@
         }
     })
 
-    $('.navbar-toggle').affix({
-        offset: {
-            top: 200
-        }
-    })
-
 
 })(jQuery); // End of use strict
