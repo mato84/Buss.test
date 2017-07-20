@@ -369,7 +369,7 @@ class ControllerCatalogCity extends Controller {
 
 	 if (isset($this->request->post['contry_iso'])) {
 		$this->request->post['contry_iso'] = "";
-	 } 
+	 }
 
 		if (isset($this->request->post['name'])) {
 			$data['name'] = $this->request->post['name'];
@@ -430,24 +430,20 @@ class ControllerCatalogCity extends Controller {
 	public function autocomplete() {
 		$json = array();
 
-		if (isset($this->request->get['filter_name'])) {
+
 			$this->load->model('catalog/city');
 
-			$filter_data = array(
-				'filter_name' => $this->request->get['filter_name'],
-				'start'       => 0,
-				'limit'       => 5
-			);
 
-			$results = $this->model_catalog_city->getCities($filter_data);
+
+			$results = $this->model_catalog_city->getCities();
 
 			foreach ($results as $result) {
 				$json[] = array(
-					'city_id' => $result['city_id'],
+					'city_id'         => $result['city_id'],
 					'name'            => strip_tags(html_entity_decode($result['name'], ENT_QUOTES, 'UTF-8'))
 				);
 			}
-		}
+		
 
 		$sort_order = array();
 
