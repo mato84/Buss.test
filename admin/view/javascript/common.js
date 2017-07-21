@@ -23,6 +23,9 @@ function getURLVar(key) {
 }
 
 $(document).ready(function() {
+
+
+
 	//Form Submit for IE Browser
 	$('button[type=\'submit\']').on('click', function() {
 		$("form[id*='form-']").submit();
@@ -109,7 +112,7 @@ $(document).ready(function() {
 	$(document).on('click', 'a[data-toggle=\'image\']', function(e) {
 		var $element = $(this);
 		var $popover = $element.data('bs.popover'); // element has bs popover?
-		
+
 		e.preventDefault();
 
 		// destroy all image popovers
@@ -134,7 +137,7 @@ $(document).ready(function() {
 		$('#button-image').on('click', function() {
 			var $button = $(this);
 			var $icon   = $button.find('> i');
-			
+
 			$('#modal-image').remove();
 
 			$.ajax({
@@ -192,6 +195,9 @@ $(document).ready(function() {
 		$(this).tooltip('destroy');
 	});
 });
+(function($){
+
+});
 
 // Autocomplete */
 (function($) {
@@ -199,7 +205,7 @@ $(document).ready(function() {
 		return this.each(function() {
 			var $this = $(this);
 			var $dropdown = $('<ul class="dropdown-menu" />');
-			
+
 			this.timer = null;
 			this.items = [];
 

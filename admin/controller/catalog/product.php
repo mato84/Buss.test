@@ -417,6 +417,8 @@ class ControllerCatalogProduct extends Controller {
 				'image'      => $image,
 				'name'       => $result['name'],
 				'model'      => $result['model'],
+				'from'       => $result['from_t'],
+				'to'         => $result['to_t'],
 				'price'      => $result['price'],
 				'category'   => $category,
 				'special'    => $special,
@@ -445,6 +447,8 @@ class ControllerCatalogProduct extends Controller {
 
 		$data['entry_name'] = $this->language->get('entry_name');
 		$data['entry_model'] = $this->language->get('entry_model');
+		$data['entry_from'] = $this->language->get('entry_from');
+		$data['entry_to'] = $this->language->get('entry_to');
 		$data['entry_price'] = $this->language->get('entry_price');
 		$data['entry_quantity'] = $this->language->get('entry_quantity');
 		$data['entry_status'] = $this->language->get('entry_status');
@@ -592,15 +596,18 @@ class ControllerCatalogProduct extends Controller {
 	}
 
 	protected function getForm() {
+		  // $this->document->addScript('view/javascript/EasyAutocomplete/jquery.easy-autocomplete.min.js');
+			// $this->document->addStyle('view/javascript/EasyAutocomplete/easy-autocomplete.min.css');
+			// $this->document->addStyle('view/javascript/EasyAutocomplete/easy-autocomplete.themes.min.css');
     //CKEditor
     if ($this->config->get('config_editor_default')) {
         $this->document->addScript('view/javascript/ckeditor/ckeditor.js');
         $this->document->addScript('view/javascript/ckeditor/ckeditor_init.js');
     } else {
-        $this->document->addScript('view/javascript/summernote/summernote.js');
-        $this->document->addScript('view/javascript/summernote/lang/summernote-' . $this->language->get('lang') . '.js');
-        $this->document->addScript('view/javascript/summernote/opencart.js');
-        $this->document->addStyle('view/javascript/summernote/summernote.css');
+        // $this->document->addScript('view/javascript/summernote/summernote.js');
+        // $this->document->addScript('view/javascript/summernote/lang/summernote-' . $this->language->get('lang') . '.js');
+        // $this->document->addScript('view/javascript/summernote/opencart.js');
+        // $this->document->addStyle('view/javascript/summernote/summernote.css');
     }
 
 		$data['heading_title'] = $this->language->get('heading_title');
@@ -630,6 +637,8 @@ class ControllerCatalogProduct extends Controller {
 		$data['entry_meta_keyword'] = $this->language->get('entry_meta_keyword');
 		$data['entry_keyword'] = $this->language->get('entry_keyword');
 		$data['entry_model'] = $this->language->get('entry_model');
+		$data['entry_from'] = $this->language->get('entry_from');
+		$data['entry_to'] = $this->language->get('entry_to');
 		$data['entry_sku'] = $this->language->get('entry_sku');
 		$data['entry_upc'] = $this->language->get('entry_upc');
 		$data['entry_ean'] = $this->language->get('entry_ean');
@@ -738,6 +747,16 @@ class ControllerCatalogProduct extends Controller {
 		} else {
 			$data['error_model'] = '';
 		}
+		if (isset($this->error['form'])) {
+			$data['error_from'] = $this->error['from'];
+		} else {
+			$data['error_from'] = '';
+		}
+		if (isset($this->error['to'])) {
+			$data['error_to'] = $this->error['to'];
+		} else {
+			$data['error_to'] = '';
+		}
 
 		if (isset($this->error['keyword'])) {
 			$data['error_keyword'] = $this->error['keyword'];
@@ -832,6 +851,20 @@ class ControllerCatalogProduct extends Controller {
 			$data['model'] = $product_info['model'];
 		} else {
 			$data['model'] = '';
+		}
+		if (isset($this->request->post['from'])) {
+			$data['from'] = $this->request->post['from'];
+		} elseif (!empty($product_info)) {
+			$data['from'] = $product_info['from_t'];
+		} else {
+			$data['from'] = '';
+		}
+		if (isset($this->request->post['to'])) {
+			$data['to'] = $this->request->post['to'];
+		} elseif (!empty($product_info)) {
+			$data['to'] = $product_info['to_t'];
+		} else {
+			$data['to'] = '';
 		}
 
 		if (isset($this->request->post['sku'])) {
@@ -1296,7 +1329,7 @@ class ControllerCatalogProduct extends Controller {
 				'date_end'          => ($product_special['date_end'] != '0000-00-00') ? $product_special['date_end'] :  ''
 			);
 		}
-		
+
 		// Image
 		if (isset($this->request->post['image'])) {
 			$data['image'] = $this->request->post['image'];
@@ -1439,6 +1472,12 @@ class ControllerCatalogProduct extends Controller {
 		if ((utf8_strlen($this->request->post['model']) < 1) || (utf8_strlen($this->request->post['model']) > 64)) {
 			$this->error['model'] = $this->language->get('error_model');
 		}
+		if ((utf8_strlen($this->request->post['from']) < 2) || (utf8_strlen($this->request->post['from']) > 64)) {
+			$this->error['from'] = $this->language->get('error_from');
+		}
+		if ((utf8_strlen($this->request->post['to']) < 2) || (utf8_strlen($this->request->post['to']) > 64)) {
+			$this->error['to'] = $this->language->get('error_to');
+		}
 
 		if (utf8_strlen($this->request->post['keyword']) > 0) {
 			$this->load->model('catalog/url_alias');
@@ -1552,6 +1591,8 @@ class ControllerCatalogProduct extends Controller {
 					'product_id' => $result['product_id'],
 					'name'       => strip_tags(html_entity_decode($result['name'], ENT_QUOTES, 'UTF-8')),
 					'model'      => $result['model'],
+					'from'       => $result['from_t'],
+					'to'         => $result['to_t'],
 					'option'     => $option_data,
 					'price'      => $result['price']
 				);
