@@ -27,6 +27,10 @@
 <?php } ?>
 <meta property="og:site_name" content="<?php echo $name; ?>" />
 <script src="catalog/view/javascript/jquery/jquery-2.1.1.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="catalog/view/javascript/jquery/jquery.easy-autocomplete.min.js"></script>
+
+<link href="catalog/view/javascript/jquery/easy-autocomplete.min.css" type="text/css" rel="stylesheet" />
+<link href="catalog/view/javascript/jquery/easy-autocomplete.themes.min.css" type="text/css" rel="stylesheet" />
 <link href="catalog/view/javascript/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen" />
 <script src="catalog/view/javascript/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
 <link href="catalog/view/javascript/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
@@ -52,7 +56,7 @@
   <div class="block-bg-overlay"></div>
   <div class="header-content">
     <div class="header-content-inner">
-      <img src="../image/catalog/logo-b.png" title="<?php echo $name; ?>" alt="<?php echo $name; ?>"/>            
+      <img src="../image/catalog/logo-b.png" title="<?php echo $name; ?>" alt="<?php echo $name; ?>"/>
       <h1><span>Автобусні міжнародні перевезення</span><br>в потрібний вам пункт призначення</h1>
     </div>
     <div class="header-search">
@@ -64,12 +68,12 @@
       <div class="search-item">
         <span><i class="fa fa-map-marker" aria-hidden="true"></i></span>
         <input type="text" id="where" placeholder="<?php echo $text_from; ?>">
-        <div class="error-where"><?php echo $text_choise_from; ?></div>        
+        <div class="error-where"><?php echo $text_choise_from; ?></div>
       </div>
       <div class="search-item">
         <button class="btn btn-primary"><?php echo $text_search; ?></button>
-      </div>                                    
-    </div>           
+      </div>
+    </div>
   </div>
 </header>
 <?php if ($categories) { ?>
@@ -92,8 +96,8 @@
         </div>
         <div class="search-item">
           <button class="btn btn-primary"><?php echo $text_search; ?></button>
-        </div>                                    
-      </div>    
+        </div>
+      </div>
     <div class="collapse navbar-collapse navbar-ex1-collapse">
       <ul class="nav navbar-nav corner-border">
         <?php foreach ($categories as $category) { ?>
@@ -122,3 +126,54 @@
 <script src="catalog/view/javascript/panbus.js"></script>
 
 <?php } ?>
+
+<script type="text/javascript">
+var optionsFrom = {
+
+url: function() {
+
+  return "index.php?route=product/category/autocompleteFrom";
+},
+list: {
+  match: {
+    enabled: true
+  }
+},
+// template: {
+//       type: "description",
+//       fields: {
+//           description: "city_iso"
+//       }
+//   },
+
+  adjustWidth: false,
+  getValue: "name",
+  theme: "plate-dark",
+
+};
+  $('#wherefrom').easyAutocomplete(optionsFrom);
+  var optionsTo = {
+
+  url: function() {
+
+    return "index.php?route=product/category/autocompleteTo";
+  },
+  list: {
+    match: {
+      enabled: true
+    }
+  },
+  // template: {
+  //       type: "description",
+  //       fields: {
+  //           description: "city_iso"
+  //       }
+  //   },
+
+    adjustWidth: false,
+    getValue: "name",
+    theme: "plate-dark",
+
+  };
+$('#where').easyAutocomplete(optionsTo);
+</script>

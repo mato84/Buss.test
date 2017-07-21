@@ -974,7 +974,13 @@
 			enabled: true
 		}
 	},
-  adjustWidth: false,
+  // template: {
+  //       type: "description",
+  //       fields: {
+  //           description: "city_iso"
+  //       }
+  //   },
+    adjustWidth: false,
     getValue: "name"
 
   };

@@ -440,4 +440,65 @@ class ControllerProductCategory extends Controller {
 			$this->response->setOutput($this->load->view('error/not_found', $data));
 		}
 	}
+
+	public function autocompleteFrom(){
+		$json = array();
+
+
+			$this->load->model('catalog/product');
+
+
+
+			$results = $this->model_catalog_product->getProductSearchToAtocompliteFrom();
+
+			foreach ($results as $result) {
+				$json[] = array(
+					'name'            => strip_tags(html_entity_decode($result['from_t'], ENT_QUOTES, 'UTF-8'))
+
+				);
+			}
+
+
+		$sort_order = array();
+
+		foreach ($json as $key => $value) {
+			$sort_order[$key] = $value['name'];
+		}
+
+		array_multisort($sort_order, SORT_ASC, $json);
+
+		$this->response->addHeader('Content-Type: application/json');
+		$this->response->setOutput(json_encode($json));
+
+	}
+	public function autocompleteTo(){
+		$json = array();
+
+
+			$this->load->model('catalog/product');
+
+
+
+			$results = $this->model_catalog_product->getProductSearchToAtocompliteTo();
+
+			foreach ($results as $result) {
+				$json[] = array(
+					'name'            => strip_tags(html_entity_decode($result['to_t'], ENT_QUOTES, 'UTF-8'))
+
+				);
+			}
+
+
+		$sort_order = array();
+
+		foreach ($json as $key => $value) {
+			$sort_order[$key] = $value['name'];
+		}
+
+		array_multisort($sort_order, SORT_ASC, $json);
+
+		$this->response->addHeader('Content-Type: application/json');
+		$this->response->setOutput(json_encode($json));
+
+	}
 }

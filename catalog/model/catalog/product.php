@@ -11,6 +11,8 @@ class ModelCatalogProduct extends Model {
 			return array(
 				'product_id'       => $query->row['product_id'],
 				'name'             => $query->row['name'],
+				// 'from'             => $query->rom['from_t'],
+				// 'to'               => $query->rom['to_t'],
 				'description'      => $query->row['description'],
 				'meta_title'       => $query->row['meta_title'],
 				'meta_h1'          => $query->row['meta_h1'],
@@ -536,5 +538,28 @@ class ModelCatalogProduct extends Model {
 		} else {
 			return 0;
 		}
+	}
+
+	public function getProductSearchToAtocompliteFrom(){
+		$product_data = $this->cache->get('product.searchAutocompliteFrom.'. (int)$this->config->get('config_language_id') . '.' . (int)$this->config->get('config_store_id') . '.' . $this->config->get('config_customer_group_id'));
+
+		if (!$product_data) {
+			$query = $this->db->query("SELECT p.from_t FROM " . DB_PREFIX . "product p GROUP BY p.from_t");
+			$product_data = $query->rows ;
+			$this->cache->set('product.searchAutocompliteFrom.' . (int)$this->config->get('config_language_id') . '.' . (int)$this->config->get('config_store_id') . '.' . $this->config->get('config_customer_group_id'),$product_data);
+		}
+
+		return $product_data;
+	}
+	public function getProductSearchToAtocompliteTo(){
+		$product_data = $this->cache->get('product.searchAutocompliteTo.'. (int)$this->config->get('config_language_id') . '.' . (int)$this->config->get('config_store_id') . '.' . $this->config->get('config_customer_group_id'));
+
+		if (!$product_data) {
+			$query = $this->db->query("SELECT p.to_t FROM " . DB_PREFIX . "product p GROUP BY p.to_t");
+			$product_data = $query->rows ;
+			$this->cache->set('product.searchAutocompliteTo.' . (int)$this->config->get('config_language_id') . '.' . (int)$this->config->get('config_store_id') . '.' . $this->config->get('config_customer_group_id'),$product_data);
+		}
+
+		return $product_data;
 	}
 }

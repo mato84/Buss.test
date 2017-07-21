@@ -440,10 +440,11 @@ class ControllerCatalogCity extends Controller {
 			foreach ($results as $result) {
 				$json[] = array(
 					'city_id'         => $result['city_id'],
-					'name'            => strip_tags(html_entity_decode($result['name'], ENT_QUOTES, 'UTF-8'))
+					'name'            => strip_tags(html_entity_decode($result['name'], ENT_QUOTES, 'UTF-8')),
+					'city_iso'        => strip_tags(html_entity_decode($result['contry_iso'], ENT_QUOTES, 'UTF-8'))
 				);
 			}
-		
+
 
 		$sort_order = array();
 
