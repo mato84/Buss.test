@@ -26,13 +26,13 @@
     // Offset for Main Navigation
     $('#menu').affix({
         offset: {
-            top: 200
+            top: 100
         }
     })
 
      $('#logo').affix({
         offset: {
-            top: 200
+            top: 100
         }
     })
 

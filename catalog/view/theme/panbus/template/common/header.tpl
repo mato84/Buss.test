@@ -55,16 +55,18 @@
       <img src="../image/catalog/logo-b.png" title="<?php echo $name; ?>" alt="<?php echo $name; ?>"/>            
       <h1><span>Автобусні міжнародні перевезення</span><br>в потрібний вам пункт призначення</h1>
     </div>
-    <div class="header-search-form">
-      <div class="form-item">
+    <div class="header-search">
+      <div class="search-item ">
         <span><i class="fa fa-map-marker" aria-hidden="true"></i></span>
         <input type="text" id="wherefrom" placeholder="<?php echo $text_wherefrom; ?>">
+        <div class="error-wherefrom"><?php echo $text_choise_wherefrom; ?></div>
       </div>
-      <div class="form-item">
+      <div class="search-item">
         <span><i class="fa fa-map-marker" aria-hidden="true"></i></span>
         <input type="text" id="where" placeholder="<?php echo $text_from; ?>">
+        <div class="error-where"><?php echo $text_choise_from; ?></div>        
       </div>
-      <div class="form-item">
+      <div class="search-item">
         <button class="btn btn-primary"><?php echo $text_search; ?></button>
       </div>                                    
     </div>           
@@ -81,10 +83,12 @@
         <div class="search-item">
           <span><i class="fa fa-map-marker" aria-hidden="true"></i></span>
           <input type="text" id="wherefrom" placeholder="<?php echo $text_wherefrom; ?>">
+          <div class="error-wherefrom"><?php echo $text_choise_wherefrom; ?></div>
         </div>
         <div class="search-item">
           <span><i class="fa fa-map-marker" aria-hidden="true"></i></span>
           <input type="text" id="where" placeholder="<?php echo $text_from; ?>">
+          <div class="error-where"><?php echo $text_choise_from; ?></div>
         </div>
         <div class="search-item">
           <button class="btn btn-primary"><?php echo $text_search; ?></button>
