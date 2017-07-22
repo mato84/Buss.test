@@ -75,6 +75,9 @@
       </div>
     </div>
   </div>
+  <div class="header-scroll">
+    <a href="#content" class="page-scroll">Кращі пропозиції<i class="fa fa-arrow-down" aria-hidden="true"></i></i></a>    
+  </div>   
 </header>
 <?php if ($categories) { ?>
   <nav id="menu" class="navbar navbar-fixed-top affix-top">
@@ -123,7 +126,10 @@
     </div>
   </nav>
 
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
 <script src="catalog/view/javascript/panbus.js"></script>
+
 
 <?php } ?>
 

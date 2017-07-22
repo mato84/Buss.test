@@ -57,8 +57,9 @@ a {
     color: #23a1d1;
 }
 
-a:hover {
+a:hover, a:focus {
     text-decoration: none;
+    outline: none;
 }
 
 legend {
@@ -311,7 +312,29 @@ header {
 	display: block;
 }
 
+header .header-scroll {
+	display: none;
+	position: absolute;
+	bottom: 0;
+    width: 100%;
+    margin: 10px auto;
+}
 
+.common-home header .header-scroll {
+	display: block;
+}
+
+header .header-scroll a {
+	color: #ffffff;
+	font-size: 16px;
+	text-transform: uppercase;
+	font-weight: 700;
+}
+
+header .header-scroll i {
+	display: block;
+	font-size: 24px;
+}
 
 /* Fix some bootstrap issues */
 
