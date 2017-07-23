@@ -29,8 +29,7 @@
 <script src="catalog/view/javascript/jquery/jquery-2.1.1.min.js" type="text/javascript"></script>
 <script type="text/javascript" src="catalog/view/javascript/jquery/jquery.easy-autocomplete.min.js"></script>
 
-<link href="catalog/view/javascript/jquery/easy-autocomplete.min.css" type="text/css" rel="stylesheet" />
-<link href="catalog/view/javascript/jquery/easy-autocomplete.themes.min.css" type="text/css" rel="stylesheet" />
+<link href="catalog/view/javascript/jquery/easy-autocomplete.css" type="text/css" rel="stylesheet" />
 <link href="catalog/view/javascript/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen" />
 <script src="catalog/view/javascript/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
 <link href="catalog/view/javascript/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
@@ -61,12 +60,12 @@
     </div>
     <div class="header-search">
       <div class="search-item ">
-        <span><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+        <i class="fa fa-map-marker" aria-hidden="true"></i>
         <input type="text" id="wherefrom" placeholder="<?php echo $text_wherefrom; ?>">
         <div class="error-wherefrom"><?php echo $text_choise_wherefrom; ?></div>
       </div>
       <div class="search-item">
-        <span><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+        <i class="fa fa-map-marker" aria-hidden="true"></i>
         <input type="text" id="where" placeholder="<?php echo $text_from; ?>">
         <div class="error-where"><?php echo $text_choise_from; ?></div>
       </div>
@@ -153,8 +152,7 @@ list: {
 //   },
 
   adjustWidth: false,
-  getValue: "name",
-  theme: "plate-dark",
+  getValue: "name"
 
 };
   $('#wherefrom').easyAutocomplete(optionsFrom);
@@ -177,8 +175,7 @@ list: {
   //   },
 
     adjustWidth: false,
-    getValue: "name",
-    theme: "plate-dark",
+    getValue: "name"
 
   };
 $('#where').easyAutocomplete(optionsTo);
