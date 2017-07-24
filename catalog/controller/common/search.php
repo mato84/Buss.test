@@ -39,8 +39,8 @@ class ControllerCommonSearch extends Controller {
 
 				foreach ($results as $result) {
 					$json[] = array(
-						'name'            => strip_tags(html_entity_decode($result[sprintf('%s_t',$field_id)], ENT_QUOTES, 'UTF-8')),
-						// 'contry_iso'        => strip_tags(html_entity_decode($result['contry_iso'], ENT_QUOTES, 'UTF-8'))
+						'name'            => strip_tags(html_entity_decode($result['name'], ENT_QUOTES, 'UTF-8')),
+						'contry_iso'        => strip_tags(html_entity_decode($result['contry_iso'], ENT_QUOTES, 'UTF-8'))
 
 					);
 				}

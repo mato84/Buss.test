@@ -544,7 +544,7 @@ class ModelCatalogProduct extends Model {
 		$product_data = $this->cache->get("product.searchAutocomplite".$key_field.".". (int)$this->config->get('config_language_id') . '.' . (int)$this->config->get('config_store_id') . '.' . $this->config->get('config_customer_group_id'));
 
 		if (!$product_data) {
-			$query = $this->db->query("SELECT p.".$key_field."_t FROM " . DB_PREFIX . "product p GROUP BY p.".$key_field."_t");
+			$query = $this->db->query("SELECT DISTINCT c.name, c.contry_iso FROM " . DB_PREFIX . "product p INNER JOIN ". DB_PREFIX ."city c ON p.".$key_field."_t = c.city_id");
 			$product_data = $query->rows ;
 			$this->cache->set('product.searchAutocompliteFrom.' . (int)$this->config->get('config_language_id') . '.' . (int)$this->config->get('config_store_id') . '.' . $this->config->get('config_customer_group_id'),$product_data);
 		}

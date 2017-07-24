@@ -54,10 +54,6 @@
 <header>
   <div class="block-bg-overlay"></div>
   <div class="header-content">
-    <div class="header-content-inner">
-      <img src="../image/catalog/logo-b.png" title="<?php echo $name; ?>" alt="<?php echo $name; ?>"/>
-      <h1><span>Автобусні міжнародні перевезення</span><br>в потрібний вам пункт призначення</h1>
-    </div>
     <div class="header-search">
       <div class="search-item ">
         <i class="fa fa-map-marker" aria-hidden="true"></i>
@@ -73,6 +69,11 @@
         <button class="btn btn-primary"><?php echo $text_search; ?></button>
       </div>
     </div>
+    <div class="header-content-inner">
+      <img src="../image/catalog/logo-b.png" title="<?php echo $name; ?>" alt="<?php echo $name; ?>"/>
+      <h1><span>Автобусні міжнародні перевезення</span><br>в потрібний вам пункт призначення</h1>
+    </div>
+
   </div>
   <div class="header-scroll">
     <a href="#content" class="page-scroll">Кращі пропозиції<i class="fa fa-arrow-down" aria-hidden="true"></i></i></a>
@@ -125,10 +126,8 @@
     </div>
   </nav>
 
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
 <script src="catalog/view/javascript/panbus.js"></script>
-
 
 <?php } ?>
 
@@ -140,16 +139,20 @@ url: function() {
   return "index.php?route=common/search/autocomplete&field_id="+ document.activeElement.id;
 },
 list: {
+  // maxNumberOfElements: 10,
+  // onChooseEvent:function(){
+  //
+  // },
   match: {
     enabled: true
   }
 },
-// template: {
-//       type: "description",
-//       fields: {
-//           description: "contry_iso"
-//       }
-//   },
+template: {
+      type: "description",
+      fields: {
+          description: "contry_iso"
+      }
+  },
 
   adjustWidth: false,
   getValue: "name"
