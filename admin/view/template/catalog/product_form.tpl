@@ -106,6 +106,7 @@
                 <label class="col-sm-2 control-label" for="input-from"><?php echo $entry_from; ?></label>
                 <div class="col-sm-10">
                   <input type="text" name="from" value="<?php echo $from; ?>" placeholder="<?php echo $entry_from; ?>" id="input-from" class="form-control" />
+                  <input type="hidden" name="from_id" value="<?php echo $from_id; ?>" id="input-from-id" class="form-control" />
                   <?php if ($error_from != "") { ?>
                   <div class="text-danger"><?php echo $error_from; ?></div>
                   <?php } ?>
@@ -115,6 +116,7 @@
                 <label class="col-sm-2 control-label" for="input-to"><?php echo $entry_to; ?></label>
                 <div class="col-sm-10">
                   <input type="text" name="to" value="<?php echo $to; ?>" placeholder="<?php echo $entry_to; ?>" id="input-to" class="form-control" />
+                  <input type="hidden" name="to_id" value="<?php echo $to_id; ?>"id="input-to-id" class="form-control" />
                   <?php if ($error_to != "") { ?>
                   <div class="text-danger"><?php echo $error_to; ?></div>
                   <?php } ?>
@@ -970,7 +972,12 @@
 		return 'index.php?route=catalog/city/autocomplete&token=<?php echo $token; ?>';
 	},
   list: {
-		match: {
+    onSelectItemEvent:function(){
+      var id =  document.activeElement.id;
+      var valueInput =$('#'+ id).getSelectedItemData();
+       $('#'+id+'-id').val(valueInput.city_id).trigger('change');
+    },
+    	match: {
 			enabled: true
 		}
 	},

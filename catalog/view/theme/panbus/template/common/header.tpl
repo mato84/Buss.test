@@ -75,8 +75,8 @@
     </div>
   </div>
   <div class="header-scroll">
-    <a href="#content" class="page-scroll">Кращі пропозиції<i class="fa fa-arrow-down" aria-hidden="true"></i></i></a>    
-  </div>   
+    <a href="#content" class="page-scroll">Кращі пропозиції<i class="fa fa-arrow-down" aria-hidden="true"></i></i></a>
+  </div>
 </header>
 <?php if ($categories) { ?>
   <nav id="menu" class="navbar navbar-fixed-top affix-top">
@@ -133,11 +133,11 @@
 <?php } ?>
 
 <script type="text/javascript">
-var optionsFrom = {
+var options = {
 
 url: function() {
 
-  return "index.php?route=product/category/autocompleteFrom";
+  return "index.php?route=common/search/autocomplete&field_id="+ document.activeElement.id;
 },
 list: {
   match: {
@@ -147,7 +147,7 @@ list: {
 // template: {
 //       type: "description",
 //       fields: {
-//           description: "city_iso"
+//           description: "contry_iso"
 //       }
 //   },
 
@@ -155,28 +155,6 @@ list: {
   getValue: "name"
 
 };
-  $('#wherefrom').easyAutocomplete(optionsFrom);
-  var optionsTo = {
-
-  url: function() {
-
-    return "index.php?route=product/category/autocompleteTo";
-  },
-  list: {
-    match: {
-      enabled: true
-    }
-  },
-  // template: {
-  //       type: "description",
-  //       fields: {
-  //           description: "city_iso"
-  //       }
-  //   },
-
-    adjustWidth: false,
-    getValue: "name"
-
-  };
-$('#where').easyAutocomplete(optionsTo);
+  $('#wherefrom').easyAutocomplete(options);
+  $('#where').easyAutocomplete(options);
 </script>

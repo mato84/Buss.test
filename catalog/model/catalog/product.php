@@ -540,24 +540,13 @@ class ModelCatalogProduct extends Model {
 		}
 	}
 
-	public function getProductSearchToAtocompliteFrom(){
-		$product_data = $this->cache->get('product.searchAutocompliteFrom.'. (int)$this->config->get('config_language_id') . '.' . (int)$this->config->get('config_store_id') . '.' . $this->config->get('config_customer_group_id'));
+	public function getProductSearchToAutocomplite($key_field="from"){
+		$product_data = $this->cache->get("product.searchAutocomplite".$key_field.".". (int)$this->config->get('config_language_id') . '.' . (int)$this->config->get('config_store_id') . '.' . $this->config->get('config_customer_group_id'));
 
 		if (!$product_data) {
-			$query = $this->db->query("SELECT p.from_t FROM " . DB_PREFIX . "product p GROUP BY p.from_t");
+			$query = $this->db->query("SELECT p.".$key_field."_t FROM " . DB_PREFIX . "product p GROUP BY p.".$key_field."_t");
 			$product_data = $query->rows ;
 			$this->cache->set('product.searchAutocompliteFrom.' . (int)$this->config->get('config_language_id') . '.' . (int)$this->config->get('config_store_id') . '.' . $this->config->get('config_customer_group_id'),$product_data);
-		}
-
-		return $product_data;
-	}
-	public function getProductSearchToAtocompliteTo(){
-		$product_data = $this->cache->get('product.searchAutocompliteTo.'. (int)$this->config->get('config_language_id') . '.' . (int)$this->config->get('config_store_id') . '.' . $this->config->get('config_customer_group_id'));
-
-		if (!$product_data) {
-			$query = $this->db->query("SELECT p.to_t FROM " . DB_PREFIX . "product p GROUP BY p.to_t");
-			$product_data = $query->rows ;
-			$this->cache->set('product.searchAutocompliteTo.' . (int)$this->config->get('config_language_id') . '.' . (int)$this->config->get('config_store_id') . '.' . $this->config->get('config_customer_group_id'),$product_data);
 		}
 
 		return $product_data;

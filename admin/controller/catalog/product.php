@@ -76,6 +76,7 @@ class ControllerCatalogProduct extends Controller {
 		$this->load->model('catalog/product');
 
 		if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validateForm()) {
+
 			$this->model_catalog_product->editProduct($this->request->get['product_id'], $this->request->post);
 
 			$this->session->data['success'] = $this->language->get('text_success');
@@ -747,7 +748,7 @@ class ControllerCatalogProduct extends Controller {
 		} else {
 			$data['error_model'] = '';
 		}
-		if (isset($this->error['form'])) {
+		if (isset($this->error['from'])) {
 			$data['error_from'] = $this->error['from'];
 		} else {
 			$data['error_from'] = '';
@@ -852,19 +853,37 @@ class ControllerCatalogProduct extends Controller {
 		} else {
 			$data['model'] = '';
 		}
+
+    $this->load->model('catalog/city');
+
 		if (isset($this->request->post['from'])) {
 			$data['from'] = $this->request->post['from'];
 		} elseif (!empty($product_info)) {
-			$data['from'] = $product_info['from_t'];
+			$data['from'] = $this->model_catalog_city->getCity($product_info['from_t'])['name'];
 		} else {
 			$data['from'] = '';
+		}
+		if (isset($this->request->post['from_id'])) {
+			$data['from_id'] = $this->request->post['from_id'];
+		} elseif (!empty($product_info)) {
+			$data['from_id'] = $product_info['from_t'];
+		} else {
+			$data['from_id'] = '';
 		}
 		if (isset($this->request->post['to'])) {
 			$data['to'] = $this->request->post['to'];
 		} elseif (!empty($product_info)) {
-			$data['to'] = $product_info['to_t'];
+			$data['to'] = $this->model_catalog_city->getCity($product_info['to_t'])['name'];
 		} else {
 			$data['to'] = '';
+		}
+
+		if (isset($this->request->post['to_id'])) {
+			$data['to_id'] = $this->request->post['to_id'];
+		} elseif (!empty($product_info)) {
+			$data['to_id'] = $product_info['to_t'];
+		} else {
+			$data['to_id'] = '';
 		}
 
 		if (isset($this->request->post['sku'])) {
@@ -1475,8 +1494,14 @@ class ControllerCatalogProduct extends Controller {
 		if ((utf8_strlen($this->request->post['from']) < 2) || (utf8_strlen($this->request->post['from']) > 64)) {
 			$this->error['from'] = $this->language->get('error_from');
 		}
+		if (empty($this->request->post['from_id'] or isset($this->error['from']))) {
+			$this->error['from'] = $this->language->get('error_from_id');
+		}
 		if ((utf8_strlen($this->request->post['to']) < 2) || (utf8_strlen($this->request->post['to']) > 64)) {
 			$this->error['to'] = $this->language->get('error_to');
+		}
+		if (empty($this->request->post['to_id'] or isset($this->error['to'])) ) {
+			$this->error['to'] = $this->language->get('error_to_id');
 		}
 
 		if (utf8_strlen($this->request->post['keyword']) > 0) {

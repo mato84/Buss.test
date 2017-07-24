@@ -429,11 +429,7 @@ class ControllerCatalogCity extends Controller {
 
 	public function autocomplete() {
 		$json = array();
-
-
 			$this->load->model('catalog/city');
-
-
 
 			$results = $this->model_catalog_city->getCities();
 
@@ -441,7 +437,7 @@ class ControllerCatalogCity extends Controller {
 				$json[] = array(
 					'city_id'         => $result['city_id'],
 					'name'            => strip_tags(html_entity_decode($result['name'], ENT_QUOTES, 'UTF-8')),
-					'city_iso'        => strip_tags(html_entity_decode($result['contry_iso'], ENT_QUOTES, 'UTF-8'))
+
 				);
 			}
 
