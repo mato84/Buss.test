@@ -138,6 +138,12 @@ header {
 
 @media (min-width: 768px) {
 	header {
+	    height: 22vh;	
+	}	
+}
+
+@media (min-width: 1000px) {
+	header {
 	    height: 29vh;	
 	}	
 }
@@ -150,7 +156,7 @@ header {
 
 @media (min-width: 1400px) {
 	header {
-	    height: 21vh;	
+	    height: 13vh;	
 	}	
 }
 
@@ -607,7 +613,7 @@ div.required .control-label:before {
 
 @media (min-width: 768px) { 
 	#menu.affix .corner-border {
-	    border-bottom: 80px solid rgba(203, 77, 61, 1);
+	    border-bottom: 80px solid #dadada;
 	    border-left: 20px solid transparent;
 	}
 }
@@ -694,7 +700,7 @@ div.required .control-label:before {
 	position: absolute;
 	top: 130px;
 	width: 100%;
-	background-color: #cd4e37;
+	background-color: #dadada;
 	border: none;
 }
 
@@ -725,7 +731,7 @@ div.required .control-label:before {
 }
 
 #menu .nav>li>a {
-    color: #fff;
+    color: #333;
     min-height: 15px;
     background-color: transparent;
     text-transform: uppercase;
@@ -733,7 +739,14 @@ div.required .control-label:before {
     font-weight: 700;
 }
 
+#menu.affix .nav>li>a {
+    color: #333;
+}
+
 @media (min-width: 768px) {
+	#menu .nav>li>a {
+		color: #fff
+	}
     .navbar-nav>li>a {
         padding-top: 30px;
         padding-bottom: 30px;
@@ -1201,10 +1214,6 @@ footer h5 {
     display: block;
 }
 
-.product-thumb .image a:hover {
-    opacity: 0.8;
-}
-
 .product-thumb .image img {
     margin-left: auto;
     margin-right: auto;
@@ -1226,20 +1235,25 @@ footer h5 {
 .product-thumb h3 {
 	height: 0;
 	margin-top: 0;
-	margin-right: -10px;
-	line-height: 40px;
-   	border-bottom: 40px solid #cd4e37;
+	margin-right: -20px;
+	line-height: 29px;
+   	border-bottom: 60px solid #dadada;
     border-left: 10px solid transparent;
+    text-align: center;
 }
 
 @media (min-width: 767px) {
 	.product-thumb h3 {
 		margin-right: 0;
+		line-height: 40px;
+		border-bottom: 40px solid #dadada;
+    	border-left: 10px solid transparent;
+    	text-align: left;
 	}	
 }
 
 .product-thumb h3 a {
-	color: #ffffff;
+	color: #333;
 	padding: 0 20px;
 }
 
@@ -1248,7 +1262,7 @@ footer h5 {
 }
 
 .product-list .product-thumb .caption {
-    padding: 0 10px;
+    padding: 0 20px;
 }
 
 @media (min-width: 767px) {
@@ -1258,6 +1272,19 @@ footer h5 {
     	padding: 0;	    
 	    float: right;
 	    width: 70%;
+	}	
+}
+
+.product-thumb .description-group {
+	margin-top: 30px;
+}
+
+@media (min-width: 767px) {
+	.product-thumb .description-group {
+		display: inline-block;
+		vertical-align: top;
+		width: 70%;
+		margin-top: 10px;
 	}	
 }
 
@@ -1288,16 +1315,24 @@ h2.price {
 }
 
 .product-thumb .price-group {
-	text-align: right;
-	margin: 20px 0;
-	padding: 0 20px;
+	text-align: center;
+	margin: 40px 0;
+}
+
+@media (min-width: 767px) {
+	.product-thumb .price-group {
+		text-align: right;
+		margin: 20px 0;
+		padding: 0 20px;
+		float: right;
+	}		
 }
 
 .product-thumb .price {
 	min-width: 100px;
 	display: inline-block;
 	vertical-align: top;
-	margin-bottom: 0;
+	margin-bottom: 30px;
 	text-align: center;	
 	font-size: 25px;
     color: #444;
@@ -1321,13 +1356,13 @@ h2.price {
 
 .product-thumb .button-group {
 	border: none;
-	padding: 0 20px;
-	margin-bottom: 20px;
 	background-color: transparent;
-	overflow: hidden;
-	text-align: right;    
+	overflow: hidden;   
 }
 
+.product-thumb .button-group .btn {
+	width: 100%;
+}
 
 .thumbnails {
     overflow: auto;

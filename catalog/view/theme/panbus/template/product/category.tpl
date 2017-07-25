@@ -62,7 +62,9 @@
             <div class="image"><a href="<?php echo $product['href']; ?>"><img src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>" title="<?php echo $product['name']; ?>" class="img-responsive" /></a></div>
               <div class="caption">
                 <h3><a href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a></h3>
-                <p><?php echo $product['description']; ?></p>
+                <div class="description-group">
+                  <p><?php echo $product['description']; ?></p>
+                </div>
                 <?php if ($product['price']) { ?>
                 <div class="price-group">
                   <p class="price">
@@ -72,6 +74,9 @@
                     <span class="price-new"><?php echo $product['special']; ?></span> <span class="price-old"><?php echo $product['price']; ?></span>
                     <?php } ?>
                   </p>
+                <div class="button-group">
+                  <a class="btn btn-default" href="<?php echo $product['href']; ?>"><?php echo $button_cart; ?></a>
+                </div>
                 </div>
                 <?php } ?>
                 <?php if ($product['rating']) { ?>
@@ -84,14 +89,8 @@
                   <?php } ?>
                   <?php } ?>
                 </div>
-                <?php } ?>
-              <div class="button-group">
-                <button class="btn btn-default" type="button" onclick="cart.add('<?php echo $product['product_id']; ?>', '<?php echo $product['minimum']; ?>');"><?php echo $button_cart; ?></button>
-              </div>                
+                <?php } ?>                
               </div>
-<!--               <div class="button-group">
-                <button class="btn btn-default" type="button" onclick="cart.add('<?php echo $product['product_id']; ?>', '<?php echo $product['minimum']; ?>');"><?php echo $button_cart; ?></button>
-              </div> -->
           </div>
         </div>
         <?php } ?>
