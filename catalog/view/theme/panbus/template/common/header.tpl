@@ -54,6 +54,10 @@
 <header>
   <div class="block-bg-overlay"></div>
   <div class="header-content">
+    <div class="header-content-inner">
+      <img src="../image/catalog/logo-b.png" title="<?php echo $name; ?>" alt="<?php echo $name; ?>"/>
+      <h1><span>Автобусні міжнародні перевезення</span><br>в потрібний вам пункт призначення</h1>
+    </div>  
     <div class="header-search">
       <div class="search-item ">
         <i class="fa fa-map-marker" aria-hidden="true"></i>
@@ -69,11 +73,6 @@
         <button class="btn btn-primary"><?php echo $text_search; ?></button>
       </div>
     </div>
-    <div class="header-content-inner">
-      <img src="../image/catalog/logo-b.png" title="<?php echo $name; ?>" alt="<?php echo $name; ?>"/>
-      <h1><span>Автобусні міжнародні перевезення</span><br>в потрібний вам пункт призначення</h1>
-    </div>
-
   </div>
   <div class="header-scroll">
     <a href="#content" class="page-scroll">Кращі пропозиції<i class="fa fa-arrow-down" aria-hidden="true"></i></i></a>
@@ -86,7 +85,7 @@
       </div>
       <button type="button" class="btn btn-navbar navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse"><i class="fa fa-bars"></i></button>
     </div>
-      <div class="navbar-search">
+<!--       <div class="navbar-search">
         <div class="search-item">
           <span><i class="fa fa-map-marker" aria-hidden="true"></i></span>
           <input type="text" id="wherefrom" placeholder="<?php echo $text_wherefrom; ?>">
@@ -100,7 +99,7 @@
         <div class="search-item">
           <button class="btn btn-primary"><?php echo $text_search; ?></button>
         </div>
-      </div>
+      </div>  -->   
     <div class="collapse navbar-collapse navbar-ex1-collapse">
       <ul class="nav navbar-nav corner-border">
         <?php foreach ($categories as $category) { ?>
@@ -125,11 +124,10 @@
       </ul>
     </div>
   </nav>
+<?php } ?>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
 <script src="catalog/view/javascript/panbus.js"></script>
-
-<?php } ?>
 
 <script type="text/javascript">
 var options = {
