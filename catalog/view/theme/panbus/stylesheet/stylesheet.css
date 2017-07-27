@@ -30,7 +30,7 @@ h6 {
 /* Override the bootstrap defaults */
 
 h1 {
-    font-size: 33px;
+    font-size: 30px;
 }
 
 h2 {
@@ -54,12 +54,13 @@ h6 {
 }
 
 a {
-    color: #23a1d1;
+    color: #cd4e37;
 }
 
 a:hover, a:focus {
     text-decoration: none;
     outline: none;
+    color: #b53626;
 }
 
 legend {
@@ -68,7 +69,7 @@ legend {
 }
 
 label {
-    font-size: 12px;
+    font-size: 14px;
     font-weight: normal;
 }
 
@@ -89,7 +90,55 @@ input[type="url"].form-control,
 input[type="search"].form-control,
 input[type="tel"].form-control,
 input[type="color"].form-control {
-    font-size: 12px;
+    font-size: 18px;
+    height: 40px;
+    border: 2px solid #dadada;
+    border-radius: 0;
+    outline: none !important;
+    webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.form-control:focus {
+	border-color: #dadada;
+	-webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+
+input[type=radio] {
+    position: relative !important;
+    width: 40px;
+    height: 40px;
+    margin: 0 8px 0 0 !important;
+    display: inline-block;
+    vertical-align: middle;
+     background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+    -webkit-appearance: none;
+    outline: 0 !important;
+    cursor: pointer;
+}
+
+input[type=radio]:not(:checked) {
+    background: url(/image/catalog/radio.png) 0 0 transparent no-repeat
+}
+
+input[type=radio]:checked {
+    background: url(/image/catalog/radio.png) 0px -45px transparent no-repeat;
+}
+
+
+.checkbox,
+.radio {
+	margin-bottom: 0;
+}
+
+.checkbox label,
+.radio label {
+	padding-left: 0;
+	padding-right: 20px;
 }
 
 .input-group input,
@@ -111,7 +160,8 @@ input[type="color"].form-control {
 }
 
 .input-group .form-control {
-	border: 1px solid #eee;
+	height: 40px;
+	border: 2px solid #eee;
 	border-radius: 0;
 	outline: none;
 	webkit-box-shadow: none;
@@ -277,7 +327,7 @@ header {
 	    top: 0;
 	    left: 12%;
 	    margin-left: 0;
-	    z-index: 9999;	    
+	    z-index: 1040;	    
 	}
 
 	.header-content .header-search.affix{
@@ -406,11 +456,15 @@ span.hidden-lg {
     margin-bottom: 15px;
 }
 
-div.required .control-label:before {
-    content: '* ';
-    color: #F00;
-    font-weight: bold;
+.nav-tabs>li>a {
+	border-radius: 0;
 }
+
+// div.required .control-label:before {
+//     content: '* ';
+//     color: #cd4e37;
+//     font-weight: bold;
+// }
 
 
 /* Gradent to all drop down menus */
@@ -618,75 +672,6 @@ div.required .control-label:before {
 	}
 }
 
-// #menu .header-search {
-// 	display: inline-block;
-// 	vertical-align: top;
-// 	margin: 10px 0 20px;
-//     padding: 20px 10px 0px 10px;
-//     background-color: rgba(255, 255, 255, 0.24);
-//     max-width: 700px;
-// }
-
-// @media (min-width: 768px) {
-// 	#menu .header-search {
-// 		margin: 0;
-// 	}	
-// }
-
-// #menu.affix .header-search {
-// 	background-color: transparent;
-// }
-
-// #menu .header-search .search-item {
-//     position: relative;
-//     display: inline-block;
-//     vertical-align: top;
-//     width: 100%;
-//     margin-bottom: 20px;
-//     padding: 0 3px;
-// }
-
-// #menu .header-search .search-item .btn {
-//     width: 100%;
-// }
-
-// @media (min-width:768px) {
-//     #menu .header-search .search-item {
-//         width: 38%;
-//     }
-//     #menu .header-search .search-item:last-child {
-//         width: 130px;
-//     }
-// }
-
-// #menu .header-search input {
-//     border: none;
-//     border-radius: 0px;
-//     -webkit-border-radius: 0px;
-//     -moz-border-radius: 0px;
-//     -khtml-border-radius: 0px;
-//     background: #ffffff !important;
-//     outline: none;
-//     height: 40px;
-//     width: 100%;
-//     color: #333;
-//     font-size: 15px;
-//     text-transform: uppercase;
-//     padding: 0 10px 0 40px;
-// }
-
-// #menu .header-search .fa {
-//     position: absolute;
-//     left: 15px;
-//     top: 4px;
-//     color: #c3c3c3;
-//     font-size: 30px;
-// }
-
-// #menu .header-search .search-item:hover .fa {
-//     color: #cd4f38;
-// }
-
 .common-home #menu .navbar-collapse {
 	top: 80px;
 }
@@ -872,7 +857,14 @@ div.required .control-label:before {
 /* content */
 
 #content {
-    min-height: 600px;
+    padding: 30px 30px;
+}
+
+@media (min-width: 768px) {
+	#content {
+		min-height: 600px;
+	    padding: 50px 30px;
+	}	
 }
 
 
@@ -966,7 +958,27 @@ footer h5 {
 .pagination {
     margin: 0;
 }
+.pagination>li>a,
+.pagination>li>span {
+	color: #333;
+}
 
+.pagination>li:first-child>a,
+.pagination>li:first-child>span,
+.pagination>li:last-child>a,
+.pagination>li:last-child>span {
+	border-radius: 0;
+}
+
+.pagination>.active>a,
+.pagination>.active>a:focus,
+.pagination>.active>a:hover,
+.pagination>.active>span,
+.pagination>.active>span:focus,
+.pagination>.active>span:hover {
+	background-color: #cc4c3d;
+	border-color: #cc4c3d;
+}
 
 /* buttons */
 
@@ -1204,8 +1216,15 @@ footer h5 {
     overflow: auto;
     background-color: #ffffff;
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+    border-top: 8px solid #cd4e37;
 }
 
+@media (min-width: 767px) {
+	.product-thumb {
+		border-top: none;
+		border-left: 8px solid #cd4e37;
+	}	
+}
 .product-thumb .image {
     text-align: center;
 }
@@ -1233,12 +1252,10 @@ footer h5 {
 }
 
 .product-thumb h3 {
-	height: 0;
 	margin-top: 0;
 	margin-right: -20px;
 	line-height: 29px;
-   	border-bottom: 60px solid #dadada;
-    border-left: 10px solid transparent;
+	background-color: #dadada;
     text-align: center;
 }
 
@@ -1246,8 +1263,6 @@ footer h5 {
 	.product-thumb h3 {
 		margin-right: 0;
 		line-height: 40px;
-		border-bottom: 40px solid #dadada;
-    	border-left: 10px solid transparent;
     	text-align: left;
 	}	
 }
@@ -1348,11 +1363,6 @@ h2.price {
     margin-left: 10px;
 }
 
-.product-thumb .price-tax {
-    color: #999;
-    font-size: 12px;
-    display: block;
-}
 
 .product-thumb .button-group {
 	border: none;
@@ -1362,6 +1372,113 @@ h2.price {
 
 .product-thumb .button-group .btn {
 	width: 100%;
+}
+
+
+.product-cart {
+
+}
+
+.product-cart .product-details {
+	display: inline-block;
+	vertical-align: top;
+	width: 100%;
+	background-color: #fff;
+	box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+	margin-bottom: 40px;
+	border-top: 10px solid #cd4e37;
+}
+
+@media (min-width: 767px) {
+	.product-cart .product-details {
+		border-top: none;
+		border-left: 10px solid #cd4e37;
+	}
+}
+
+.product-details .details-caption-left {
+	display: inline-block;
+	vertical-align: top;
+	padding: 20px;
+	float: left;
+}
+
+.product-details .details-caption-right {
+	width: 72%;
+	float: right;
+}
+
+.product-details .product-title {
+	background-color: #dadada;
+}
+
+.product-details .product-title h1 {
+	margin: 0;
+    line-height: 40px;
+    text-align: center;
+}
+
+.product-details .product-options {
+    margin: 30px 0 20px;
+}
+
+.product-details .product-options .form-group {
+	display: inline-block;
+	vertical-align: bottom;
+}
+
+.product-details .product-options .option-data {
+	max-width: 200px;
+	margin-bottom: 30px;
+
+}
+
+.product-details .product-options .option-time {
+	margin-bottom: 30px;
+	padding: 0 10px 0 40px
+}
+
+.option-time .radio label{
+	font-size: 18px;
+}
+
+.bootstrap-datetimepicker-widget {
+	border: 0!important;
+	border-radius: 0!important;
+}
+
+.bootstrap-datetimepicker-widget td.active,
+.bootstrap-datetimepicker-widget td.active:hover {
+	background-color: #cd4e37 !important;
+}
+
+.option-time .radio {
+	display: inline-block;
+	vertical-align: top;
+	margin-top: 0;
+}
+
+.product-details .option-quattity {
+	width: 200px
+}
+
+.product-details .price-block {
+	display: inline-block;
+	vertical-align: bottom;
+	margin-bottom: 22px;
+    padding: 0 40px;
+}
+
+.product-details .price-block ul,
+.product-details .price-block h2 {
+	margin: 0;
+}
+
+.product-details .pruduct-buttons {
+	display: inline-block;
+	vertical-align: bottom;
+	margin-bottom: 15px;
+    width: 200px
 }
 
 .thumbnails {
@@ -1388,7 +1505,8 @@ h2.price {
     margin-bottom: 20px;
     padding: 5px;
     display: block;
-    border: 1px solid #ddd;
+    border: 0;
+    border-radius: 0;
 }
 
 .image-additional {

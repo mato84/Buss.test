@@ -75,7 +75,7 @@
     </div>
   </div>
   <div class="header-scroll">
-    <a href="#content" class="page-scroll">Кращі пропозиції<i class="fa fa-arrow-down" aria-hidden="true"></i></i></a>
+    <a href="#content" class="page-scroll"><?php echo $text_beast_deals; ?><i class="fa fa-arrow-down" aria-hidden="true"></i></a>
   </div>
 </header>
 <?php if ($categories) { ?>
@@ -84,22 +84,7 @@
       <div id="logo"><a href="<?php echo $home; ?>"><img src="<?php echo $logo; ?>" title="<?php echo $name; ?>" alt="<?php echo $name; ?>" class="img-responsive" /></a>
       </div>
       <button type="button" class="btn btn-navbar navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse"><i class="fa fa-bars"></i></button>
-    </div>
-<!--       <div class="navbar-search">
-        <div class="search-item">
-          <span><i class="fa fa-map-marker" aria-hidden="true"></i></span>
-          <input type="text" id="wherefrom" placeholder="<?php echo $text_wherefrom; ?>">
-          <div class="error-wherefrom"><?php echo $text_choise_wherefrom; ?></div>
-        </div>
-        <div class="search-item">
-          <span><i class="fa fa-map-marker" aria-hidden="true"></i></span>
-          <input type="text" id="where" placeholder="<?php echo $text_from; ?>">
-          <div class="error-where"><?php echo $text_choise_from; ?></div>
-        </div>
-        <div class="search-item">
-          <button class="btn btn-primary"><?php echo $text_search; ?></button>
-        </div>
-      </div>  -->   
+    </div>  
     <div class="collapse navbar-collapse navbar-ex1-collapse">
       <ul class="nav navbar-nav corner-border">
         <?php foreach ($categories as $category) { ?>

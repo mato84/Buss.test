@@ -35,9 +35,10 @@ $_['text_week']                               = 'тиждень';
 $_['text_semi_month']                         = 'половина місяця';
 $_['text_month']                              = 'місяць';
 $_['text_year']                               = 'рік';
+$_['button_tobook']                             = 'Бронювати';
 
 // Entry
-$_['entry_qty']                               = 'Кількість';
+$_['entry_qty']                               = 'Пасажири';
 $_['entry_name']                              = 'Ваше Ім`я';
 $_['entry_review']                            = 'Ваш відгук';
 $_['entry_rating']                            = 'Рейтинг';
