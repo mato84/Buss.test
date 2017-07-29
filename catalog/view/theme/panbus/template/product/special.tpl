@@ -9,35 +9,8 @@
     <?php } else { ?>
     <?php $class = 'col-sm-12'; ?>
     <?php } ?>
-    <div id="content">
-    <?php echo $content_top; ?>
+    <div id="content"><?php echo $content_top; ?>
       <h1><?php echo $heading_title; ?></h1>
-      <?php if ($categories) { ?>
-      <h3><?php echo $text_refine; ?></h3>
-      <?php if (count($categories) <= 5) { ?>
-      <div class="row">
-        <div class="col-sm-3">
-          <ul>
-            <?php foreach ($categories as $category) { ?>
-            <li><a href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a></li>
-            <?php } ?>
-          </ul>
-        </div>
-      </div>
-      <?php } else { ?>
-      <div class="row">
-        <?php foreach (array_chunk($categories, ceil(count($categories) / 4)) as $categories) { ?>
-        <div class="col-sm-3">
-          <ul>
-            <?php foreach ($categories as $category) { ?>
-            <li><a href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a></li>
-            <?php } ?>
-          </ul>
-        </div>
-        <?php } ?>
-      </div>
-      <?php } ?>
-      <?php } ?>
       <?php if ($products) { ?>
       <div class="row">
         <div class="col-md-4 col-xs-12 sort-group ">
@@ -100,11 +73,12 @@
         <div class="col-sm-6 text-left"><?php echo $pagination; ?></div>
         <div class="col-sm-6 text-right"><?php echo $results; ?></div>
       </div>
-      <?php } ?>
-      <?php if (!$categories && !$products) { ?>
+      <?php } else { ?>
+      <div class="well">
       <p><?php echo $text_empty; ?></p>
-      <div class="buttons">
-        <div class="pull-right"><a href="<?php echo $continue; ?>" class="btn btn-primary"><?php echo $button_continue; ?></a></div>
+      <div class="buttons buttons-right">
+        <a href="<?php echo $continue; ?>" class="btn btn-primary"><?php echo $button_continue; ?></a>
+      </div>
       </div>
       <?php } ?>
       <?php echo $content_bottom; ?></div>
