@@ -27,8 +27,8 @@ $_['text_error']            = 'Немає замовлнення, яке Ви ш
 // Column
 $_['column_order_id']       = 'Номер замовлення';
 $_['column_customer']       = 'Покупець';
-$_['column_product']        = 'Кількість товарів';
-$_['column_name']           = 'Назва товару';
+$_['column_product']        = 'Кількість';
+$_['column_name']           = 'Назва';
 $_['column_model']          = 'Модель';
 $_['column_quantity']       = 'Кількість';
 $_['column_price']          = 'Ціна';

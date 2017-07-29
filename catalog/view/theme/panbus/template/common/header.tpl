@@ -55,7 +55,8 @@
   <div class="block-bg-overlay"></div>
   <div class="header-content">
     <div class="header-content-inner">
-      <img src="../image/catalog/logo-b.png" title="<?php echo $name; ?>" alt="<?php echo $name; ?>"/>
+      <img class="header-logo-l" src="../image/catalog/logo-l.png" title="<?php echo $name; ?>" alt="<?php echo $name; ?>"/>
+      <img class="header-logo-r" src="../image/catalog/logo-r.png" title="<?php echo $name; ?>" alt="<?php echo $name; ?>"/>
       <h1><span>Автобусні міжнародні перевезення</span><br>в потрібний вам пункт призначення</h1>
     </div>  
     <div class="header-search">

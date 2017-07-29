@@ -136,6 +136,18 @@
                 <?php } ?>
                 <?php } ?>
                 <?php } ?>
+                
+                <div>
+                <?php if ($attribute_groups) { ?>
+                <div class="option-timeinroad form-group">
+                    <?php foreach ($attribute_groups as $attribute_group) { ?>
+                        <div class="timeinroad-text form-group"><?php echo $attribute_group['name']; ?></div>
+                      <?php foreach ($attribute_group['attribute'] as $attribute) { ?>
+                        <div class="timeinroad-value form-group"><?php echo $attribute['name']; ?></div>
+                      <?php } ?>
+                    <?php } ?>
+                </div>
+                <?php } ?>
 
                 <div class="option-quattity form-group">
                   <label class="control-label" for="input-quantity"><?php echo $entry_qty; ?></label>
@@ -145,7 +157,7 @@
                 <?php if ($minimum > 1) { ?>
                 <div class="alert alert-info"><i class="fa fa-info-circle"></i> <?php echo $text_minimum; ?></div>
                 <?php } ?>
-                <div class="price-block">
+                <div class="price-block form-group">
                   <div class="pruduct-price">
                     <?php if ($price) { ?>
                     <ul class="list-unstyled">
@@ -178,10 +190,11 @@
                   </div>                              
                 </div>
 
-                <div class="pruduct-buttons">
+                <div class="pruduct-buttons form-group">
                   <button type="button" id="button-cart" data-loading-text="<?php echo $text_loading; ?>" class="btn btn-default btn-block"><?php echo $button_tobook; ?>
                   </button>
-                </div>  
+                </div>
+              </div>  
               </div>
 
             </div>          
@@ -221,36 +234,12 @@
             <div class="product-tabs">
               <ul class="nav nav-tabs">
                 <li class="active"><a href="#tab-description" data-toggle="tab"><?php echo $tab_description; ?></a></li>
-                <?php if ($attribute_groups) { ?>
-                <li><a href="#tab-specification" data-toggle="tab"><?php echo $tab_attribute; ?></a></li>
-                <?php } ?>
                 <?php if ($review_status) { ?>
                 <li><a href="#tab-review" data-toggle="tab"><?php echo $tab_review; ?></a></li>
                 <?php } ?>
               </ul>
               <div class="tab-content">
                 <div class="tab-pane active" id="tab-description"><?php echo $description; ?></div>
-                <?php if ($attribute_groups) { ?>
-                <div class="tab-pane" id="tab-specification">
-                  <table class="table table-bordered">
-                    <?php foreach ($attribute_groups as $attribute_group) { ?>
-                    <thead>
-                      <tr>
-                        <td colspan="2"><strong><?php echo $attribute_group['name']; ?></strong></td>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <?php foreach ($attribute_group['attribute'] as $attribute) { ?>
-                      <tr>
-                        <td><?php echo $attribute['name']; ?></td>
-                        <td><?php echo $attribute['text']; ?></td>
-                      </tr>
-                      <?php } ?>
-                    </tbody>
-                    <?php } ?>
-                  </table>
-                </div>
-                <?php } ?>
                 <?php if ($review_status) { ?>
                 <div class="tab-pane" id="tab-review">
                   <form class="form-horizontal" id="form-review">

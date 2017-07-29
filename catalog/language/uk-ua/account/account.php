@@ -25,3 +25,4 @@ $_['text_transaction']   = 'Транзакції';
 $_['text_newsletter']    = 'Підписатися на/відмовитися від розсилання новин';
 $_['text_recurring']     = 'Регулярні платежі';
 $_['text_transactions']  = 'Транзакції';
+$_['text_logout']  		 = 'Вихід';
