@@ -11,8 +11,6 @@ class ModelCatalogProduct extends Model {
 			return array(
 				'product_id'       => $query->row['product_id'],
 				'name'             => $query->row['name'],
-				// 'from'             => $query->rom['from_t'],
-				// 'to'               => $query->rom['to_t'],
 				'description'      => $query->row['description'],
 				'meta_title'       => $query->row['meta_title'],
 				'meta_h1'          => $query->row['meta_h1'],
@@ -415,6 +413,101 @@ class ModelCatalogProduct extends Model {
 
 		return $query->rows;
 	}
+	public function getTotalProductsforSearch($data = array()){
+    if (empty($data['filter_from_id']) & empty($data['filter_to_id']) ){
+			return 0;
+		}
+
+		$sql = "SELECT COUNT(DISTINCT product_id) AS total";
+		$sql .= " FROM " . DB_PREFIX . "product WHERE";
+		if (!empty($data['filter_from_id'])) {
+         $sql .= " from_t = ".(int)$data['filter_from_id'];
+				 if(!empty($data['filter_to_id'])){
+					 $sql .= " AND ";
+				 }
+		}
+		if(!empty($data['filter_to_id'])){
+          $sql .= " to_t = ".(int)$data['filter_to_id'];
+		}
+		$query = $this->db->query($sql);
+
+		return $query->row['total'];
+	}
+
+	public function getProductsSearch($data = array()) {
+	 $sql = "SELECT p.product_id, (SELECT AVG(rating) AS total FROM " . DB_PREFIX . "review r1 WHERE r1.product_id = p.product_id AND r1.status = '1' GROUP BY r1.product_id) AS rating, (SELECT price FROM " . DB_PREFIX . "product_discount pd2 WHERE pd2.product_id = p.product_id AND pd2.customer_group_id = '" . (int)$this->config->get('config_customer_group_id') . "' AND pd2.quantity = '1' AND ((pd2.date_start = '0000-00-00' OR pd2.date_start < NOW()) AND (pd2.date_end = '0000-00-00' OR pd2.date_end > NOW())) ORDER BY pd2.priority ASC, pd2.price ASC LIMIT 1) AS discount, (SELECT price FROM " . DB_PREFIX . "product_special ps WHERE ps.product_id = p.product_id AND ps.customer_group_id = '" . (int)$this->config->get('config_customer_group_id') . "' AND ((ps.date_start = '0000-00-00' OR ps.date_start < NOW()) AND (ps.date_end = '0000-00-00' OR ps.date_end > NOW())) ORDER BY ps.priority ASC, ps.price ASC LIMIT 1) AS special";
+
+	 $sql .= " FROM " . DB_PREFIX . "product p";
+
+	 $sql .= " LEFT JOIN " . DB_PREFIX . "product_description pd ON (p.product_id = pd.product_id) LEFT JOIN " . DB_PREFIX . "product_to_store p2s ON (p.product_id = p2s.product_id) WHERE pd.language_id = '" . (int)$this->config->get('config_language_id') . "' AND p.status = '1' AND p.date_available <= NOW() AND p2s.store_id = '" . (int)$this->config->get('config_store_id') . "'";
+
+	 if(!empty($data['filter_from_id']) || !empty($data['filter_to_id'])){
+		$sql .= " AND ";
+		if(!empty($data['filter_from_id'])){
+		$sql .= " p.from_t =  " . (int)$data['filter_from_id'];
+							if(!empty($data['filter_to_id'])){
+										$sql .= " AND ";
+						}
+		}
+		if(!empty($data['filter_to_id'])){
+			 $sql .= " p.to_t = ".(int)$data['filter_to_id'];
+		}
+
+	}
+
+	 $sql .= " GROUP BY p.product_id";
+
+	 $sort_data = array(
+		 'pd.name',
+		 'p.model',
+		 'p.quantity',
+		 'p.price',
+		 'rating',
+		 'p.sort_order',
+		 'p.date_added'
+	 );
+
+	 if (isset($data['sort']) && in_array($data['sort'], $sort_data)) {
+		 if ($data['sort'] == 'pd.name' || $data['sort'] == 'p.model') {
+			 $sql .= " ORDER BY LCASE(" . $data['sort'] . ")";
+		 } elseif ($data['sort'] == 'p.price') {
+			 $sql .= " ORDER BY (CASE WHEN special IS NOT NULL THEN special WHEN discount IS NOT NULL THEN discount ELSE p.price END)";
+		 } else {
+			 $sql .= " ORDER BY " . $data['sort'];
+		 }
+	 } else {
+		 $sql .= " ORDER BY p.sort_order";
+	 }
+
+	 if (isset($data['order']) && ($data['order'] == 'DESC')) {
+		 $sql .= " DESC, LCASE(pd.name) DESC";
+	 } else {
+		 $sql .= " ASC, LCASE(pd.name) ASC";
+	 }
+
+	 if (isset($data['start']) || isset($data['limit'])) {
+		 if ($data['start'] < 0) {
+			 $data['start'] = 0;
+		 }
+
+		 if ($data['limit'] < 1) {
+			 $data['limit'] = 20;
+		 }
+
+		 $sql .= " LIMIT " . (int)$data['start'] . "," . (int)$data['limit'];
+	 }
+
+	 $product_data = array();
+
+	 $query = $this->db->query($sql);
+
+	 foreach ($query->rows as $result) {
+		 $product_data[$result['product_id']] = $this->getProduct($result['product_id']);
+	 }
+
+	 return $product_data;
+ }
+
 
 	public function getTotalProducts($data = array()) {
 		$sql = "SELECT COUNT(DISTINCT p.product_id) AS total";
@@ -544,7 +637,7 @@ class ModelCatalogProduct extends Model {
 		$product_data = $this->cache->get("product.searchAutocomplite".$key_field.".". (int)$this->config->get('config_language_id') . '.' . (int)$this->config->get('config_store_id') . '.' . $this->config->get('config_customer_group_id'));
 
 		if (!$product_data) {
-			$query = $this->db->query("SELECT DISTINCT c.name, c.contry_iso FROM " . DB_PREFIX . "product p INNER JOIN ". DB_PREFIX ."city c ON p.".$key_field."_t = c.city_id");
+			$query = $this->db->query("SELECT DISTINCT c.name, c.contry_iso, c.city_id FROM " . DB_PREFIX . "product p INNER JOIN ". DB_PREFIX ."city c ON p.".$key_field."_t = c.city_id");
 			$product_data = $query->rows ;
 			$this->cache->set('product.searchAutocompliteFrom.' . (int)$this->config->get('config_language_id') . '.' . (int)$this->config->get('config_store_id') . '.' . $this->config->get('config_customer_group_id'),$product_data);
 		}

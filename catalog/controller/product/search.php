@@ -3,42 +3,22 @@ class ControllerProductSearch extends Controller {
 	public function index() {
 		$this->load->language('product/search');
 
-		$this->load->model('catalog/category');
-
 		$this->load->model('catalog/product');
 
 		$this->load->model('tool/image');
 
-		if (isset($this->request->get['search'])) {
-			$search = $this->request->get['search'];
+
+
+		if (isset($this->request->get['from_id'])) {
+			$from_id= $this->request->get['from_id'];
 		} else {
-			$search = '';
+			$from_id = 0;
 		}
 
-		if (isset($this->request->get['tag'])) {
-			$tag = $this->request->get['tag'];
-		} elseif (isset($this->request->get['search'])) {
-			$tag = $this->request->get['search'];
+		if (isset($this->request->get['to_id'])) {
+			$to_id = $this->request->get['to_id'];
 		} else {
-			$tag = '';
-		}
-
-		if (isset($this->request->get['description'])) {
-			$description = $this->request->get['description'];
-		} else {
-			$description = '';
-		}
-
-		if (isset($this->request->get['category_id'])) {
-			$category_id = $this->request->get['category_id'];
-		} else {
-			$category_id = 0;
-		}
-
-		if (isset($this->request->get['sub_category'])) {
-			$sub_category = $this->request->get['sub_category'];
-		} else {
-			$sub_category = '';
+			$to_id = 0;
 		}
 
 		if (isset($this->request->get['sort'])) {
@@ -86,20 +66,12 @@ class ControllerProductSearch extends Controller {
 			$url .= '&search=' . urlencode(html_entity_decode($this->request->get['search'], ENT_QUOTES, 'UTF-8'));
 		}
 
-		if (isset($this->request->get['tag'])) {
-			$url .= '&tag=' . urlencode(html_entity_decode($this->request->get['tag'], ENT_QUOTES, 'UTF-8'));
+		if (isset($this->request->get['from_id'])) {
+			$url .= '&from_id=' . $this->request->get['from_id'];
 		}
 
-		if (isset($this->request->get['description'])) {
-			$url .= '&description=' . $this->request->get['description'];
-		}
-
-		if (isset($this->request->get['category_id'])) {
-			$url .= '&category_id=' . $this->request->get['category_id'];
-		}
-
-		if (isset($this->request->get['sub_category'])) {
-			$url .= '&sub_category=' . $this->request->get['sub_category'];
+		if (isset($this->request->get['to_id'])) {
+			$url .= '&to_id=' . $this->request->get['to_id'];
 		}
 
 		if (isset($this->request->get['sort'])) {
@@ -154,64 +126,21 @@ class ControllerProductSearch extends Controller {
 		$data['button_list'] = $this->language->get('button_list');
 		$data['button_grid'] = $this->language->get('button_grid');
 
-		$data['compare'] = $this->url->link('product/compare');
-
-		$this->load->model('catalog/category');
-
-		// 3 Level Category Search
-		$data['categories'] = array();
-
-		$categories_1 = $this->model_catalog_category->getCategories(0);
-
-		foreach ($categories_1 as $category_1) {
-			$level_2_data = array();
-
-			$categories_2 = $this->model_catalog_category->getCategories($category_1['category_id']);
-
-			foreach ($categories_2 as $category_2) {
-				$level_3_data = array();
-
-				$categories_3 = $this->model_catalog_category->getCategories($category_2['category_id']);
-
-				foreach ($categories_3 as $category_3) {
-					$level_3_data[] = array(
-						'category_id' => $category_3['category_id'],
-						'name'        => $category_3['name'],
-					);
-				}
-
-				$level_2_data[] = array(
-					'category_id' => $category_2['category_id'],
-					'name'        => $category_2['name'],
-					'children'    => $level_3_data
-				);
-			}
-
-			$data['categories'][] = array(
-				'category_id' => $category_1['category_id'],
-				'name'        => $category_1['name'],
-				'children'    => $level_2_data
-			);
-		}
-
 		$data['products'] = array();
 
-		if (isset($this->request->get['search']) || isset($this->request->get['tag'])) {
+		if (isset($this->request->get['from_id']) || isset($this->request->get['to_id'])) {
 			$filter_data = array(
-				'filter_name'         => $search,
-				'filter_tag'          => $tag,
-				'filter_description'  => $description,
-				'filter_category_id'  => $category_id,
-				'filter_sub_category' => $sub_category,
+				'filter_from_id'      => $from_id,
+				'filter_to_id'        => $to_id,
 				'sort'                => $sort,
 				'order'               => $order,
 				'start'               => ($page - 1) * $limit,
 				'limit'               => $limit
 			);
 
-			$product_total = $this->model_catalog_product->getTotalProducts($filter_data);
+			$product_total = $this->model_catalog_product->getTotalProductsforSearch($filter_data);
 
-			$results = $this->model_catalog_product->getProducts($filter_data);
+			$results = $this->model_catalog_product->getProductsSearch($filter_data);
 
 			foreach ($results as $result) {
 				if ($result['image']) {
@@ -225,7 +154,6 @@ class ControllerProductSearch extends Controller {
 				} else {
 					$price = false;
 				}
-
 				if ((float)$result['special']) {
 					$special = $this->currency->format($this->tax->calculate($result['special'], $result['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']);
 				} else {
@@ -238,12 +166,13 @@ class ControllerProductSearch extends Controller {
 					$tax = false;
 				}
 
+
 				if ($this->config->get('config_review_status')) {
 					$rating = (int)$result['rating'];
 				} else {
 					$rating = false;
 				}
-
+        $data['entry_search'] = $result['name'];
 				$data['products'][] = array(
 					'product_id'  => $result['product_id'],
 					'thumb'       => $image,
@@ -264,20 +193,12 @@ class ControllerProductSearch extends Controller {
 				$url .= '&search=' . urlencode(html_entity_decode($this->request->get['search'], ENT_QUOTES, 'UTF-8'));
 			}
 
-			if (isset($this->request->get['tag'])) {
-				$url .= '&tag=' . urlencode(html_entity_decode($this->request->get['tag'], ENT_QUOTES, 'UTF-8'));
+			if (isset($this->request->get['from_id'])) {
+				$url .= '&from_id=' . $this->request->get['from_id'];
 			}
 
-			if (isset($this->request->get['description'])) {
-				$url .= '&description=' . $this->request->get['description'];
-			}
-
-			if (isset($this->request->get['category_id'])) {
-				$url .= '&category_id=' . $this->request->get['category_id'];
-			}
-
-			if (isset($this->request->get['sub_category'])) {
-				$url .= '&sub_category=' . $this->request->get['sub_category'];
+			if (isset($this->request->get['to_id'])) {
+				$url .= '&to_id=' . $this->request->get['to_id'];
 			}
 
 			if (isset($this->request->get['limit'])) {
@@ -348,20 +269,12 @@ class ControllerProductSearch extends Controller {
 				$url .= '&search=' . urlencode(html_entity_decode($this->request->get['search'], ENT_QUOTES, 'UTF-8'));
 			}
 
-			if (isset($this->request->get['tag'])) {
-				$url .= '&tag=' . urlencode(html_entity_decode($this->request->get['tag'], ENT_QUOTES, 'UTF-8'));
+			if (isset($this->request->get['from_id'])) {
+				$url .= '&from_id=' . $this->request->get['from_id'];
 			}
 
-			if (isset($this->request->get['description'])) {
-				$url .= '&description=' . $this->request->get['description'];
-			}
-
-			if (isset($this->request->get['category_id'])) {
-				$url .= '&category_id=' . $this->request->get['category_id'];
-			}
-
-			if (isset($this->request->get['sub_category'])) {
-				$url .= '&sub_category=' . $this->request->get['sub_category'];
+			if (isset($this->request->get['to_id'])) {
+				$url .= '&to_id=' . $this->request->get['to_id'];
 			}
 
 			if (isset($this->request->get['sort'])) {
@@ -392,20 +305,12 @@ class ControllerProductSearch extends Controller {
 				$url .= '&search=' . urlencode(html_entity_decode($this->request->get['search'], ENT_QUOTES, 'UTF-8'));
 			}
 
-			if (isset($this->request->get['tag'])) {
-				$url .= '&tag=' . urlencode(html_entity_decode($this->request->get['tag'], ENT_QUOTES, 'UTF-8'));
+			if (isset($this->request->get['from_id'])) {
+				$url .= '&from_id=' . $this->request->get['from_id'];
 			}
 
-			if (isset($this->request->get['description'])) {
-				$url .= '&description=' . $this->request->get['description'];
-			}
-
-			if (isset($this->request->get['category_id'])) {
-				$url .= '&category_id=' . $this->request->get['category_id'];
-			}
-
-			if (isset($this->request->get['sub_category'])) {
-				$url .= '&sub_category=' . $this->request->get['sub_category'];
+			if (isset($this->request->get['to_id'])) {
+				$url .= '&to_id=' . $this->request->get['to_id'];
 			}
 
 			if (isset($this->request->get['sort'])) {
@@ -460,9 +365,6 @@ class ControllerProductSearch extends Controller {
 
 				$search_data = array(
 					'keyword'       => $search,
-					'category_id'   => $category_id,
-					'sub_category'  => $sub_category,
-					'description'   => $description,
 					'products'      => $product_total,
 					'customer_id'   => $customer_id,
 					'ip'            => $ip
@@ -472,10 +374,7 @@ class ControllerProductSearch extends Controller {
 			}
 		}
 
-		$data['search'] = $search;
-		$data['description'] = $description;
-		$data['category_id'] = $category_id;
-		$data['sub_category'] = $sub_category;
+		// $data['search'] = $search;
 
 		$data['sort'] = $sort;
 		$data['order'] = $order;
@@ -489,5 +388,45 @@ class ControllerProductSearch extends Controller {
 		$data['header'] = $this->load->controller('common/header');
 
 		$this->response->setOutput($this->load->view('product/search', $data));
+	}
+	public function autocomplete(){
+		 $json = array();
+
+			$this->load->model('catalog/product');
+			if (isset($this->request->get['field_id']))
+			{
+				$field_id = $this->request->get['field_id'];
+				switch ($field_id) {
+					case 'wherefrom':
+						$field_id = 'from';
+						break;
+					case 'where':
+							$field_id = 'to';
+							break;
+
+					default:
+						$field_id = 'from';
+						break;
+				}
+				$results = $this->model_catalog_product->getProductSearchToAutocomplite($field_id);
+
+				foreach ($results as $result) {
+					$json[] = array(
+						'name'            => strip_tags(html_entity_decode($result['name'], ENT_QUOTES, 'UTF-8')),
+						'contry_iso'        => strip_tags(html_entity_decode($result['contry_iso'], ENT_QUOTES, 'UTF-8')),
+						'city_id'           => $result['city_id']
+
+					);
+				}
+			$sort_order = array();
+
+			foreach ($json as $key => $value) {
+				$sort_order[$key] = $value['name'];
+			}
+			array_multisort($sort_order, SORT_ASC, $json);
+			}
+		$this->response->addHeader('Content-Type: application/json');
+		$this->response->setOutput(json_encode($json));
+
 	}
 }

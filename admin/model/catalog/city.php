@@ -38,7 +38,7 @@ class ModelCatalogCity extends Model {
 	}
 
 	public function getCities($data = array()) {
-		$sql = "SELECT city_id, name FROM " . DB_PREFIX . "city";
+		$sql = "SELECT * FROM " . DB_PREFIX . "city";
 		$sort_data = array(
 			'name',
 			'sort_order'

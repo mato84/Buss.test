@@ -33,9 +33,9 @@
 <link href="catalog/view/javascript/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen" />
 <script src="catalog/view/javascript/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
 <link href="catalog/view/javascript/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i&amp;subset=cyrillic" rel="stylesheet">
+<!-- <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i&amp;subset=cyrillic" rel="stylesheet"> -->
 <link href="catalog/view/theme/panbus/stylesheet/stylesheet.css" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script> -->
 <?php foreach ($styles as $style) { ?>
 <link href="<?php echo $style['href']; ?>" type="text/css" rel="<?php echo $style['rel']; ?>" media="<?php echo $style['media']; ?>" />
 <?php } ?>
@@ -57,7 +57,7 @@
     <div class="header-content-inner">
       <img src="../image/catalog/logo-b.png" title="<?php echo $name; ?>" alt="<?php echo $name; ?>"/>
       <h1><span>Автобусні міжнародні перевезення</span><br>в потрібний вам пункт призначення</h1>
-    </div>  
+    </div>
     <div class="header-search">
       <div class="search-item ">
         <i class="fa fa-map-marker" aria-hidden="true"></i>
@@ -70,7 +70,7 @@
         <div class="error-where"><?php echo $text_choise_from; ?></div>
       </div>
       <div class="search-item">
-        <button class="btn btn-primary"><?php echo $text_search; ?></button>
+        <button id="search-submit" class="btn btn-primary"><?php echo $text_search; ?></button>
       </div>
     </div>
   </div>
@@ -84,7 +84,7 @@
       <div id="logo"><a href="<?php echo $home; ?>"><img src="<?php echo $logo; ?>" title="<?php echo $name; ?>" alt="<?php echo $name; ?>" class="img-responsive" /></a>
       </div>
       <button type="button" class="btn btn-navbar navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse"><i class="fa fa-bars"></i></button>
-    </div>  
+    </div>
     <div class="collapse navbar-collapse navbar-ex1-collapse">
       <ul class="nav navbar-nav corner-border">
         <?php foreach ($categories as $category) { ?>
@@ -118,21 +118,39 @@
   </nav>
 <?php } ?>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script> -->
 <script src="catalog/view/javascript/panbus.js"></script>
 
 <script type="text/javascript">
+var valueID = {
+  from_id:"",
+  to_id:""
+}
+
 var options = {
 
 url: function() {
 
-  return "index.php?route=common/search/autocomplete&field_id="+ document.activeElement.id;
+  return "index.php?route=product/search/autocomplete&field_id="+ document.activeElement.id;
 },
 list: {
   // maxNumberOfElements: 10,
   // onChooseEvent:function(){
   //
   // },
+  onChooseEvent: function(){
+    var wherefrom = $('#wherefrom');
+    var where = $('#where');
+    if(wherefrom.getSelectedItemData().city_id != undefined)
+    {
+    valueID.from_id = wherefrom.getSelectedItemData().city_id;
+  };
+    if(where.getSelectedItemData().city_id != undefined)
+    {
+    valueID.to_id = where.getSelectedItemData().city_id;
+  };
+
+  },
   match: {
     enabled: true
   }
@@ -150,4 +168,16 @@ template: {
 };
   $('#wherefrom').easyAutocomplete(options);
   $('#where').easyAutocomplete(options);
+  $('#search-submit').on('click',function(){
+    var url = '/index.php?route=product/search';
+    if(valueID.from_id){
+    url +='&from_id= '+ valueID.from_id;
+    }
+    if(valueID.to_id){
+    url +='&to_id= ' + valueID.to_id;
+    }
+    location = url;
+
+  })
+
 </script>
