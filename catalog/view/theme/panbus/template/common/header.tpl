@@ -107,6 +107,7 @@
         <li><a href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a></li>
         <?php } ?>
         <?php } ?>
+        <li><a href="<?php echo $special; ?>"><?php echo $text_promotion; ?></a></li>
         <li><a href=""><?php echo $text_gallery; ?></a></li>
         <li><a href="<?php echo $contact; ?>"><?php echo $text_contact; ?></a></li>
           <?php if ($logged) { ?>

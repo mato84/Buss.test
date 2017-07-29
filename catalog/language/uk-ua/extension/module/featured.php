@@ -5,7 +5,7 @@
 //info@marketplus.if.ua
 
 // Heading
-$_['heading_title'] = 'Рекомендовані';
+$_['heading_title'] = 'Кращі пропозиції';
 
 // Text
 $_['text_tax']      = 'Без ПДВ:';

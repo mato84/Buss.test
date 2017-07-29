@@ -874,7 +874,7 @@ span.hidden-lg {
 
 footer {
     margin-top: 30px;
-    padding-top: 30px;
+    padding-top: 50px;
     position: relative;
     width: 100%;
     -webkit-background-size: cover;
@@ -882,32 +882,35 @@ footer {
     background-size: cover;
     -o-background-size: cover;
     background-position: bottom;
-    center;
     background-image: url(/image/catalog/bg2.jpg);
     background-attachment: fixed;
     text-align: center;
     color: white;
 }
 
+footer li {
+	border: 1px solid #fff;
+    padding: 5px;
+}
+
+footer li:hover {
+    cursor: pointer;	
+}
+
 footer hr {
+	margin-top: 50px;
     border-top: none;
     border-bottom: 1px solid #666;
 }
 
 footer a {
-    color: #ccc;
-}
-
-footer a:hover {
     color: #fff;
 }
 
-footer h5 {
-    font-family: 'Open Sans', sans-serif;
-    font-size: 13px;
-    font-weight: bold;
-    color: #fff;
+footer .powered {
+	position: relative;
 }
+
 
 
 /* alert */
@@ -1220,6 +1223,7 @@ footer h5 {
 /* product list */
 
 .product-thumb {
+	position: relative;
     margin-bottom: 40px;
     overflow: auto;
     background-color: #ffffff;
@@ -1312,7 +1316,9 @@ footer h5 {
 }
 
 .product-thumb .rating {
-    padding-bottom: 10px;
+    position: absolute;
+    top: 10px;
+    right: 25px;
 }
 
 .rating .fa-stack {
@@ -1325,12 +1331,12 @@ footer h5 {
 }
 
 .rating .fa-star {
-    color: #FC0;
+    color: #cd4e37;
     font-size: 15px;
 }
 
 .rating .fa-star+.fa-star-o {
-    color: #E69500;
+    color: #cd4e37;
 }
 
 h2.price {
@@ -1362,13 +1368,15 @@ h2.price {
 }
 
 .product-thumb .price-new {
-    font-weight: 600;
+    display:block;
+    margin-top: 10px;
 }
 
-.product-thumb .price-old {
-    color: #999;
+.price-old {
+	display: block;
+    color: #cd4e37;
     text-decoration: line-through;
-    margin-left: 10px;
+    font-weight: 700;
 }
 
 
@@ -1561,6 +1569,11 @@ h2.price {
 .product-details .price-block ul,
 .product-details .price-block h2 {
 	margin: 0;
+	text-transform: none;
+}
+
+.price-block .price-old {
+	font-size: 27px;
 }
 
 .product-details .pruduct-buttons {
@@ -1594,6 +1607,10 @@ h2.price {
     width: 100%;
 }
 
+.product-additional-images {
+	margin-bottom: 30px;
+}
+
 .image-additional a {
     margin-bottom: 20px;
     padding: 5px;
@@ -1607,8 +1624,14 @@ h2.price {
 }
 
 .thumbnails .image-additional {
-    float: left;
+    display: inline-block;
+    vertical-align: top;
     margin-left: 20px;
+}
+
+#form-review input, #form-review textarea {
+	max-width: 100%;
+
 }
 
 .well {
@@ -1704,4 +1727,8 @@ h2.price {
 .btn-info[disabled] {
     background-image: none;
     background-color: #df5c39;
+}
+
+.img-thumbnail {
+	border: none;
 }

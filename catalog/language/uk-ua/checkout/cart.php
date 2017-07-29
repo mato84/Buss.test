@@ -33,7 +33,7 @@ $_['text_payment_cancel'] = '%s кожний %d %s(s) поки не скасов
 
 // Column
 $_['column_image']          = 'Зображення';
-$_['column_name']           = 'Назва товару';
+$_['column_name']           = 'Назва';
 $_['column_model']          = 'Модель';
 $_['column_quantity']       = 'Кількість';
 $_['column_price']          = 'Ціна за одиницю';

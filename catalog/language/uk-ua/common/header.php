@@ -12,6 +12,7 @@ $_['text_category']      = 'Категорії';
 $_['text_account']       = 'Кабінет';
 $_['text_register']      = 'Реєстрація';
 $_['text_gallery']       = 'Галерея';
+$_['text_promotion']     = 'Акції';
 $_['text_contact']       = 'Контакти';
 $_['text_login']         = 'Вхід';
 $_['text_order']         = 'Історія замовлень';

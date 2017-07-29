@@ -166,7 +166,7 @@
                         <h2><?php echo $price; ?></h2>
                       </li>
                       <?php } else { ?>
-                      <li><span style="text-decoration: line-through;"><?php echo $price; ?></span></li>
+                      <li><span class="price-old"><?php echo $price; ?></span></li>
                       <li>
                         <h2><?php echo $special; ?></h2>
                       </li>
@@ -243,25 +243,24 @@
                 <?php if ($review_status) { ?>
                 <div class="tab-pane" id="tab-review">
                   <form class="form-horizontal" id="form-review">
-                    <div id="review"></div>
-                    <h2><?php echo $text_write; ?></h2>
+                    <div id="review" class="rating table-responsive"></div>
+                    <h3><?php echo $text_write; ?></h3>
                     <?php if ($review_guest) { ?>
                     <div class="form-group required">
                       <div class="col-sm-12">
                         <label class="control-label" for="input-name"><?php echo $entry_name; ?></label>
-                        <input type="text" name="name" value="<?php echo $customer_name; ?>" id="input-name" class="form-control" />
+                        <input style=" width: 100%" type="text" name="name" value="<?php echo $customer_name; ?>" id="input-name" class="form-control" />
                       </div>
                     </div>
                     <div class="form-group required">
                       <div class="col-sm-12">
                         <label class="control-label" for="input-review"><?php echo $entry_review; ?></label>
-                        <textarea name="text" rows="5" id="input-review" class="form-control"></textarea>
-                        <div class="help-block"><?php echo $text_note; ?></div>
+                        <textarea style="height: auto; width: 100%" name="text" rows="5" id="input-review" class="form-control"></textarea>
                       </div>
                     </div>
                     <div class="form-group required">
                       <div class="col-sm-12">
-                        <label class="control-label"><?php echo $entry_rating; ?></label>
+                        <label class="control-label"><?php echo $entry_rating; ?></label><br>
                         &nbsp;&nbsp;&nbsp; <?php echo $entry_bad; ?>&nbsp;
                         <input type="radio" name="rating" value="1" />
                         &nbsp;
@@ -288,16 +287,6 @@
                 <?php } ?>
               </div>
             </div>
-          </div>
-
-          <div class="<?php echo $class; ?>">
-
-
-
-
-
-
-
           </div>
         </div>
       </div>

@@ -80,6 +80,7 @@ class ControllerCommonHeader extends Controller {
 		$data['text_choise_from'] = $this->language->get('text_choise_from');
 		$data['text_search'] = $this->language->get('text_search');
 		$data['text_beast_deals'] = $this->language->get('text_beast_deals');
+		$data['text_promotion'] = $this->language->get('text_promotion');
 
 		$data['home'] = $this->url->link('common/home');
 		$data['wishlist'] = $this->url->link('account/wishlist', '', true);
@@ -95,6 +96,7 @@ class ControllerCommonHeader extends Controller {
 		$data['checkout'] = $this->url->link('checkout/checkout', '', true);
 		$data['contact'] = $this->url->link('information/contact');
 		$data['telephone'] = $this->config->get('config_telephone');
+		$data['special'] = $this->url->link('product/special');
 
 		// Menu
 		$this->load->model('catalog/category');

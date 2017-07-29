@@ -17,8 +17,8 @@
     <?php } ?>
     <div id="content"><?php echo $content_top; ?>
       <div class="row">
-          <div class="well">
             <h2><?php echo $text_returning_customer; ?></h2>
+            <div class="well">
             <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data">
               <div class="form-group">
                 <label class="control-label" for="input-email"><?php echo $entry_email; ?></label>
