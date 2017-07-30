@@ -16,7 +16,7 @@
           <div class="row">
 
             <div class="contact-block col-sm-3">
-              <h4><?php echo $text_telephone; ?><i class="fa fa-mobile" aria-hidden="true"></i></h4>
+              <h4><?php echo $text_telephone; ?> <i class="fa fa-mobile" aria-hidden="true"></i></h4>
               <a href="tel:+380979074822">+380979079797</a>
               <a href="tel:+380979074822">+380979079797</a>
               <a href="tel:+380979074822">+380979079797</a>
@@ -38,25 +38,26 @@
               <a href="mailto:info@panbus.com.ua">info@panbus.com.ua</a>
             </div>
 
+            <?php if ($address) { ?>
             <div class="contact-block col-sm-12">
               <h4><?php echo $text_address; ?></h4>
               <?php echo $address; ?>
             </div>
-
+            <?php } ?>
+            
             <?php if ($open) { ?>
             <div class="contact-block col-sm-12">
               <h4><?php echo $text_open; ?></h4>
               <?php echo $open; ?>
-              <?php } ?>
             </div>
+            <?php } ?>
 
             <?php if ($comment) { ?>
             <div class="contact-block col-sm-12">
               <h4><?php echo $text_comment; ?></h4>
               <?php echo $comment; ?>
-              <?php } ?>
             </div>
-
+            <?php } ?>
 
           </div>
 

@@ -108,7 +108,7 @@
         <?php } ?>
         <?php } ?>
         <li><a href="<?php echo $special; ?>"><?php echo $text_promotion; ?></a></li>
-        <li><a href=""><?php echo $text_gallery; ?></a></li>
+        <li><a href="/index.php?route=information/information&information_id=7"><?php echo $text_gallery; ?></a></li>
         <li><a href="<?php echo $contact; ?>"><?php echo $text_contact; ?></a></li>
           <?php if ($logged) { ?>
             <li><a href="<?php echo $account; ?>"><?php echo $text_account; ?></a></li>

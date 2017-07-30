@@ -861,7 +861,7 @@ span.hidden-lg {
 
 @media (min-width: 768px) {
 	#content {
-		min-height: 600px;
+		min-height: 650px;
 	    padding: 50px 15px;
 	}	
 }
@@ -891,11 +891,9 @@ footer {
 footer li {
 	border: 1px solid #fff;
     padding: 5px;
+    cursor: pointer;
 }
 
-footer li:hover {
-    cursor: pointer;	
-}
 
 footer hr {
 	margin-top: 50px;
@@ -905,6 +903,11 @@ footer hr {
 
 footer a {
     color: #fff;
+}
+
+footer a:hover {
+	color: #fff
+	
 }
 
 footer .powered {
@@ -1596,12 +1599,9 @@ h2.price {
 }
 
 .thumbnails>li {
-    margin-left: 20px;
+    margin-right: 20px;
 }
 
-.thumbnails {
-    margin-left: -20px;
-}
 
 .thumbnails>img {
     width: 100%;
@@ -1626,7 +1626,6 @@ h2.price {
 .thumbnails .image-additional {
     display: inline-block;
     vertical-align: top;
-    margin-left: 20px;
 }
 
 #form-review input, #form-review textarea {
