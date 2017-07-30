@@ -35,6 +35,7 @@
 <link href="catalog/view/javascript/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i&amp;subset=cyrillic" rel="stylesheet">
 <link href="catalog/view/theme/panbus/stylesheet/stylesheet.css" rel="stylesheet">
+
 <?php foreach ($styles as $style) { ?>
 <link href="<?php echo $style['href']; ?>" type="text/css" rel="<?php echo $style['rel']; ?>" media="<?php echo $style['media']; ?>" />
 <?php } ?>
@@ -62,12 +63,12 @@
       <div class="search-item ">
         <i class="fa fa-map-marker" aria-hidden="true"></i>
         <input type="text" id="wherefrom" placeholder="<?php echo $text_wherefrom; ?>">
-        <div class="error-wherefrom"><?php echo $text_choise_wherefrom; ?></div>
+        <div class="error-wherefrom error-search"><?php echo $text_choise_wherefrom; ?></div>
       </div>
       <div class="search-item">
         <i class="fa fa-map-marker" aria-hidden="true"></i>
         <input type="text" id="where" placeholder="<?php echo $text_from; ?>">
-        <div class="error-where"><?php echo $text_choise_from; ?></div>
+        <div class="error-where error-search"><?php echo $text_choise_from; ?></div>
       </div>
       <div class="search-item">
         <button id="search-submit" class="btn btn-primary"><?php echo $text_search; ?></button>
@@ -123,10 +124,6 @@
 <script src="catalog/view/javascript/panbus.js"></script>
 
 <script type="text/javascript">
-var valueID = {
-  from_id:"",
-  to_id:""
-}
 
 var options = {
 
@@ -140,6 +137,7 @@ list: {
   //
   // },
   onChooseEvent: function(){
+    // $('.')
     var wherefrom = $('#wherefrom');
     var where = $('#where');
     if(wherefrom.getSelectedItemData().city_id != undefined)
@@ -167,18 +165,29 @@ template: {
   getValue: "name"
 
 };
-  $('#wherefrom').easyAutocomplete(options);
-  $('#where').easyAutocomplete(options);
+  var valueID = {} //Associative array containing data from the search fields
+  $('#wherefrom, #where').easyAutocomplete(options);
   $('#search-submit').on('click',function(){
-    var url = '/index.php?route=product/search';
-    if(valueID.from_id){
-    url +='&from_id= '+ valueID.from_id;
+    if(!valueID['from_id']  && !valueID['to_id'] ){
+     $('.error-search').show();
+     return 0;
     }
-    if(valueID.to_id){
-    url +='&to_id= ' + valueID.to_id;
+    var url = '/index.php?route=product/search';
+    if(valueID['from_id']){
+      $('.error-search').hide();
+      url +='&from_id= '+ valueID['from_id'];
+    }
+    if(valueID['to_id']){
+      $('.error-search').hide();
+      url +='&to_id= ' + valueID['to_id'];
     }
     location = url;
 
   })
+  $('.search-item ').keypress(function(e){
+        if(e.which == 13){//Enter key pressed
+            $('#search-submit').trigger('click');//Trigger search button click event
+        }
+    });
 
 </script>
