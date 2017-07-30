@@ -34,7 +34,7 @@ h3 {
 }
 
 h4 {
-    font-size: 15px;
+    font-size: 20px;
 }
 
 h5 {
@@ -874,7 +874,7 @@ span.hidden-lg {
 
 footer {
     margin-top: 30px;
-    padding-top: 50px;
+    padding-top: 80px;
     position: relative;
     width: 100%;
     -webkit-background-size: cover;
@@ -1652,6 +1652,42 @@ h2.price {
 
 .account-account .well .list-unstyled li .btn {
 	width: 100%;
+}
+
+.contact-block {
+	margin-bottom: 40px;
+}
+
+.contact-block a {
+	display: block;
+	text-align: center;
+	margin-bottom: 10px;
+	padding: 3px 8px;
+	border: 1px solid #cd4e37;
+	font-size: 16px;
+}
+
+.information-contact #content > div > div > div:nth-child(1) h4 .fa {
+	font-size: 25px;
+}
+
+@media (min-width: 768px) {
+	.contact-block a {
+		display: inline-block;
+	}	
+}
+
+.contact-block h4 .fa {
+	color: #cd4e37;
+}
+
+.contact-block h4 img {
+	display: inline-block;
+	vertical-align: top;
+}
+
+.contact-block .fa {
+	font-size: 20px;
 }
 
 @media (min-width: 1200px) {
