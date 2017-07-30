@@ -143,6 +143,21 @@ class ControllerProductSearch extends Controller {
 			$results = $this->model_catalog_product->getProductsSearch($filter_data);
 
 			foreach ($results as $result) {
+
+				$data['entry_search']  = "";
+				if(isset($this->request->get['from_id']) & isset($this->request->get['to_id'])){
+					$data['entry_search'] = $result['name'];
+				}
+				elseif (isset($this->request->get['from_id'])) {
+					 $data['entry_search'] = explode('-', $result['name'])[0];
+				}
+				elseif (isset($this->request->get['to_id'])) {
+					 $preString = explode(' ', $result['name'])[0];
+					 $data['entry_search'] = $preString.(string)explode('-', $result['name'])[1];
+				}
+
+
+
 				if ($result['image']) {
 					$image = $this->model_tool_image->resize($result['image'], $this->config->get($this->config->get('config_theme') . '_image_product_width'), $this->config->get($this->config->get('config_theme') . '_image_product_height'));
 				} else {
@@ -172,7 +187,7 @@ class ControllerProductSearch extends Controller {
 				} else {
 					$rating = false;
 				}
-        $data['entry_search'] = $result['name'];
+
 				$data['products'][] = array(
 					'product_id'  => $result['product_id'],
 					'thumb'       => $image,
