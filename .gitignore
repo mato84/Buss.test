@@ -2,4 +2,4 @@
 system/storage/
 install
 config.php
-image/cache
+image/cache/
