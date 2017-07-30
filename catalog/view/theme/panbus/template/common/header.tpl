@@ -57,7 +57,10 @@
     <div class="header-content-inner">
       <img class="header-logo-l" src="../image/catalog/logo-l.png" title="<?php echo $name; ?>" alt="<?php echo $name; ?>"/>
       <img class="header-logo-r" src="../image/catalog/logo-r.png" title="<?php echo $name; ?>" alt="<?php echo $name; ?>"/>
-      <h1><span>Автобусні міжнародні перевезення</span><br>в потрібний вам пункт призначення</h1>
+<!--       <h1><span>Автобусні міжнародні перевезення</span><br>в потрібний вам пункт призначення</h1> -->
+            <h1><span>Автобусні міжнародні перевезення</span></h1>
+<!--             <div class="slogan"><div class="slogan-b">П</div>одорожуйте  <div  class="slogan-b">А</div>втобусами з  <div  class="slogan-b">Н</div>ами</div> -->
+  <div class="slogan"><span>П</span>одорожуйте  <span>А</span>втобусами з  <span>Н</span>ами</div>
     </div>
     <div class="header-search">
       <div class="search-item ">
@@ -108,7 +111,7 @@
         <?php } ?>
         <?php } ?>
         <li><a href="<?php echo $special; ?>"><?php echo $text_promotion; ?></a></li>
-        <li><a href=""><?php echo $text_gallery; ?></a></li>
+        <li><a href="/index.php?route=information/information&information_id=7"><?php echo $text_gallery; ?></a></li>
         <li><a href="<?php echo $contact; ?>"><?php echo $text_contact; ?></a></li>
           <?php if ($logged) { ?>
             <li><a href="<?php echo $account; ?>"><?php echo $text_account; ?></a></li>
