@@ -143,20 +143,20 @@ class ControllerProductSearch extends Controller {
 			$results = $this->model_catalog_product->getProductsSearch($filter_data);
 
 			foreach ($results as $result) {
-
+        // make search name result to search.tpl if search is id not stirng
 				$data['entry_search']  = "";
+				$matchString = "";
+				preg_match('/<span>(.*?)<\/span>/', $result['name'], $match);
+				$matchString = count($match) > 0 ? $match[1]:"";
 				if(isset($this->request->get['from_id']) & isset($this->request->get['to_id'])){
-					$data['entry_search'] = $result['name'];
+					$data['entry_search'] = $matchString;
 				}
 				elseif (isset($this->request->get['from_id'])) {
-					 $data['entry_search'] = explode('-', $result['name'])[0];
+					 $data['entry_search'] = explode('-', $matchString)[0];
 				}
 				elseif (isset($this->request->get['to_id'])) {
-					 $preString = explode(' ', $result['name'])[0];
-					 $data['entry_search'] = $preString.(string)explode('-', $result['name'])[1];
+					 $data['entry_search'] = explode('-', $matchString)[1] ;
 				}
-
-
 
 				if ($result['image']) {
 					$image = $this->model_tool_image->resize($result['image'], $this->config->get($this->config->get('config_theme') . '_image_product_width'), $this->config->get($this->config->get('config_theme') . '_image_product_height'));
