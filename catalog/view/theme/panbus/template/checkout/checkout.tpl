@@ -82,21 +82,21 @@
     <?php echo $column_right; ?></div>
 </div>
 <script type="text/javascript"><!--
-$(document).on('change', 'input[name=\'account\']', function() {
-	if ($('#collapse-payment-address').parent().find('.panel-heading .panel-title > *').is('a')) {
-		if (this.value == 'register') {
-			$('#collapse-payment-address').parent().find('.panel-heading .panel-title').html('<a href="#collapse-payment-address" data-toggle="collapse" data-parent="#accordion" class="accordion-toggle"><?php echo $text_checkout_account; ?> <i class="fa fa-caret-down"></i></a>');
-		} else {
-			$('#collapse-payment-address').parent().find('.panel-heading .panel-title').html('<a href="#collapse-payment-address" data-toggle="collapse" data-parent="#accordion" class="accordion-toggle"><?php echo $text_checkout_payment_address; ?> <i class="fa fa-caret-down"></i></a>');
-		}
-	} else {
-		if (this.value == 'register') {
-			$('#collapse-payment-address').parent().find('.panel-heading .panel-title').html('<?php echo $text_checkout_account; ?>');
-		} else {
-			$('#collapse-payment-address').parent().find('.panel-heading .panel-title').html('<?php echo $text_checkout_payment_address; ?>');
-		}
-	}
-});
+// $(document).on('change', 'input[name=\'account\']', function() {
+// 	if ($('#collapse-payment-address').parent().find('.panel-heading .panel-title > *').is('a')) {
+// 		if (this.value == 'register') {
+// 			$('#collapse-payment-address').parent().find('.panel-heading .panel-title').html('<a href="#collapse-payment-address" data-toggle="collapse" data-parent="#accordion" class="accordion-toggle"><?php echo $text_checkout_account; ?> <i class="fa fa-caret-down"></i></a>');
+// 		} else {
+// 			$('#collapse-payment-address').parent().find('.panel-heading .panel-title').html('<a href="#collapse-payment-address" data-toggle="collapse" data-parent="#accordion" class="accordion-toggle"><?php echo $text_checkout_payment_address; ?> <i class="fa fa-caret-down"></i></a>');
+// 		}
+// 	} else {
+// 		if (this.value == 'register') {
+// 			$('#collapse-payment-address').parent().find('.panel-heading .panel-title').html('<?php echo $text_checkout_account; ?>');
+// 		} else {
+// 			$('#collapse-payment-address').parent().find('.panel-heading .panel-title').html('<?php echo $text_checkout_payment_address; ?>');
+// 		}
+// 	}
+// });
 
 <?php if (!$logged) { ?>
 $(document).ready(function() {
