@@ -1,5 +1,6 @@
 <?php echo $header; ?>
 <div class="container">
+
   <div class="row"><?php echo $column_left; ?>
     <?php if ($column_left && $column_right) { ?>
     <?php $class = 'col-sm-6'; ?>
@@ -11,117 +12,58 @@
     <div id="content"><?php echo $content_top; ?>
       <h1><?php echo $heading_title; ?></h1>
       <div class="well">
-      <div class="panel panel-default">
-        <div class="panel-body">
+
           <div class="row">
 
-            <div class="col-sm-3"><strong><?php echo $text_telephone; ?></strong><br>
-              <?php echo $telephone; ?><br />
-              <br />
-              <?php if ($fax) { ?>
-              <strong><?php echo $text_fax; ?></strong><br>
-              <?php echo $fax; ?>
+            <div class="contact-block col-sm-3">
+              <h4><?php echo $text_telephone; ?><i class="fa fa-mobile" aria-hidden="true"></i></h4>
+              <a href="tel:+380979074822">+380979079797</a>
+              <a href="tel:+380979074822">+380979079797</a>
+              <a href="tel:+380979074822">+380979079797</a>
+              <a href="tel:+380979074822">+380979079797</a>
+            </div>
+
+            <div class="contact-block col-sm-3">
+              <h4>VIBER <img src="../image/catalog/viber.png"></h4>
+              <a href="tel:+380979074822">+380979079797</a>
+            </div>
+
+            <div class="contact-block col-sm-3">
+              <h4>SKYPE <i class="fa fa-skype" aria-hidden="true"></i></h4> 
+               <a href="callto:panbus">PanBus.com.ua</a>
+            </div>            
+
+            <div class="contact-block col-sm-3">
+              <h4><?php echo $entry_email; ?> <i class="fa fa-envelope" aria-hidden="true"></i></h4>
+              <a href="mailto:info@panbus.com.ua">info@panbus.com.ua</a>
+            </div>
+
+            <div class="contact-block col-sm-12">
+              <h4><?php echo $text_address; ?></h4>
+              <?php echo $address; ?>
+            </div>
+
+            <?php if ($open) { ?>
+            <div class="contact-block col-sm-12">
+              <h4><?php echo $text_open; ?></h4>
+              <?php echo $open; ?>
               <?php } ?>
             </div>
-            <div class="col-sm-3">
-              <?php if ($open) { ?>
-              <strong><?php echo $text_open; ?></strong><br />
-              <?php echo $open; ?><br />
-              <br />
-              <?php } ?>
-              <?php if ($comment) { ?>
-              <strong><?php echo $text_comment; ?></strong><br />
+
+            <?php if ($comment) { ?>
+            <div class="contact-block col-sm-12">
+              <h4><?php echo $text_comment; ?></h4>
               <?php echo $comment; ?>
               <?php } ?>
             </div>
-          </div>
-        </div>
-      </div>
-      <?php if ($locations) { ?>
-      <h3><?php echo $text_store; ?></h3>
-      <div class="panel-group" id="accordion">
-        <?php foreach ($locations as $location) { ?>
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h4 class="panel-title"><a href="#collapse-location<?php echo $location['location_id']; ?>" class="accordion-toggle" data-toggle="collapse" data-parent="#accordion"><?php echo $location['name']; ?> <i class="fa fa-caret-down"></i></a></h4>
-          </div>
-          <div class="panel-collapse collapse" id="collapse-location<?php echo $location['location_id']; ?>">
-            <div class="panel-body">
-              <div class="row">
 
-                <div class="col-sm-3"><strong><?php echo $location['name']; ?></strong><br />
-                  <address>
-                  <?php echo $location['address']; ?>
-                  </address>
 
-                </div>
-                <div class="col-sm-3"> <strong><?php echo $text_telephone; ?></strong><br>
-                  <?php echo $location['telephone']; ?><br />
-                  <br />
-                  <?php if ($location['fax']) { ?>
-                  <strong><?php echo $text_fax; ?></strong><br>
-                  <?php echo $location['fax']; ?>
-                  <?php } ?>
-                </div>
-                <div class="col-sm-3">
-                  <?php if ($location['open']) { ?>
-                  <strong><?php echo $text_open; ?></strong><br />
-                  <?php echo $location['open']; ?><br />
-                  <br />
-                  <?php } ?>
-                  <?php if ($location['comment']) { ?>
-                  <strong><?php echo $text_comment; ?></strong><br />
-                  <?php echo $location['comment']; ?>
-                  <?php } ?>
-                </div>
-              </div>
-            </div>
           </div>
-        </div>
-        <?php } ?>
+
       </div>
-      <?php } ?>
-      <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data" class="form-horizontal">
-        <fieldset>
-          <legend><?php echo $text_contact; ?></legend>
-          <div class="form-group required">
-            <label class="col-sm-2 control-label" for="input-name"><?php echo $entry_name; ?></label>
-            <div class="col-sm-10">
-              <input type="text" name="name" value="<?php echo $name; ?>" id="input-name" class="form-control" />
-              <?php if ($error_name) { ?>
-              <div class="text-danger"><?php echo $error_name; ?></div>
-              <?php } ?>
-            </div>
-          </div>
-          <div class="form-group required">
-            <label class="col-sm-2 control-label" for="input-email"><?php echo $entry_email; ?></label>
-            <div class="col-sm-10">
-              <input type="text" name="email" value="<?php echo $email; ?>" id="input-email" class="form-control" />
-              <?php if ($error_email) { ?>
-              <div class="text-danger"><?php echo $error_email; ?></div>
-              <?php } ?>
-            </div>
-          </div>
-          <div class="form-group required">
-            <label class="col-sm-2 control-label" for="input-enquiry"><?php echo $entry_enquiry; ?></label>
-            <div class="col-sm-10">
-              <textarea name="enquiry" rows="10" id="input-enquiry" class="form-control"><?php echo $enquiry; ?></textarea>
-              <?php if ($error_enquiry) { ?>
-              <div class="text-danger"><?php echo $error_enquiry; ?></div>
-              <?php } ?>
-            </div>
-          </div>
-          <?php echo $captcha; ?>
-        </fieldset>
-        <div class="buttons">
-          <div class="pull-right">
-            <input class="btn btn-primary" type="submit" value="<?php echo $button_submit; ?>" />
-          </div>
-        </div>
-      </form>
-      <?php echo $content_bottom; ?>
-      </div>
-    </div>
+
+
+      <?php echo $content_bottom; ?></div>
     <?php echo $column_right; ?></div>
 </div>
 <?php echo $footer; ?>

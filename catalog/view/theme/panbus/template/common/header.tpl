@@ -33,9 +33,8 @@
 <link href="catalog/view/javascript/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen" />
 <script src="catalog/view/javascript/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
 <link href="catalog/view/javascript/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-<!-- <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i&amp;subset=cyrillic" rel="stylesheet"> -->
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i&amp;subset=cyrillic" rel="stylesheet">
 <link href="catalog/view/theme/panbus/stylesheet/stylesheet.css" rel="stylesheet">
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script> -->
 <?php foreach ($styles as $style) { ?>
 <link href="<?php echo $style['href']; ?>" type="text/css" rel="<?php echo $style['rel']; ?>" media="<?php echo $style['media']; ?>" />
 <?php } ?>
@@ -120,7 +119,7 @@
   </nav>
 <?php } ?>
 
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
 <script src="catalog/view/javascript/panbus.js"></script>
 
 <script type="text/javascript">

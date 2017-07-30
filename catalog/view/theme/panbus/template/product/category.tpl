@@ -102,9 +102,11 @@
       </div>
       <?php } ?>
       <?php if (!$categories && !$products) { ?>
+      <div class="well">
       <p><?php echo $text_empty; ?></p>
-      <div class="buttons">
-        <div class="pull-right"><a href="<?php echo $continue; ?>" class="btn btn-primary"><?php echo $button_continue; ?></a></div>
+      <div class="buttons buttons-right">
+        <a href="<?php echo $continue; ?>" class="btn btn-primary"><?php echo $button_continue; ?></a>
+      </div>
       </div>
       <?php } ?>
       <?php echo $content_bottom; ?></div>

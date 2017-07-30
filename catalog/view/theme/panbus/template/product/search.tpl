@@ -1,10 +1,5 @@
 <?php echo $header; ?>
 <div class="container">
-  <ul class="breadcrumb">
-    <?php foreach ($breadcrumbs as $breadcrumb) { ?>
-    <li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>
-    <?php } ?>
-  </ul>
   <div class="row"><?php echo $column_left; ?>
     <?php if ($column_left && $column_right) { ?>
     <?php $class = 'col-sm-6'; ?>
@@ -13,14 +8,10 @@
     <?php } else { ?>
     <?php $class = 'col-sm-12'; ?>
     <?php } ?>
-    <div id="content" class="<?php echo $class; ?>"><?php echo $content_top; ?>
-      <h1><?php echo $heading_title; ?></h1>
-
-
-
+    <div id="content"><?php echo $content_top; ?>
+      <h1><?php echo $text_search; ?></h1>
       <?php if ($products) { ?>
-        <label class="control-label" for="input-search"><?php echo $entry_search; ?></label>
-        <h2><?php echo $text_search; ?></h2>
+        <h2><?php echo $entry_search; ?></h2>
         <div class="row">
           <div class="col-md-4 col-xs-12 sort-group ">
             <div class="form-group input-group input-group-sm">
@@ -53,7 +44,8 @@
                       <?php if (!$product['special']) { ?>
                       <?php echo $product['price']; ?>
                       <?php } else { ?>
-                      <span class="price-new"><?php echo $product['special']; ?></span> <span class="price-old"><?php echo $product['price']; ?></span>
+                      <span class="price-old"><?php echo $product['price']; ?></span>
+                      <span class="price-new"><?php echo $product['special']; ?></span>
                       <?php } ?>
                     </p>
                   <div class="button-group">
@@ -71,7 +63,7 @@
                     <?php } ?>
                     <?php } ?>
                   </div>
-                  <?php } ?>
+                  <?php } ?>                
                 </div>
             </div>
           </div>
@@ -82,9 +74,12 @@
           <div class="col-sm-6 text-right"><?php echo $results; ?></div>
         </div>
       <?php } else { ?>
+      <div class="well">
       <p><?php echo $text_empty; ?></p>
       <?php } ?>
-      <?php echo $content_bottom; ?></div>
+      <?php echo $content_bottom; ?>
+      </div>
+    </div>
     <?php echo $column_right; ?></div>
 </div>
 <?php echo $footer; ?>
