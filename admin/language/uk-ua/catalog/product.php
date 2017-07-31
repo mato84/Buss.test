@@ -25,13 +25,14 @@ $_['text_percent']           = 'Відсоток';
 $_['text_amount']            = 'Фіксована націнка';
 
 // Column
-$_['column_name']            = 'Назва товару';
+$_['column_name']            = 'Назва';
 $_['column_model']           = 'Модель';
 $_['column_image']           = 'Зображення';
 $_['column_price']           = 'Ціна';
 $_['column_quantity']        = 'Кількість';
 $_['column_status']          = 'Статус';
 $_['column_action']          = 'Дія';
+$_['column_category']        = 'Категорія';
 
 // Entry
 $_['entry_name']             = 'Назва продукту';

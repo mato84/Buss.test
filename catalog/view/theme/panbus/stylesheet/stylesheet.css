@@ -115,11 +115,11 @@ input[type=radio] {
 }
 
 input[type=radio]:not(:checked) {
-    background: url(/image/catalog/radio.png) 0 0 transparent no-repeat
+    background: url(/image/catalog/other/radio.png) 0 0 transparent no-repeat
 }
 
 input[type=radio]:checked {
-    background: url(/image/catalog/radio.png) 0px -45px transparent no-repeat;
+    background: url(/image/catalog/other/radio.png) 0px -45px transparent no-repeat;
 }
 
 
@@ -174,7 +174,7 @@ header {
     background-size: cover;
     -o-background-size: cover;
     background-position: center center;
-    background-image: url(/image/catalog/bg2.jpg);
+    background-image: url(/image/catalog/gallery/background.jpg);
     background-attachment: fixed;
     text-align: center;
     color: white;
@@ -904,7 +904,7 @@ footer {
     background-size: cover;
     -o-background-size: cover;
     background-position: bottom;
-    background-image: url(/image/catalog/bg2.jpg);
+    background-image: url(/image/catalog/gallery/background.jpg);
     background-attachment: fixed;
     text-align: center;
     color: white;
@@ -1247,6 +1247,15 @@ footer .powered {
 
 /* product list */
 
+.seach-result {
+    display: inline-block;
+    vertical-align: top;
+    color: #ffffff;
+    background-color: #ce4e38;
+    padding: 2px 8px;
+    margin-top: 0;
+}
+
 .product-thumb {
 	position: relative;
     margin-bottom: 40px;
@@ -1422,11 +1431,6 @@ h2.price {
 
 .product-thumb .button-group .btn {
 	width: 100%;
-}
-
-
-.product-cart {
-
 }
 
 .product-cart .product-details {
@@ -1626,7 +1630,7 @@ h2.price {
 @media (min-width: 768px) {
 	.product-details .pruduct-buttons {
 		margin-bottom: 15px;
-	    width: 200px
+	    width: 150px
 	}	
 }
 

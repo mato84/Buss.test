@@ -11,7 +11,7 @@
     <div id="content"><?php echo $content_top; ?>
       <h1><?php echo $text_search; ?></h1>
       <?php if ($products) { ?>
-        <h2><?php echo $entry_search; ?></h2>
+        <h3 class="seach-result"><?php echo $entry_search; ?></h3>
         <div class="row">
           <div class="col-md-4 col-xs-12 sort-group ">
             <div class="form-group input-group input-group-sm">
