@@ -24,19 +24,19 @@
                   <?php if ($thumb) { ?>
                   <img src="<?php echo $thumb; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" />
                   <?php } ?>
-                <?php } ?>                
+                <?php } ?>
               </div>
               <div class="product-manufacturer">
               <ul class="list-unstyled">
                 <?php if ($manufacturer) { ?>
                 <li><?php echo $text_manufacturer; ?> <a href="<?php echo $manufacturers; ?>"><?php echo $manufacturer; ?></a></li>
                 <?php } ?>
-              </ul>              
+              </ul>
               </div>
             </div>
-            <div class="details-caption-right">         
+            <div class="details-caption-right">
               <div class="product-title">
-                <h1><?php echo $heading_title; ?></h1>              
+                <h1><?php echo $heading_title; ?></h1>
               </div>
               <div class="product-options" id="product">
                 <?php if ($options) { ?>
@@ -67,8 +67,8 @@
                       <label>
                         <input type="radio" name="option[<?php echo $option['product_option_id']; ?>]" value="<?php echo $option_value['product_option_value_id']; ?>" />
                         <?php if ($option_value['image']) { ?>
-                        <img src="<?php echo $option_value['image']; ?>" alt="<?php echo $option_value['name'] . ($option_value['price'] ? ' ' . $option_value['price_prefix'] . $option_value['price'] : ''); ?>" class="img-thumbnail" /> 
-                        <?php } ?>                    
+                        <img src="<?php echo $option_value['image']; ?>" alt="<?php echo $option_value['name'] . ($option_value['price'] ? ' ' . $option_value['price_prefix'] . $option_value['price'] : ''); ?>" class="img-thumbnail" />
+                        <?php } ?>
                         <?php echo $option_value['name']; ?>
                         <?php if ($option_value['price']) { ?>
                         (<?php echo $option_value['price_prefix']; ?><?php echo $option_value['price']; ?>)
@@ -89,7 +89,7 @@
                       <label>
                         <input type="checkbox" name="option[<?php echo $option['product_option_id']; ?>][]" value="<?php echo $option_value['product_option_value_id']; ?>" />
                         <?php if ($option_value['image']) { ?>
-                        <img src="<?php echo $option_value['image']; ?>" alt="<?php echo $option_value['name'] . ($option_value['price'] ? ' ' . $option_value['price_prefix'] . $option_value['price'] : ''); ?>" class="img-thumbnail" /> 
+                        <img src="<?php echo $option_value['image']; ?>" alt="<?php echo $option_value['name'] . ($option_value['price'] ? ' ' . $option_value['price_prefix'] . $option_value['price'] : ''); ?>" class="img-thumbnail" />
                         <?php } ?>
                         <?php echo $option_value['name']; ?>
                         <?php if ($option_value['price']) { ?>
@@ -136,7 +136,7 @@
                 <?php } ?>
                 <?php } ?>
                 <?php } ?>
-                
+
                 <div>
                 <?php if ($attribute_groups) { ?>
                 <div class="option-timeinroad form-group">
@@ -186,18 +186,18 @@
                       <?php } ?>
                       <?php } ?>
                     </ul>
-                    <?php } ?>              
-                  </div>                              
+                    <?php } ?>
+                  </div>
                 </div>
 
                 <div class="pruduct-buttons form-group">
                   <button type="button" id="button-cart" data-loading-text="<?php echo $text_loading; ?>" class="btn btn-default btn-block"><?php echo $button_tobook; ?>
                   </button>
                 </div>
-              </div>  
+              </div>
               </div>
 
-            </div>          
+            </div>
           </div>
 
           <div class="product-description">
@@ -228,7 +228,7 @@
                 <?php } ?>
                 <?php } ?>
               </ul>
-              <?php } ?>              
+              <?php } ?>
             </div>
 
             <div class="product-tabs">
@@ -353,13 +353,14 @@ $('#button-cart').on('click', function() {
 			}
 
 			if (json['success']) {
-				$('.breadcrumb').after('<div class="alert alert-success">' + json['success'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
-
-				$('#cart > button').html('<span id="cart-total"><i class="fa fa-shopping-cart"></i> ' + json['total'] + '</span>');
-
-				$('html, body').animate({ scrollTop: 0 }, 'slow');
-
-				$('#cart > ul').load('index.php?route=common/cart/info ul li');
+        location = '/index.php?route=checkout/checkout'
+				// $('.breadcrumb').after('<div class="alert alert-success">' + json['success'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+        //
+				// $('#cart > button').html('<span id="cart-total"><i class="fa fa-shopping-cart"></i> ' + json['total'] + '</span>');
+        //
+				// $('html, body').animate({ scrollTop: 0 }, 'slow');
+        //
+				// $('#cart > ul').load('index.php?route=common/cart/info ul li');
 			}
 		},
         error: function(xhr, ajaxOptions, thrownError) {
