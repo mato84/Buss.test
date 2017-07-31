@@ -1306,7 +1306,16 @@ footer .powered {
 
 .product-thumb h3 a {
 	color: #333;
-	padding: 0 20px;
+}
+
+.product-thumb h3 span {
+	color: #cd4e37;
+}
+
+@media (min-width: 768px) {
+	.product-thumb h3 a {
+		padding: 0 20px;
+	}
 }
 
 .product-thumb .caption {
@@ -1468,6 +1477,10 @@ h2.price {
 .product-details .product-title {
 	background-color: #dadada;
 	margin: 0 -20px;
+}
+
+.product-details .product-title span {
+	color: #cd4e37;
 }
 
 @media (min-width: 768px) {
