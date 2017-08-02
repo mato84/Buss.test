@@ -403,6 +403,7 @@ class ModelCheckoutOrder extends Model {
 				$data['text_shipping_method'] = $language->get('text_new_shipping_method');
 				$data['text_email'] = $language->get('text_new_email');
 				$data['text_telephone'] = $language->get('text_new_telephone');
+				$data['text_customer'] = $language->get('text_new_customer');
 				$data['text_ip'] = $language->get('text_new_ip');
 				$data['text_order_status'] = $language->get('text_new_order_status');
 				$data['text_payment_address'] = $language->get('text_new_payment_address');
@@ -434,6 +435,7 @@ class ModelCheckoutOrder extends Model {
 				$data['telephone'] = $order_info['telephone'];
 				$data['ip'] = $order_info['ip'];
 				$data['order_status'] = $order_status;
+				$data['order_passenger'] = $order_info['comment'];
 
 				if ($comment && $notify) {
 					$data['comment'] = nl2br($comment);
@@ -444,7 +446,7 @@ class ModelCheckoutOrder extends Model {
 				if ($order_info['payment_address_format']) {
 					$format = $order_info['payment_address_format'];
 				} else {
-					$format = '{firstname} {lastname}';
+					$format = '{lastname} {firstname}';
 					// $format = '{firstname} {lastname}' . "\n" . '{company}' . "\n" . '{address_1}' . "\n" . '{address_2}' . "\n" . '{city} {postcode}' . "\n" . '{zone}' . "\n" . '{country}';
 				}
 
@@ -655,22 +657,23 @@ class ModelCheckoutOrder extends Model {
 				if (in_array('order', (array)$this->config->get('config_mail_alert'))) {
 					$subject = sprintf($language->get('text_new_subject'), html_entity_decode($this->config->get('config_name'), ENT_QUOTES, 'UTF-8'), $order_id);
 
+
 					// HTML Mail
 					$data['text_greeting'] = $language->get('text_new_received');
 
-					if ($comment) {
-						if ($order_info['comment']) {
-							$data['comment'] = nl2br($comment) . '<br/><br/>' . $order_info['comment'];
-						} else {
-							$data['comment'] = nl2br($comment);
-						}
-					} else {
-						if ($order_info['comment']) {
-							$data['comment'] = $order_info['comment'];
-						} else {
-							$data['comment'] = '';
-						}
-					}
+					// if ($comment) {
+					// 	if ($order_info['comment']) {
+					// 		$data['comment'] = nl2br($comment) . '<br/><br/>' . $order_info['comment'];
+					// 	} else {
+					// 		$data['comment'] = nl2br($comment);
+					// 	}
+					// } else {
+					// 	if ($order_info['comment']) {
+					// 		$data['comment'] = $order_info['comment'];
+					// 	} else {
+					// 		$data['comment'] = '';
+					// 	}
+					// }
 
 					$data['text_download'] = '';
 

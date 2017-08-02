@@ -26,7 +26,8 @@
         <td style="font-size: 16px;	text-align: left; padding: 7px;">
           <p><?php echo $text_order_id; ?> <b><?php echo $order_id; ?></b></p>
           <p><?php echo $text_date_added; ?> <b><?php echo $date_added; ?></b></p>
-          <p><?php echo $text_order_status; ?> <b><?php echo $order_status; ?></b></p>          
+          <p><?php echo $text_order_status; ?> <b><?php echo $order_status; ?></b></p> 
+          <p><?php echo $text_customer; ?> <b><?php echo $payment_address; ?></b></p>                   
           <p><?php echo $text_email; ?> <b><?php echo $email; ?></b></p>
           <p><?php echo $text_telephone; ?> <b><?php echo $telephone; ?></b></p>
 
@@ -39,6 +40,21 @@
       </tr>
     </tbody>
   </table>
+  <?php if (!empty($order_passenger)) { ?>
+  <table style="border-collapse: collapse; width: 100%; margin-bottom: 20px;">
+    <thead>
+      <tr>
+        <td style="font-size: 16px; background-color: #EFEFEF; font-weight: bold; text-align: left; padding: 7px; color: #222222;"><?php echo $text_instruction; ?></td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="font-size: 16px; text-align: left; padding: 7px;"><?php echo $order_passenger; ?></td>
+      </tr>
+    </tbody>
+  </table>
+  <?php } ?>
+
   <?php if ($comment) { ?>
   <table style="border-collapse: collapse; width: 100%; margin-bottom: 20px;">
     <thead>
@@ -52,25 +68,20 @@
       </tr>
     </tbody>
   </table>
+
   <?php } ?>
-  <table style="border-collapse: collapse; width: 100%; margin-bottom: 20px;">
+<!--   <table style="border-collapse: collapse; width: 100%; margin-bottom: 20px;">
     <thead>
       <tr>
         <td style="font-size: 16px; background-color: #EFEFEF; font-weight: bold; text-align: left; padding: 7px; color: #222222;"><?php echo $text_payment_address; ?></td>
-        <?php if ($shipping_address) { ?>
-        <td style="font-size: 16px; background-color: #EFEFEF; font-weight: bold; text-align: left; padding: 7px; color: #222222;"><?php echo $text_shipping_address; ?></td>
-        <?php } ?>
       </tr>
     </thead>
     <tbody>
       <tr>
         <td style="font-size: 16px;	text-align: left; padding: 7px;"><?php echo $payment_address; ?></td>
-        <?php if ($shipping_address) { ?>
-        <td style="font-size: 16px;	text-align: left; padding: 7px;"><?php echo $shipping_address; ?></td>
-        <?php } ?>
       </tr>
     </tbody>
-  </table>
+  </table> -->
   <table style="border-collapse: collapse; width: 100%; margin-bottom: 20px;">
     <thead>
       <tr>
