@@ -24,7 +24,7 @@
             </div>
 
             <div class="contact-block col-sm-3">
-              <h4>VIBER <img src="../image/catalog/viber.png"></h4>
+              <h4>VIBER <img src="../image/catalog/other/viber.png"></h4>
               <a href="tel:+380979074822">+380979079797</a>
             </div>
 
