@@ -11,6 +11,7 @@ class ControllerCheckoutCheckout extends Controller {
 
 		$this->load->language('checkout/checkout');
 		$data['entry_firstname'] = $this->language->get('entry_firstname');
+		$data['entry_lastname'] = $this->language->get('entry_lastname');
 		$data['entry_email'] = $this->language->get('entry_email');
 		$data['entry_telephone'] = $this->language->get('entry_telephone');
 		$data['entry_passengers'] = $this->language->get('entry_passengers');
@@ -275,6 +276,11 @@ class ControllerCheckoutCheckout extends Controller {
 			} else {
 				$data['firstname'] = $order_data['firstname'];
 			}
+			if (isset($this->session->data['guest']['lastname'])) {
+				$data['lastname'] = $this->session->data['guest']['lastname'];
+			} else {
+				$data['lastname'] = $order_data['lastname'];
+			}
 
 			if (isset($this->session->data['guest']['email'])) {
 				$data['email'] = $this->session->data['guest']['email'];
@@ -494,7 +500,7 @@ class ControllerCheckoutCheckout extends Controller {
 			$data['column_quantity'] = $this->language->get('column_quantity');
 			$data['column_price'] = $this->language->get('column_price');
 			$data['column_total'] = $this->language->get('column_total');
-			
+
 			$this->load->model('tool/image');
 			$this->load->model('tool/upload');
 

@@ -8,6 +8,11 @@ class ControllerCheckoutConfirm extends Controller {
 		} else {
 			$this->session->data['guest']['firstname'] = '';
 		}
+		if (isset($this->request->post['lastname'])) {
+			$this->session->data['guest']['lastname'] = $this->request->post['lastname'];
+		} else {
+			$this->session->data['guest']['lastname'] = '';
+		}
 
 		if (isset($this->request->post['email'])) {
 			$this->session->data['guest']['email'] = $this->request->post['email'];
@@ -23,6 +28,9 @@ class ControllerCheckoutConfirm extends Controller {
 
 		if ((utf8_strlen(trim($this->request->post['firstname'])) < 1) || (utf8_strlen(trim($this->request->post['firstname'])) > 32)) {
 			$json['error']['firstname'] = $this->language->get('error_firstname');
+		}
+		if ((utf8_strlen(trim($this->request->post['lastname'])) < 1) || (utf8_strlen(trim($this->request->post['lastname'])) > 32)) {
+			$json['error']['lastname'] = $this->language->get('error_lastname');
 		}
 
 		if ((utf8_strlen($this->request->post['email']) > 96) || !preg_match($this->config->get('config_mail_regexp'), $this->request->post['email'])) {
@@ -40,12 +48,13 @@ class ControllerCheckoutConfirm extends Controller {
 
 		$order_data = $this->session->data['order_data'];
     if(!isset($this->request->post['comment'])){
-			$order_data['comment'] = '';	
+			$order_data['comment'] = '';
 		}
 		else {
 			$order_data['comment'] = strip_tags($this->request->post['comment']);
 		}
-		$order_data['firstname'] = trim($this->request->post['firstname']);
+		$order_data['firstname'] = $this->request->post['firstname'];
+		$order_data['lastname'] = $this->request->post['lastname'];
 		$order_data['email'] = $this->request->post['email'];
 		$order_data['telephone'] = $this->request->post['telephone'];
 
