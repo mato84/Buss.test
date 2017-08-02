@@ -53,7 +53,7 @@
     </tbody>
   </table>
   <?php } ?>
-<!--   <table style="border-collapse: collapse; width: 100%; margin-bottom: 20px;">
+  <table style="border-collapse: collapse; width: 100%; margin-bottom: 20px;">
     <thead>
       <tr>
         <td style="font-size: 16px; background-color: #EFEFEF; font-weight: bold; text-align: left; padding: 7px; color: #222222;"><?php echo $text_payment_address; ?></td>
@@ -70,7 +70,7 @@
         <?php } ?>
       </tr>
     </tbody>
-  </table> -->
+  </table>
   <table style="border-collapse: collapse; width: 100%; margin-bottom: 20px;">
     <thead>
       <tr>
