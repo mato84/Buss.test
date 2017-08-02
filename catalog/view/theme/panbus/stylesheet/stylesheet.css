@@ -423,14 +423,14 @@ header {
     color: #cd4f38;
 }
 
-.search-item .error-where,
-.search-item .error-wherefrom {
+.search-item .error {
     display: none;
     color: #fff;
     background-color: #cd4e37;
     text-align: left;
     padding: 3px 20px;
     text-transform: uppercase;
+    font-size: 11px;
 }
 
 .search-item .error.show {
@@ -1527,6 +1527,7 @@ h2.price {
 @media (min-width: 768px) {
     .product-details .product-options .option-data {
         width: 200px;
+        vertical-align: top;
     }
 }
 
@@ -1536,7 +1537,8 @@ h2.price {
 
 @media (min-width: 768px) {
     .product-details .product-options .option-time {
-        padding: 0 10px 0 40px
+        padding: 0 10px 0 40px;
+        vertical-align: top;
     }
 }
 
@@ -1680,6 +1682,13 @@ h2.price {
     max-width: 100%;
 }
 
+.text-danger {
+    color: #fff;
+    background-color: #cd4e37;
+    padding: 3px 10px;
+    margin-top: 2px;
+}
+
 .well {
     min-height: 20px;
     padding: 20px;
@@ -1703,6 +1712,55 @@ h2.price {
 
 .account-account .well .list-unstyled li .btn {
     width: 100%;
+}
+
+.checkout-checkout .table-responsive .table>thead {
+	background-color: #EFEFEF; 
+}
+
+.ticket {
+	border-left: 4px solid #cd4e37;
+	padding: 0 8px;
+}
+
+.ticket .ticket-img,
+.ticket .ticket-info {
+	display: inline-block;
+	vertical-align: top;
+}
+.ticket .ticket-info {
+	margin-left: 10px;
+}
+
+.checkout-checkout #guest-data {
+	max-width: 300px;
+	margin: 0 auto;
+}
+
+.checkout-checkout #passengers {
+	max-width: 300px;
+	margin: 50px auto 0;
+}
+
+.checkout-checkout #passengers textarea {
+	height: auto;
+}
+
+.checkout-checkout .table-responsive {
+	margin-top: 50px;
+}
+
+.checkout-checkout .table-responsive .table>thead>tr>td,
+.checkout-checkout .table-responsive .table>thead>tr>th,
+.checkout-checkout .table-responsive .table>tbody>tr>td,
+.checkout-checkout .table-responsive .table>tbody>tr>th {
+	border: 0;
+	padding: 15px 10px;
+}
+
+.login-form {
+	max-width: 300px;
+    margin: 0 auto;
 }
 
 .contact-block {

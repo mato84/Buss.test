@@ -15,11 +15,9 @@
     <?php } ?>
     <div id="content"><?php echo $content_top; ?>
       <h1><?php echo $heading_title; ?></h1>
+      <div class="well">
       <?php if (!isset($redirect)) { ?>
-
         <div id="guest-data">
-
-
           <div class="form-group required">
             <label class="control-label" for="input-payment-firstname"><?php echo $entry_firstname; ?></label>
             <input type="text" name="firstname" value="<?php echo $firstname; ?>" placeholder="<?php echo $entry_firstname; ?>" id="input-payment-firstname" class="form-control" />
@@ -34,18 +32,16 @@
           </div>
         </div>
         <?php if ($logged) { ?>
-         <div id="passengers">
-         <p>
-           <textarea name="comment" rows="8" class="form-control"><?php echo $comment; ?></textarea>
-         </p>
-      </div>
-      <?php } ?>
+           <div id="passengers">
+            <label class="control-label" for="passengers-list"><?php echo $entry_passengers; ?></label>
+            <textarea name="comment" rows="8" id="passengers-list" class="form-control"><?php echo $comment; ?></textarea>
+          </div>
+        <?php } ?>
       <div class="table-responsive">
-        <table class="table table-bordered table-hover">
+        <table class="table table-hover">
           <thead>
             <tr>
               <td class="text-left"><?php echo $column_name; ?></td>
-              <td class="text-left"><?php echo $column_model; ?></td>
               <td class="text-right"><?php echo $column_quantity; ?></td>
               <td class="text-right"><?php echo $column_price; ?></td>
               <td class="text-right"><?php echo $column_total; ?></td>
@@ -55,20 +51,26 @@
           <tbody>
             <?php foreach ($products as $product) { ?>
             <tr>
-              <td class="text-left"><a href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a>
-                <?php foreach ($product['option'] as $option) { ?>
-                <br />
-                &nbsp;<small> - <?php echo $option['name']; ?>: <?php echo $option['value']; ?></small>
-                <?php } ?>
-                <?php if($product['recurring']) { ?>
-                <br />
-                <span class="label label-info"><?php echo $text_recurring_item; ?></span> <small><?php echo $product['recurring']; ?></small>
-                <?php } ?></td>
-              <td class="text-left"><?php echo $product['model']; ?></td>
+              <td class="text-left">
+              <div class="ticket">
+                <a class="ticket-img" href="<?php echo $product['href']; ?>"><img src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>" title="<?php echo $product['name']; ?>" /></a>
+                <div class="ticket-info">
+                  <a href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a>
+                  <?php foreach ($product['option'] as $option) { ?>
+                  <br />
+                  &nbsp;<small> - <?php echo $option['name']; ?> <b><?php echo $option['value']; ?></b></small>
+                  <?php } ?>
+                  <?php if($product['recurring']) { ?>
+                  <br />
+                  <span class="label label-info"><?php echo $text_recurring_item; ?></span> <small><?php echo $product['recurring']; ?></small>
+                  <?php } ?>
+                </div>
+              </div>
+              </td>
               <td class="text-right"><?php echo $product['quantity']; ?></td>
               <td class="text-right"><?php echo $product['price']; ?></td>
               <td class="text-right"><?php echo $product['total']; ?></td>
-              <td class="text-center"><a name = "remove" id="<?php echo $product['cart_id']; ?>" href="#"><i class="fa fa-times" aria-hidden="true"></i></a> </td>
+              <td class="text-center"><a class="btn btn-primary" name = "remove" id="<?php echo $product['cart_id']; ?>" href="#"><i class="fa fa-times-circle"></i></a> </td>
             </tr>
             <?php } ?>
             <?php foreach ($vouchers as $voucher) { ?>
@@ -84,8 +86,8 @@
           <tfoot>
             <?php foreach ($totals as $total) { ?>
             <tr>
-              <td colspan="4" class="text-right"><strong><?php echo $total['title']; ?>:</strong></td>
-              <td class="text-right"><?php echo $total['text']; ?></td>
+              <td colspan="3" class="text-right"></td>
+              <td colspan="2"class="text-right"><strong><?php echo $total['title']; ?>: <?php echo $total['text']; ?></strong></td>
             </tr>
             <?php } ?>
           </tfoot>
@@ -97,8 +99,11 @@
       location = '<?php echo $redirect; ?>';
       //--></script>
       <?php } ?>
-      <?php echo $content_bottom; ?></div>
-    <?php echo $column_right; ?></div>
+      <?php echo $content_bottom; ?>
+        </div>
+      </div>
+    <?php echo $column_right; ?>
+    </div>
 </div>
 <?php echo $footer; ?>
 <script type="text/javascript">

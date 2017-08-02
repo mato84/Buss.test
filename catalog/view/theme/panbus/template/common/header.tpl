@@ -66,12 +66,12 @@
       <div class="search-item ">
         <i class="fa fa-map-marker" aria-hidden="true"></i>
         <input type="text" id="wherefrom" placeholder="<?php echo $text_wherefrom; ?>">
-        <div class="error-wherefrom error-search"><?php echo $text_choise_wherefrom; ?></div>
+        <div class="error"><?php echo $text_choise_wherefrom; ?></div>
       </div>
       <div class="search-item">
         <i class="fa fa-map-marker" aria-hidden="true"></i>
         <input type="text" id="where" placeholder="<?php echo $text_from; ?>">
-        <div class="error-where error-search"><?php echo $text_choise_from; ?></div>
+        <div class="error"><?php echo $text_choise_from; ?></div>
       </div>
       <div class="search-item">
         <button id="search-submit" class="btn btn-primary"><?php echo $text_search; ?></button>

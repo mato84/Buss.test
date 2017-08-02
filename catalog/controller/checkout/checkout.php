@@ -13,6 +13,7 @@ class ControllerCheckoutCheckout extends Controller {
 		$data['entry_firstname'] = $this->language->get('entry_firstname');
 		$data['entry_email'] = $this->language->get('entry_email');
 		$data['entry_telephone'] = $this->language->get('entry_telephone');
+		$data['entry_passengers'] = $this->language->get('entry_passengers');
 
 
 
@@ -493,7 +494,8 @@ class ControllerCheckoutCheckout extends Controller {
 			$data['column_quantity'] = $this->language->get('column_quantity');
 			$data['column_price'] = $this->language->get('column_price');
 			$data['column_total'] = $this->language->get('column_total');
-
+			
+			$this->load->model('tool/image');
 			$this->load->model('tool/upload');
 
 			$data['products'] = array();
@@ -513,6 +515,13 @@ class ControllerCheckoutCheckout extends Controller {
 							$value = '';
 						}
 					}
+
+					if ($product['image']) {
+						$image = $this->model_tool_image->resize($product['image'], $this->config->get($this->config->get('config_theme') . '_image_cart_width'), $this->config->get($this->config->get('config_theme') . '_image_cart_height'));
+					} else {
+						$image = '';
+					}
+
 
 					$option_data[] = array(
 						'name'  => $option['name'],
@@ -544,6 +553,7 @@ class ControllerCheckoutCheckout extends Controller {
 
 				$data['products'][] = array(
 					'cart_id'    => $product['cart_id'],
+					'thumb'     => $image,
 					'product_id' => $product['product_id'],
 					// 'from'       => $product['from_t'],
 					// 'to'         => $product['to_t'],
