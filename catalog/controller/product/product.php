@@ -707,4 +707,27 @@ class ControllerProductProduct extends Controller {
 		$this->response->addHeader('Content-Type: application/json');
 		$this->response->setOutput(json_encode($json));
 	}
+
+	public function changePrice(){
+		$json = array();
+		if (isset($this->request->get['product_id'])) {
+			$product_id = (int)$this->request->get['product_id'];
+		} else {
+			$product_id = 0;
+		}
+		if (isset($this->request->get['quantity'])) {
+			$quantity = (int)$this->request->get['quantity'];
+		} else {
+			$quantity = 1;
+		}
+		$this->load->model('catalog/product');
+
+		$product_info = $this->model_catalog_product->getProduct($product_id);
+		$json['price'] = $this->currency->format($this->tax->calculate($product_info['price'] * $quantity, $product_info['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']);
+
+
+
+		$this->response->addHeader('Content-Type: application/json');
+		$this->response->setOutput(json_encode($json));
+	}
 }

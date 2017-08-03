@@ -151,9 +151,12 @@
 
                 <div class="option-quattity form-group">
                   <label class="control-label" for="input-quantity"><?php echo $entry_qty; ?></label>
-                  <input type="text" name="quantity" value="<?php echo $minimum; ?>" size="2" id="input-quantity" class="form-control" />
+                  <input type="number" min = "0" max="999" name="quantity" value="<?php echo $minimum; ?>" size="2" id="input-quantity" class="form-control" />
                   <input type="hidden" name="product_id" value="<?php echo $product_id; ?>" />
                 </div>
+                <!-- <div class="loading">
+
+                </div> -->
                 <?php if ($minimum > 1) { ?>
                 <div class="alert alert-info"><i class="fa fa-info-circle"></i> <?php echo $text_minimum; ?></div>
                 <?php } ?>
@@ -295,6 +298,23 @@
     <?php echo $column_right; ?></div>
 </div>
 <script type="text/javascript"><!--
+
+$('#input-quantity').on('change', function(){
+  $.ajax({
+    url:'index.php?route=product/product/changePrice',
+    data: {quantity: $('input[name=\'quantity\']').val(),
+           product_id: $('input[name=\'product_id\']').val()
+         },
+    beforeSend:function(){
+     $('#product > div:nth-child(3) > div.price-block.form-group > div > ul > li > h2').text('loading');
+    },
+    success: function(json){
+      $('#product > div:nth-child(3) > div.price-block.form-group > div > ul > li > h2').text(json['price']);
+    }
+
+  });
+})
+
 $('select[name=\'recurring_id\'], input[name="quantity"]').change(function(){
 	$.ajax({
 		url: 'index.php?route=product/product/getRecurringDescription',
@@ -319,7 +339,7 @@ $('#button-cart').on('click', function() {
 	$.ajax({
 		url: 'index.php?route=checkout/cart/add',
 		type: 'post',
-		data: $('#product input[type=\'text\'], #product input[type=\'hidden\'], #product input[type=\'radio\']:checked, #product input[type=\'checkbox\']:checked, #product select, #product textarea'),
+		data: $('#product input[type=\'text\'], #product input[type=\'hidden\'],input[type=\'number\'], #product input[type=\'radio\']:checked, #product input[type=\'checkbox\']:checked, #product select, #product textarea'),
 		dataType: 'json',
 		beforeSend: function() {
 			$('#button-cart').button('loading');

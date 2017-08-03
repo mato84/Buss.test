@@ -30,7 +30,7 @@ $('#button-confirm').on('click', function() {
 						$(element).after('<div class="text-danger">' + json['error'][i] + '</div>');
 					}
 				}
-
+          $('#content')[0].scrollIntoView(top);
 				// Highlight any found errors
 				$('.text-danger').parent().addClass('has-error');
       }

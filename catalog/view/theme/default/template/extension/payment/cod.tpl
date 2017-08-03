@@ -33,6 +33,7 @@ $('#button-confirm').on('click', function() {
 					}
 				}
 
+      
 				// Highlight any found errors
 				$('.text-danger').parent().addClass('has-error');
       }
