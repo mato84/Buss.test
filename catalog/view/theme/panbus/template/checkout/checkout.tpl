@@ -19,12 +19,12 @@
       <?php if (!isset($redirect)) { ?>
         <div id="guest-data">
           <div class="form-group required">
-            <label class="control-label" for="input-payment-firstname"><?php echo $entry_firstname; ?></label>
-            <input type="text" name="firstname" value="<?php echo $firstname; ?>" placeholder="<?php echo $entry_firstname; ?>" id="input-payment-firstname" class="form-control" />
-          </div>
-          <div class="form-group required">
             <label class="control-label" for="input-payment-lastname"><?php echo $entry_lastname; ?></label>
             <input type="text" name="lastname" value="<?php echo $lastname; ?>" placeholder="<?php echo $entry_lastname; ?>" id="input-payment-lastname" class="form-control" />
+          </div>
+          <div class="form-group required">
+            <label class="control-label" for="input-payment-firstname"><?php echo $entry_firstname; ?></label>
+            <input type="text" name="firstname" value="<?php echo $firstname; ?>" placeholder="<?php echo $entry_firstname; ?>" id="input-payment-firstname" class="form-control" />
           </div>
           <div class="form-group required">
             <label class="control-label" for="input-payment-email"><?php echo $entry_email; ?></label>

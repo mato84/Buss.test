@@ -18,6 +18,7 @@
           <li><a class="btn btn-default" href="<?php echo $edit; ?>"><?php echo $text_edit; ?></a></li>
           <li><a class="btn btn-default" href="<?php echo $password; ?>"><?php echo $text_password; ?></a></li>
           <li><a class="btn btn-default" href="<?php echo $order; ?>"><?php echo $text_order; ?></a></li>
+          <li><a class="btn btn-default" href="<?php echo $checkout; ?>"><?php echo $text_unfinished_order; ?></a></li>
           <li><a class="btn btn-default" href="<?php echo $logout; ?>"><?php echo $text_logout; ?></a></li>
         </ul>
       </div>

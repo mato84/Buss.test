@@ -183,8 +183,8 @@
             <?php } ?>
             <?php foreach ($totals as $total) { ?>
             <tr>
-              <td colspan="4" class="text-right"><?php echo $total['title']; ?></td>
-              <td class="text-right"><?php echo $total['text']; ?></td>
+              <td colspan="3" class="text-right"></td>
+              <td colspan="1" class="text-right"><?php echo $total['title']; ?> <?php echo $total['text']; ?></td>
             </tr>
             <?php } ?>
           </tbody>

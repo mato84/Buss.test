@@ -32,12 +32,12 @@
             <li><a href="#tab-links" data-toggle="tab"><?php echo $tab_links; ?></a></li>
             <li><a href="#tab-attribute" data-toggle="tab"><?php echo $tab_attribute; ?></a></li>
             <li><a href="#tab-option" data-toggle="tab"><?php echo $tab_option; ?></a></li>
-            <li><a href="#tab-recurring" data-toggle="tab"><?php echo $tab_recurring; ?></a></li>
+<!--             <li><a href="#tab-recurring" data-toggle="tab"><?php echo $tab_recurring; ?></a></li> -->
             <li><a href="#tab-discount" data-toggle="tab"><?php echo $tab_discount; ?></a></li>
             <li><a href="#tab-special" data-toggle="tab"><?php echo $tab_special; ?></a></li>
             <li><a href="#tab-image" data-toggle="tab"><?php echo $tab_image; ?></a></li>
-            <li><a href="#tab-reward" data-toggle="tab"><?php echo $tab_reward; ?></a></li>
-            <li><a href="#tab-design" data-toggle="tab"><?php echo $tab_design; ?></a></li>
+<!--             <li><a href="#tab-reward" data-toggle="tab"><?php echo $tab_reward; ?></a></li>
+            <li><a href="#tab-design" data-toggle="tab"><?php echo $tab_design; ?></a></li> -->
           </ul>
           <div class="tab-content">
             <div class="tab-pane active" id="tab-data">
@@ -459,7 +459,7 @@
                   <thead>
                     <tr>
                       <td class="text-left"><?php echo $entry_attribute; ?></td>
-                      <td class="text-left"><?php echo $entry_text; ?></td>
+<!--                       <td class="text-left"><?php echo $entry_text; ?></td> -->
                       <td></td>
                     </tr>
                   </thead>
@@ -469,11 +469,11 @@
                     <tr id="attribute-row<?php echo $attribute_row; ?>">
                       <td class="text-left" style="width: 40%;"><input type="text" name="product_attribute[<?php echo $attribute_row; ?>][name]" value="<?php echo $product_attribute['name']; ?>" placeholder="<?php echo $entry_attribute; ?>" class="form-control" />
                         <input type="hidden" name="product_attribute[<?php echo $attribute_row; ?>][attribute_id]" value="<?php echo $product_attribute['attribute_id']; ?>" /></td>
-                      <td class="text-left"><?php foreach ($languages as $language) { ?>
+<!--                       <td class="text-left"><?php foreach ($languages as $language) { ?>
                         <div class="input-group"><span class="input-group-addon"><img src="language/<?php echo $language['code']; ?>/<?php echo $language['code']; ?>.png" title="<?php echo $language['name']; ?>" /></span>
                           <textarea name="product_attribute[<?php echo $attribute_row; ?>][product_attribute_description][<?php echo $language['language_id']; ?>][text]" rows="5" placeholder="<?php echo $entry_text; ?>" class="form-control"><?php echo isset($product_attribute['product_attribute_description'][$language['language_id']]) ? $product_attribute['product_attribute_description'][$language['language_id']]['text'] : ''; ?></textarea>
                         </div>
-                        <?php } ?></td>
+                        <?php } ?></td> -->
                       <td class="text-left"><button type="button" onclick="$('#attribute-row<?php echo $attribute_row; ?>').remove();" data-toggle="tooltip" title="<?php echo $button_remove; ?>" class="btn btn-danger"><i class="fa fa-minus-circle"></i></button></td>
                     </tr>
                     <?php $attribute_row++; ?>
@@ -481,7 +481,7 @@
                   </tbody>
                   <tfoot>
                     <tr>
-                      <td colspan="2"></td>
+                      <td colspan="1"></td>
                       <td class="text-left"><button type="button" onclick="addAttribute();" data-toggle="tooltip" title="<?php echo $button_attribute_add; ?>" class="btn btn-primary"><i class="fa fa-plus-circle"></i></button></td>
                     </tr>
                   </tfoot>
@@ -693,7 +693,7 @@
                 </div>
               </div>
             </div>
-            <div class="tab-pane" id="tab-recurring">
+<!--             <div class="tab-pane" id="tab-recurring">
               <div class="table-responsive">
                 <table class="table table-striped table-bordered table-hover">
                   <thead>
@@ -739,7 +739,7 @@
                   </tfoot>
                 </table>
               </div>
-            </div>
+            </div> -->
             <div class="tab-pane" id="tab-discount">
               <div class="table-responsive">
                 <table id="discount" class="table table-striped table-bordered table-hover">
@@ -891,7 +891,7 @@
                 </table>
               </div>
             </div>
-            <div class="tab-pane" id="tab-reward">
+<!--             <div class="tab-pane" id="tab-reward">
               <div class="form-group">
                 <label class="col-sm-2 control-label" for="input-points"><span data-toggle="tooltip" title="<?php echo $help_points; ?>"><?php echo $entry_points; ?></span></label>
                 <div class="col-sm-10">
@@ -916,8 +916,8 @@
                   </tbody>
                 </table>
               </div>
-            </div>
-            <div class="tab-pane" id="tab-design">
+            </div> -->
+<!--             <div class="tab-pane" id="tab-design">
               <div class="table-responsive">
                 <table class="table table-bordered table-hover">
                   <thead>
@@ -958,7 +958,7 @@
                   </tbody>
                 </table>
               </div>
-            </div>
+            </div> -->
           </div>
         </form>
       </div>

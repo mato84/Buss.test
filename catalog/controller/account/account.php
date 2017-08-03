@@ -42,6 +42,7 @@ class ControllerAccountAccount extends Controller {
 		$data['text_credit_card'] = $this->language->get('text_credit_card');
 		$data['text_wishlist'] = $this->language->get('text_wishlist');
 		$data['text_order'] = $this->language->get('text_order');
+		$data['text_unfinished_order'] = $this->language->get('text_unfinished_order');
 		$data['text_download'] = $this->language->get('text_download');
 		$data['text_reward'] = $this->language->get('text_reward');
 		$data['text_return'] = $this->language->get('text_return');
@@ -54,6 +55,7 @@ class ControllerAccountAccount extends Controller {
 		$data['edit'] = $this->url->link('account/edit', '', true);
 		$data['password'] = $this->url->link('account/password', '', true);
 		$data['address'] = $this->url->link('account/address', '', true);
+		$data['checkout'] = $this->url->link('checkout/checkout', '', true);
 		
 		$data['credit_cards'] = array();
 		
