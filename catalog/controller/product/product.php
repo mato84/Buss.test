@@ -722,7 +722,13 @@ class ControllerProductProduct extends Controller {
 		}
 		$this->load->model('catalog/product');
 
+
 		$product_info = $this->model_catalog_product->getProduct($product_id);
+		if ((float)$product_info['special']) {
+			$json['special'] = $this->currency->format($this->tax->calculate($product_info['special'] * $quantity, $product_info['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']);
+		} else {
+			$json['special'] = false;
+		}
 		$json['price'] = $this->currency->format($this->tax->calculate($product_info['price'] * $quantity, $product_info['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']);
 
 

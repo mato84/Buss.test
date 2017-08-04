@@ -310,7 +310,15 @@ $('#input-quantity').on('change', function(){
      $('#product > div:nth-child(3) > div.price-block.form-group > div > ul > li > h2').text('loading');
     },
     success: function(json){
-      $('#product > div:nth-child(3) > div.price-block.form-group > div > ul > li > h2').text(json['price']);
+      if(json['special']){
+      $('#product > div:nth-child(3) > div.price-block.form-group > div > ul > li > h2').text(json['special']);
+      $('.price-old').text(json['price']);
+
+      }
+      else {
+        $('#product > div:nth-child(3) > div.price-block.form-group > div > ul > li > h2').text(json['price']);
+      }
+
     }
 
   });
