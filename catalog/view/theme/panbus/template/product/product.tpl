@@ -151,7 +151,7 @@
 
                 <div class="option-quattity form-group">
                   <label class="control-label" for="input-quantity"><?php echo $entry_qty; ?></label>
-                  <input type="number" min = "0" max="999" name="quantity" value="<?php echo $minimum; ?>" size="2" id="input-quantity" class="form-control" />
+                  <input type="number" autocomplete = "off" min = "1" max="999" name="quantity" value="<?php echo $minimum; ?>" size="2" id="input-quantity" class="form-control" />
                   <input type="hidden" name="product_id" value="<?php echo $product_id; ?>" />
                 </div>
                 <!-- <div class="loading">
@@ -300,6 +300,7 @@
 <script type="text/javascript"><!--
 
 $('#input-quantity').on('change', function(){
+
   $.ajax({
     url:'index.php?route=product/product/changePrice',
     data: {quantity: $('input[name=\'quantity\']').val(),

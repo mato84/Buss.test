@@ -1715,7 +1715,7 @@ h2.price {
 }
 
 .checkout-checkout .table-responsive .table>thead {
-	background-color: #EFEFEF; 
+	background-color: #EFEFEF;
 }
 
 .ticket {
@@ -1876,4 +1876,11 @@ h2.price {
 
 .img-thumbnail {
     border: none;
+}
+
+#input-quantity::-webkit-outer-spin-button,
+#input-quantity::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
 }
