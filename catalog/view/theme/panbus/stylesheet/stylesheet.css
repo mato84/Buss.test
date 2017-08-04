@@ -911,12 +911,6 @@ footer {
     color: white;
 }
 
-footer li {
-    border: 1px solid #fff;
-    padding: 5px;
-    cursor: pointer;
-}
-
 footer hr {
     margin-top: 50px;
     border-top: none;
@@ -924,7 +918,11 @@ footer hr {
 }
 
 footer a {
+	display: block;
     color: #fff;
+    border: 1px solid #fff;
+    padding: 5px;
+    cursor: pointer;
 }
 
 footer a:hover {
@@ -1616,6 +1614,7 @@ h2.price {
     .product-details .price-block {
         margin-bottom: 22px;
         padding: 0 40px;
+        min-width: 230px;
     }
 }
 
@@ -1623,6 +1622,7 @@ h2.price {
 .product-details .price-block h2 {
     margin: 0;
     text-transform: none;
+    transition: all 0.35s;
 }
 
 .price-block .price-old {
