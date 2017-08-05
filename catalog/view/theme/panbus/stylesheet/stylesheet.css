@@ -167,7 +167,7 @@ option {
 header {
     position: relative;
     width: 100%;
-    height: 50vh;
+    height: 70vh;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
@@ -192,7 +192,7 @@ header {
 }
 
 .common-home header {
-    height: 100vh;
+    height: 110vh;
 }
 
 .block-bg-overlay {
@@ -217,6 +217,10 @@ header {
     vertical-align: top;
     margin-left: 10px !important;
     transition: all 0.35s;
+}
+
+#logo img {
+	max-width: 130px;
 }
 
 .common-home #logo {
@@ -260,18 +264,12 @@ header {
     display: none;
 }
 
+.header-content .header-content-inner .header-logo{
+    max-width: 230px;
+}
+
 .common-home .header-content .header-content-inner {
     display: block;
-}
-
-.common-home .header-content .header-content-inner .header-logo-l {
-    display: none;
-}
-
-@media (min-width: 768px) {
-    .common-home .header-content .header-content-inner .header-logo-l {
-        display: inline-block;
-    }
 }
 
 .header-content .header-content-inner h1 {
@@ -314,16 +312,6 @@ header {
     color: #cd4e37;
 }
 
-.header-content .header-content-inner .slogan-b {
-    display: inline-block;
-    vertical-align: baseline;
-    font-weight: 700;
-    background-color: #ffffff;
-    line-height: 28px;
-    padding: 2px 3px 3px 3px;
-    color: #383838;
-}
-
 .header-content .header-search {
     position: absolute;
     top: 100px;
@@ -332,6 +320,14 @@ header {
     background-color: rgba(255, 255, 255, 0.24);
     max-width: 600px;
     transition: all 0.35s;
+    z-index: 999;
+}
+
+@media (max-height: 500px) {
+	.header-content .header-search {
+	    background-color: #eeeeee;	
+	}
+
 }
 
 @media (min-width: 768px) {
@@ -363,13 +359,46 @@ header {
 }
 
 .common-home .header-content .header-search {
-    position: relative;
-    top: 0;
+    position: absolute;
+    top: 100%;
     left: 0;
     margin: 30px auto;
     padding: 40px 10px 20px 10px;
     background-color: rgba(255, 255, 255, 0.24);
     max-width: 700px;
+    transition: all 0.35s;
+}
+
+.common-home .header-content .header-search.affix {
+	margin-top: 20px;
+	background-color: #eeeeee;
+}
+
+@media (max-height: 500px) {
+	.common-home .header-content .header-search {
+	    background-color: #eeeeee;	
+	}
+}
+
+@media (min-width: 768px) {
+	.common-home .header-content .header-search {
+	    position: relative;
+	    top: 0;
+	    left: 0;
+	    margin: 30px auto;
+	    padding: 40px 10px 20px 10px;
+	    background-color: rgba(255, 255, 255, 0.24);
+	    max-width: 700px;
+	}
+	.common-home .header-content .header-search.affix {
+	    position: relative;
+	    top: 0;
+	    left: 0;
+	    margin: 30px auto;
+	    padding: 40px 10px 20px 10px;
+	    background-color: rgba(255, 255, 255, 0.24);
+	    max-width: 700px;		
+	}
 }
 
 .header-content .header-search .search-item {
@@ -1284,6 +1313,7 @@ footer .powered {
 .product-thumb .image img {
     margin-left: auto;
     margin-right: auto;
+    max-width: 190px;
 }
 
 .product-grid .product-thumb .image {
@@ -1461,6 +1491,10 @@ h2.price {
     text-align: center;
 }
 
+.product-details .details-caption-left .product-img img {
+	max-width: 190px;
+}
+
 @media (min-width: 768px) {
     .product-details .details-caption-left {
         display: inline-block;
@@ -1526,6 +1560,7 @@ h2.price {
     .product-details .product-options .option-data {
         width: 200px;
         vertical-align: top;
+        margin-right: 30px;
     }
 }
 
@@ -1535,7 +1570,6 @@ h2.price {
 
 @media (min-width: 768px) {
     .product-details .product-options .option-time {
-        padding: 0 10px 0 40px;
         vertical-align: top;
     }
 }
@@ -1567,14 +1601,6 @@ h2.price {
     width: 120px
 }
 
-@media (min-width: 768px) {
-    .option-time .radio {
-        margin-bottom: 0px;
-    }
-    .option-time .radio label {
-        width: auto;
-    }
-}
 
 .product-details .option-timeinroad {
     min-width: 200px;
@@ -1600,7 +1626,7 @@ h2.price {
 @media (min-width: 768px) {
     .product-details .option-quattity {
         width: 70px;
-        margin-left: 40px;
+        margin-left: 30px;
         margin-bottom: 15px;
     }
 }
