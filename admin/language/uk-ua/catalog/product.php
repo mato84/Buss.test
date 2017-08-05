@@ -44,6 +44,7 @@ $_['entry_keyword']          = 'SEO URL';
 $_['entry_model']            = 'Модель';
 $_['entry_from']          		= 'Пункт відправки:';
 $_['entry_to']          		  = 'Пункт прибуття:';
+$_['entry_departure']         = 'Відправлення з:';
 $_['entry_sku']              = 'SKU';
 $_['entry_upc']              = 'UPC';
 $_['entry_ean']              = 'EAN';

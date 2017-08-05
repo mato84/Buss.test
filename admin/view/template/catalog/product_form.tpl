@@ -27,7 +27,7 @@
       <div class="panel-body">
         <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data" id="form-product" class="form-horizontal">
           <ul class="nav nav-tabs">
-            <li  class="active" ><a href="#tab-data" data-toggle="tab"><?php echo $tab_data; ?></a></li>          
+            <li  class="active" ><a href="#tab-data" data-toggle="tab"><?php echo $tab_data; ?></a></li>
             <li><a href="#tab-general" data-toggle="tab"><?php echo $tab_general; ?></a></li>
             <li><a href="#tab-links" data-toggle="tab"><?php echo $tab_links; ?></a></li>
             <li><a href="#tab-attribute" data-toggle="tab"><?php echo $tab_attribute; ?></a></li>
@@ -59,6 +59,12 @@
                   <?php if ($error_to != "") { ?>
                   <div class="text-danger"><?php echo $error_to; ?></div>
                   <?php } ?>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label" for="input-departure"><?php echo $entry_departure; ?></label>
+                <div class="col-sm-10">
+                  <input type="text" name="departure_from" value="<?php echo $departure_from; ?>" placeholder="<?php echo $entry_departure; ?>" id="input-departure" class="form-control" />
                 </div>
               </div>
               <div class="form-group required hidden">
@@ -265,7 +271,7 @@
                   <input type="text" name="sort_order" value="<?php echo $sort_order; ?>" placeholder="<?php echo $entry_sort_order; ?>" id="input-sort-order" class="form-control" />
                 </div>
               </div>
-            </div>          
+            </div>
             <div class="tab-pane" id="tab-general">
               <ul class="nav nav-tabs" id="language">
                 <?php foreach ($languages as $language) { ?>

@@ -49,6 +49,7 @@
               <td class="text-right"><?php echo $column_quantity; ?></td>
               <td class="text-right"><?php echo $column_price; ?></td>
               <td class="text-right"><?php echo $column_total; ?></td>
+              <td class="text-right"><?php echo $column_departure; ?></td>
               <td class="text-right"></td>
             </tr>
           </thead>
@@ -57,7 +58,7 @@
             <tr>
               <td class="text-left">
               <div class="ticket">
-                <a class="ticket-img" href="<?php echo $product['href']; ?>"><img src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>" title="<?php echo $product['name']; ?>" /></a>
+                <a class="ticket-img" href="<?php echo $product['href']; ?>"><img src="<?php echo $product['thumb']; ?>" alt="<?php  echo strip_tags($product['name']); ?>" title="<?php echo strip_tags($product['name']); ?>" /></a>
                 <div class="ticket-info">
                   <a href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a>
                   <?php foreach ($product['option'] as $option) { ?>
@@ -74,6 +75,7 @@
               <td class="text-right"><?php echo $product['quantity']; ?></td>
               <td class="text-right"><?php echo $product['price']; ?></td>
               <td class="text-right"><?php echo $product['total']; ?></td>
+              <td class="text-right"><?php echo $product['departure_from']; ?></td>
               <td class="text-center"><a class="btn btn-primary" name = "remove" id="<?php echo $product['cart_id']; ?>" href="#"><i class="fa fa-times-circle"></i></a> </td>
             </tr>
             <?php } ?>
