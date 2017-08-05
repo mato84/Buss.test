@@ -499,6 +499,7 @@ class ControllerCheckoutCheckout extends Controller {
 			$data['column_model'] = $this->language->get('column_model');
 			$data['column_quantity'] = $this->language->get('column_quantity');
 			$data['column_price'] = $this->language->get('column_price');
+			$data['column_departure'] = $this->language->get('column_departure');
 			$data['column_total'] = $this->language->get('column_total');
 
 			$this->load->model('tool/image');
@@ -508,6 +509,12 @@ class ControllerCheckoutCheckout extends Controller {
 
 			foreach ($this->cart->getProducts() as $product) {
 				$option_data = array();
+
+				if ($product['image']) {
+ 				 $image = $this->model_tool_image->resize($product['image'], $this->config->get($this->config->get('config_theme') . '_image_cart_width'), $this->config->get($this->config->get('config_theme') . '_image_cart_height'));
+ 			 } else {
+ 				 $image = '';
+ 			 }
 
 				foreach ($product['option'] as $option) {
 					if ($option['type'] != 'file') {
@@ -521,13 +528,6 @@ class ControllerCheckoutCheckout extends Controller {
 							$value = '';
 						}
 					}
-
-					if ($product['image']) {
-						$image = $this->model_tool_image->resize($product['image'], $this->config->get($this->config->get('config_theme') . '_image_cart_width'), $this->config->get($this->config->get('config_theme') . '_image_cart_height'));
-					} else {
-						$image = '';
-					}
-
 
 					$option_data[] = array(
 						'name'  => $option['name'],
@@ -563,6 +563,7 @@ class ControllerCheckoutCheckout extends Controller {
 					'product_id' => $product['product_id'],
 					// 'from'       => $product['from_t'],
 					// 'to'         => $product['to_t'],
+					'departure_from'  => $product['departure_from'],
 					'name'       => $product['name'],
 					'model'      => $product['model'],
 					'option'     => $option_data,
