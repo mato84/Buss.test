@@ -37,6 +37,7 @@ $_['entry_keyword']          	= 'SEO URL:';
 $_['entry_model']          		= 'Модель:';
 $_['entry_from']          		= 'Пункт отправления:';
 $_['entry_to']          		  = 'Пункт прибытия:';
+$_['entry_departure']         = 'Отправления с:';
 $_['entry_sku']          		= 'Артикул:';
 $_['entry_upc']          		= 'UPC:';
 $_['entry_ean']          		= 'EAN:';

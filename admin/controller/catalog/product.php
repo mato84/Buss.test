@@ -450,6 +450,7 @@ class ControllerCatalogProduct extends Controller {
 		$data['entry_model'] = $this->language->get('entry_model');
 		$data['entry_from'] = $this->language->get('entry_from');
 		$data['entry_to'] = $this->language->get('entry_to');
+		$data['entry_departure'] = $this->language->get('entry_departure');
 		$data['entry_price'] = $this->language->get('entry_price');
 		$data['entry_quantity'] = $this->language->get('entry_quantity');
 		$data['entry_status'] = $this->language->get('entry_status');
@@ -640,6 +641,7 @@ class ControllerCatalogProduct extends Controller {
 		$data['entry_model'] = $this->language->get('entry_model');
 		$data['entry_from'] = $this->language->get('entry_from');
 		$data['entry_to'] = $this->language->get('entry_to');
+		$data['entry_departure'] = $this->language->get('entry_departure');
 		$data['entry_sku'] = $this->language->get('entry_sku');
 		$data['entry_upc'] = $this->language->get('entry_upc');
 		$data['entry_ean'] = $this->language->get('entry_ean');
@@ -884,6 +886,13 @@ class ControllerCatalogProduct extends Controller {
 			$data['to_id'] = $product_info['to_t'];
 		} else {
 			$data['to_id'] = '';
+		}
+		if (isset($this->request->post['departure_from'])) {
+			$data['departure_from'] = $this->request->post['departure_from'];
+		} elseif (!empty($product_info)) {
+			$data['departure_from'] = $product_info['departure_from'];
+		} else {
+			$data['departure_from'] = '';
 		}
 
 		if (isset($this->request->post['sku'])) {
