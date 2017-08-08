@@ -50,7 +50,7 @@ $_['column_name']                    = 'Квиток';
 $_['column_model']                   = 'Модель';
 $_['column_quantity']                = 'Кількість';
 $_['column_price']                   = 'Ціна за одиницю';
-$_['column_departure']               = 'Адреса відправлення';
+$_['column_departure']               = 'Відправлення з: ';
 $_['column_total']                   = 'Загалом';
 
 // Entry

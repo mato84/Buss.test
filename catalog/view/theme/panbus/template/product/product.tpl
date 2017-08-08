@@ -136,8 +136,9 @@
                 <?php } ?>
                 <?php } ?>
                 <?php } ?>
-                <div class="">
-                <?php echo $departure_from; ?>
+                <div class="departure-from">
+                  <label class="control-label" for=""><?php echo $text_departure; ?></label>               
+                  <div class="departure-from__value"><?php echo $departure_from; ?></div>
                 </div>
                 <div>
                 <?php if ($attribute_groups) { ?>

@@ -1056,6 +1056,7 @@ footer .powered {
     text-transform: uppercase;
     border: none;
     border-radius: 0;
+    line-height: 1.5;
 }
 
 .btn.active,
@@ -1601,6 +1602,23 @@ h2.price {
     width: 120px
 }
 
+.product-details .departure-from {
+	margin-bottom: 30px;
+	font-size: 19px;
+	line-height: 25px;
+}
+
+.product-details .departure-from .departure-from__value {
+	display: block;
+}
+
+@media (min-width: 768px) {
+	.product-details .departure-from .departure-from__value {
+		display: inline-block;
+		vertical-align: top;
+		margin-left: 10px;
+	}
+}
 
 .product-details .option-timeinroad {
     min-width: 200px;

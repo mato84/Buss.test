@@ -49,7 +49,6 @@
               <td class="text-right"><?php echo $column_quantity; ?></td>
               <td class="text-right"><?php echo $column_price; ?></td>
               <td class="text-right"><?php echo $column_total; ?></td>
-              <td class="text-right"><?php echo $column_departure; ?></td>
               <td class="text-right"></td>
             </tr>
           </thead>
@@ -64,7 +63,8 @@
                   <?php foreach ($product['option'] as $option) { ?>
                   <br />
                   &nbsp;<small> - <?php echo $option['name']; ?> <b><?php echo $option['value']; ?></b></small>
-                  <?php } ?>
+                  <?php } ?><br>
+                  &nbsp;<small> - <?php echo $column_departure; ?> <b><?php echo $product['departure_from']; ?></b></small>
                   <?php if($product['recurring']) { ?>
                   <br />
                   <span class="label label-info"><?php echo $text_recurring_item; ?></span> <small><?php echo $product['recurring']; ?></small>
@@ -75,7 +75,6 @@
               <td class="text-right"><?php echo $product['quantity']; ?></td>
               <td class="text-right"><?php echo $product['price']; ?></td>
               <td class="text-right"><?php echo $product['total']; ?></td>
-              <td class="text-right"><?php echo $product['departure_from']; ?></td>
               <td class="text-center"><a class="btn btn-primary" name = "remove" id="<?php echo $product['cart_id']; ?>" href="#"><i class="fa fa-times-circle"></i></a> </td>
             </tr>
             <?php } ?>
