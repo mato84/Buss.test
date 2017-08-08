@@ -23,6 +23,8 @@ Disallow: /*?filter_description=
 Disallow: /*&filter_description=
 Disallow: /*?tracking=
 Disallow: /*&tracking=
+Allow: /catalog/view/theme/panbus/stylesheet
+Allow: /catalog/view/javascript
 
 User-agent: Yandex
 Disallow: /*route=account/
@@ -47,4 +49,9 @@ Disallow: /*?filter_sub_category=
 Disallow: /*&filter_sub_category=
 Disallow: /*?filter_description=
 Disallow: /*&filter_description=
+Allow: /catalog/view/theme/panbus/stylesheet
+Allow: /catalog/view/javascript
 Clean-param: tracking
+
+Host: panbus.com.ua
+Sitemap: http://panbus.com.ua/index.php?route=extension/feed/google_sitemap

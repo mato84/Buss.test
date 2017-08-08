@@ -7,7 +7,7 @@
 // Text
 $_['text_search']                             = 'Пошук';
 $_['text_brand']                              = 'Бренд';
-$_['text_manufacturer']                       = 'Виробник:';
+$_['text_manufacturer']                       = 'Перевізник:';
 $_['text_model']                              = 'Артикул:';
 $_['text_reward']                             = 'Бонусні бали:';
 $_['text_points']                             = 'Ціна в бонусних балах:';
@@ -26,7 +26,7 @@ $_['text_success']                            = 'Дякуємо з Ваш від
 $_['text_related']                            = 'Схожі товари';
 $_['text_tags']                               = 'Теги:';
 $_['text_error']                              = 'Товар не знайдено!';
-$_['text_payment_recurring']                    = 'Профілі оплати';
+$_['text_payment_recurring']                  = 'Профілі оплати';
 $_['text_trial_description']                  = '%s кожен %d %s(s) до %d платежу(ів) тоді';
 $_['text_payment_description']                = '%s кожен %d %s(s) до %d патежу(ів)';
 $_['text_payment_cancel'] = '%s кожен %d %s(s) поки не скасовано';
@@ -35,10 +35,11 @@ $_['text_week']                               = 'тиждень';
 $_['text_semi_month']                         = 'половина місяця';
 $_['text_month']                              = 'місяць';
 $_['text_year']                               = 'рік';
-$_['button_tobook']                             = 'Бронювати';
+$_['text_departure']                          = 'Відправлення з: ';
+$_['button_tobook']                           = 'Бронювати';
 
 // Entry
-$_['entry_qty']                               = 'Пасажири';
+$_['entry_qty']                               = 'Кількість:';
 $_['entry_name']                              = 'Ваше Ім`я';
 $_['entry_review']                            = 'Ваш відгук';
 $_['entry_rating']                            = 'Рейтинг';
