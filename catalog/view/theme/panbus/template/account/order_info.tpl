@@ -59,7 +59,9 @@
                   <?php foreach ($product['option'] as $option) { ?>
                   <br />
                   &nbsp;<small>  <?php echo $option['name']; ?> <?php echo $option['value']; ?></small>
-                  <?php } ?></td>
+                  <?php } ?><br>
+                  &nbsp;<small>  <?php echo $column_departure; ?> <?php echo $product['departure_from']; ?></small>
+                </td>
                 <td class="text-right"><?php echo $product['quantity']; ?></td>
                 <td class="text-right"><?php echo $product['price']; ?></td>
                 <td class="text-right"><?php echo $product['total']; ?></td>

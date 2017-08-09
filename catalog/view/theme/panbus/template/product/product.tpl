@@ -245,7 +245,7 @@
                 <?php } ?>
               </ul>
               <div class="tab-content">
-                <div class="tab-pane active" id="tab-description">description</div>
+                <div class="tab-pane active" id="tab-description"><?php echo $description; ?></div>
                 <?php if ($review_status) { ?>
                 <div class="tab-pane" id="tab-review">
                   <form class="form-horizontal" id="form-review">

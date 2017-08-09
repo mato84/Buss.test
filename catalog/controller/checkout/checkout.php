@@ -501,7 +501,8 @@ class ControllerCheckoutCheckout extends Controller {
 			$data['column_price'] = $this->language->get('column_price');
 			$data['column_departure'] = $this->language->get('column_departure');
 			$data['column_total'] = $this->language->get('column_total');
-
+			$data['button_remove'] = $this->language->get('button_remove');
+			
 			$this->load->model('tool/image');
 			$this->load->model('tool/upload');
 

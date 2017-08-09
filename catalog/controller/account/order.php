@@ -44,10 +44,11 @@ class ControllerAccountOrder extends Controller {
 		$data['column_total'] = $this->language->get('column_total');
 		$data['column_status'] = $this->language->get('column_status');
 		$data['column_date_added'] = $this->language->get('column_date_added');
+		$data['column_departure'] = $this->language->get('column_departure');
 
 		$data['button_view'] = $this->language->get('button_view');
-    $data['button_ocstore_payeer_onpay'] = $this->language->get('button_ocstore_payeer_onpay');
-    $data['button_ocstore_yk_onpay'] = $this->language->get('button_ocstore_yk_onpay');
+    	$data['button_ocstore_payeer_onpay'] = $this->language->get('button_ocstore_payeer_onpay');
+    	$data['button_ocstore_yk_onpay'] = $this->language->get('button_ocstore_yk_onpay');
 		$data['button_continue'] = $this->language->get('button_continue');
 
 		if (isset($this->request->get['page'])) {
@@ -326,6 +327,7 @@ class ControllerAccountOrder extends Controller {
 					'name'     => $product['name'],
 					'model'    => $product['model'],
 					'option'   => $option_data,
+					'departure_from'  => $product['departure_from'],
 					'quantity' => $product['quantity'],
 					'price'    => $this->currency->format($product['price'] + ($this->config->get('config_tax') ? $product['tax'] : 0), $order_info['currency_code'], $order_info['currency_value']),
 					'total'    => $this->currency->format($product['total'] + ($this->config->get('config_tax') ? ($product['tax'] * $product['quantity']) : 0), $order_info['currency_code'], $order_info['currency_value']),

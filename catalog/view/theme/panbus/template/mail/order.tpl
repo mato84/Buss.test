@@ -104,6 +104,7 @@
             <br />
             &nbsp;<small> - <?php echo $option['name']; ?> <b><?php echo $option['value']; ?></b></small>
             <?php } ?>
+            &nbsp;<small> - <?php echo $text_departure; ?> <b><?php echo $product['departure_from']; ?></b></small>
             </div>
           </div>
 

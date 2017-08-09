@@ -75,7 +75,9 @@
               <td class="text-right"><?php echo $product['quantity']; ?></td>
               <td class="text-right"><?php echo $product['price']; ?></td>
               <td class="text-right"><?php echo $product['total']; ?></td>
-              <td class="text-center"><a class="btn btn-primary" name = "remove" id="<?php echo $product['cart_id']; ?>" href="#"><i class="fa fa-times-circle"></i></a> </td>
+              <td class="text-center">
+                <a class="btn btn-primary" data-toggle="tooltip" name = "remove" id="<?php echo $product['cart_id']; ?>" href="#" title="<?php echo $button_remove; ?>"><i class="fa fa-times-circle"></i></a>
+              </td>
             </tr>
             <?php } ?>
             <?php foreach ($vouchers as $voucher) { ?>
