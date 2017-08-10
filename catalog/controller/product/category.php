@@ -227,6 +227,11 @@ class ControllerProductCategory extends Controller {
 					'name'        => $result['name'],
 					'description' => utf8_substr(strip_tags(html_entity_decode($result['description'], ENT_QUOTES, 'UTF-8')), 0, $this->config->get($this->config->get('config_theme') . '_product_description_length')),
 					'price'       => $price,
+					/* *** MICRODATA *** */
+					'currency'	   => $this->session->data['currency'],
+					'availability' => $result['quantity'] ? true : false,
+					'reviews'      => (int) $result['reviews'],
+					/* *** MICRODATA *** */
 					'special'     => $special,
 					'tax'         => $tax,
 					'minimum'     => ($result['minimum'] > 0) ? $result['minimum'] : 1,

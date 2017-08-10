@@ -195,6 +195,12 @@ header {
     height: 110vh;
 }
 
+@media (min-width: 768px) {
+	.common-home header {
+	    height: 100vh;
+	}
+}
+
 .block-bg-overlay {
     position: absolute;
     width: 100%;

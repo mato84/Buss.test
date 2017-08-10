@@ -454,6 +454,11 @@ class ControllerProductProduct extends Controller {
 				}
 
 				$data['products'][] = array(
+					/* *** MICRODATA *** */
+					'availability' => $result['quantity'] ? true : false,
+					'reviewCount'  => (int) $result['reviews'],
+					'ratingValue'  => $result['rating'],
+					/* *** MICRODATA *** */
 					'product_id'  => $result['product_id'],
 					'thumb'       => $image,
 					'name'        => $result['name'],
@@ -467,6 +472,13 @@ class ControllerProductProduct extends Controller {
 					'href'        => $this->url->link('product/product', 'product_id=' . $result['product_id'])
 				);
 			}
+
+			/* *** MICRODATA *** */
+				$data['currency']	    = $this->session->data['currency'];
+				$data['availability'] = $product_info['quantity'] ? true : false;
+				$data['reviewCount']  = (int) $product_info['reviews'];
+				$data['ratingValue']  = $product_info['rating'];
+			/* *** MICRODATA *** */
 
 			$data['tags'] = array();
 
