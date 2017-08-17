@@ -3,3 +3,5 @@ system/storage/
 install
 config.php
 image/cache/
+sftp-config.json
+TODO.html
