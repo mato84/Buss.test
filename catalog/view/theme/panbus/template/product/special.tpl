@@ -77,7 +77,7 @@
       <div class="well">
       <p><?php echo $text_empty; ?></p>
       <div class="buttons buttons-right">
-        <a href="<?php echo $continue; ?>" class="btn btn-primary"><?php echo $button_continue; ?></a>
+        <a href="<?php echo $continue; ?>" class="btn btn-default"><?php echo $button_continue; ?></a>
       </div>
       </div>
       <?php } ?>

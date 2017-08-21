@@ -29,7 +29,7 @@
               <div class="product-manufacturer">
               <ul class="list-unstyled">
                 <?php if ($manufacturer) { ?>
-                <li><?php echo $text_manufacturer; ?> <a href="<?php echo $manufacturers; ?>"><span itemprop="brand"><?php echo $manufacturer; ?></span></a></li>
+                <li><?php echo $text_manufacturer; ?><br> <a href="<?php echo $manufacturers; ?>"><span itemprop="brand"><?php echo $manufacturer; ?></span></a></li>
                 <?php } ?>
               </ul>
               </div>
