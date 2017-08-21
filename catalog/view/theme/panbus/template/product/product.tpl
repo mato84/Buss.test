@@ -136,78 +136,75 @@
                 <?php } ?>
                 <?php } ?>
                 <?php } ?>
-                <div class="departure-from">
-                  <label class="control-label" for=""><?php echo $text_departure; ?></label>               
+                <div class="departure-from form-group">
+                  <label class="control-label"><?php echo $text_departure; ?></label>               
                   <div class="departure-from__value"><?php echo $departure_from; ?></div>
                 </div>
-                <div>
                 <?php if ($attribute_groups) { ?>
-                <div class="option-timeinroad form-group">
+                <div class="timeinroad form-group">
                     <?php foreach ($attribute_groups as $attribute_group) { ?>
-                        <div class="timeinroad-text form-group"><?php echo $attribute_group['name']; ?></div>
+                        <label for=""><?php echo $attribute_group['name']; ?></label>
                       <?php foreach ($attribute_group['attribute'] as $attribute) { ?>
-                        <div class="timeinroad-value form-group"><?php echo $attribute['name']; ?></div>
+                        <div class="timeinroad-value"><?php echo $attribute['name']; ?></div>
                       <?php } ?>
                     <?php } ?>
                 </div>
                 <?php } ?>
-
-                <div class="option-quattity form-group">
-                  <label class="control-label" for="input-quantity"><?php echo $entry_qty; ?></label>
-                  <input type="number" autocomplete = "off" min = "1" max="999" name="quantity" value="<?php echo $minimum; ?>" size="2" id="input-quantity" class="form-control" />
-                  <input type="hidden" name="product_id" value="<?php echo $product_id; ?>" />
-                </div>
+                <div class="product-options__add-block">
+                  <div class="option-quattity form-group">
+                    <label class="control-label" for="input-quantity"><?php echo $entry_qty; ?></label>
+                    <input type="number" autocomplete = "off" min = "1" max="999" name="quantity" value="<?php echo $minimum; ?>" size="2" id="input-quantity" class="form-control" />
+                    <input type="hidden" name="product_id" value="<?php echo $product_id; ?>" />
+                  </div>
                 <!-- <div class="loading">
 
                 </div> -->
-                <?php if ($minimum > 1) { ?>
-                <div class="alert alert-info"><i class="fa fa-info-circle"></i> <?php echo $text_minimum; ?></div>
-                <?php } ?>
-                <div class="price-block form-group">
-                  <div class="pruduct-price">
-                    <?php if ($price) { ?>
-                    <span itemscope itemprop="offers" itemtype="http://schema.org/Offer">
-                      <meta itemprop="price" content="<?php echo rtrim(preg_replace("/[^0-9\.]/", "", ($special ? $special : $price)), '.'); ?>">
-                      <meta itemprop="priceCurrency" content="<?php echo $currency; ?>">
-                      <link itemprop="availability" href="http://schema.org/<?php echo (($availability) ? 'InStock' : 'OutOfStock') ?>" />
-                    </span>
-                    <ul class="list-unstyled">
-                      <?php if (!$special) { ?>
-                      <li>
-                        <h2><?php echo $price; ?></h2>
-                      </li>
-                      <?php } else { ?>
-                      <li><span class="price-old"><?php echo $price; ?></span></li>
-                      <li>
-                        <h2><?php echo $special; ?></h2>
-                      </li>
+                  <?php if ($minimum > 1) { ?>
+                  <div class="alert alert-info"><i class="fa fa-info-circle"></i> <?php echo $text_minimum; ?></div>
+                  <?php } ?>
+                  <div class="price-block form-group">
+                    <div class="pruduct-price">
+                      <?php if ($price) { ?>
+                      <span itemscope itemprop="offers" itemtype="http://schema.org/Offer">
+                        <meta itemprop="price" content="<?php echo rtrim(preg_replace("/[^0-9\.]/", "", ($special ? $special : $price)), '.'); ?>">
+                        <meta itemprop="priceCurrency" content="<?php echo $currency; ?>">
+                        <link itemprop="availability" href="http://schema.org/<?php echo (($availability) ? 'InStock' : 'OutOfStock') ?>" />
+                      </span>
+                      <ul class="list-unstyled">
+                        <?php if (!$special) { ?>
+                        <li>
+                          <h2><?php echo $price; ?></h2>
+                        </li>
+                        <?php } else { ?>
+                        <li><span class="price-old"><?php echo $price; ?></span></li>
+                        <li>
+                          <h2><?php echo $special; ?></h2>
+                        </li>
+                        <?php } ?>
+                        <?php if ($tax) { ?>
+                        <li><?php echo $text_tax; ?> <?php echo $tax; ?></li>
+                        <?php } ?>
+                        <?php if ($points) { ?>
+                        <li><?php echo $text_points; ?> <?php echo $points; ?></li>
+                        <?php } ?>
+                        <?php if ($discounts) { ?>
+                        <li>
+                          <hr>
+                        </li>
+                        <?php foreach ($discounts as $discount) { ?>
+                        <li><?php echo $discount['quantity']; ?><?php echo $text_discount; ?><?php echo $discount['price']; ?></li>
+                        <?php } ?>
+                        <?php } ?>
+                      </ul>
                       <?php } ?>
-                      <?php if ($tax) { ?>
-                      <li><?php echo $text_tax; ?> <?php echo $tax; ?></li>
-                      <?php } ?>
-                      <?php if ($points) { ?>
-                      <li><?php echo $text_points; ?> <?php echo $points; ?></li>
-                      <?php } ?>
-                      <?php if ($discounts) { ?>
-                      <li>
-                        <hr>
-                      </li>
-                      <?php foreach ($discounts as $discount) { ?>
-                      <li><?php echo $discount['quantity']; ?><?php echo $text_discount; ?><?php echo $discount['price']; ?></li>
-                      <?php } ?>
-                      <?php } ?>
-                    </ul>
-                    <?php } ?>
+                    </div>
+                  </div>
+                  <div class="product-options__button-buy form-group">
+                    <button type="button" id="button-cart" data-loading-text="<?php echo $text_loading; ?>" class="btn btn-default btn-block"><?php echo $button_tobook; ?>
+                    </button>
                   </div>
                 </div>
-
-                <div class="pruduct-buttons form-group">
-                  <button type="button" id="button-cart" data-loading-text="<?php echo $text_loading; ?>" class="btn btn-default btn-block"><?php echo $button_tobook; ?>
-                  </button>
-                </div>
               </div>
-              </div>
-
             </div>
           </div>
 

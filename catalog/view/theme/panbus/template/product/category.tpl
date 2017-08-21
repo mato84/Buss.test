@@ -59,8 +59,17 @@
         <?php foreach ($products as $product) { ?>
         <div class="product-layout product-list">
           <div itemtype="http://schema.org/Product" itemscope class="product-thumb">
-            <div class="image"><a href="<?php echo $product['href']; ?>"><img itemprop="image" src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>" title="<?php echo $product['name']; ?>" class="img-responsive" /></a></div>
-              <div class="caption">
+            <div class="product-thumb__caption-left">
+              <div class="image"><a href="<?php echo $product['href']; ?>"><img itemprop="image" src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>" title="<?php echo $product['name']; ?>" class="img-responsive" /></a>
+              </div>
+              <div class="product-thumb__manufacturer">
+              <ul class="list-unstyled">
+
+                <li><?php echo $text_manufacturer; ?><br> <a href="<?php echo $manufacturers; ?>"><span itemprop="brand">Стецик Т. В. ФОП</span></a></li>
+              </ul>
+              </div>
+            </div>
+            <div class="caption">
                 <h3 itemprop="name"><a href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a></h3>
                 <div class="description-group">
                   <p itemprop="description"><?php echo $product['description']; ?></p>

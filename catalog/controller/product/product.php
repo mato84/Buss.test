@@ -323,7 +323,7 @@ class ControllerProductProduct extends Controller {
 				$data['price'] = false;
 			}
 			// departure point
-      if(isset($product_info['departure_from'])){
+			if(isset($product_info['departure_from'])){
 				$data['departure_from'] = $product_info['departure_from'];
 			}
 			if ((float)$product_info['special']) {
