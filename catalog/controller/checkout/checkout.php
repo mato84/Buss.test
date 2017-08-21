@@ -380,13 +380,14 @@ class ControllerCheckoutCheckout extends Controller {
 						'type'                    => $option['type']
 					);
 				}
-
+        // add product to order data
 				$order_data['products'][] = array(
 					'cart_id'    => $product['cart_id'],
 					'product_id' => $product['product_id'],
 					'name'       => $product['name'],
 					// 'from_id'    => $product['from_id'],
 					// 'to_id'      => $product['to_id'],
+					'departure_from'  => $product['departure_from'],
 					'model'      => $product['model'],
 					'option'     => $option_data,
 					'download'   => $product['download'],
