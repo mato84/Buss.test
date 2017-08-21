@@ -29,7 +29,7 @@
                 <input type="password" name="password" value="<?php echo $password; ?>" placeholder="<?php echo $entry_password; ?>" id="input-password" class="form-control" />
                 <a href="<?php echo $forgotten; ?>"><?php echo $text_forgotten; ?></a></div>
               <div class="buttons-right">
-              <input type="submit" value="<?php echo $button_login; ?>" class="btn btn-primary" />
+              <input type="submit" value="<?php echo $button_login; ?>" class="btn btn-default" />
               </div>
               <?php if ($redirect) { ?>
               <input type="hidden" name="redirect" value="<?php echo $redirect; ?>" />

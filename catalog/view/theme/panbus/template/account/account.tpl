@@ -12,7 +12,7 @@
     <?php $class = 'col-sm-12'; ?>
     <?php } ?>
     <div id="content"><?php echo $content_top; ?>
-        <h2><?php echo $text_my_account; ?></h2>
+        <h1><?php echo $text_my_account; ?></h1>
       <div class="well">
         <ul class="list-unstyled">
           <li><a class="btn btn-default" href="<?php echo $edit; ?>"><?php echo $text_edit; ?></a></li>

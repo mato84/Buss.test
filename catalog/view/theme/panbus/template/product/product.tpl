@@ -9,7 +9,7 @@
     <?php } else { ?>
     <?php $class = 'col-sm-12'; ?>
     <?php } ?>
-    <div id="content">
+    <div id="content" itemscope itemtype="http://schema.org/Product">
       <div class="row">
         <?php if ($column_left || $column_right) { ?>
         <?php $class = 'col-sm-6'; ?>
@@ -22,21 +22,21 @@
               <div class="product-img">
                 <?php if ($thumb || $images) { ?>
                   <?php if ($thumb) { ?>
-                  <img src="<?php echo $thumb; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" />
+                  <img src="<?php echo $thumb; ?>" itemprop="image" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" />
                   <?php } ?>
                 <?php } ?>
               </div>
               <div class="product-manufacturer">
               <ul class="list-unstyled">
                 <?php if ($manufacturer) { ?>
-                <li><?php echo $text_manufacturer; ?> <a href="<?php echo $manufacturers; ?>"><?php echo $manufacturer; ?></a></li>
+                <li><?php echo $text_manufacturer; ?><br> <a href="<?php echo $manufacturers; ?>"><span itemprop="brand"><?php echo $manufacturer; ?></span></a></li>
                 <?php } ?>
               </ul>
               </div>
             </div>
             <div class="details-caption-right">
               <div class="product-title">
-                <h1><?php echo $heading_title; ?></h1>
+                <h1 itemprop="name"><?php echo $heading_title; ?></h1>
               </div>
               <div class="product-options" id="product">
                 <?php if ($options) { ?>
@@ -166,6 +166,11 @@
                 <div class="price-block form-group">
                   <div class="pruduct-price">
                     <?php if ($price) { ?>
+                    <span itemscope itemprop="offers" itemtype="http://schema.org/Offer">
+                      <meta itemprop="price" content="<?php echo rtrim(preg_replace("/[^0-9\.]/", "", ($special ? $special : $price)), '.'); ?>">
+                      <meta itemprop="priceCurrency" content="<?php echo $currency; ?>">
+                      <link itemprop="availability" href="http://schema.org/<?php echo (($availability) ? 'InStock' : 'OutOfStock') ?>" />
+                    </span>
                     <ul class="list-unstyled">
                       <?php if (!$special) { ?>
                       <li>
@@ -211,6 +216,13 @@
             <div class="product-rating">
               <?php if ($review_status) { ?>
                 <div class="rating">
+                  <?php if ($rating) { ?>
+                    <span itemscope itemprop="aggregateRating" itemtype="http://schema.org/AggregateRating">
+                      <meta itemprop="reviewCount" content="<?php echo $reviewCount; ?>">
+                      <meta itemprop="ratingValue" content="<?php echo $ratingValue; ?>">
+                      <meta itemprop="bestRating" content="5"><meta itemprop="worstRating" content="1">
+                    </span>
+                  <?php } ?>
                   <p>
                 <?php for ($i = 1; $i <= 5; $i++) { ?>
                 <?php if ($rating < $i) { ?>
@@ -245,7 +257,7 @@
                 <?php } ?>
               </ul>
               <div class="tab-content">
-                <div class="tab-pane active" id="tab-description">description</div>
+                <div class="tab-pane active" id="tab-description" itemprop="description"><?php echo $description; ?></div>
                 <?php if ($review_status) { ?>
                 <div class="tab-pane" id="tab-review">
                   <form class="form-horizontal" id="form-review">

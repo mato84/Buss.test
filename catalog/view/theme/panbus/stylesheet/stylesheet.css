@@ -173,7 +173,7 @@ header {
     background-size: cover;
     -o-background-size: cover;
     background-position: center center;
-    background-image: url(/image/catalog/gallery/background.jpg);
+    background-image: url(/image/catalog/background.jpg);
     background-attachment: fixed;
     text-align: center;
     color: white;
@@ -193,6 +193,12 @@ header {
 
 .common-home header {
     height: 110vh;
+}
+
+@media (min-width: 768px) {
+	.common-home header {
+	    height: 100vh;
+	}
 }
 
 .block-bg-overlay {
@@ -1100,6 +1106,7 @@ footer .powered {
     color: #ffffff;
     background-color: #cd4e37;
     border: 2px solid #cd4e37;
+    line-height: 1.4;
 }
 
 .btn-default:hover,
@@ -1489,7 +1496,6 @@ h2.price {
 
 .product-details .details-caption-left {
     padding: 20px;
-    text-align: center;
 }
 
 .product-details .details-caption-left .product-img img {
@@ -1542,6 +1548,10 @@ h2.price {
     margin: 30px 0 20px;
 }
 
+.product-details .product-options .text-danger {
+	margin-top: -17px;
+}
+
 .product-details .product-options .form-group {
     display: block;
 }
@@ -1563,6 +1573,10 @@ h2.price {
         vertical-align: top;
         margin-right: 30px;
     }
+}
+
+.product-details .product-options .option-data .date {
+	margin-bottom: 20px;
 }
 
 .product-details .product-options .option-time {
@@ -1758,6 +1772,11 @@ h2.price {
     width: 100%;
 }
 
+.account-forgotten fieldset {
+	max-width: 300px;
+    margin: 20px auto;
+}
+
 .checkout-checkout .table-responsive .table>thead {
 	background-color: #EFEFEF;
 }
@@ -1811,13 +1830,22 @@ h2.price {
     margin-bottom: 40px;
 }
 
+.contact-block h4 {
+	margin-bottom: 20px;
+}
+
 .contact-block a {
     display: block;
     text-align: center;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     padding: 3px 8px;
     border: 1px solid #cd4e37;
     font-size: 16px;
+}
+
+.contact-block.telephone a {
+	min-width: 157px;
+	text-align: left;
 }
 
 .information-contact #content>div>div>div:nth-child(1) h4 .fa {

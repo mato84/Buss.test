@@ -52,6 +52,7 @@ $_['column_quantity']                = 'Кількість';
 $_['column_price']                   = 'Ціна за одиницю';
 $_['column_departure']               = 'Відправлення з: ';
 $_['column_total']                   = 'Загалом';
+$_['button_remove']                  = 'Видалити';
 
 // Entry
 $_['entry_email_address']            = 'E-Mail';
