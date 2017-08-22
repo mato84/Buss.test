@@ -61,12 +61,46 @@
                   <?php } ?>
                 </div>
               </div>
-              <div class="form-group">
-                <label class="col-sm-2 control-label" for="input-departure"><?php echo $entry_departure; ?></label>
-                <div class="col-sm-10">
-                  <input type="text" name="departure_from" value="<?php echo $departure_from; ?>" placeholder="<?php echo $entry_departure; ?>" id="input-departure" class="form-control" />
+              <div class="form-group required">
+                <label class="col-sm-2 control-label" for="input-departure_time"><?php echo $entry_departure_time; ?></label>
+                <div class="col-sm-3">
+                  <div class="input-group time">
+                    <input type="text" name="departure_time" value="<?php echo $departure_time; ?>"  placeholder="<?php echo $entry_departure_time; ?>" data-date-format="HH:mm" id="input-departure_time" class="form-control" />
+                    <span class="input-group-btn">
+                    <button type="button" class="btn btn-default"><i class="fa fa-calendar"></i></button>
+                    </span></div>
+                    <?php if ($error_departure_time != "") { ?>
+                    <div class="text-danger"><?php echo $error_departure_time; ?></div>
+                    <?php } ?>
                 </div>
               </div>
+
+              <div class="form-group required">
+                <label class="col-sm-2 control-label" for="input-arrival_time"><?php echo $entry_arrival_time; ?></label>
+                <div class="col-sm-3">
+                  <div class="input-group time">
+                    <input type="text" name="arrival_time" value="<?php echo $arrival_time; ?>"  placeholder="<?php echo $entry_arrival_time; ?>" data-date-format="HH:mm" id="input-arrival_time" class="form-control" />
+                    <span class="input-group-btn">
+                    <button type="button" class="btn btn-default"><i class="fa fa-calendar"></i></button>
+                    </span></div>
+                    <?php if ($error_arrival_time != "") { ?>
+                    <div class="text-danger"><?php echo $error_arrival_time; ?></div>
+                    <?php } ?>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label" for="input-departure_from"><?php echo $entry_departure_from; ?></label>
+                <div class="col-sm-10">
+                  <input type="text" name="departure_from" value="<?php echo $departure_from; ?>" placeholder="<?php echo $entry_departure_from; ?>" id="input-departure_from" class="form-control" />
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label" for="input-departure_to"><?php echo $entry_departure_to; ?></label>
+                <div class="col-sm-10">
+                  <input type="text" name="departure_to" value="<?php echo $departure_to; ?>" placeholder="<?php echo $entry_departure_to; ?>" id="input-departure_to" class="form-control" />
+                </div>
+              </div>
+
               <div class="form-group required hidden">
                 <label class="col-sm-2 control-label" for="input-model"><?php echo $entry_model; ?></label>
                 <div class="col-sm-10">
@@ -284,7 +318,7 @@
                   <div class="form-group required">
                     <label class="col-sm-2 control-label" for="input-name<?php echo $language['language_id']; ?>"><?php echo $entry_name; ?></label>
                     <div class="col-sm-10 ">
-                      <input type="text" name="product_description[<?php echo $language['language_id']; ?>][name]" value="<?php echo isset($product_description[$language['language_id']]) ? $product_description[$language['language_id']]['pre_name'] : 'Квиток на автобус'; ?>" placeholder="<?php echo $entry_name; ?>" id="input-name<?php echo $language['language_id']; ?>" class="form-control" />
+                      <input type="text" name="product_description[<?php echo $language['language_id']; ?>][pre_name]" value="<?php echo isset($product_description[$language['language_id']]) ? $product_description[$language['language_id']]['pre_name'] : 'Квиток на автобус'; ?>" placeholder="<?php echo $entry_name; ?>" id="input-name<?php echo $language['language_id']; ?>" class="form-control" />
                       <?php if (isset($error_name[$language['language_id']])) { ?>
                       <div class="text-danger"><?php echo $error_name[$language['language_id']]; ?></div>
                       <?php } ?>

@@ -450,7 +450,10 @@ class ControllerCatalogProduct extends Controller {
 		$data['entry_model'] = $this->language->get('entry_model');
 		$data['entry_from'] = $this->language->get('entry_from');
 		$data['entry_to'] = $this->language->get('entry_to');
-		$data['entry_departure'] = $this->language->get('entry_departure');
+		$data['entry_departure_from'] = $this->language->get('entry_departure_form');
+		$data['entry_departure_to'] = $this->language->get('entry_departure_to');
+		$data['entry_departure_time'] = $this->language->get('entry_departure_time');
+		$data['entry_arrival_time'] = $this->language->get('entry_arrival_time');
 		$data['entry_price'] = $this->language->get('entry_price');
 		$data['entry_quantity'] = $this->language->get('entry_quantity');
 		$data['entry_status'] = $this->language->get('entry_status');
@@ -641,7 +644,10 @@ class ControllerCatalogProduct extends Controller {
 		$data['entry_model'] = $this->language->get('entry_model');
 		$data['entry_from'] = $this->language->get('entry_from');
 		$data['entry_to'] = $this->language->get('entry_to');
-		$data['entry_departure'] = $this->language->get('entry_departure');
+		$data['entry_departure_from'] = $this->language->get('entry_departure_from');
+		$data['entry_departure_to'] = $this->language->get('entry_departure_to');
+		$data['entry_departure_time'] = $this->language->get('entry_departure_time');
+		$data['entry_arrival_time'] = $this->language->get('entry_arrival_time');
 		$data['entry_sku'] = $this->language->get('entry_sku');
 		$data['entry_upc'] = $this->language->get('entry_upc');
 		$data['entry_ean'] = $this->language->get('entry_ean');
@@ -759,6 +765,16 @@ class ControllerCatalogProduct extends Controller {
 			$data['error_to'] = $this->error['to'];
 		} else {
 			$data['error_to'] = '';
+		}
+		if (isset($this->error['departure_time'])) {
+			$data['error_departure_time'] = $this->error['departure_time'];
+		} else {
+			$data['error_departure_time'] = '';
+		}
+		if (isset($this->error['arrival_time'])) {
+			$data['error_arrival_time'] = $this->error['arrival_time'];
+		} else {
+			$data['error_arrival_time'] = '';
 		}
 
 		if (isset($this->error['keyword'])) {
@@ -893,6 +909,29 @@ class ControllerCatalogProduct extends Controller {
 			$data['departure_from'] = $product_info['departure_from'];
 		} else {
 			$data['departure_from'] = '';
+		}
+
+		if (isset($this->request->post['departure_to'])) {
+			$data['departure_to'] = $this->request->post['departure_to'];
+		} elseif (!empty($product_info)) {
+			$data['departure_to'] = $product_info['departure_to'];
+		} else {
+			$data['departure_to'] = '';
+		}
+		if (isset($this->request->post['departure_time'])) {
+			$data['departure_time'] = $this->request->post['departure_time'];
+		} elseif (!empty($product_info)) {
+			$data['departure_time'] = $product_info['departure_time'];
+		} else {
+			$data['departure_time'] = "";
+		}
+
+		if (isset($this->request->post['arrival_time'])) {
+			$data['arrival_time'] = $this->request->post['arrival_time'];
+		} elseif (!empty($product_info)) {
+			$data['arrival_time'] = $product_info['arrival_time'];
+		} else {
+			$data['arrival_time'] = "";
 		}
 
 		if (isset($this->request->post['sku'])) {
@@ -1492,7 +1531,7 @@ class ControllerCatalogProduct extends Controller {
 		}
 
 		foreach ($this->request->post['product_description'] as $language_id => $value) {
-			if ((utf8_strlen($value['name']) < 3) || (utf8_strlen($value['name']) > 255)) {
+			if ((utf8_strlen($value['pre_name']) < 3) || (utf8_strlen($value['pre_name']) > 255)) {
 				$this->error['name'][$language_id] = $this->language->get('error_name');
 			}
 		}
@@ -1511,6 +1550,13 @@ class ControllerCatalogProduct extends Controller {
 		}
 		if (empty($this->request->post['to_id'] or isset($this->error['to'])) ) {
 			$this->error['to'] = $this->language->get('error_to_id');
+		}
+
+		if ((utf8_strlen($this->request->post['departure_time']) < 1) || (utf8_strlen($this->request->post['departure_time']) > 10)) {
+			$this->error['departure_time'] = $this->language->get('error_departure_time');
+		}
+		if ((utf8_strlen($this->request->post['arrival_time']) < 1) || (utf8_strlen($this->request->post['arrival_time']) > 10)) {
+			$this->error['arrival_time'] = $this->language->get('error_arrival_time');
 		}
 
 		if (utf8_strlen($this->request->post['keyword']) > 0) {
