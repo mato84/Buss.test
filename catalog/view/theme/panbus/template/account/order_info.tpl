@@ -60,7 +60,10 @@
                   <br />
                   &nbsp;<small>  <?php echo $option['name']; ?> <?php echo $option['value']; ?></small>
                   <?php } ?><br>
-                  &nbsp;<small>  <?php echo $column_departure; ?> <?php echo $product['departure_from']; ?></small>
+                  &nbsp;<small>  <?php echo $column_departure_time; ?> <?php echo $product['departure_time']; ?></small><br>                 
+                  &nbsp;<small>  <?php echo $column_departure_from; ?> <?php echo $product['departure_from']; ?></small><br>
+                  &nbsp;<small>  <?php echo $column_arrival_time; ?> <?php echo $product['arrival_time']; ?></small><br>                  
+                  &nbsp;<small>  <?php echo $column_departure_to; ?> <?php echo $product['departure_to']; ?></small>
                 </td>
                 <td class="text-right"><?php echo $product['quantity']; ?></td>
                 <td class="text-right"><?php echo $product['price']; ?></td>

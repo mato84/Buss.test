@@ -36,6 +36,10 @@ $_['column_action']         = 'Действие';
 $_['column_date_added']     = 'Добавлено';
 $_['column_status']         = 'Статус заказа';
 $_['column_comment']        = 'Комментарий';
+$_['column_departure_from'] = 'Адрес отправления';
+$_['column_departure_to']   = 'Адрес прибытия';
+$_['column_departure_time'] = 'Время отправления';
+$_['column_arrival_time']   = 'Время прибытия';
 
 // Error
 $_['error_reorder']         = '%s в данный момент недоступен для заказа.';

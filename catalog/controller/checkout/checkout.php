@@ -388,6 +388,9 @@ class ControllerCheckoutCheckout extends Controller {
 					// 'from_id'    => $product['from_id'],
 					// 'to_id'      => $product['to_id'],
 					'departure_from'  => $product['departure_from'],
+					'departure_to'  => $product['departure_to'],
+					'departure_time'  => $product['departure_time'],
+					'arrival_time'  => $product['arrival_time'],
 					'model'      => $product['model'],
 					'option'     => $option_data,
 					'download'   => $product['download'],
@@ -500,10 +503,13 @@ class ControllerCheckoutCheckout extends Controller {
 			$data['column_model'] = $this->language->get('column_model');
 			$data['column_quantity'] = $this->language->get('column_quantity');
 			$data['column_price'] = $this->language->get('column_price');
-			$data['column_departure'] = $this->language->get('column_departure');
+			$data['column_departure_from'] = $this->language->get('column_departure_from');
+			$data['column_departure_to'] = $this->language->get('column_departure_to');
+			$data['column_departure_time'] = $this->language->get('column_departure_time');
+			$data['column_arrival_time'] = $this->language->get('column_arrival_time');
 			$data['column_total'] = $this->language->get('column_total');
 			$data['button_remove'] = $this->language->get('button_remove');
-			
+
 			$this->load->model('tool/image');
 			$this->load->model('tool/upload');
 
@@ -566,6 +572,9 @@ class ControllerCheckoutCheckout extends Controller {
 					// 'from'       => $product['from_t'],
 					// 'to'         => $product['to_t'],
 					'departure_from'  => $product['departure_from'],
+					'departure_to'    => $product['departure_to'],
+					'departure_time'  => $product['departure_time'],
+					'arrival_time'  => $product['arrival_time'],
 					'name'       => $product['name'],
 					'model'      => $product['model'],
 					'option'     => $option_data,

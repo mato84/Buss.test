@@ -1776,7 +1776,7 @@ h2.price {
 .ticket .ticket-img,
 .ticket .ticket-info {
 	display: inline-block;
-	vertical-align: top;
+	vertical-align: middle;
 }
 .ticket .ticket-info {
 	margin-left: 10px;

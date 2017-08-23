@@ -135,10 +135,13 @@
                 </div>
                 <?php } ?>
                 <?php } ?>
-                <?php } ?>
+                <?php } ?>            
                 <div class="departure-from form-group">
-                  <label class="control-label"><?php echo $text_departure; ?></label>               
+                  <label class="control-label" for=""><?php echo $text_departure; ?></label>
                   <div class="departure-from__value"><?php echo $departure_from; ?></div>
+                  <div class="departure-from__value"><?php echo $departure_to; ?></div>
+                    <div class="departure-from__value"><?php echo $departure_time; ?></div>
+                      <div class="departure-from__value"><?php echo $arrival_time; ?></div>
                 </div>
                 <?php if ($attribute_groups) { ?>
                 <div class="timeinroad form-group">

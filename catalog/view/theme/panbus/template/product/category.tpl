@@ -73,6 +73,10 @@
                 <h3 itemprop="name"><a href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a></h3>
                 <div class="description-group">
                   <p itemprop="description"><?php echo $product['description']; ?></p>
+                  <div class="departure-from__value"><?php echo $product['departure_from']; ?></div>
+                  <div class="departure-from__value"><?php echo $product['departure_to']; ?></div>
+                  <div class="departure-from__value"><?php echo $product['departure_time']; ?></div>
+                  <div class="departure-from__value"><?php echo $product['arrival_time']; ?></div>
                 </div>
                 <?php if ($product['price']) { ?>
                 <div class="price-group">
@@ -105,7 +109,7 @@
                   <?php } ?>
                   <?php } ?>
                 </div>
-                <?php } ?>                
+                <?php } ?>
               </div>
           </div>
         </div>
