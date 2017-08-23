@@ -44,8 +44,6 @@ class ControllerCheckoutConfirm extends Controller {
 		if (!$json){
 		$this->load->model('checkout/order');
 
-
-
 		$order_data = $this->session->data['order_data'];
     if(!isset($this->request->post['comment'])){
 			$order_data['comment'] = '';
