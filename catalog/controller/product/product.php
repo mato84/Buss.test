@@ -253,7 +253,7 @@ class ControllerProductProduct extends Controller {
 			$data['text_related'] = $this->language->get('text_related');
 			$data['text_payment_recurring'] = $this->language->get('text_payment_recurring');
 			$data['text_loading'] = $this->language->get('text_loading');
-			$data['text_departure'] = $this->language->get('text_departure');			
+			$data['text_departure'] = $this->language->get('text_departure');
 
 			$data['entry_qty'] = $this->language->get('entry_qty');
 			$data['entry_name'] = $this->language->get('entry_name');
@@ -325,6 +325,15 @@ class ControllerProductProduct extends Controller {
 			// departure point
       if(isset($product_info['departure_from'])){
 				$data['departure_from'] = $product_info['departure_from'];
+			}
+			if(isset($product_info['departure_to'])){
+				$data['departure_to'] = $product_info['departure_to'];
+			}
+			if(isset($product_info['departure_time'])){
+				$data['departure_time'] = $product_info['departure_time'];
+			}
+			if(isset($product_info['arrival_time'])){
+				$data['arrival_time'] = $product_info['arrival_time'];
 			}
 			if ((float)$product_info['special']) {
 				$data['special'] = $this->currency->format($this->tax->calculate($product_info['special'], $product_info['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']);
@@ -463,6 +472,7 @@ class ControllerProductProduct extends Controller {
 					'thumb'       => $image,
 					'name'        => $result['name'],
 					'departure_from' => $result['departure_from'],
+					'departure_to' => $result['departure_to'],
 					'description' => utf8_substr(strip_tags(html_entity_decode($result['description'], ENT_QUOTES, 'UTF-8')), 0, $this->config->get($this->config->get('config_theme') . '_product_description_length')) . '..',
 					'price'       => $price,
 					'special'     => $special,

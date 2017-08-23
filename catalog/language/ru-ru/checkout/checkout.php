@@ -45,7 +45,10 @@ $_['column_name']                    = 'Наименование товара';
 $_['column_model']                   = 'Модель';
 $_['column_quantity']                = 'Кол-во';
 $_['column_price']                   = 'Цена за шт.';
-$_['column_departure']               = 'Адрес отправления';
+$_['column_departure_from']          = 'Адрес отправления';
+$_['column_departure_to']            = 'Адрес прибытия';
+$_['column_departure_time']          = 'Время отправления';
+$_['column_arrival_time']            = 'Время прибытия';
 $_['column_total']                   = 'Всего';
 
 // Entry

@@ -225,6 +225,10 @@ class ControllerProductCategory extends Controller {
 					'product_id'  => $result['product_id'],
 					'thumb'       => $image,
 					'name'        => $result['name'],
+					'departure_from' => $result['departure_from'],
+					'departure_to' => $result['departure_to'],
+					'departure_time' => $result['departure_time'],
+					'arrival_time' => $result['arrival_time'],
 					'description' => utf8_substr(strip_tags(html_entity_decode($result['description'], ENT_QUOTES, 'UTF-8')), 0, $this->config->get($this->config->get('config_theme') . '_product_description_length')),
 					'price'       => $price,
 					/* *** MICRODATA *** */

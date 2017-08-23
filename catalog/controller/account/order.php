@@ -10,13 +10,13 @@ class ControllerAccountOrder extends Controller {
 		$this->load->language('account/order');
 
 		$this->document->setTitle($this->language->get('heading_title'));
-		
+
 		$url = '';
 
 		if (isset($this->request->get['page'])) {
 			$url .= '&page=' . $this->request->get['page'];
 		}
-		
+
 		$data['breadcrumbs'] = array();
 
 		$data['breadcrumbs'][] = array(
@@ -28,7 +28,7 @@ class ControllerAccountOrder extends Controller {
 			'text' => $this->language->get('text_account'),
 			'href' => $this->url->link('account/account', '', true)
 		);
-		
+
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('heading_title'),
 			'href' => $this->url->link('account/order', $url, true)
@@ -44,7 +44,11 @@ class ControllerAccountOrder extends Controller {
 		$data['column_total'] = $this->language->get('column_total');
 		$data['column_status'] = $this->language->get('column_status');
 		$data['column_date_added'] = $this->language->get('column_date_added');
-		$data['column_departure'] = $this->language->get('column_departure');
+		$data['column_departure_from'] = $this->language->get('column_departure_from');
+		$data['column_departure_to'] = $this->language->get('column_departure_to');
+		$data['column_departure_time'] = $this->language->get('column_departure_time');
+		$data['column_arrival_time'] = $this->language->get('column_arrival_time');
+
 
 		$data['button_view'] = $this->language->get('button_view');
     	$data['button_ocstore_payeer_onpay'] = $this->language->get('button_ocstore_payeer_onpay');
@@ -181,6 +185,10 @@ class ControllerAccountOrder extends Controller {
 			$data['column_date_added'] = $this->language->get('column_date_added');
 			$data['column_status'] = $this->language->get('column_status');
 			$data['column_comment'] = $this->language->get('column_comment');
+			$data['column_departure_from'] = $this->language->get('column_departure_from');
+			$data['column_departure_to'] = $this->language->get('column_departure_to');
+			$data['column_departure_time'] = $this->language->get('column_departure_time');
+			$data['column_arrival_time'] = $this->language->get('column_arrival_time');
 
 			$data['button_reorder'] = $this->language->get('button_reorder');
 			$data['button_return'] = $this->language->get('button_return');
@@ -327,7 +335,10 @@ class ControllerAccountOrder extends Controller {
 					'name'     => $product['name'],
 					'model'    => $product['model'],
 					'option'   => $option_data,
-					'departure_from'  => $product['departure_from'],
+					'departure_from' => $product_info['departure_from'],
+					'departure_to' => $product_info['departure_to'],
+					'departure_time' => $product_info['departure_time'],
+					'arrival_time' => $product_info['arrival_time'],
 					'quantity' => $product['quantity'],
 					'price'    => $this->currency->format($product['price'] + ($this->config->get('config_tax') ? $product['tax'] : 0), $order_info['currency_code'], $order_info['currency_value']),
 					'total'    => $this->currency->format($product['total'] + ($this->config->get('config_tax') ? ($product['tax'] * $product['quantity']) : 0), $order_info['currency_code'], $order_info['currency_value']),
