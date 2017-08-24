@@ -44,10 +44,8 @@ class ControllerAccountOrder extends Controller {
 		$data['column_total'] = $this->language->get('column_total');
 		$data['column_status'] = $this->language->get('column_status');
 		$data['column_date_added'] = $this->language->get('column_date_added');
-		$data['column_departure_from'] = $this->language->get('column_departure_from');
-		$data['column_departure_to'] = $this->language->get('column_departure_to');
-		$data['column_departure_time'] = $this->language->get('column_departure_time');
-		$data['column_arrival_time'] = $this->language->get('column_arrival_time');
+		$data['text_departure'] = $this->language->get('text_departure');
+		$data['text_arrival'] = $this->language->get('text_arrival');
 
 
 		$data['button_view'] = $this->language->get('button_view');
@@ -185,11 +183,8 @@ class ControllerAccountOrder extends Controller {
 			$data['column_date_added'] = $this->language->get('column_date_added');
 			$data['column_status'] = $this->language->get('column_status');
 			$data['column_comment'] = $this->language->get('column_comment');
-			$data['column_departure_from'] = $this->language->get('column_departure_from');
-			$data['column_departure_to'] = $this->language->get('column_departure_to');
-			$data['column_departure_time'] = $this->language->get('column_departure_time');
-			$data['column_arrival_time'] = $this->language->get('column_arrival_time');
-
+			$data['text_departure'] = $this->language->get('text_departure');
+			$data['text_arrival'] = $this->language->get('text_arrival');
 			$data['button_reorder'] = $this->language->get('button_reorder');
 			$data['button_return'] = $this->language->get('button_return');
 			$data['button_continue'] = $this->language->get('button_continue');

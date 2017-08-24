@@ -503,10 +503,8 @@ class ControllerCheckoutCheckout extends Controller {
 			$data['column_model'] = $this->language->get('column_model');
 			$data['column_quantity'] = $this->language->get('column_quantity');
 			$data['column_price'] = $this->language->get('column_price');
-			$data['column_departure_from'] = $this->language->get('column_departure_from');
-			$data['column_departure_to'] = $this->language->get('column_departure_to');
-			$data['column_departure_time'] = $this->language->get('column_departure_time');
-			$data['column_arrival_time'] = $this->language->get('column_arrival_time');
+			$data['text_departure'] = $this->language->get('text_departure');
+			$data['text_arrival'] = $this->language->get('text_arrival');
 			$data['column_total'] = $this->language->get('column_total');
 			$data['button_remove'] = $this->language->get('button_remove');
 

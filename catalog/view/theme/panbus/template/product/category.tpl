@@ -73,10 +73,20 @@
                 <h3 itemprop="name"><a href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a></h3>
                 <div class="description-group">
                   <p itemprop="description"><?php echo $product['description']; ?></p>
-                  <div class="departure-from__value"><?php echo $product['departure_from']; ?></div>
-                  <div class="departure-from__value"><?php echo $product['departure_to']; ?></div>
-                  <div class="departure-from__value"><?php echo $product['departure_time']; ?></div>
-                  <div class="departure-from__value"><?php echo $product['arrival_time']; ?></div>
+                  <div class="form-group_margin">
+                    <label class="control-label" for=""><?php echo $text_departure; ?></label>
+                    <div class="form-group_bg">
+                      <div class="form-group__value form-group__value_time"><?php echo $product['departure_time']; ?></div>
+                      <div class="form-group__value"><?php echo $product['departure_from']; ?></div>
+                    </div>
+                  </div>
+                  <div class="form-group_margin">
+                    <label class="control-label" for=""><?php echo $text_arrival; ?></label>
+                    <div class="form-group_bg">
+                      <div class="form-group__value form-group__value_time"><?php echo $product['arrival_time']; ?></div>
+                      <div class="form-group__value"><?php echo $product['departure_to']; ?></div>
+                    </div>
+                  </div>                  
                 </div>
                 <?php if ($product['price']) { ?>
                 <div class="price-group">

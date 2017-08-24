@@ -97,17 +97,15 @@
       <tr>
         <td style="font-size: 16px;	border-bottom: 1px solid #DDDDDD; text-align: left; padding: 10px;">
           <div style="border-left: 4px solid #cd4e37; padding: 0 8px; ">
-            <img src="<?php echo $logo; ?>" style="width:60px; margin-right: 10px; margin-top: 8px; display: inline-block; vertical-align: top;" />
-            <div style="display: inline-block; vertical-align: top;">
+            <img src="<?php echo $logo; ?>" style="width:60px; margin-right: 10px; margin-top: 8px; display: inline-block; vertical-align: middle;" />
+            <div style="display: inline-block; vertical-align: middle;">
             <a style="color: #cd4e37; text-decoration: none; " href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a>
             <?php foreach ($product['option'] as $option) { ?>
             <br />
             &nbsp;<small> - <?php echo $option['name']; ?> <b><?php echo $option['value']; ?></b></small>
-            <?php } ?>
-            &nbsp;<small> - <?php echo $text_departure; ?> <b><?php echo $product['departure_from']; ?></b></small>
-            &nbsp;<small> - <?php echo $text_departure; ?> <b><?php echo $product['departure_to']; ?></b></small>
-            &nbsp;<small> - <?php echo $text_departure; ?> <b><?php echo $product['departure_time']; ?></b></small>
-            &nbsp;<small> - <?php echo $text_departure; ?> <b><?php echo $product['arrival_time']; ?></b></small>
+            <?php } ?><br>
+                  &nbsp;<small> - <?php echo $text_departure; ?> <b><?php echo $product['departure_time']; ?> <?php echo $product['departure_from']; ?></b></small><br>                 
+                  &nbsp;<small> - <?php echo $text_arrival; ?> <b><?php echo $product['arrival_time']; ?> <?php echo $product['departure_to']; ?></b></small><br>
             </div>
           </div>
 

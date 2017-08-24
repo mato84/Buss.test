@@ -117,6 +117,8 @@ class ControllerProductCategory extends Controller {
 			$data['text_compare'] = sprintf($this->language->get('text_compare'), (isset($this->session->data['compare']) ? count($this->session->data['compare']) : 0));
 			$data['text_sort'] = $this->language->get('text_sort');
 			$data['text_limit'] = $this->language->get('text_limit');
+			$data['text_departure'] = $this->language->get('text_departure');
+			$data['text_arrival'] = $this->language->get('text_arrival');	
 
 			$data['button_cart'] = $this->language->get('button_cart');
 			$data['button_wishlist'] = $this->language->get('button_wishlist');

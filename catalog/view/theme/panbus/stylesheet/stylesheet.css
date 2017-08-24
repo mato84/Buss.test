@@ -62,9 +62,9 @@ legend {
 }
 
 label {
+	display: block;
     font-size: 14px;
     font-weight: normal;
-    vertical-align: top;
     line-height: 20px;
 }
 
@@ -1313,12 +1313,16 @@ footer .powered {
 }
 
 .product-thumb__caption-left {
-    display: inline-block;
-    vertical-align: top;
-    float: left;	
+    display: block;
+    text-align: center;    		
 }
-.product-thumb .image {
-    text-align: center;
+
+@media (min-width: 768px) {
+    .product-thumb__caption-left {
+		display: inline-block;
+		vertical-align: top;
+		text-align: left;
+    }
 }
 
 .product-thumb .image a {
@@ -1328,7 +1332,7 @@ footer .powered {
 .product-thumb .image img {
     margin-left: auto;
     margin-right: auto;
-    max-width: 190px;
+    max-width: 150px;
 }
 
 .product-grid .product-thumb .image {
@@ -1337,8 +1341,7 @@ footer .powered {
 
 @media (min-width: 768px) {
     .product-thumb__caption-left {
-
-        padding: 0  20px 20px;
+        padding: 0  20px;
 
     }
 }
@@ -1441,10 +1444,50 @@ h2.price {
     margin: 40px 0;
 }
 
+.product-thumb .form-group {
+    display: block;
+    margin-bottom: 0px;
+}
+
+@media (min-width: 768px) {
+    .product-thumb .form-group {
+		display: inline-block;
+		vertical-align: top;
+    }
+}
+
+.product-thumb .form-group__value {
+	display: inline-block;
+	vertical-align: top;
+	font-size: 15px;
+}
+
+.product-thumb .form-group__value_time {
+	min-width: 70px;
+	font-size: 19px;
+}
+
+.product-thumb .form-group_margin {
+    margin-bottom: 20px;
+}
+
+.product-thumb .form-group_bg {
+	padding: 3px 8px;
+	background-color: #eeeeee;
+}
+
+@media (min-width: 768px) {
+    .product-thumb .form-group_bg {
+	display: inline-block;
+	vertical-align: top;
+    }
+}
+
+
 @media (min-width: 768px) {
     .product-thumb .price-group {
         text-align: right;
-        margin: 20px 0;
+        margin: 55px 0 20px;
         padding: 0 20px;
         float: right;
     }
@@ -1562,7 +1605,16 @@ h2.price {
 
 .product-options .form-group {
     display: block;
-    margin-bottom: 30px;
+    margin-bottom: 0px;
+}
+
+.product-options .form-group_margin {
+	margin-bottom: 20px;
+}
+
+.product-options .form-group_bg {
+	padding: 0 8px;
+	background-color: #eeeeee;
 }
 
 @media (min-width: 768px) {
@@ -1617,13 +1669,14 @@ h2.price {
     width: 120px
 }
 
-.product-details .departure-from {
-	font-size: 19px;
-	line-height: 25px;
+.product-options .form-group__value {
+	font-size: 16px;
+	line-height: 40px;
 }
 
-.product-details .departure-from .departure-from__value {
-	line-height: 35px;
+.product-options .form-group__value_time {
+	min-width: 70px;
+	font-size: 20px;
 }
 
 .product-details .timeinroad {
@@ -1638,8 +1691,7 @@ h2.price {
 
 @media (min-width: 768px) {
     .product-details .option-quattity {
-        width: 70px;
-        margin-left: 30px;
+        width: 85px;
         text-align: left;
     }
 }
@@ -1658,11 +1710,12 @@ h2.price {
 .product-details .price-block {
     text-align: center;
     vertical-align: bottom;
+    padding: 15px;
 }
 
 @media (min-width: 768px) {
     .product-details .price-block {
-        padding: 0 40px;
+        padding: 6px 40px;
         min-width: 230px;
     }
 }

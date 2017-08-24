@@ -37,10 +37,8 @@ $_['column_action']         = 'Дія';
 $_['column_date_added']     = 'Дата створення';
 $_['column_status']         = 'Статус замовлення';
 $_['column_comment']        = 'Коментарі';
-$_['column_departure_from'] = 'Адрес відправлення';
-$_['column_departure_to']   = 'Адрес прибуття';
-$_['column_departure_time'] = 'Час відправлення';
-$_['column_arrival_time']   = 'Час прибуття';
+$_['text_departure'] 		= 'Відправлення:';
+$_['text_arrival']   		= 'Прибуття:';
 
 // Error
 $_['error_reorder']         = '%s зараз недоступний для замовлення.';

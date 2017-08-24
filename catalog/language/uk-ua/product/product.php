@@ -35,7 +35,8 @@ $_['text_week']                               = 'тиждень';
 $_['text_semi_month']                         = 'половина місяця';
 $_['text_month']                              = 'місяць';
 $_['text_year']                               = 'рік';
-$_['text_departure']                          = 'Відправлення з: ';
+$_['text_departure']                     	  = 'Відправлення: ';
+$_['text_arrival']                            = 'Прибуття: ';
 $_['button_tobook']                           = 'Бронювати';
 
 // Entry

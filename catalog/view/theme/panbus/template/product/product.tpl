@@ -114,7 +114,7 @@
                 <?php } ?>
 
                 <?php if ($option['type'] == 'datetime') { ?>
-                <div class="form-group<?php echo ($option['required'] ? ' required' : ''); ?>">
+                <div class="form-group form-group_margin <?php echo ($option['required'] ? ' required' : ''); ?>">
                   <label class="control-label" for="input-option<?php echo $option['product_option_id']; ?>"><?php echo $option['name']; ?></label>
                   <div class="input-group datetime">
                     <input type="text" name="option[<?php echo $option['product_option_id']; ?>]" value="<?php echo $option['value']; ?>" data-date-format="YYYY-MM-DD HH:mm" id="input-option<?php echo $option['product_option_id']; ?>" class="form-control" />
@@ -135,13 +135,26 @@
                 </div>
                 <?php } ?>
                 <?php } ?>
-                <?php } ?>            
-                <div class="departure-from form-group">
+                <?php } ?>
+                <div class="form-group form-group_margin">
                   <label class="control-label" for=""><?php echo $text_departure; ?></label>
-                  <div class="departure-from__value"><?php echo $departure_from; ?></div>
-                  <div class="departure-from__value"><?php echo $departure_to; ?></div>
-                    <div class="departure-from__value"><?php echo $departure_time; ?></div>
-                      <div class="departure-from__value"><?php echo $arrival_time; ?></div>
+                  <div class="form-group_margin form-group_bg">
+                    <div class="form-group">
+                      <div class="form-group__value form-group__value_time"><?php echo $departure_time; ?></div>
+                    </div>                            
+                    <div class="form-group">
+                      <div class="form-group__value"><?php echo $departure_from; ?></div>
+                    </div>
+                  </div>
+                  <label class="control-label" for=""><?php echo $text_arrival; ?></label>
+                  <div class="form-group_margin form-group_bg">
+                    <div class="form-group">
+                      <div class="form-group__value form-group__value_time"><?php echo $arrival_time; ?></div>
+                    </div>
+                    <div class="form-group">
+                      <div class="form-group__value"><?php echo $departure_to; ?></div>
+                    </div>                                
+                  </div>
                 </div>
                 <?php if ($attribute_groups) { ?>
                 <div class="timeinroad form-group">
@@ -159,9 +172,7 @@
                     <input type="number" autocomplete = "off" min = "1" max="999" name="quantity" value="<?php echo $minimum; ?>" size="2" id="input-quantity" class="form-control" />
                     <input type="hidden" name="product_id" value="<?php echo $product_id; ?>" />
                   </div>
-                <!-- <div class="loading">
 
-                </div> -->
                   <?php if ($minimum > 1) { ?>
                   <div class="alert alert-info"><i class="fa fa-info-circle"></i> <?php echo $text_minimum; ?></div>
                   <?php } ?>
@@ -176,12 +187,12 @@
                       <ul class="list-unstyled">
                         <?php if (!$special) { ?>
                         <li>
-                          <h2><?php echo $price; ?></h2>
+                          <h2 class="price"><?php echo $price; ?></h2>
                         </li>
                         <?php } else { ?>
                         <li><span class="price-old"><?php echo $price; ?></span></li>
                         <li>
-                          <h2><?php echo $special; ?></h2>
+                          <h2 class="price-new"><?php echo $special; ?></h2>
                         </li>
                         <?php } ?>
                         <?php if ($tax) { ?>
@@ -322,16 +333,16 @@ $('#input-quantity').on('change', function(){
            product_id: $('input[name=\'product_id\']').val()
          },
     beforeSend:function(){
-     $('#product > div:nth-child(3) > div.price-block.form-group > div > ul > li > h2').text('loading');
+     $('#product .price').text('loading');
     },
     success: function(json){
       if(json['special']){
-      $('#product > div:nth-child(3) > div.price-block.form-group > div > ul > li > h2').text(json['special']);
+      $('#product price-new').text(json['special']);
       $('.price-old').text(json['price']);
 
       }
       else {
-        $('#product > div:nth-child(4) > div.price-block.form-group > div > ul > li > h2').text(json['price']);
+        $('#product .price').text(json['price']);
       }
 
     }
