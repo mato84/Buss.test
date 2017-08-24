@@ -64,10 +64,10 @@
                   <br />
                   &nbsp;<small> - <?php echo $option['name']; ?> <b><?php echo $option['value']; ?></b></small>
                   <?php } ?><br>
-                  &nbsp;<small> - <?php echo $column_departure_from; ?> <b><?php echo $product['departure_from']; ?></b></small>
+                  &nbsp;<small> - <?php echo $column_departure_time; ?> <b><?php echo $product['departure_time']; ?></b></small><br>
+                  &nbsp;<small> - <?php echo $column_departure_from; ?> <b><?php echo $product['departure_from']; ?></b></small><br>
+                  &nbsp;<small> - <?php echo $column_arrival_time; ?> <b><?php echo $product['arrival_time']; ?></b></small><br>                  
                   &nbsp;<small> - <?php echo $column_departure_to; ?> <b><?php echo $product['departure_to']; ?></b></small>
-                  &nbsp;<small> - <?php echo $column_departure_time; ?> <b><?php echo $product['departure_time']; ?></b></small>
-                  &nbsp;<small> - <?php echo $column_arrival_time; ?> <b><?php echo $product['arrival_time']; ?></b></small>
                   <?php if($product['recurring']) { ?>
                   <br />
                   <span class="label label-info"><?php echo $text_recurring_item; ?></span> <small><?php echo $product['recurring']; ?></small>
