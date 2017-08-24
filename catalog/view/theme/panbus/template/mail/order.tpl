@@ -26,8 +26,8 @@
         <td style="font-size: 16px;	text-align: left; padding: 7px;">
           <p><?php echo $text_order_id; ?> <b><?php echo $order_id; ?></b></p>
           <p><?php echo $text_date_added; ?> <b><?php echo $date_added; ?></b></p>
-          <p><?php echo $text_order_status; ?> <b><?php echo $order_status; ?></b></p> 
-          <p><?php echo $text_customer; ?> <b><?php echo $payment_address; ?></b></p>                   
+          <p><?php echo $text_order_status; ?> <b><?php echo $order_status; ?></b></p>
+          <p><?php echo $text_customer; ?> <b><?php echo $payment_address; ?></b></p>
           <p><?php echo $text_email; ?> <b><?php echo $email; ?></b></p>
           <p><?php echo $text_telephone; ?> <b><?php echo $telephone; ?></b></p>
 
@@ -105,6 +105,9 @@
             &nbsp;<small> - <?php echo $option['name']; ?> <b><?php echo $option['value']; ?></b></small>
             <?php } ?>
             &nbsp;<small> - <?php echo $text_departure; ?> <b><?php echo $product['departure_from']; ?></b></small>
+            &nbsp;<small> - <?php echo $text_departure; ?> <b><?php echo $product['departure_to']; ?></b></small>
+            &nbsp;<small> - <?php echo $text_departure; ?> <b><?php echo $product['departure_time']; ?></b></small>
+            &nbsp;<small> - <?php echo $text_departure; ?> <b><?php echo $product['arrival_time']; ?></b></small>
             </div>
           </div>
 

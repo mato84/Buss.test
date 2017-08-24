@@ -334,7 +334,7 @@ $('#input-quantity').on('change', function(){
 
       }
       else {
-        $('#product > div:nth-child(3) > div.price-block.form-group > div > ul > li > h2').text(json['price']);
+        $('#product > div:nth-child(4) > div.price-block.form-group > div > ul > li > h2').text(json['price']);
       }
 
     }
