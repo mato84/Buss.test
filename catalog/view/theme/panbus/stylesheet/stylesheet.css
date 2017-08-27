@@ -1483,7 +1483,6 @@ h2.price {
     }
 }
 
-
 @media (min-width: 768px) {
     .product-thumb .price-group {
         text-align: right;
