@@ -1,0 +1,90 @@
+<?php
+
+// Standalone LiveImport to another platform connector template
+
+define("li_platform", 'Standalone'); // Change to name of your platform
+
+
+
+// Images storage params
+$images_root = 'sample_images/';
+$images_root_http = 'sample_images/';
+$images_subdir = 'li/';
+
+// =========== PRODUCTS ================
+
+function product_create() {
+
+    global $name, $model, $description, $images;
+
+    $image_files = get_images($images);
+
+    $product_id = random(10000)+1;
+    return $product_id;
+}
+
+function product_update($product_id) {
+
+}
+
+function product_delete($product_id) {
+    // You are responsible for product images deletion
+}
+
+function product_name($product_id) {
+    $name = false;
+    return $name;
+}
+
+function product_find($field, $value) {
+    $product_id = 0;
+    return $product_id;
+}
+
+function get_last_product_id() {
+    $product_id = 0;
+    return $product_id;
+}
+
+function product_missing($product_id, $action) { // $action may be 'stock', 'hide' or 'disable'
+
+}
+
+function product_page_link($product_id) {
+    $url = "/";
+    return $url;
+}
+
+
+// =========== CATEGORIES ===================
+
+function categories_list() {
+    $list = array(1 => "Category 1", 2 => "Category 2", 3 => "Category 3");
+    return $list;
+}
+
+// =========== MANUFACTURERS ================
+
+function manufacturers_list() {
+    $list = array(1 => "Manufacturer 1", 2 => "Manufacturer 2", 3 => "Manufacturer 3");
+    return $list;
+}
+
+// =========== MISC ================
+
+function currencies_list() {
+    return array();
+}
+
+function is_seo_url_free($keyword) {
+    return true;
+}
+
+function after_donor_processing() {
+
+}
+
+function before_page_processing() {
+
+}
+

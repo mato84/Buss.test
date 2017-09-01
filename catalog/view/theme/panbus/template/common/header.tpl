@@ -26,20 +26,19 @@
 <meta property="og:image" content="<?php echo $logo; ?>" />
 <?php } ?>
 <meta property="og:site_name" content="<?php echo $name; ?>" />
-<script src="catalog/view/javascript/jquery/jquery-2.1.1.min.js" type="text/javascript"></script>
-<script type="text/javascript" src="catalog/view/javascript/jquery/jquery.easy-autocomplete.min.js"></script>
 
-<link href="catalog/view/javascript/jquery/easy-autocomplete.css" type="text/css" rel="stylesheet" />
 <link href="catalog/view/javascript/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen" />
-<script src="catalog/view/javascript/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-<link href="catalog/view/javascript/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i&amp;subset=cyrillic" rel="stylesheet">
-<link href="catalog/view/theme/panbus/stylesheet/stylesheet.css" rel="stylesheet">
-
+<link href="catalog/view/theme/panbus/stylesheet/stylesheet.min.css" rel="stylesheet">
+<link href="catalog/view/javascript/jquery/easy-autocomplete.css" type="text/css" rel="stylesheet" />
+<link href="catalog/view/javascript/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 <?php foreach ($styles as $style) { ?>
 <link href="<?php echo $style['href']; ?>" type="text/css" rel="<?php echo $style['rel']; ?>" media="<?php echo $style['media']; ?>" />
 <?php } ?>
-<script src="catalog/view/javascript/common.js" type="text/javascript"></script>
+<script src="catalog/view/javascript/jquery/jquery-2.1.1.min.js" type="text/javascript"></script>
+<script src="catalog/view/javascript/jquery/jquery.easy-autocomplete.min.js" type="text/javascript"></script>
+<script src="catalog/view/javascript/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="catalog/view/javascript/common.min.js" type="text/javascript"></script>
 <?php foreach ($links as $link) { ?>
 <link href="<?php echo $link['href']; ?>" rel="<?php echo $link['rel']; ?>" />
 <?php } ?>
@@ -57,7 +56,7 @@
     <div class="header-content-inner">
       <img class="header-logo" src="../image/catalog/logo.png" title="<?php echo $name; ?>" alt="<?php echo $name; ?>"/>
         <h1><span>Автобусні міжнародні перевезення</span></h1>
-      <div class="slogan"><span>П</span>одорожуйте  <span>А</span>втобусами з  <span>Н</span>ами</div>
+      <div class="slogan"><div><span>П</span>одорожуйте</div>  <div><span>А</span>втобусами з</div>  <div><span>Н</span>ами</div></div>
     </div>
     <div class="header-search">
       <div class="search-item ">
@@ -120,8 +119,8 @@
   </nav>
 <?php } ?>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-<script src="catalog/view/javascript/panbus.js"></script>
+<script src="catalog/view/javascript/jquery/jquery.easing.min.js" type="text/javascript"></script>
+<script src="catalog/view/javascript/panbus.min.js"></script>
 
 <script type="text/javascript">
 

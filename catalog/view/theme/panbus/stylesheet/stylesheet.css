@@ -308,11 +308,18 @@ header {
     padding: 0 20px;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 800px) {
     .header-content .header-content-inner .slogan {
         margin-top: 5px;
         text-align: center;
         line-height: 20px;
+    }
+}
+
+@media (min-width: 800px) {
+    .header-content .header-content-inner .slogan div {
+    	display: inline-block;
+    	vertical-align: top;
     }
 }
 
@@ -942,7 +949,7 @@ footer {
     background-size: cover;
     -o-background-size: cover;
     background-position: bottom;
-    background-image: url(/image/catalog/gallery/background.jpg);
+    background-image: url(/image/catalog/background.jpg);
     background-attachment: fixed;
     text-align: center;
     color: white;
@@ -1818,6 +1825,16 @@ h2.price {
 
 .checkout-checkout .table-responsive .table>thead {
 	background-color: #EFEFEF;
+}
+
+.checkout-checkout #button-confirm {
+	width: 100%;
+}
+
+@media (min-width: 768px) {
+	.checkout-checkout #button-confirm {
+		width: auto;
+	}
 }
 
 .ticket {
