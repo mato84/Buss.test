@@ -39,6 +39,9 @@ $_['text_week']                      = 'неделя';
 $_['text_semi_month']                = 'полмесяца';
 $_['text_month']                     = 'месяц';
 $_['text_year']                      = 'год';
+$_['text_departure'] 				 = 'Отправления:';
+$_['text_arrival']   				 = 'Прибития:';
+$_['text_time_road']   				 = 'Время в дороге:';
 
 // Column
 $_['column_name']                    = 'Наименование товара';

@@ -30,6 +30,9 @@ $_['text_week']                               = 'неделя';
 $_['text_semi_month']                         = 'полмесяца';
 $_['text_month']                              = 'месяц';
 $_['text_year']                               = 'год';
+$_['text_departure']                     	    = 'Отправления: ';
+$_['text_arrival']                            = 'Прибытие: ';
+$_['text_time_road']                          = 'Время в пути: ';
 
 // Entry
 $_['entry_qty']                               = 'Кол-во';

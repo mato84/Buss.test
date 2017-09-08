@@ -243,6 +243,7 @@ class Cart {
 					'departure_to'    => $product_query->row['departure_to'],
 					'departure_time'  => date("H:i",strtotime($product_query->row['departure_time'])),
 					'arrival_time'    => date("H:i",strtotime($product_query->row['arrival_time'])),
+					'time_road'    => $product_query->row['time_road'],
 					'model'           => $product_query->row['model'],
 					'shipping'        => $product_query->row['shipping'],
 					'image'           => $product_query->row['image'],

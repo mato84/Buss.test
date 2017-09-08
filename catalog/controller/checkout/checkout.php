@@ -391,6 +391,7 @@ class ControllerCheckoutCheckout extends Controller {
 					'departure_to'  => $product['departure_to'],
 					'departure_time'  => $product['departure_time'],
 					'arrival_time'  => $product['arrival_time'],
+					'time_road'  => $product['time_road'],
 					'model'      => $product['model'],
 					'option'     => $option_data,
 					'download'   => $product['download'],
@@ -505,6 +506,7 @@ class ControllerCheckoutCheckout extends Controller {
 			$data['column_price'] = $this->language->get('column_price');
 			$data['text_departure'] = $this->language->get('text_departure');
 			$data['text_arrival'] = $this->language->get('text_arrival');
+			$data['text_time_road'] = $this->language->get('text_time_road');
 			$data['column_total'] = $this->language->get('column_total');
 			$data['button_remove'] = $this->language->get('button_remove');
 
@@ -573,6 +575,7 @@ class ControllerCheckoutCheckout extends Controller {
 					'departure_to'    => $product['departure_to'],
 					'departure_time'  => $product['departure_time'],
 					'arrival_time'  => $product['arrival_time'],
+					'time_road'    => $product['time_road'],
 					'name'       => $product['name'],
 					'model'      => $product['model'],
 					'option'     => $option_data,

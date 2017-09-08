@@ -118,7 +118,8 @@ class ControllerProductCategory extends Controller {
 			$data['text_sort'] = $this->language->get('text_sort');
 			$data['text_limit'] = $this->language->get('text_limit');
 			$data['text_departure'] = $this->language->get('text_departure');
-			$data['text_arrival'] = $this->language->get('text_arrival');	
+			$data['text_time_road'] = $this->language->get('text_time_road');
+			$data['text_arrival'] = $this->language->get('text_arrival');
 
 			$data['button_cart'] = $this->language->get('button_cart');
 			$data['button_wishlist'] = $this->language->get('button_wishlist');
@@ -231,6 +232,7 @@ class ControllerProductCategory extends Controller {
 					'departure_to' => $result['departure_to'],
 					'departure_time' => $result['departure_time'],
 					'arrival_time' => $result['arrival_time'],
+					'time_road' => $result['time_road'],
 					'description' => utf8_substr(strip_tags(html_entity_decode($result['description'], ENT_QUOTES, 'UTF-8')), 0, $this->config->get($this->config->get('config_theme') . '_product_description_length')),
 					'price'       => $price,
 					/* *** MICRODATA *** */

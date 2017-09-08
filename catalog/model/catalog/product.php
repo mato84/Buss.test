@@ -17,6 +17,7 @@ class ModelCatalogProduct extends Model {
 				'departure_to'     => $query->row['departure_to'],
 				'departure_time'   => date("H:i", strtotime($query->row['departure_time'])),
 				'arrival_time'     => date("H:i", strtotime($query->row['arrival_time'])),
+				'time_road'        => $query->row['time_road'],
 				'description'      => $query->row['description'],
 				'meta_title'       => $query->row['meta_title'],
 				'meta_h1'          => $query->row['meta_h1'],

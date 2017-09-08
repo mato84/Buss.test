@@ -88,6 +88,15 @@
                     <?php } ?>
                 </div>
               </div>
+              <div class="form-group required">
+                <label class="col-sm-2 control-label" for="input-time_road"><?php echo $entry_time_road; ?></label>
+                <div class="col-sm-10">
+                  <input type="text" name="time_road" value="<?php echo $time_road; ?>" placeholder="<?php echo $entry_time_road; ?>" id="input-time_road" class="form-control" />
+                  <?php if ($error_time_road != "") { ?>
+                  <div class="text-danger"><?php echo $error_time_road; ?></div>
+                  <?php } ?>
+                </div>
+              </div>
               <div class="form-group">
                 <label class="col-sm-2 control-label" for="input-departure_from"><?php echo $entry_departure_from; ?></label>
                 <div class="col-sm-10">

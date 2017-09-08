@@ -454,6 +454,7 @@ class ControllerCatalogProduct extends Controller {
 		$data['entry_departure_to'] = $this->language->get('entry_departure_to');
 		$data['entry_departure_time'] = $this->language->get('entry_departure_time');
 		$data['entry_arrival_time'] = $this->language->get('entry_arrival_time');
+		$data['entry_time_road'] = $this->language->get('entry_time_road');
 		$data['entry_price'] = $this->language->get('entry_price');
 		$data['entry_quantity'] = $this->language->get('entry_quantity');
 		$data['entry_status'] = $this->language->get('entry_status');
@@ -647,6 +648,7 @@ class ControllerCatalogProduct extends Controller {
 		$data['entry_departure_from'] = $this->language->get('entry_departure_from');
 		$data['entry_departure_to'] = $this->language->get('entry_departure_to');
 		$data['entry_departure_time'] = $this->language->get('entry_departure_time');
+		$data['entry_time_road'] = $this->language->get('entry_time_road');
 		$data['entry_arrival_time'] = $this->language->get('entry_arrival_time');
 		$data['entry_sku'] = $this->language->get('entry_sku');
 		$data['entry_upc'] = $this->language->get('entry_upc');
@@ -765,6 +767,11 @@ class ControllerCatalogProduct extends Controller {
 			$data['error_to'] = $this->error['to'];
 		} else {
 			$data['error_to'] = '';
+		}
+		if (isset($this->error['time_road'])) {
+			$data['error_time_road'] = $this->error['time_road'];
+		} else {
+			$data['error_time_road'] = '';
 		}
 		if (isset($this->error['departure_time'])) {
 			$data['error_departure_time'] = $this->error['departure_time'];
@@ -925,6 +932,14 @@ class ControllerCatalogProduct extends Controller {
 		} else {
 			$data['departure_time'] = "";
 		}
+
+		if (isset($this->request->post['time_road'])) {
+		 $data['time_road'] = $this->request->post['time_road'];
+	 } elseif (!empty($product_info)) {
+		 $data['time_road'] = $product_info['time_road'];
+	 } else {
+		 $data['time_road'] = "";
+	 }
 
 		if (isset($this->request->post['arrival_time'])) {
 			$data['arrival_time'] = $this->request->post['arrival_time'];
@@ -1554,6 +1569,9 @@ class ControllerCatalogProduct extends Controller {
 
 		if ((utf8_strlen($this->request->post['departure_time']) < 1) || (utf8_strlen($this->request->post['departure_time']) > 10)) {
 			$this->error['departure_time'] = $this->language->get('error_departure_time');
+		}
+		if ((utf8_strlen($this->request->post['time_road']) < 1) || (utf8_strlen($this->request->post['time_road']) > 10)) {
+			$this->error['time_road'] = $this->language->get('error_time_road');
 		}
 		if ((utf8_strlen($this->request->post['arrival_time']) < 1) || (utf8_strlen($this->request->post['arrival_time']) > 10)) {
 			$this->error['arrival_time'] = $this->language->get('error_arrival_time');
