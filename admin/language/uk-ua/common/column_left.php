@@ -11,6 +11,7 @@ $_['text_api']                         = 'API';
 $_['text_attribute']                   = 'Атрибути';
 $_['text_attribute_group']             = 'Групи атрибутів';
 $_['text_backup']                      = 'Резервне копіювання / Відновлення';
+$_['text_import_export']               = 'Імпорт/Експорт PanBus';
 $_['text_banner']                      = 'Банери';
 $_['text_catalog']                     = 'Каталог';
 $_['text_category']                    = 'Категорії';

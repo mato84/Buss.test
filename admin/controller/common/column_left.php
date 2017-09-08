@@ -640,6 +640,13 @@ class ControllerCommonColumnLeft extends Controller {
 					'children' => array()
 				);
 			}
+			if ($this->user->hasPermission('access', 'tool/import_export')) {
+				$tool[] = array(
+					'name'	   => $this->language->get('text_import_export'),
+					'href'     => $this->url->link('tool/import_export', 'token=' . $this->session->data['token'], true),
+					'children' => array()
+				);
+			}
 
 		/* octeam */
 			if ($this->user->hasPermission('access', 'octeam/toolset')) {
