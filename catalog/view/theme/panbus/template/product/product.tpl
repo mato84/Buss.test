@@ -141,7 +141,7 @@
                   <div class="form-group_margin form-group_bg">
                     <div class="form-group">
                       <div class="form-group__value form-group__value_time"><?php echo $departure_time; ?></div>
-                    </div>                            
+                    </div>
                     <div class="form-group">
                       <div class="form-group__value"><?php echo $departure_from; ?></div>
                     </div>
@@ -153,8 +153,12 @@
                     </div>
                     <div class="form-group">
                       <div class="form-group__value"><?php echo $departure_to; ?></div>
-                    </div>                                
+                    </div>
                   </div>
+                    <label class="control-label" for=""><?php echo $text_time_road; ?></label>
+                    <div class="form-group">
+                      <div class="form-group__value"><?php echo $time_road; ?></div>
+                    </div>
                 </div>
                 <?php if ($attribute_groups) { ?>
                 <div class="timeinroad form-group">

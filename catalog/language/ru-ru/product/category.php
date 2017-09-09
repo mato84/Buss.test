@@ -22,3 +22,6 @@ $_['text_rating_desc']  = 'По рейтингу (убыванию)';
 $_['text_model_asc']    = 'По модели (A - Я)';
 $_['text_model_desc']   = 'По модели (Я - A)';
 $_['text_limit']        = 'Показывать:';
+$_['text_departure']    = 'Отправления: ';
+$_['text_time_road']    = 'Время в пути: ';
+$_['text_arrival']      = 'Прибытие: ';

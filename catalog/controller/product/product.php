@@ -254,7 +254,8 @@ class ControllerProductProduct extends Controller {
 			$data['text_payment_recurring'] = $this->language->get('text_payment_recurring');
 			$data['text_loading'] = $this->language->get('text_loading');
 			$data['text_departure'] = $this->language->get('text_departure');
-			$data['text_arrival'] = $this->language->get('text_arrival');			
+      $data['text_time_road'] = $this->language->get('text_time_road');
+			$data['text_arrival'] = $this->language->get('text_arrival');
 
 			$data['entry_qty'] = $this->language->get('entry_qty');
 			$data['entry_name'] = $this->language->get('entry_name');
@@ -335,6 +336,9 @@ class ControllerProductProduct extends Controller {
 			}
 			if(isset($product_info['arrival_time'])){
 				$data['arrival_time'] = $product_info['arrival_time'];
+			}
+			if(isset($product_info['time_road'])){
+				$data['time_road'] = $product_info['time_road'];
 			}
 			if ((float)$product_info['special']) {
 				$data['special'] = $this->currency->format($this->tax->calculate($product_info['special'], $product_info['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']);
@@ -474,6 +478,7 @@ class ControllerProductProduct extends Controller {
 					'name'        => $result['name'],
 					'departure_from' => $result['departure_from'],
 					'departure_to' => $result['departure_to'],
+					'road_time'    => $result['road_time'],
 					'description' => utf8_substr(strip_tags(html_entity_decode($result['description'], ENT_QUOTES, 'UTF-8')), 0, $this->config->get($this->config->get('config_theme') . '_product_description_length')) . '..',
 					'price'       => $price,
 					'special'     => $special,

@@ -123,7 +123,11 @@ http://devs.mx/forum/16-featured-websites/@#$hash@@*%<!DOCTYPE html>
 		<script type='text/javascript'>
 	//<![CDATA[
 		/* ---- URLs ---- */
+<<<<<<< HEAD
 		ipb.vars['base_url'] 			= 'http://devs.mx/index.php?s=bingbot=ce63a3db869d7196c6c86c8b0ecbf508_session&';
+=======
+		ipb.vars['base_url'] 			= 'http://devs.mx/index.php?s=bingbot=05736e50f117d9bedcaa0ed4132abb8a_session&';
+>>>>>>> 8fb09293c0778244c679ba9308ab6618ca83df69
 		ipb.vars['board_url']			= 'http://devs.mx';
 		ipb.vars['img_url'] 			= "http://devs.mx/public/style_images/gradientblue";
 		ipb.vars['loading_img'] 		= 'http://devs.mx/public/style_images/gradientblue/loading.gif';
@@ -134,7 +138,11 @@ http://devs.mx/forum/16-featured-websites/@#$hash@@*%<!DOCTYPE html>
 		ipb.vars['is_supmod']			= parseInt( 0 );
 		ipb.vars['is_admin']			= parseInt( 0 );
 		ipb.vars['secure_hash'] 		= '880ea6a14ea49e853634fbdc5015a024';
+<<<<<<< HEAD
 		ipb.vars['session_id']			= 'bingbot=ce63a3db869d7196c6c86c8b0ecbf508_session';
+=======
+		ipb.vars['session_id']			= 'bingbot=05736e50f117d9bedcaa0ed4132abb8a_session';
+>>>>>>> 8fb09293c0778244c679ba9308ab6618ca83df69
 		ipb.vars['twitter_id']			= 0;
 		ipb.vars['fb_uid']				= 0;
 		ipb.vars['auto_dst']			= parseInt( 0 );
@@ -743,13 +751,20 @@ http://devs.mx/forum/16-featured-websites/@#$hash@@*%<!DOCTYPE html>
 			<div class='ipsBox_container'>
 				<div id='board_statistics' class='statistics clearfix'>
 					<div id='forum_active_users' class='active_users stats_list'>
+<<<<<<< HEAD
 							<h4 class='statistics_head'>1 user(s) are browsing this forum</h4>
+=======
+							<h4 class='statistics_head'>0 user(s) are browsing this forum</h4>
+>>>>>>> 8fb09293c0778244c679ba9308ab6618ca83df69
 							<p class='statistics_brief'>0 members, 0 guests, 0 anonymous users</p>
 							<br />
 							<ul class='ipsList_inline'>
 								
+<<<<<<< HEAD
 									Bing (1)
 								
+=======
+>>>>>>> 8fb09293c0778244c679ba9308ab6618ca83df69
 							</ul>
 						</div>	
 				</div>
