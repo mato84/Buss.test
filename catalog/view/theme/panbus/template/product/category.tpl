@@ -71,8 +71,7 @@
             </div>
             <div class="caption">
                 <h3 itemprop="name"><a href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a></h3>
-                <div class="description-group">
-                  <p itemprop="description"><?php echo $product['description']; ?></p>
+                <div class="description-group" itemprop="description">
                   <div class="form-group_margin">
                     <label class="control-label" for=""><?php echo $text_departure; ?></label>
                     <div class="form-group_bg">

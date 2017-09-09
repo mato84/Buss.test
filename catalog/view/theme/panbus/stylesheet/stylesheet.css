@@ -254,7 +254,7 @@ header {
 
 @media (min-width: 768px) {
     .common-home .header-content {
-        top: 50%;
+        top: 40%;
         -webkit-transform: translateY(-50%);
         -ms-transform: translateY(-50%);
         transform: translateY(-50%);
@@ -479,6 +479,85 @@ header {
 
 .search-item .error.show {
     display: block;
+}
+
+.choice-block {
+	display: none;	
+	position: absolute;
+	width: 100%;
+	bottom: 100px;
+	text-transform: uppercase;
+}
+
+@media (min-width: 768px) {
+	.common-home .choice-block {
+		display: block;
+	}
+}
+
+.choice-block .choice-block__box {
+	display: inline-block;
+	vertical-align: top;
+	width: 180px;
+	margin: 10px 20px
+}
+
+.choice-block .choice-block__text {
+	display: block;
+	padding: 10px;
+	font-size: 18px;
+	font-weight: 100;
+	color: #ffffff;
+	border: 1px solid #ffffff;
+	transition: all 0.35s;
+}
+
+.choice-block .choice-block__text:hover {
+	background-color: #cd4e37;
+	border: 1px solid #cd4e37;
+}
+
+.choice-block-inmain {
+	display: none;
+	text-transform: uppercase;
+	text-align: center;
+	margin-bottom: 40px;
+}
+
+@media (max-width: 768px) {
+	.common-home .choice-block-inmain {
+		display: block;
+	}
+}
+
+.choice-block-inmain .choice-block-inmain__title {
+	margin-bottom: 20px;
+	font-size: 25px;
+	line-height: 25px;
+	text-align: left;
+}
+
+.choice-block-inmain .choice-block-inmain__box {
+	display: inline-block;
+	vertical-align: top;
+	width: 180px;
+	margin: 10px 20px
+}
+
+.choice-block-inmain .choice-block-inmain__text {
+	display: block;
+	padding: 10px;
+	font-size: 18px;
+	color: #cd4e37;
+	border: 2px solid #cd4e37;
+	transition: all 0.25s;
+}
+
+.choice-block-inmain .choice-block-inmain__text:hover,
+.choice-block-inmain .choice-block-inmain__text:active,
+.choice-block-inmain .choice-block-inmain__text:focus {
+	background-color: #cd4e37;
+	color: #ffffff;
 }
 
 header .header-scroll {
@@ -1300,6 +1379,7 @@ footer .powered {
     background-color: #ce4e38;
     padding: 2px 8px;
     margin-top: 0;
+    font-size: 28px;
 }
 
 .product-thumb {
@@ -1781,10 +1861,15 @@ h2.price {
     vertical-align: top;
 }
 
+#form-review .control-label {
+	text-align: left;
+}
+
 #form-review input,
 #form-review textarea {
     max-width: 100%;
 }
+
 
 .text-danger {
     color: #fff;

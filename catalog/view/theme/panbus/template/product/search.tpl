@@ -9,9 +9,8 @@
     <?php $class = 'col-sm-12'; ?>
     <?php } ?>
     <div id="content"><?php echo $content_top; ?>
-      <h1><?php echo $text_search; ?></h1>
       <?php if ($products) { ?>
-        <h3 class="seach-result"><?php echo $entry_search; ?></h3>
+        <h1><?php echo $text_search; ?> <span class="seach-result"><?php echo $entry_search; ?></span></h1>
         <div class="row">
           <div class="col-md-4 col-xs-12 sort-group ">
             <div class="form-group input-group input-group-sm">

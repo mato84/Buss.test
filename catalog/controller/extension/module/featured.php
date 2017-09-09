@@ -6,7 +6,9 @@ class ControllerExtensionModuleFeatured extends Controller {
 		$data['heading_title'] = $this->language->get('heading_title');
 
 		$data['text_tax'] = $this->language->get('text_tax');
-
+		$data['text_manufacturer'] = $this->language->get('text_manufacturer');
+		$data['text_departure'] = $this->language->get('text_departure');
+		$data['text_arrival'] = $this->language->get('text_arrival');
 		$data['button_cart'] = $this->language->get('button_cart');
 		$data['button_wishlist'] = $this->language->get('button_wishlist');
 		$data['button_compare'] = $this->language->get('button_compare');
@@ -61,8 +63,12 @@ class ControllerExtensionModuleFeatured extends Controller {
 					$data['products'][] = array(
 						'product_id'  => $product_info['product_id'],
 						'thumb'       => $image,
+						'departure_from' => $product_info['departure_from'],
+						'departure_to' => $product_info['departure_to'],
+						'departure_time' => $product_info['departure_time'],
+						'arrival_time' => $product_info['arrival_time'],
 						'name'        => $product_info['name'],
-						'description' => utf8_substr(strip_tags(html_entity_decode($product_info['description'], ENT_QUOTES, 'UTF-8')), 0, $this->config->get($this->config->get('config_theme') . '_product_description_length')) . '..',
+						'description' => utf8_substr(strip_tags(html_entity_decode($product_info['description'], ENT_QUOTES, 'UTF-8')), 0, $this->config->get($this->config->get('config_theme') . '_product_description_length')),
 						'price'       => $price,
 						'special'     => $special,
 						'tax'         => $tax,

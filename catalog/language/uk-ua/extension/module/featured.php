@@ -8,4 +8,7 @@
 $_['heading_title'] = 'Кращі пропозиції';
 
 // Text
-$_['text_tax']      = 'Без ПДВ:';
+$_['text_tax']               = 'Без ПДВ:';
+$_['text_manufacturer']      = 'Перевізник:';
+$_['text_departure']         = 'Відправлення:';
+$_['text_arrival']           = 'Прибуття:';
