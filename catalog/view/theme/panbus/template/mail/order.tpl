@@ -104,8 +104,9 @@
             <br />
             &nbsp;<small> - <?php echo $option['name']; ?> <b><?php echo $option['value']; ?></b></small>
             <?php } ?><br>
-                  &nbsp;<small> - <?php echo $text_departure; ?> <b><?php echo $product['departure_time']; ?> <?php echo $product['departure_from']; ?></b></small><br>                 
+                  &nbsp;<small> - <?php echo $text_departure; ?> <b><?php echo $product['departure_time']; ?> <?php echo $product['departure_from']; ?></b></small><br>
                   &nbsp;<small> - <?php echo $text_arrival; ?> <b><?php echo $product['arrival_time']; ?> <?php echo $product['departure_to']; ?></b></small><br>
+                  &nbsp;<small> - <?php echo $text_time_road; ?> <b><?php echo $product['time_road']; ?></b></small><br>
             </div>
           </div>
 

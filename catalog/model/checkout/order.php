@@ -416,6 +416,7 @@ class ModelCheckoutOrder extends Model {
 				$data['text_footer'] = $language->get('text_new_footer');
 				$data['text_departure'] = $language->get('text_departure');
 				$data['text_arrival'] = $language->get('text_arrival');
+				$data['text_time_road'] = $language->get('text_time_road');
 				$data['logo'] = $this->config->get('config_url') . 'image/' . $this->config->get('config_logo');
 				$data['store_name'] = $order_info['store_name'];
 				$data['store_url'] = $order_info['store_url'];
@@ -540,6 +541,7 @@ class ModelCheckoutOrder extends Model {
 						'name'     => $product['name'],
 						'model'    => $product['model'],
 						'departure_from' => $product_data['departure_from'],
+						'time_road' => $product_data['time_road'],
 						'departure_to' => $product_data['departure_to'],
 						'departure_time' => $product_data['departure_time'],
 						'arrival_time' => $product_data['arrival_time'],

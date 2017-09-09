@@ -37,6 +37,9 @@
                   <div class="description-group">
                     <p><?php echo $product['description']; ?></p>
                   </div>
+                  <div class="departure_from">
+                      <?php echo $product['departure_from']; ?>
+                  </div>
                   <?php if ($product['price']) { ?>
                   <div class="price-group">
                     <p class="price">
@@ -62,7 +65,7 @@
                     <?php } ?>
                     <?php } ?>
                   </div>
-                  <?php } ?>                
+                  <?php } ?>
                 </div>
             </div>
           </div>
