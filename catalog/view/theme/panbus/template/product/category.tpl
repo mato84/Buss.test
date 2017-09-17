@@ -64,7 +64,7 @@
               </div>
               <div class="product-thumb__manufacturer">
               <ul class="list-unstyled">
-                <li><?php echo $text_manufacturer; ?><br> <a href="<?php echo $manufacturers; ?>"><span itemprop="brand">Стецик Т. В. ФОП</span></a></li>
+                <li><?php echo $text_manufacturer; ?><br> <a href="<?php echo $manufacturer; ?>"><span itemprop="brand"><?php echo $product['manufacturer']; ?></span></a></li>
               </ul>
               </div>
             </div>
@@ -88,7 +88,7 @@
                   <div class="form-group_margin">
                     <label class="control-label" for=""><?php echo $text_time_road; ?></label>
                     <div class="form-group_bg">
-                      <div class="form-group__value form-group__value_time"><?php echo $product['time_road']; ?></div>                      
+                      <div class="form-group__value form-group__value_time form-group__value_timeinroad"><?php echo $product['time_road']; ?></div>
                     </div>
                   </div>
                 </div>

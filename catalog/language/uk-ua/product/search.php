@@ -15,7 +15,7 @@ $_['text_category']     = 'Всі категорії';
 $_['text_sub_category'] = 'Пошук в підкатегоріях';
 $_['text_empty']        = 'Немає квитків, які б відповідали критеріям пошуку.';
 $_['text_quantity']     = 'Кількість:';
-$_['text_manufacturer'] = 'Бренд:';
+$_['text_manufacturer'] = 'Перевізник:';
 $_['text_model']        = 'Артикул:';
 $_['text_points']       = 'Бонусні бали:';
 $_['text_price']        = 'Ціна:';
@@ -33,6 +33,10 @@ $_['text_rating_desc']  = 'Рейтинг (Високий)';
 $_['text_model_asc']    = 'Модель (A - Я)';
 $_['text_model_desc']   = 'Модель (Я - A)';
 $_['text_limit']        = 'Показати:';
+$_['text_departure']    = 'Відправлення: ';
+$_['text_time_road']    = 'Час в дорозі: ';
+$_['text_arrival']      = 'Прибуття: ';
+
 
 // Entry
 $_['entry_search']      = 'Критерії пошуку';

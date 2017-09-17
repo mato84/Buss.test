@@ -228,6 +228,7 @@ class ControllerProductCategory extends Controller {
 					'product_id'  => $result['product_id'],
 					'thumb'       => $image,
 					'name'        => $result['name'],
+					'manufacturer'        => $result['manufacturer'],
 					'departure_from' => $result['departure_from'],
 					'departure_to' => $result['departure_to'],
 					'departure_time' => $result['departure_time'],

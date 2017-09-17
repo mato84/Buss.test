@@ -5,7 +5,7 @@
 //info@marketplus.if.ua
 
 // Heading
-$_['heading_title']                  = 'Оформлення замовлення';
+$_['heading_title']                  = 'Бронювання квитків';
 
 // Text
 $_['text_cart']                      = 'Кошик';

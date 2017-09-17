@@ -46,6 +46,7 @@ class ControllerAccountOrder extends Controller {
 		$data['column_date_added'] = $this->language->get('column_date_added');
 		$data['text_departure'] = $this->language->get('text_departure');
 		$data['text_arrival'] = $this->language->get('text_arrival');
+		$data['text_time_road'] = $this->language->get('text_time_road');		
 
 
 		$data['button_view'] = $this->language->get('button_view');
@@ -185,6 +186,7 @@ class ControllerAccountOrder extends Controller {
 			$data['column_comment'] = $this->language->get('column_comment');
 			$data['text_departure'] = $this->language->get('text_departure');
 			$data['text_arrival'] = $this->language->get('text_arrival');
+			$data['text_time_road'] = $this->language->get('text_time_road');
 			$data['button_reorder'] = $this->language->get('button_reorder');
 			$data['button_return'] = $this->language->get('button_return');
 			$data['button_continue'] = $this->language->get('button_continue');
@@ -334,6 +336,7 @@ class ControllerAccountOrder extends Controller {
 					'departure_to' => $product_info['departure_to'],
 					'departure_time' => $product_info['departure_time'],
 					'arrival_time' => $product_info['arrival_time'],
+					'time_road' => $product_info['time_road'],
 					'quantity' => $product['quantity'],
 					'price'    => $this->currency->format($product['price'] + ($this->config->get('config_tax') ? $product['tax'] : 0), $order_info['currency_code'], $order_info['currency_value']),
 					'total'    => $this->currency->format($product['total'] + ($this->config->get('config_tax') ? ($product['tax'] * $product['quantity']) : 0), $order_info['currency_code'], $order_info['currency_value']),

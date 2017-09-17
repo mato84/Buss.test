@@ -17,7 +17,7 @@
     <?php } ?>
     <div id="content"><?php echo $content_top; ?>
       <div class="row">
-            <h2><?php echo $text_returning_customer; ?></h2>
+            <h1><?php echo $text_returning_customer; ?></h1>
             <div class="well">
             <form class="login-form" action="<?php echo $action; ?>" method="post" enctype="multipart/form-data">
               <div class="form-group">
