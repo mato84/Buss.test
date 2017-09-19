@@ -48,16 +48,24 @@ class ControllerToolImportExport extends Controller{
     return $is_upload;
   }
   public function import(){
+   $this->load->model('tool/import_export');
    $json = array();
    $test = $this->upload();
    if($test['is_uploaded']){
-      $json['success'] = $test['path_to_upload_file'];
+      $json['is_added'] = $this->model_tool_import_export->import($test['path_to_upload_file']);
+      // $json['success'] = $test['path_to_upload_file'];
    }
    else{
      $json['errors'] = $test['errors'];
    }
-   $this->response->addHeader('Content-Type: application/json');
-   $this->response->setOutput(json_encode($json));
+   if($json['is_added']){
+     $this->response->redirect($this->url->link('tool/import_export', 'token=' . $this->session->data['token'], true));
+   }
+   else{
+     $this->response->addHeader('Content-Type: application/json');
+     $this->response->setOutput(json_encode($json));
+   }
+
   }
   public function export(){
 
