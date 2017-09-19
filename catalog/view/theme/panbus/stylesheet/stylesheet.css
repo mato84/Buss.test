@@ -64,7 +64,7 @@ legend {
 label {
 	display: block;
     font-size: 14px;
-    font-weight: normal;
+    font-weight: 300;
     line-height: 20px;
 }
 
@@ -273,7 +273,13 @@ header {
 }
 
 .header-content .header-content-inner .header-logo{
-    max-width: 230px;
+    max-width: 200px;
+}
+
+@media (min-width: 768px) {
+    .header-content .header-content-inner .header-logo{
+        max-width: 230px;
+    }    
 }
 
 .common-home .header-content .header-content-inner {
@@ -1481,7 +1487,7 @@ footer .powered {
         vertical-align: top;
         padding: 0;
         float: right;
-        width: 70%;
+        width: 75%;
     }
 }
 
@@ -1491,10 +1497,7 @@ footer .powered {
 
 @media (min-width: 768px) {
     .product-thumb .description-group {
-        display: inline-block;
-        vertical-align: top;
-        width: 70%;
-        margin-top: 10px;
+        margin-top: 20px;
     }
 }
 
@@ -1544,36 +1547,40 @@ h2.price {
 }
 
 .product-thumb .form-group__value {
-	display: inline-block;
-	vertical-align: top;
-	font-size: 15px;
+    font-weight: 300;
 }
 
 .product-thumb .form-group__value_time {
-	min-width: 70px;
-	font-size: 19px;
+    display: inline-block;
+    vertical-align: top;
+	font-size: 25px;
+    font-weight: 400;
+    margin: 5px 0 10px 0; 
+    padding: 5px;
+    background-color: #eeeeee;
+
+}
+
+.product-thumb .form-group__value_timeinroad {
+    font-size: 19px;
 }
 
 .product-thumb .form-group_margin {
     margin-bottom: 20px;
 }
 
-.product-thumb .form-group_bg {
-	padding: 3px 8px;
-	background-color: #eeeeee;
-}
-
 @media (min-width: 768px) {
-    .product-thumb .form-group_bg {
-	display: inline-block;
-	vertical-align: top;
-    }
+    .product-thumb .form-group_margin {
+        display: inline-block;
+        vertical-align: top;
+        width: 33%;
+    }    
 }
 
 @media (min-width: 768px) {
     .product-thumb .price-group {
         text-align: right;
-        margin: 55px 0 20px;
+        margin: 0px 0 20px;
         padding: 0 20px;
         float: right;
     }
@@ -1723,6 +1730,17 @@ h2.price {
 }
 
 @media (min-width: 768px) {
+    .product-details .product-options .timeinroad-data {
+        width: 200px;
+        margin-right: 30px;
+    }
+}
+
+.product-details .product-options .timeinroad-data label{
+    color: #333;
+}
+
+@media (min-width: 768px) {
     .product-details .product-options .option-time {
         margin-right: 20px;
     }
@@ -1756,13 +1774,14 @@ h2.price {
 }
 
 .product-options .form-group__value {
-	font-size: 16px;
 	line-height: 40px;
+    font-weight: 300;
 }
 
 .product-options .form-group__value_time {
 	min-width: 70px;
 	font-size: 20px;
+    font-weight: 400;
 }
 
 .product-details .timeinroad {

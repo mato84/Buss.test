@@ -8,15 +8,13 @@
               </div>
               <div class="product-thumb__manufacturer">
               <ul class="list-unstyled">
-
-                <li><?php echo $text_manufacturer; ?><br> <a href="<?php echo $manufacturers; ?>"><span itemprop="brand">Стецик Т. В. ФОП</span></a></li>
+                <li><?php echo $text_manufacturer; ?><br> <a href="<?php echo $manufacturer; ?>"><span itemprop="brand"><?php echo $product['manufacturer']; ?></span></a></li>
               </ul>
               </div>
             </div>
             <div class="caption">
                 <h3 itemprop="name"><a href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a></h3>
-                <div class="description-group">
-                  <p itemprop="description"><?php echo $product['description']; ?></p>
+                <div class="description-group" itemprop="description">
                   <div class="form-group_margin">
                     <label class="control-label" for=""><?php echo $text_departure; ?></label>
                     <div class="form-group_bg">
@@ -30,7 +28,13 @@
                       <div class="form-group__value form-group__value_time"><?php echo $product['arrival_time']; ?></div>
                       <div class="form-group__value"><?php echo $product['departure_to']; ?></div>
                     </div>
-                  </div>                  
+                  </div>
+                  <div class="form-group_margin">
+                    <label class="control-label" for=""><?php echo $text_time_road; ?></label>
+                    <div class="form-group_bg">
+                      <div class="form-group__value form-group__value_time"><?php echo $product['time_road']; ?></div>
+                    </div>
+                  </div>
                 </div>
                 <?php if ($product['price']) { ?>
                 <div class="price-group">

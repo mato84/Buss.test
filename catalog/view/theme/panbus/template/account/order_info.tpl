@@ -62,6 +62,7 @@
                   <?php } ?><br>
                   &nbsp;<small>  <?php echo $text_departure; ?> <?php echo $product['departure_time']; ?> <?php echo $product['departure_from']; ?></small><br>                 
                   &nbsp;<small>  <?php echo $text_arrival; ?> <?php echo $product['arrival_time']; ?> <?php echo $product['departure_to']; ?></small><br>
+                  &nbsp;<small>  <?php echo $text_time_road; ?> <?php echo $product['time_road']; ?></small><br>
                 </td>
                 <td class="text-right"><?php echo $product['quantity']; ?></td>
                 <td class="text-right"><?php echo $product['price']; ?></td>

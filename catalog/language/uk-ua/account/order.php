@@ -39,6 +39,7 @@ $_['column_status']         = 'Статус замовлення';
 $_['column_comment']        = 'Коментарі';
 $_['text_departure'] 		= 'Відправлення:';
 $_['text_arrival']   		= 'Прибуття:';
+$_['text_time_road']   		= 'Час в дорозі:';
 
 // Error
 $_['error_reorder']         = '%s зараз недоступний для замовлення.';

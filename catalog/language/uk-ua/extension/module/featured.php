@@ -12,3 +12,4 @@ $_['text_tax']               = 'Без ПДВ:';
 $_['text_manufacturer']      = 'Перевізник:';
 $_['text_departure']         = 'Відправлення:';
 $_['text_arrival']           = 'Прибуття:';
+$_['text_time_road']         = 'Час в дорозі:';
