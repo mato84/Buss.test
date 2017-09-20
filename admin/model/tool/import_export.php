@@ -68,7 +68,12 @@ class ModelToolImportExport extends Model{
          foreach ($values as $key => $value) {
            $sql = "INSERT INTO " .DB_PREFIX."".$nameTable." SET ";
            $sql .= array_reduce(array_keys($value), function($carry,$val) use($value){
+             if(!empty($val) && !empty($value[$val]) ){
              return $carry." ".$val." = '" .$value[$val]." ',";
+             }
+             else{
+               return $carry;
+             }
              },"");
            $this->db->query(rtrim($sql,", "));
          }
@@ -80,7 +85,7 @@ class ModelToolImportExport extends Model{
     $new_array = array();
     $temp_array = array();
      $temp_array = array_map(function($a, $b){
-       $a['query'] = "product_id = $b";
+       $a['query'] = "product_id=$b";
        $a['keyword'] = "квиток-на-автобус-".$a['keyword']."-купити-онлайн";
        return $a;
      },$array_url_alice,$products_id);
