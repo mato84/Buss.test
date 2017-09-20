@@ -60,7 +60,7 @@
                   <div class="form-group_margin">
                     <label class="control-label" for=""><?php echo $text_time_road; ?></label>
                     <div class="form-group_bg">
-                      <div class="form-group__value form-group__value_time"><?php echo $product['time_road']; ?></div>
+                      <div class="form-group__value form-group__value_time form-group__value_timeinroad"><?php echo $product['time_road']; ?></div>
                     </div>
                   </div>
                 </div>
