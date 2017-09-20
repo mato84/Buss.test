@@ -42,7 +42,7 @@ class ModelToolImportExport extends Model{
       $sql = "INSERT INTO " .DB_PREFIX. "product SET ";
       $sql .= array_reduce(array_keys($value), function($carry,$key) use($value){
         if(!empty($key) && !empty($value[$key]) ){
-        return $carry." ".$key." = '" .$value[$key]." ',";
+        return $carry." ".$key." = '" .$value[$key]."',";
         }
         else{
         return $carry;
@@ -85,8 +85,8 @@ class ModelToolImportExport extends Model{
     $new_array = array();
     $temp_array = array();
      $temp_array = array_map(function($a, $b){
-       $a['query'] = "product_id=$b";
-       $a['keyword'] = "квиток-на-автобус-".$a['keyword']."-купити-онлайн";
+       $a['query'] = trim("product_id=$b");
+       $a['keyword'] =trim("квиток-на-автобус-".$a['keyword']."-купити-онлайн");
        return $a;
      },$array_url_alice,$products_id);
       $new_array[]=$temp_array;
@@ -95,7 +95,7 @@ class ModelToolImportExport extends Model{
           foreach ($values as $key => $value) {
             $sql = "INSERT INTO ".DB_PREFIX."url_alias SET ";
             $sql .= array_reduce(array_keys($value), function($carry,$val) use($value){
-            return $carry." ".$val." = '" .$value[$val]." ',";
+            return $carry." ".$val." = '" .$value[$val]."',";
             },"");
           $this->db->query(rtrim($sql,", "));
         }
