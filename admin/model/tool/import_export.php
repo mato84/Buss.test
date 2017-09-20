@@ -13,7 +13,7 @@ class ModelToolImportExport extends Model{
     $url_alias = array_pop($reading_data);
     $this->setDependentTable($reading_data,$last_id);
     $this->setUrlAliace($url_alias,$last_id);
-    return true;
+    return $last_id;
   }
 
   protected function readFile($path){
@@ -41,7 +41,12 @@ class ModelToolImportExport extends Model{
     foreach ($array_product as $key => $value) {
       $sql = "INSERT INTO " .DB_PREFIX. "product SET ";
       $sql .= array_reduce(array_keys($value), function($carry,$key) use($value){
+        if(!empty($key) && !empty($value[$key]) ){
         return $carry." ".$key." = '" .$value[$key]." ',";
+        }
+        else{
+        return $carry;
+        }
      },"");
      $this->db->query(rtrim($sql,", "));
      $last_id[] = $this->db->getLastId();
