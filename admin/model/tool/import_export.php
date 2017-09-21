@@ -20,15 +20,20 @@ class ModelToolImportExport extends Model{
     $reader = ReaderFactory::create(Type::XLSX);
     $reader->open($path);
     $dataArray = array();
-    $head_sheet = array();
     foreach ($reader->getSheetIterator() as $sheet) {
       $tempArray = array(); //temporary array
+      $head_sheet = array();
        foreach ($sheet->getRowIterator() as $key => $row) {
          if($key === 1){
            $head_sheet = $row;
          }
          else{
-           $tempArray[] = array_combine($head_sheet, $row);
+           $tempArray[] =  array_reduce(array_keys($head_sheet), function($acc,$val) use ($head_sheet,$row){
+             if(!empty($row[$val])){
+             $acc[$head_sheet[$val]] = $row[$val];
+             }
+              return $acc;
+             },array());
          }
        }
      $dataArray[$sheet->getName()] = $tempArray;
