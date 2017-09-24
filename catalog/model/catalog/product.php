@@ -10,9 +10,9 @@ class ModelCatalogProduct extends Model {
 		if ($query->num_rows) {
 			return array(
 				'product_id'       => $query->row['product_id'],
-				'name'             => $query->row['pre_name']." <span>".str_replace($query->row['pre_name'],'',$query->row['name'])."</span>",
-				// 'from_id'          => $query->row['from_t'],
-				// 'to_id'            => $query->row['to_t'],
+				'name'             => $query->row['pre_name']." <span>".$query->row['name']."</span>",
+				'from_name'        => explode('-',$query->row['name'])[0],
+				'to_name'          => explode('-',$query->row['name'])[1],
 				'departure_from'   => $query->row['departure_from'],
 				'departure_to'     => $query->row['departure_to'],
 				'departure_time'   => date("H:i", strtotime($query->row['departure_time'])),
