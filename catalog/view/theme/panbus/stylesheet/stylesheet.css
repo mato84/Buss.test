@@ -505,7 +505,7 @@ header {
 	display: inline-block;
 	vertical-align: top;
 	width: 180px;
-	margin: 10px 20px
+	margin: 10px 20px;
 }
 
 .choice-block .choice-block__text {
@@ -1455,7 +1455,7 @@ footer .powered {
 }
 
 .product-thumb h3 a {
-    color: #333;
+    color: #777777;
 }
 
 .product-thumb h3 span {
@@ -1686,6 +1686,7 @@ h2.price {
     margin: 0;
     line-height: 40px;
     text-align: center;
+    color: #777777;
 }
 
 .product-details .product-options {
@@ -1939,6 +1940,40 @@ h2.price {
 	.checkout-checkout #button-confirm {
 		width: auto;
 	}
+}
+
+.information-information-8 .well,
+.information-information-9 .well,
+.information-information-10 .well,
+.information-information-11 .well {
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+    padding: 30px 20px;
+    background-position: bottom center;
+    background-color: transparent;
+    color: #ffffff;
+    font-size: 20px;
+    line-height: 25px;
+    font-weight: 300;
+    min-height: 200px;
+}
+
+.information-information-8 .well {
+    background-image: url(/image/catalog/gallery/page-bg1.jpg);
+}
+
+.information-information-9 .well {
+    background-image: url(/image/catalog/gallery/page-bg2.jpg);
+}
+
+.information-information-10 .well {
+    background-image: url(/image/catalog/gallery/page-bg3.jpg);
+}
+
+.information-information-11 .well {
+    background-image: url(/image/catalog/gallery/page-bg4.jpg);
 }
 
 .ticket {
