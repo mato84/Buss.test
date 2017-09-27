@@ -51,14 +51,14 @@
                   <?php } ?>
                 </div>
               </div>
-              <div class="form-group required">
-                <label class="col-sm-2 control-label" for="input-to"><?php echo $entry_to; ?></label>
-                <div class="col-sm-10">
-                  <input type="text" name="to" value="<?php echo $to; ?>" placeholder="<?php echo $entry_to; ?>" id="input-to" class="form-control" />
-                  <input type="hidden" name="to_id" value="<?php echo $to_id; ?>"id="input-to-id" class="form-control" />
-                  <?php if ($error_to != "") { ?>
-                  <div class="text-danger"><?php echo $error_to; ?></div>
-                  <?php } ?>
+              <div class="form-group">
+                <label class="col-sm-2 control-label" for="input-entry_waypoint_arrival_time"><?php echo $entry_waypoint_arrival_time; ?></label>
+                <div class="col-sm-3">
+                  <div class="input-group time">
+                    <input type="text" name="waypoint_arrival_time" value="<?php echo $waypoint_arrival_time; ?>"  placeholder="<?php echo $entry_waypoint_arrival_time; ?>" data-date-format="HH:mm" id="input-entry_waypoint_arrival_time" class="form-control" />
+                    <span class="input-group-btn">
+                    <button type="button" class="btn btn-default"><i class="fa fa-calendar"></i></button>
+                    </span></div>
                 </div>
               </div>
               <div class="form-group required">
@@ -72,6 +72,16 @@
                     <?php if ($error_departure_time != "") { ?>
                     <div class="text-danger"><?php echo $error_departure_time; ?></div>
                     <?php } ?>
+                </div>
+              </div>
+              <div class="form-group required">
+                <label class="col-sm-2 control-label" for="input-to"><?php echo $entry_to; ?></label>
+                <div class="col-sm-10">
+                  <input type="text" name="to" value="<?php echo $to; ?>" placeholder="<?php echo $entry_to; ?>" id="input-to" class="form-control" />
+                  <input type="hidden" name="to_id" value="<?php echo $to_id; ?>"id="input-to-id" class="form-control" />
+                  <?php if ($error_to != "") { ?>
+                  <div class="text-danger"><?php echo $error_to; ?></div>
+                  <?php } ?>
                 </div>
               </div>
 

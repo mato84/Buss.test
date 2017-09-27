@@ -569,8 +569,6 @@ class ControllerCheckoutCheckout extends Controller {
 					'cart_id'    => $product['cart_id'],
 					'thumb'     => $image,
 					'product_id' => $product['product_id'],
-					'from_name'       => $product['from_name'],
-					'to_name'         => $product['to_name'],
 					'departure_from'  => $product['departure_from'],
 					'departure_to'    => $product['departure_to'],
 					'departure_time'  => $product['departure_time'],

@@ -239,8 +239,6 @@ class Cart {
 					'cart_id'         => $cart['cart_id'],
 					'product_id'      => $product_query->row['product_id'],
 					'name'            => $product_query->row['name'],
-					'from_name'       => explode('-',$product_query->row['name'])[0],
-					'to_name'         => explode('-',$product_query->row['name'])[1],
 					'departure_from'  => $product_query->row['departure_from'],
 					'departure_to'    => $product_query->row['departure_to'],
 					'departure_time'  => date("H:i",strtotime($product_query->row['departure_time'])),

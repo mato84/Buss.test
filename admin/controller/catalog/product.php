@@ -452,6 +452,7 @@ class ControllerCatalogProduct extends Controller {
 		$data['entry_to'] = $this->language->get('entry_to');
 		$data['entry_departure_from'] = $this->language->get('entry_departure_form');
 		$data['entry_departure_to'] = $this->language->get('entry_departure_to');
+		$data['entry_waypoint_arrival_time'] = $this->language->get('entry_waypoint_arrival_time');
 		$data['entry_departure_time'] = $this->language->get('entry_departure_time');
 		$data['entry_arrival_time'] = $this->language->get('entry_arrival_time');
 		$data['entry_time_road'] = $this->language->get('entry_time_road');
@@ -647,6 +648,7 @@ class ControllerCatalogProduct extends Controller {
 		$data['entry_to'] = $this->language->get('entry_to');
 		$data['entry_departure_from'] = $this->language->get('entry_departure_from');
 		$data['entry_departure_to'] = $this->language->get('entry_departure_to');
+		$data['entry_waypoint_arrival_time'] = $this->language->get('entry_waypoint_arrival_time');
 		$data['entry_departure_time'] = $this->language->get('entry_departure_time');
 		$data['entry_time_road'] = $this->language->get('entry_time_road');
 		$data['entry_arrival_time'] = $this->language->get('entry_arrival_time');
@@ -931,6 +933,13 @@ class ControllerCatalogProduct extends Controller {
 			$data['departure_time'] = $product_info['departure_time'];
 		} else {
 			$data['departure_time'] = "";
+		}
+		if (isset($this->request->post['waypoint_arrival_time'])) {
+			$data['waypoint_arrival_time'] = $this->request->post['waypoint_arrival_time'];
+		} elseif (!empty($product_info)) {
+			$data['waypoint_arrival_time'] = $product_info['waypoint_arrival_time'];
+		} else {
+			$data['waypoint_arrival_time'] = "";
 		}
 
 		if (isset($this->request->post['time_road'])) {
@@ -1500,7 +1509,9 @@ class ControllerCatalogProduct extends Controller {
 			if ($related_info) {
 				$data['product_relateds'][] = array(
 					'product_id' => $related_info['product_id'],
-					'name'       => $related_info['name']
+					'name'       => $related_info['name'],
+					'from_name'  => $related_info['from_name'],
+
 				);
 			}
 		}
