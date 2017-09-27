@@ -30,3 +30,6 @@ $_['text_rating_desc']  = 'Рейтинг (Високий)';
 $_['text_model_asc']    = 'Модель (A - Я)';
 $_['text_model_desc']   = 'Модель (Я - A)';
 $_['text_limit']        = 'Показати:';
+$_['text_departure']    = 'Відправлення: ';
+$_['text_time_road']    = 'Час в дорозі: ';
+$_['text_arrival']      = 'Прибуття: ';

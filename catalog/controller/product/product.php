@@ -254,8 +254,9 @@ class ControllerProductProduct extends Controller {
 			$data['text_payment_recurring'] = $this->language->get('text_payment_recurring');
 			$data['text_loading'] = $this->language->get('text_loading');
 			$data['text_departure'] = $this->language->get('text_departure');
-      $data['text_time_road'] = $this->language->get('text_time_road');
+      		$data['text_time_road'] = $this->language->get('text_time_road');
 			$data['text_arrival'] = $this->language->get('text_arrival');
+			$data['text_data_choice'] = $this->language->get('text_data_choice');			
 
 			$data['entry_qty'] = $this->language->get('entry_qty');
 			$data['entry_name'] = $this->language->get('entry_name');
@@ -264,6 +265,7 @@ class ControllerProductProduct extends Controller {
 			$data['entry_good'] = $this->language->get('entry_good');
 			$data['entry_bad'] = $this->language->get('entry_bad');
 
+			$data['button_route'] = $this->language->get('button_route');
 			$data['button_tobook'] = $this->language->get('button_tobook');
 			$data['button_cart'] = $this->language->get('button_cart');
 			$data['button_wishlist'] = $this->language->get('button_wishlist');

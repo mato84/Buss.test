@@ -169,6 +169,9 @@ class ControllerProductManufacturer extends Controller {
 			$data['text_empty'] = $this->language->get('text_empty');
 			$data['text_quantity'] = $this->language->get('text_quantity');
 			$data['text_manufacturer'] = $this->language->get('text_manufacturer');
+			$data['text_departure'] = $this->language->get('text_departure');
+			$data['text_time_road'] = $this->language->get('text_time_road');
+			$data['text_arrival'] = $this->language->get('text_arrival');
 			$data['text_model'] = $this->language->get('text_model');
 			$data['text_price'] = $this->language->get('text_price');
 			$data['text_tax'] = $this->language->get('text_tax');
@@ -235,6 +238,12 @@ class ControllerProductManufacturer extends Controller {
 					'product_id'  => $result['product_id'],
 					'thumb'       => $image,
 					'name'        => $result['name'],
+					'manufacturer'        => $result['manufacturer'],
+					'departure_from' => $result['departure_from'],
+					'departure_to' => $result['departure_to'],
+					'departure_time' => $result['departure_time'],
+					'arrival_time' => $result['arrival_time'],
+					'time_road' => $result['time_road'],
 					'description' => utf8_substr(strip_tags(html_entity_decode($result['description'], ENT_QUOTES, 'UTF-8')), 0, $this->config->get($this->config->get('config_theme') . '_product_description_length')),
 					'price'       => $price,
 					'special'     => $special,

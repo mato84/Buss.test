@@ -22,7 +22,7 @@ h6 {
 /* Override the bootstrap defaults */
 
 h1 {
-    font-size: 30px;
+    font-size: 24px;
 }
 
 h2 {
@@ -30,7 +30,7 @@ h2 {
 }
 
 h3 {
-    font-size: 25px;
+    font-size: 24px;
 }
 
 h4 {
@@ -451,6 +451,7 @@ header {
     -moz-border-radius: 0px;
     -khtml-border-radius: 0px;
     background: #ffffff !important;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.16) inset;
     outline: none;
     height: 40px;
     width: 100%;
@@ -1307,18 +1308,27 @@ footer .powered {
 }
 
 .btn-link {
-    border-color: rgba(0, 0, 0, 0);
-    cursor: pointer;
-    color: #23A1D1;
-    border-radius: 0;
+    height: auto;
+    padding: 4px 11px 3px 11px;
+    font-size: 12px;
+    color: #cd4e37;
+    border: 1px solid #cd4e37;
 }
 
-.btn-link,
+.btn-link:hover,
 .btn-link:active,
+.btn-link:focus,
+.btn-link:active:focus,
+.btn-link:active:hover,
+.btn-link.active,
+.btn-link.focus,
+.btn-link.disabled,
 .btn-link[disabled] {
-    background-color: rgba(0, 0, 0, 0);
-    background-image: none;
-    box-shadow: none;
+    color: #cd4e37;
+    border: 1px solid #cd4e37;
+    background-color: transparent;
+    outline: none;
+    text-decoration: none;
 }
 
 .btn-inverse {
@@ -1441,15 +1451,14 @@ footer .powered {
 
 .product-thumb h3 {
     margin: 0 -20px;
-    line-height: 29px;
-    background-color: #dadada;
+    padding: 7px 0;
+    background-color: #eeeeee;
     text-align: center;
 }
 
 @media (min-width: 768px) {
     .product-thumb h3 {
         margin: 0;
-        line-height: 40px;
         text-align: left;
     }
 }
@@ -1546,8 +1555,15 @@ h2.price {
     }
 }
 
+.product-thumb .control-label {
+    color: #cd4e37;
+    font-size: 16px;
+    font-weight: 400;
+}
+
 .product-thumb .form-group__value {
     font-weight: 300;
+    padding: 10px 0;
 }
 
 .product-thumb .form-group__value_time {
@@ -1555,8 +1571,7 @@ h2.price {
     vertical-align: top;
 	font-size: 25px;
     font-weight: 400;
-    margin: 5px 0 10px 0; 
-    padding: 5px;
+    padding: 8px 10px;
     background-color: #eeeeee;
 
 }
@@ -1668,7 +1683,7 @@ h2.price {
 }
 
 .product-details .product-title {
-    background-color: #dadada;
+    background-color: #eeeeee;
     margin: 0 -20px;
 }
 
@@ -1684,26 +1699,43 @@ h2.price {
 
 .product-details .product-title h1 {
     margin: 0;
-    line-height: 40px;
+    padding: 7px 0;
     text-align: center;
     color: #777777;
+}
+
+@media (min-width: 768px) {
+    .product-details .product-title h1 {
+        padding: 7px 20px;
+        text-align: left;
+    }    
 }
 
 .product-details .product-options {
     margin: 30px 0 20px;
 }
 
-.product-details .product-options .text-danger {
-	margin-top: -17px;
+.product-details .control-label {
+    color: #cd4e37;
+    font-size: 16px;
+    font-weight: 400;
 }
-
 .product-options .form-group {
-    display: block;
+    display: inline-block;
+    vertical-align: top;
     margin-bottom: 0px;
 }
 
 .product-options .form-group_margin {
 	margin-bottom: 20px;
+}
+
+@media (min-width: 768px) {
+    .product-options .form-group_margin {
+        display: inline-block;
+        vertical-align: top;
+        width: 36%;
+    }
 }
 
 .product-options .form-group_bg {
@@ -1721,20 +1753,28 @@ h2.price {
 @media (min-width: 768px) {
     .product-details .product-options .option-data {
         width: 200px;
-        margin-right: 30px;
+        margin-right: 60px;
     }
 }
 
+@media (max-width: 700px) {
+    .product-details .product-options .option-data .date {
+    	margin-bottom: 20px;
+    }
 
-.product-details .product-options .option-data .date {
-	margin-bottom: 20px;
+    .product-details .product-options .text-danger {
+        margin-top: -17px;
+    }
+}
+
+.product-details .product-options .timeinroad-data {
+        margin-bottom: 20px;
 }
 
 @media (min-width: 768px) {
     .product-details .product-options .timeinroad-data {
-        width: 200px;
-        margin-right: 30px;
-    }
+            margin-left: 25px;
+    }    
 }
 
 .product-details .product-options .timeinroad-data label{
@@ -1775,25 +1815,19 @@ h2.price {
 }
 
 .product-options .form-group__value {
-	line-height: 40px;
+	padding: 10px 0;
     font-weight: 300;
 }
 
 .product-options .form-group__value_time {
-	min-width: 70px;
-	font-size: 20px;
+	min-width: 65px;
+	font-size: 25px;
     font-weight: 400;
 }
 
-.product-details .timeinroad {
-    min-width: 200px;
-}
-
-.product-details .timeinroad .timeinroad-value {
+.product-details .timeinroad-data .form-group__value_time {
     font-size: 20px;
-    line-height: 35px;
 }
-
 
 @media (min-width: 768px) {
     .product-details .option-quattity {
@@ -1802,14 +1836,139 @@ h2.price {
     }
 }
 
-.product-options__add-block {
-	padding: 0;
+.route {
+    position: relative;
+    margin: 20px 0 40px 0;
 }
 
 @media (min-width: 768px) {
-	.product-options__add-block {
-		text-align: right;
-		padding: 0 20px;
+    .route {
+    margin: -40px 22px 40px 0;        
+    }
+}
+
+
+.route .route__bottons {
+
+    margin-bottom: 5px;
+}
+
+@media (min-width: 768px) {
+    .route .route__bottons {
+        text-align: right;        
+    }   
+}
+
+
+.route .route__way {
+    background-color: #eeeeee;
+    padding: 25px 10px 15px 20px;
+}
+
+.route .route__waypoint {
+    position: relative;
+    min-height: 38px;
+    margin: -2px 0 0 10px;
+    padding: 0 0 20px 16px;
+}
+
+.route .route__waypoint:before {
+    position: absolute;
+    content: "";
+    top: 17px;
+    left: 1px;
+    bottom: -1px;
+    border-left: 2px dashed #ccc;
+}
+
+.route .route__waypoint .datetime {
+    display: inline-block;
+    vertical-align: top;
+    width: 64px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18px;
+    color: #505050;
+}
+
+.route__waypoint .datetime b {
+    display: block;
+    font-size: 18px;
+    font-weight: 400;
+    color: #333333;
+}
+
+.route .route__waypoint .info {
+    padding-right: 40px;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 18px;
+    color: #333333;
+}
+
+@media (min-width: 768px) {
+    .route .route__waypoint .info {
+        display: inline-block;
+        vertical-align: top;
+    }
+}
+
+
+.route .route__waypoint .info b {
+    display: block;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.route .fa {
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    font-size: 22px;
+    width: 13px;
+    height: 12px;
+    background-color: #eeeeee;
+    color: #b1b1b1;
+    border-radius: 50%;
+    line-height: 19px;
+}
+
+
+.route #collapse0 > div:first-child > i,
+.route #collapse0 > div:last-child > i {
+       color:#cd4e37; 
+}
+
+.route .route__waypoint:last-child:after {
+    border-color: #b0063a;
+}
+
+.route .route__waypoint:last-child {
+    padding-bottom: 0;
+}
+.route .route__waypoint:last-child:before {
+    position: absolute;
+    content: "";
+    top: 17px;
+    left: 1px;
+    bottom: -1px;
+    border:none;
+}
+
+.product-options__add-block {
+    margin: 30px 0;
+	padding: 0;
+}
+.product-options__add-block .form-group {
+    display: block;
+    margin-bottom: 15px;
+}
+
+@media (min-width: 768px) {
+	.product-options__add-block .form-group {
+		display: inline-block;
+        vertical-align: top;
+        margin-bottom: 0;     
 	}
 }
 
@@ -1821,8 +1980,8 @@ h2.price {
 
 @media (min-width: 768px) {
     .product-details .price-block {
-        padding: 6px 40px;
-        min-width: 230px;
+        padding: 6px 30px;
+        min-width: 200px;
     }
 }
 
@@ -1900,7 +2059,7 @@ h2.price {
 
 .well {
     min-height: 20px;
-    padding: 20px;
+    padding: 40px 20px 20px 20px;
     margin-bottom: 20px;
     background-color: #ffffff;
     border: none;
