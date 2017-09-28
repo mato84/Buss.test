@@ -60,38 +60,26 @@
                     </div>
                   </div>
 
-<div class="route">
-  <div class=route__bottons>
-    <a class="btn btn-link" data-toggle="collapse" href="#collapse0"><?php echo $button_route; ?></a>
-  </div>
-  <div id="collapse0" class="route__way panel-collapse collapse" style="height: 0px;">
-    <div class="route__waypoint">
-      <div class="datetime"><b>00:15</b></div>
-      <div class="info"><b>Херсон</b>АВ (вул. Буденного, 1)</div>
-      <i class="fa fa-map-marker" aria-hidden="true"></i>
-    </div>
-    <div class="route__waypoint">
-      <div class="datetime"><b>12:00</b></div>
-      <div class="info"><b>Харків</b>проспект Юрія Гагаріна; будинок 22</div>
-      <i class="fa fa-map-marker" aria-hidden="true"></i>
-    </div>
-    <div class="route__waypoint">
-      <div class="datetime"><b>12:00</b></div>
-      <div class="info"><b>Харків</b>проспект Юрія Гагаріна; будинок 22</div>
-      <i class="fa fa-map-marker" aria-hidden="true"></i>
-    </div>
-    <div class="route__waypoint">
-      <div class="datetime"><b>12:00</b></div>
-      <div class="info"><b>Харків</b>проспект Юрія Гагаріна; будинок 22</div>
-      <i class="fa fa-map-marker" aria-hidden="true"></i>
-    </div>
-    <div class="route__waypoint">
-      <div class="datetime"><b>12:00</b></div>
-      <div class="info"><b>Харків</b>проспект Юрія Гагаріна; будинок 22</div>
-      <i class="fa fa-map-marker" aria-hidden="true"></i>
-    </div>
-  </div>
-</div>
+                <div class="route">
+                <div class=route__bottons>
+                  <a class="btn btn-link" data-toggle="collapse" href="#collapse0"><?php echo $button_route; ?></a>
+                </div>
+                <div id="collapse0" class="route__way panel-collapse collapse" style="height: 0px;">
+                  <div class="route__waypoint">
+                    <div class="datetime"><b><?php echo $departure_time; ?></b></div>
+                    <div class="info"><b><?php echo $from_name?></b><?php echo $departure_from; ?></div>
+                    <i class="fa fa-map-marker" aria-hidden="true"></i>
+                  </div>
+
+<!--- *********************************OTHER WAYPOINTS THERE********************************** -->
+
+                  <div class="route__waypoint">
+                    <div class="datetime"><b><?php echo $arrival_time; ?></b></div>
+                    <div class="info"><b><?php echo $to_name?></b><?php echo $departure_to; ?></div>
+                    <i class="fa fa-map-marker" aria-hidden="true"></i>
+                  </div>
+                </div>
+                </div>
 
                 <div class="product-options__add-block">
                 <?php if ($options) { ?>
