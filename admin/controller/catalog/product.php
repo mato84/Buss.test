@@ -1510,7 +1510,7 @@ class ControllerCatalogProduct extends Controller {
 				$data['product_relateds'][] = array(
 					'product_id' => $related_info['product_id'],
 					'name'       => $related_info['name'],
-					'from_name'  => $related_info['from_name'],
+				
 
 				);
 			}
