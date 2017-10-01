@@ -38,7 +38,7 @@
               <div class="product-title">
                 <h1 itemprop="name"><?php echo $heading_title; ?></h1>
               </div>
-              <div class="product-options" id="product">              
+              <div class="product-options" id="product">
                   <div class="form-group_margin">
                     <label class="control-label"><?php echo $from_name?></label>
                     <div class="form-group form-group_bg">
@@ -47,7 +47,7 @@
                     <div class="form-group__value"><?php echo $departure_from; ?></div>
                   </div>
                   <div class="form-group_margin">
-                    <label class="control-label"><?php echo $to_name?></label>              
+                    <label class="control-label"><?php echo $to_name?></label>
                     <div class="form-group form-group_bg">
                       <div class="form-group__value form-group__value_time"><?php echo $arrival_time; ?></div>
                     </div>
@@ -70,9 +70,16 @@
                     <div class="info"><b><?php echo $from_name?></b><?php echo $departure_from; ?></div>
                     <i class="fa fa-map-marker" aria-hidden="true"></i>
                   </div>
-
-<!--- *********************************OTHER WAYPOINTS THERE********************************** -->
-
+                  <!--- *********************************OTHER WAYPOINTS THERE********************************** -->
+                  <?php if ($products) { ?>
+                    <?php foreach ($products as $product) { ?>
+                      <div class="route__waypoint">
+                        <div class="datetime"><b><?php echo $product['waypoint_arrival_time']; ?></b></div>
+                        <div class="info"><b><?php echo $product['from_name']?></b><?php echo $product['departure_from']; ?></div>
+                        <i class="fa fa-map-marker" aria-hidden="true"></i>
+                      </div>
+                    <?php } ?>
+                  <?php } ?>
                   <div class="route__waypoint">
                     <div class="datetime"><b><?php echo $arrival_time; ?></b></div>
                     <div class="info"><b><?php echo $to_name?></b><?php echo $departure_to; ?></div>

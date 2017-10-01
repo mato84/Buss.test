@@ -13,6 +13,7 @@ class ModelCatalogProduct extends Model {
 				'name'             => $query->row['pre_name']." <span>".$query->row['name']."</span>",
 				'from_name'        => $query->row['from_name'],
 				'to_name'          => $query->row['to_name'],
+				'waypoint_arrival_time'   => date("H:i", strtotime($query->row['waypoint_arrival_time'])),
 				'departure_from'   => $query->row['departure_from'],
 				'departure_to'     => $query->row['departure_to'],
 				'departure_time'   => date("H:i", strtotime($query->row['departure_time'])),

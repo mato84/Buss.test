@@ -256,7 +256,7 @@ class ControllerProductProduct extends Controller {
 			$data['text_departure'] = $this->language->get('text_departure');
       		$data['text_time_road'] = $this->language->get('text_time_road');
 			$data['text_arrival'] = $this->language->get('text_arrival');
-			$data['text_data_choice'] = $this->language->get('text_data_choice');			
+			$data['text_data_choice'] = $this->language->get('text_data_choice');
 
 			$data['entry_qty'] = $this->language->get('entry_qty');
 			$data['entry_name'] = $this->language->get('entry_name');
@@ -479,9 +479,11 @@ class ControllerProductProduct extends Controller {
 					'product_id'  => $result['product_id'],
 					'thumb'       => $image,
 					'name'        => $result['name'],
+					'from_name' => $result['from_name'],
+					'waypoint_arrival_time' => $result['waypoint_arrival_time'],
 					'departure_from' => $result['departure_from'],
-					'departure_to' => $result['departure_to'],
-					'road_time'    => $result['road_time'],
+					// 'departure_to' => $result['departure_to'],
+					// 'road_time'    => $result['road_time'],
 					'description' => utf8_substr(strip_tags(html_entity_decode($result['description'], ENT_QUOTES, 'UTF-8')), 0, $this->config->get($this->config->get('config_theme') . '_product_description_length')) . '..',
 					'price'       => $price,
 					'special'     => $special,

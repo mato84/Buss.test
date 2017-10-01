@@ -7,13 +7,17 @@ use Box\Spout\Common\Type;
 
 class ModelToolImportExport extends Model{
   public function import($path){
-
+    try{
     $reading_data = $this->readFile($path);
     $last_id = $this->setProducts(array_shift($reading_data));
     $url_alias = array_pop($reading_data);
     $this->setDependentTable($reading_data,$last_id);
     $this->setUrlAliace($url_alias,$last_id);
     return $last_id;
+     }
+  catch(Exception $e){
+       echo 'Catch exception: ',  $e->getMessage(), "\n";
+     }
   }
 
   protected function readFile($path){
@@ -47,7 +51,14 @@ class ModelToolImportExport extends Model{
       $sql = "INSERT INTO " .DB_PREFIX. "product SET ";
       $sql .= array_reduce(array_keys($value), function($carry,$key) use($value){
         if(!empty($key) && !empty($value[$key]) ){
-        return $carry." ".$key." = '" .$value[$key]."',";
+          if((strcasecmp($key,'from_t') == 0 || strcasecmp($key,'to_t') == 0) && !is_numeric($value[$key]) ){
+            $query = $this->db->query("SELECT c.city_id FROM ".DB_PREFIX."city c WHERE c.name = '".$value[$key]."'");
+            if(array_key_exists('city_id',$query->row)){
+              return $carry." ".$key." = '" .$query->row['city_id']."',";
+            }
+            throw new \Exception('not find city_id in ' . $value[$key]);
+          }
+           return $carry." ".$key." = '" .$value[$key]."',";
         }
         else{
         return $carry;
