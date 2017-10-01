@@ -65,6 +65,8 @@ class ControllerExtensionModuleFeatured extends Controller {
 						'product_id'  => $product_info['product_id'],
 						'thumb'       => $image,
 						'manufacturer'   => $product_info['manufacturer'],
+						'from_name'   => $product_info['from_name'],
+						'to_name'     => $product_info['to_name'],
 						'departure_from' => $product_info['departure_from'],
 						'departure_to' => $product_info['departure_to'],
 						'departure_time' => $product_info['departure_time'],
