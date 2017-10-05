@@ -35,6 +35,7 @@ $_['text_menu']                             = 'Менеджер меню';
 $_['text_modification']          			= 'Менеджер дополнений';
 $_['text_manufacturer']          			= 'Производители';
 $_['text_city']          			      = 'Города';
+$_['text_waypoint']          			     = 'Точки маршруту';
 $_['text_option']          					= 'Опции';
 $_['text_order']          					= 'Заказы';
 $_['text_order_status']          			= 'Статусы заказов';

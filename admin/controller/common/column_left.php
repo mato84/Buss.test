@@ -150,6 +150,13 @@ class ControllerCommonColumnLeft extends Controller {
 					'children' => array()
 				);
 			}
+			if ($this->user->hasPermission('access', 'catalog/waypoint')) {
+				$catalog[] = array(
+					'name'	   => $this->language->get('text_waypoint'),
+					'href'     => $this->url->link('catalog/waypoint', 'token=' . $this->session->data['token'], true),
+					'children' => array()
+				);
+			}
 
 			if ($catalog) {
 				$data['menus'][] = array(
