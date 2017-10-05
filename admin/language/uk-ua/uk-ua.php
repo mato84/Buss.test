@@ -115,6 +115,7 @@ $_['tab_data']                      = 'Дані';
 $_['tab_design']                    = 'Дизайн';
 $_['tab_discount']                  = 'Знижка';
 $_['tab_general']                   = 'Загальні';
+$_['tab_waypoint']                  = 'Точки маршруту';
 $_['tab_history']                   = 'Історія';
 $_['tab_ftp']                       = 'FTP';
 $_['tab_ip']                        = 'IP адреса';

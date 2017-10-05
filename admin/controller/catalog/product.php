@@ -731,6 +731,7 @@ class ControllerCatalogProduct extends Controller {
 		$data['button_recurring_add'] = $this->language->get('button_recurring_add');
 
 		$data['tab_general'] = $this->language->get('tab_general');
+		$data['tab_waypoint'] = $this->language->get('tab_waypoint');
 		$data['tab_data'] = $this->language->get('tab_data');
 		$data['tab_attribute'] = $this->language->get('tab_attribute');
 		$data['tab_option'] = $this->language->get('tab_option');
@@ -1510,7 +1511,7 @@ class ControllerCatalogProduct extends Controller {
 				$data['product_relateds'][] = array(
 					'product_id' => $related_info['product_id'],
 					'name'       => $related_info['name'],
-				
+
 
 				);
 			}

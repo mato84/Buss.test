@@ -172,7 +172,6 @@ class ControllerCatalogWaypoint extends Controller {
 			$data['waypoints'][] = array(
 				'waypoint_id'        => $result['waypoint_id'],
 				'name'               => $result['name'],
-        'city_id'            => $result['city_id'],
         'time'               => $result['time'],
         'place'              => $result['place'],
         'manufacturer_id'    => $result['manufacturer_id'],
@@ -266,15 +265,9 @@ class ControllerCatalogWaypoint extends Controller {
     if ((utf8_strlen($this->request->post['city']) < 1) || (utf8_strlen($this->request->post['city']) > 32)) {
       $this->error['city_id'] = $this->language->get('error_city_id');
     }
-    if (!is_numeric($this->request->post['city_id'])) {
-			 		 $this->error['city_id'] = $this->language->get('error_city_id');
-			 	 }
     if ((utf8_strlen($this->request->post['time']) < 1) || (utf8_strlen($this->request->post['time']) > 10)) {
       $this->error['time'] = $this->language->get('error_time');
     }
-    if ((utf8_strlen($this->request->post['place']) < 2) || (utf8_strlen($this->request->post['place']) > 128)) {
-    				$this->error['place'] = $this->language->get('error_place');
-    			}
     if (!isset($this->request->post['manufacturer_id'])) {
       			  $this->error['manufacturer_id'] = $this->language->get('error_manufacturer_id');
       		  }
@@ -383,10 +376,6 @@ class ControllerCatalogWaypoint extends Controller {
 
 		$data['cancel'] = $this->url->link('catalog/waypoint', 'token=' . $this->session->data['token'] . $url, true);
 
-		if (isset($this->request->get['city_id']) && ($this->request->server['REQUEST_METHOD'] != 'POST')) {
-			$city_info = $this->model_catalog_city->getCity($this->request->get['city_id']);
-		}
-
     if (isset($this->request->get['waypoint_id']) && ($this->request->server['REQUEST_METHOD'] != 'POST')) {
 			$waypoint_info = $this->model_catalog_waypoint->getWaypoint($this->request->get['waypoint_id']);
 		}
@@ -394,21 +383,12 @@ class ControllerCatalogWaypoint extends Controller {
 		$data['token'] = $this->session->data['token'];
 		$data['ckeditor'] = $this->config->get('config_editor_default');
 
-    $this->load->model('catalog/city');
-
     if (isset($this->request->post['city'])) {
       $data['city'] = $this->request->post['city'];
     } elseif (!empty($waypoint_info)) {
-      $data['city'] = $this->model_catalog_city->getCity($waypoint_info['city_id'])['name'];
+      $data['city'] = $waypoint_info['city'];
     } else {
       $data['city'] = '';
-    }
-    if (isset($this->request->post['city_id'])) {
-      $data['city_id'] = $this->request->post['city_id'];
-    } elseif (!empty($waypoint_info)) {
-      $data['city_id'] = $waypoint_info['city_id'];
-    } else {
-      $data['city_id'] = '';
     }
     if (isset($this->request->post['time'])) {
       $data['time'] = $this->request->post['time'];
@@ -463,7 +443,7 @@ class ControllerCatalogWaypoint extends Controller {
 		$this->load->model('catalog/product');
 
 		foreach ($this->request->post['selected'] as $waypoint_id) {
-			$product_total = $this->model_catalog_product->getTotalProductsByCitiesId($city_id);
+			$product_total = $this->model_catalog_product->getTotalProductsByCitiesId($waypoint_id);
 
 			if ($product_total) {
 				$this->error['warning'] = sprintf($this->language->get('error_product'), $product_total);

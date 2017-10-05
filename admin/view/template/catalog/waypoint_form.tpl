@@ -30,7 +30,7 @@
               <label class="col-sm-2 control-label" for="input-city"><?php echo $entry_city; ?></label>
               <div class="col-sm-10">
                 <input type="text" name="city" value="<?php echo $city; ?>" placeholder="<?php echo $entry_city; ?>" id="input-city" class="form-control" />
-                <input type="hidden" name="city_id" value="<?php echo $city_id; ?>" id="input-city-id" class="form-control" />
+
                 <?php if ($error_city_id != "") { ?>
                 <div class="text-danger"><?php echo $error_city_id; ?></div>
                 <?php } ?>
@@ -49,7 +49,7 @@
                   <?php } ?>
               </div>
             </div>
-            <div class="form-group required">
+            <div class="form-group ">
               <label class="col-sm-2 control-label " for="input-place"><?php echo $entry_place; ?></label>
               <div class="col-sm-10">
                 <input type="text" name="place" value="<?php echo $place; ?>" placeholder="<?php echo $entry_place; ?>" id="input-place" class="form-control" />
@@ -102,21 +102,10 @@ url: function() {
   return 'index.php?route=catalog/city/autocomplete&token=<?php echo $token; ?>';
 },
 list: {
-  onSelectItemEvent:function(){
-    var id =  document.activeElement.id;
-    var valueInput =$('#'+ id).getSelectedItemData();
-     $('#'+id+'-id').val(valueInput.city_id).trigger('change');
-  },
     match: {
     enabled: true
   }
 },
-// template: {
-//       type: "description",
-//       fields: {
-//           description: "city_iso"
-//       }
-//   },
   adjustWidth: false,
   getValue: "name"
 
