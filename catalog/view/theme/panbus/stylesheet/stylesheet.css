@@ -100,7 +100,8 @@ input[type="color"].form-control {
     box-shadow: none;
 }
 
-input[type=radio] {
+input[type=radio],
+input[type=checkbox] {
     position: relative !important;
     width: 40px;
     height: 40px;
@@ -115,11 +116,13 @@ input[type=radio] {
     cursor: pointer;
 }
 
-input[type=radio]:not(:checked) {
+input[type=radio]:not(:checked),
+input[type=checkbox]:not(:checked) {
     background: url(/image/catalog/other/radio.png) 0 0 transparent no-repeat
 }
 
-input[type=radio]:checked {
+input[type=radio]:checked,
+input[type=checkbox]:checked {
     background: url(/image/catalog/other/radio.png) 0px -45px transparent no-repeat;
 }
 
@@ -1388,14 +1391,15 @@ footer .powered {
 
 /* product list */
 
-.seach-result {
+.search-result {
     display: inline-block;
     vertical-align: top;
-    color: #ffffff;
+    color: #fff;
     background-color: #ce4e38;
     padding: 2px 8px;
     margin-top: 0;
-    font-size: 28px;
+    font-size: 24px;
+    line-height: 24px;
 }
 
 .product-thumb {
@@ -2180,6 +2184,36 @@ h2.price {
     margin: 0 auto;
 }
 
+.login-form .buttons-right {
+    padding-top: 20px;
+}
+
+.login-form .register-btn {
+    float: left;
+}
+
+.register-form {
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+.agree-block {
+    text-align: right;
+    margin: 20px 0;
+}
+
+.agree-block input {
+    margin: 5px 0 0 8px !important;
+}
+
+.agree-block div {
+    display: inline-block;
+    vertical-align: top;
+}
+.agree-block > div:nth-child(1) {
+    width: 240px;
+}
+
 .contact-block {
     margin-bottom: 40px;
 }
@@ -2223,6 +2257,17 @@ h2.price {
 
 .contact-block .fa {
     font-size: 20px;
+}
+
+
+@media (min-width: 768px) {
+    .modal-dialog {
+        width: 1020px;
+    }
+}
+
+.modal-content {
+    border-radius: 0;
 }
 
 @media (min-width: 1200px) {

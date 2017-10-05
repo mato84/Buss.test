@@ -97,7 +97,7 @@
       <tr>
         <td style="font-size: 16px;	border-bottom: 1px solid #DDDDDD; text-align: left; padding: 10px;">
           <div style="border-left: 4px solid #cd4e37; padding: 0 8px; ">
-            <img src="<?php echo $logo; ?>" style="width:60px; margin-right: 10px; margin-top: 8px; display: inline-block; vertical-align: middle;" />
+            <!-- <img src="<?php echo $logo; ?>" style="width:60px; margin-right: 10px; margin-top: 8px; display: inline-block; vertical-align: middle;" /> -->
             <div style="display: inline-block; vertical-align: middle;">
             <a style="color: #cd4e37; text-decoration: none; " href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a>
             <?php foreach ($product['option'] as $option) { ?>

@@ -16,23 +16,23 @@
                 <h3 itemprop="name"><a href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a></h3>
                 <div class="description-group" itemprop="description">
                   <div class="form-group_margin">
-                    <label class="control-label" for=""><?php echo $text_departure; ?></label>
+                    <label class="control-label"><?php echo $product['from_name']?></label>
                     <div class="form-group_bg">
-                      <div class="form-group__value form-group__value_time"><?php echo $product['departure_time']; ?></div>
+                      <div class="form-group__value_time"><?php echo $product['departure_time']; ?></div>
                       <div class="form-group__value"><?php echo $product['departure_from']; ?></div>
                     </div>
                   </div>
                   <div class="form-group_margin">
-                    <label class="control-label" for=""><?php echo $text_arrival; ?></label>
+                    <label class="control-label"><?php echo $product['to_name']?></label>
                     <div class="form-group_bg">
-                      <div class="form-group__value form-group__value_time"><?php echo $product['arrival_time']; ?></div>
+                      <div class="form-group__value_time"><?php echo $product['arrival_time']; ?></div>
                       <div class="form-group__value"><?php echo $product['departure_to']; ?></div>
                     </div>
                   </div>
                   <div class="form-group_margin">
-                    <label class="control-label" for=""><?php echo $text_time_road; ?></label>
+                    <label><?php echo $text_time_road; ?></label>
                     <div class="form-group_bg">
-                      <div class="form-group__value form-group__value_time"><?php echo $product['time_road']; ?></div>
+                      <div class="form-group__value form-group__value_time form-group__value_timeinroad"><?php echo $product['time_road']; ?></div>
                     </div>
                   </div>
                 </div>

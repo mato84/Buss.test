@@ -5,7 +5,7 @@
 //info@marketplus.if.ua
 
 // Heading
-$_['heading_title']        = 'Зареєструватися';
+$_['heading_title']        = 'Створення облікового запису';
 
 // Text
 $_['text_account']         = 'Обліковий запис';
@@ -15,7 +15,7 @@ $_['text_your_details']    = 'Ваша особиста інформація';
 $_['text_your_address']    = 'Ваша адреса';
 $_['text_newsletter']      = 'Розсилка новин';
 $_['text_your_password']   = 'Ваш пароль';
-$_['text_agree']           = 'Я прочитав розділ <a href="%s" class="agree"><b>%s</b></a> та погоджуюся з правилами';
+$_['text_agree']           = 'Я прочитав <a href="%s" class="agree">%s</a><br> та погоджуюся з правилами';
 
 // Entry
 $_['entry_customer_group'] = 'Група покупців';

@@ -10,7 +10,7 @@
     <?php } ?>
     <div id="content"><?php echo $content_top; ?>
       <?php if ($products) { ?>
-        <h1><?php echo $text_search; ?> <span class="seach-result"><?php echo $entry_search; ?></span></h1>
+        <h1><?php echo $text_search; ?> <span class="search-result"><?php echo $entry_search; ?></span></h1>
         <div class="row">
           <div class="col-md-4 col-xs-12 sort-group ">
             <div class="form-group input-group input-group-sm">
@@ -44,21 +44,21 @@
                 <h3 itemprop="name"><a href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a></h3>
                 <div class="description-group" itemprop="description">
                   <div class="form-group_margin">
-                    <label class="control-label" for=""><?php echo $text_departure; ?></label>
+                    <label class="control-label"><?php echo $product['from_name']?></label>
                     <div class="form-group_bg">
-                      <div class="form-group__value form-group__value_time"><?php echo $product['departure_time']; ?></div>
+                      <div class="form-group__value_time"><?php echo $product['departure_time']; ?></div>
                       <div class="form-group__value"><?php echo $product['departure_from']; ?></div>
                     </div>
                   </div>
                   <div class="form-group_margin">
-                    <label class="control-label" for=""><?php echo $text_arrival; ?></label>
+                    <label class="control-label"><?php echo $product['to_name']?></label>
                     <div class="form-group_bg">
-                      <div class="form-group__value form-group__value_time"><?php echo $product['arrival_time']; ?></div>
+                      <div class="form-group__value_time"><?php echo $product['arrival_time']; ?></div>
                       <div class="form-group__value"><?php echo $product['departure_to']; ?></div>
                     </div>
                   </div>
                   <div class="form-group_margin">
-                    <label class="control-label" for=""><?php echo $text_time_road; ?></label>
+                    <label><?php echo $text_time_road; ?></label>
                     <div class="form-group_bg">
                       <div class="form-group__value form-group__value_time form-group__value_timeinroad"><?php echo $product['time_road']; ?></div>
                     </div>
