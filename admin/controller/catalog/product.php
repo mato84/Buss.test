@@ -452,7 +452,7 @@ class ControllerCatalogProduct extends Controller {
 		$data['entry_to'] = $this->language->get('entry_to');
 		$data['entry_departure_from'] = $this->language->get('entry_departure_form');
 		$data['entry_departure_to'] = $this->language->get('entry_departure_to');
-		$data['entry_waypoint_arrival_time'] = $this->language->get('entry_waypoint_arrival_time');
+		// $data['entry_waypoint_arrival_time'] = $this->language->get('entry_waypoint_arrival_time');
 		$data['entry_departure_time'] = $this->language->get('entry_departure_time');
 		$data['entry_arrival_time'] = $this->language->get('entry_arrival_time');
 		$data['entry_time_road'] = $this->language->get('entry_time_road');
@@ -648,7 +648,7 @@ class ControllerCatalogProduct extends Controller {
 		$data['entry_to'] = $this->language->get('entry_to');
 		$data['entry_departure_from'] = $this->language->get('entry_departure_from');
 		$data['entry_departure_to'] = $this->language->get('entry_departure_to');
-		$data['entry_waypoint_arrival_time'] = $this->language->get('entry_waypoint_arrival_time');
+		// $data['entry_waypoint_arrival_time'] = $this->language->get('entry_waypoint_arrival_time');
 		$data['entry_departure_time'] = $this->language->get('entry_departure_time');
 		$data['entry_time_road'] = $this->language->get('entry_time_road');
 		$data['entry_arrival_time'] = $this->language->get('entry_arrival_time');
@@ -684,6 +684,7 @@ class ControllerCatalogProduct extends Controller {
 		$data['entry_category'] = $this->language->get('entry_category');
 		$data['entry_filter'] = $this->language->get('entry_filter');
 		$data['entry_related'] = $this->language->get('entry_related');
+		$data['entry_waypoint'] = $this->language->get('entry_waypoint');
 		$data['entry_attribute'] = $this->language->get('entry_attribute');
 		$data['entry_text'] = $this->language->get('entry_text');
 		$data['entry_option'] = $this->language->get('entry_option');
@@ -935,13 +936,13 @@ class ControllerCatalogProduct extends Controller {
 		} else {
 			$data['departure_time'] = "";
 		}
-		if (isset($this->request->post['waypoint_arrival_time'])) {
-			$data['waypoint_arrival_time'] = $this->request->post['waypoint_arrival_time'];
-		} elseif (!empty($product_info)) {
-			$data['waypoint_arrival_time'] = $product_info['waypoint_arrival_time'];
-		} else {
-			$data['waypoint_arrival_time'] = "";
-		}
+		// if (isset($this->request->post['waypoint_arrival_time'])) {
+		// 	$data['waypoint_arrival_time'] = $this->request->post['waypoint_arrival_time'];
+		// } elseif (!empty($product_info)) {
+		// 	$data['waypoint_arrival_time'] = $product_info['waypoint_arrival_time'];
+		// } else {
+		// 	$data['waypoint_arrival_time'] = "";
+		// }
 
 		if (isset($this->request->post['time_road'])) {
 		 $data['time_road'] = $this->request->post['time_road'];
@@ -1625,7 +1626,6 @@ class ControllerCatalogProduct extends Controller {
 
 		return !$this->error;
 	}
-
 	public function autocomplete() {
 		$json = array();
 
@@ -1707,6 +1707,26 @@ class ControllerCatalogProduct extends Controller {
 					'price'      => $result['price']
 				);
 			}
+		}
+
+		$this->response->addHeader('Content-Type: application/json');
+		$this->response->setOutput(json_encode($json));
+	}
+	public function autocompletewaypoint() {
+		$json = array();
+
+    $this->load->model('catalog/waypoint');
+		$results = $this->model_catalog_waypoint->getWaypoints();
+
+		foreach ($results as $result) {
+
+			$json[] = array(
+			 'waypoint_id' => $result['waypoint_id'],
+			 'name'       => strip_tags(html_entity_decode($result['name'], ENT_QUOTES, 'UTF-8')),
+			 'city'       => strip_tags(html_entity_decode($result['city'], ENT_QUOTES, 'UTF-8')),
+			 'time'       => $result['time'],
+			 'place'      => $result['place']
+		 );
 		}
 
 		$this->response->addHeader('Content-Type: application/json');

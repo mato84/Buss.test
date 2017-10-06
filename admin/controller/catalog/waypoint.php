@@ -258,6 +258,11 @@ class ControllerCatalogWaypoint extends Controller {
 
 		$this->response->setOutput($this->load->view('catalog/waypoint_list', $data));
 	}
+  protected function createName($request){
+    $this->load->model('catalog/manufacturer');
+    $name_manufacturer = $this->model_catalog_manufacturer->getManufacturer($request->post['manufacturer_id'] );
+    return $request->post['city']."-".$request->post['time']."-".$name_manufacturer['name'];
+  }
   protected function validateForm() {
 		if (!$this->user->hasPermission('modify', 'catalog/waypoint')) {
 			$this->error['warning'] = $this->language->get('error_permission');
@@ -272,7 +277,7 @@ class ControllerCatalogWaypoint extends Controller {
       			  $this->error['manufacturer_id'] = $this->language->get('error_manufacturer_id');
       		  }
     if (empty($this->request->post['name'])) {
-            $this->request->post['name'] = $this->request->post['city']." ".$this->request->post['time'];
+            $this->request->post['name'] = $this->createName($this->request);
             }
 		return !$this->error;
 	}
