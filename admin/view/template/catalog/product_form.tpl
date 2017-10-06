@@ -52,16 +52,6 @@
                   <?php } ?>
                 </div>
               </div>
-              <div class="form-group">
-                <label class="col-sm-2 control-label" for="input-entry_waypoint_arrival_time"><?php echo $entry_waypoint_arrival_time; ?></label>
-                <div class="col-sm-3">
-                  <div class="input-group time">
-                    <input type="text" name="waypoint_arrival_time" value="<?php echo $waypoint_arrival_time; ?>"  placeholder="<?php echo $entry_waypoint_arrival_time; ?>" data-date-format="HH:mm" id="input-entry_waypoint_arrival_time" class="form-control" />
-                    <span class="input-group-btn">
-                    <button type="button" class="btn btn-default"><i class="fa fa-calendar"></i></button>
-                    </span></div>
-                </div>
-              </div>
               <div class="form-group required">
                 <label class="col-sm-2 control-label" for="input-departure_time"><?php echo $entry_departure_time; ?></label>
                 <div class="col-sm-3">
@@ -387,7 +377,6 @@
                 <?php } ?>
               </div>
             </div>
-
             <div class="tab-pane" id="tab-waypoint">
               <div class="tab-content">
                   <div class="form-group">
