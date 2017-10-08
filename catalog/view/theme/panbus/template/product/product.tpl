@@ -70,11 +70,11 @@
                     <div class="info"><b><?php echo $from_name?></b><?php echo $departure_from; ?></div>
                     <i class="fa fa-map-marker" aria-hidden="true"></i>
                   </div>
-                  <?php if ($products) { ?>
-                    <?php foreach ($products as $product) { ?>
+                  <?php if ($waypoint_related) { ?>
+                    <?php foreach ($waypoint_related as $waypoint) { ?>
                       <div class="route__waypoint">
-                        <div class="datetime"><b><?php echo $product['waypoint_arrival_time']; ?></b></div>
-                        <div class="info"><b><?php echo $product['from_name']?></b><?php echo $product['departure_from']; ?></div>
+                        <div class="datetime"><b><?php echo $waypoint['time']; ?></b></div>
+                        <div class="info"><b><?php echo $waypoint['city']?></b><?php echo $waypoint['place']; ?></div>
                         <i class="fa fa-map-marker" aria-hidden="true"></i>
                       </div>
                     <?php } ?>
@@ -156,7 +156,7 @@
               </div>
             </div>
           </div>
-          
+
           <div class="product-description">
 
             <div class="product-rating">
