@@ -359,15 +359,18 @@ $('#button-cart').on('click', function() {
 	});
 });
 //--></script>
+
 <script type="text/javascript"><!--
+var dateToday = new Date();
 $('.date').datetimepicker({
-	pickTime: false
+	pickTime: false,
+  minDate:dateToday
 });
 
-$('.datetime').datetimepicker({
-	pickDate: true,
-	pickTime: true
-});
+// $('.datetime').datetimepicker({
+// 	pickDate: true,
+// 	pickTime: true
+// });
 
 $('.time').datetimepicker({
 	pickDate: false
