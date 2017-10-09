@@ -18,16 +18,18 @@ class ModelCatalogWaypoint extends Model {
     $this->cache->delete('waypoint');
   }
   public function getWaypoints($data = array()) {
-		$sql = "SELECT * FROM " . DB_PREFIX . "way_point";
+		$sql = "SELECT * FROM " . DB_PREFIX . "way_point w";
 		$sort_data = array(
 			'name',
 			'sort_order'
 		);
-
+    if (!empty($data['filter_name'])) {
+      $sql .= " WHERE w.name LIKE '" . $this->db->escape($data['filter_name']) . "%'";
+    }
 		if (isset($data['sort']) && in_array($data['sort'], $sort_data)) {
 			$sql .= " ORDER BY " . $data['sort'];
 		} else {
-			$sql .= " ORDER BY name";
+			$sql .= " ORDER BY w.name";
 		}
 
 		if (isset($data['order']) && ($data['order'] == 'DESC')) {
@@ -41,11 +43,11 @@ class ModelCatalogWaypoint extends Model {
 				$data['start'] = 0;
 			}
 
-			if ($data['limit'] < 1) {
+			if ($data['limit'] < 0) {
 				$data['limit'] = 20;
 			}
 
-			$sql .= " LIMIT " . (int)$data['start'] . "," . (int)$data['limit'];
+			$sql .= " LIMIT ". (int)$data['start'].", ".(int)$data['limit'];
 		}
 
 		$query = $this->db->query($sql);

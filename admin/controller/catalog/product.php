@@ -452,7 +452,6 @@ class ControllerCatalogProduct extends Controller {
 		$data['entry_to'] = $this->language->get('entry_to');
 		$data['entry_departure_from'] = $this->language->get('entry_departure_form');
 		$data['entry_departure_to'] = $this->language->get('entry_departure_to');
-		// $data['entry_waypoint_arrival_time'] = $this->language->get('entry_waypoint_arrival_time');
 		$data['entry_departure_time'] = $this->language->get('entry_departure_time');
 		$data['entry_arrival_time'] = $this->language->get('entry_arrival_time');
 		$data['entry_time_road'] = $this->language->get('entry_time_road');
@@ -648,7 +647,6 @@ class ControllerCatalogProduct extends Controller {
 		$data['entry_to'] = $this->language->get('entry_to');
 		$data['entry_departure_from'] = $this->language->get('entry_departure_from');
 		$data['entry_departure_to'] = $this->language->get('entry_departure_to');
-		// $data['entry_waypoint_arrival_time'] = $this->language->get('entry_waypoint_arrival_time');
 		$data['entry_departure_time'] = $this->language->get('entry_departure_time');
 		$data['entry_time_road'] = $this->language->get('entry_time_road');
 		$data['entry_arrival_time'] = $this->language->get('entry_arrival_time');
@@ -1518,6 +1516,29 @@ class ControllerCatalogProduct extends Controller {
 			}
 		}
 
+		if (isset($this->request->post['waypoint_related'])) {
+			$waypoints = $this->request->post['waypoint_related'];
+		} elseif (isset($this->request->get['product_id'])) {
+			$waypoints = $this->model_catalog_product->getWaypointRelated($this->request->get['product_id']);
+		} else {
+			$waypoints = array();
+		}
+
+		$data['waypoint_relateds'] = array();
+    $this->load->model('catalog/waypoint');
+		foreach ($waypoints as $waypoint_id) {
+			$waypoint_info = $this->model_catalog_waypoint->getWaypoint($waypoint_id);
+
+			if ($waypoint_info) {
+				$data['waypoint_relateds'][] = array(
+					'waypoint_id' => $waypoint_info['waypoint_id'],
+					'name'       => $waypoint_info['name'],
+
+
+				);
+			}
+		}
+
 		if (isset($this->request->post['points'])) {
 			$data['points'] = $this->request->post['points'];
 		} elseif (!empty($product_info)) {
@@ -1714,21 +1735,32 @@ class ControllerCatalogProduct extends Controller {
 	}
 	public function autocompletewaypoint() {
 		$json = array();
+    if (isset($this->request->get['filter_name'])){
 
+		   if (isset($this->request->get['filter_name'])) {
+				   $filter_name = $this->request->get['filter_name'];
+		   } else {
+				$filter_name = '';
+		   }
+		 $filter_data = array(
+			'filter_name'  => $filter_name,
+			'filter_model' => '',
+			'start'        => 0,
+			'limit'        => 6
+		  );
     $this->load->model('catalog/waypoint');
-		$results = $this->model_catalog_waypoint->getWaypoints();
-
+		$results = $this->model_catalog_waypoint->getWaypoints($filter_data);
 		foreach ($results as $result) {
 
 			$json[] = array(
 			 'waypoint_id' => $result['waypoint_id'],
 			 'name'       => strip_tags(html_entity_decode($result['name'], ENT_QUOTES, 'UTF-8')),
-			 'city'       => strip_tags(html_entity_decode($result['city'], ENT_QUOTES, 'UTF-8')),
-			 'time'       => $result['time'],
-			 'place'      => $result['place']
+			//  'city'       => strip_tags(html_entity_decode($result['city'], ENT_QUOTES, 'UTF-8')),
+			//  'time'       => $result['time'],
+			//  'place'      => $result['place']
 		 );
 		}
-
+   }
 		$this->response->addHeader('Content-Type: application/json');
 		$this->response->setOutput(json_encode($json));
 	}

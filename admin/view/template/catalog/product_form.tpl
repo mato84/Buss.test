@@ -380,13 +380,13 @@
             <div class="tab-pane" id="tab-waypoint">
               <div class="tab-content">
                   <div class="form-group">
-                    <label class="col-sm-2 control-label" for="input-waypoint"><span data-toggle="tooltip" title="<?php echo $help_waypoint; ?>"><?php echo $entry_waypoint; ?></span></label>
+                    <label class="col-sm-2 control-label" for="input-waypoint"><span data-toggle="tooltip"><?php echo $entry_waypoint; ?></span></label>
                     <div class="col-sm-10">
                       <input type="text" name="waypoint" value="" placeholder="<?php echo $entry_waypoint; ?>" id="input-waypoint" class="form-control" />
                       <div id="product-waypoint" class="well well-sm" style="height: 150px; overflow: auto;">
-                        <?php foreach ($product_relateds as $product_related) { ?>
-                        <div id="product-waypoint<?php echo $product_related['product_id']; ?>"><i class="fa fa-minus-circle"></i> <?php echo $product_related['name']; ?>
-                          <input type="hidden" name="product_related[]" value="<?php echo $product_related['product_id']; ?>" />
+                        <?php foreach ($waypoint_relateds as $waypoint_related) { ?>
+                        <div id="product-waypoint<?php echo $waypoint_related['waypoint_id']; ?>"><i class="fa fa-minus-circle"></i> <?php echo $waypoint_related['name']; ?>
+                          <input type="hidden" name="waypoint_related[]" value="<?php echo $waypoint_related['waypoint_id']; ?>" />
                         </div>
                         <?php } ?>
                       </div>
@@ -1227,6 +1227,9 @@ $('input[name=\'waypoint\']').autocomplete({
             value: item['waypoint_id']
           }
         }));
+      },
+      error: function(error){
+        var e = error;
       }
     });
   },
@@ -1235,7 +1238,7 @@ $('input[name=\'waypoint\']').autocomplete({
 
     $('#product-waypoint' + item['value']).remove();
 
-    $('#product-waypoint').append('<div id="product-waypoint' + item['value'] + '"><i class="fa fa-minus-circle"></i> ' + item['label'] + '<input type="hidden" name="product_waypoint[]" value="' + item['value'] + '" /></div>');
+    $('#product-waypoint').append('<div id="product-waypoint' + item['value'] + '"><i class="fa fa-minus-circle"></i> ' + item['label'] + '<input type="hidden" name="waypoint_related[]" value="' + item['value'] + '" /></div>');
   }
 });
 

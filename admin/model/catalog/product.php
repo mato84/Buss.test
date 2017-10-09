@@ -99,8 +99,14 @@ class ModelCatalogProduct extends Model {
 			foreach ($data['product_related'] as $related_id) {
 				$this->db->query("DELETE FROM " . DB_PREFIX . "product_related WHERE product_id = '" . (int)$product_id . "' AND related_id = '" . (int)$related_id . "'");
 				$this->db->query("INSERT INTO " . DB_PREFIX . "product_related SET product_id = '" . (int)$product_id . "', related_id = '" . (int)$related_id . "'");
-				// $this->db->query("DELETE FROM " . DB_PREFIX . "product_related WHERE product_id = '" . (int)$related_id . "' AND related_id = '" . (int)$product_id . "'");
-				// $this->db->query("INSERT INTO " . DB_PREFIX . "product_related SET product_id = '" . (int)$related_id . "', related_id = '" . (int)$product_id . "'");
+				$this->db->query("DELETE FROM " . DB_PREFIX . "product_related WHERE product_id = '" . (int)$related_id . "' AND related_id = '" . (int)$product_id . "'");
+				$this->db->query("INSERT INTO " . DB_PREFIX . "product_related SET product_id = '" . (int)$related_id . "', related_id = '" . (int)$product_id . "'");
+			}
+		}
+		if (isset($data['waypoint_related'])) {
+			foreach ($data['waypoint_related'] as $waypoint_id) {
+				$this->db->query("DELETE FROM " . DB_PREFIX . "waypoint_to_route WHERE product_id = '" . (int)$product_id . "' AND waypoint_id = '" . (int)$waypoint_id . "'");
+				$this->db->query("INSERT INTO " . DB_PREFIX . "waypoint_to_route SET product_id = '" . (int)$product_id . "', waypoint_id = '" . (int)$waypoint_id . "'");
 			}
 		}
 
@@ -252,11 +258,17 @@ class ModelCatalogProduct extends Model {
 			foreach ($data['product_related'] as $related_id) {
 				$this->db->query("DELETE FROM " . DB_PREFIX . "product_related WHERE product_id = '" . (int)$product_id . "' AND related_id = '" . (int)$related_id . "'");
 				$this->db->query("INSERT INTO " . DB_PREFIX . "product_related SET product_id = '" . (int)$product_id . "', related_id = '" . (int)$related_id . "'");
-				// $this->db->query("DELETE FROM " . DB_PREFIX . "product_related WHERE product_id = '" . (int)$related_id . "' AND related_id = '" . (int)$product_id . "'");
-				// $this->db->query("INSERT INTO " . DB_PREFIX . "product_related SET product_id = '" . (int)$related_id . "', related_id = '" . (int)$product_id . "'");
+				$this->db->query("DELETE FROM " . DB_PREFIX . "product_related WHERE product_id = '" . (int)$related_id . "' AND related_id = '" . (int)$product_id . "'");
+				$this->db->query("INSERT INTO " . DB_PREFIX . "product_related SET product_id = '" . (int)$related_id . "', related_id = '" . (int)$product_id . "'");
 			}
 		}
-
+		$this->db->query("DELETE FROM " . DB_PREFIX . "waypoint_to_route WHERE product_id = '" . (int)$product_id . "'");
+		if (isset($data['waypoint_related'])) {
+			foreach ($data['waypoint_related'] as $waypoint_id) {
+				$this->db->query("DELETE FROM " . DB_PREFIX . "waypoint_to_route WHERE product_id = '" . (int)$product_id . "' AND waypoint_id = '" . (int)$waypoint_id . "'");
+				$this->db->query("INSERT INTO " . DB_PREFIX . "waypoint_to_route SET product_id = '" . (int)$product_id . "', waypoint_id = '" . (int)$waypoint_id . "'");
+			}
+		}
 		$this->db->query("DELETE FROM " . DB_PREFIX . "product_reward WHERE product_id = '" . (int)$product_id . "'");
 
 		if (isset($data['product_reward'])) {
@@ -334,6 +346,7 @@ class ModelCatalogProduct extends Model {
 		$this->db->query("DELETE FROM " . DB_PREFIX . "product_image WHERE product_id = '" . (int)$product_id . "'");
 		$this->db->query("DELETE FROM " . DB_PREFIX . "product_option WHERE product_id = '" . (int)$product_id . "'");
 		$this->db->query("DELETE FROM " . DB_PREFIX . "product_option_value WHERE product_id = '" . (int)$product_id . "'");
+		$this->db->query("DELETE FROM " . DB_PREFIX . "waypoint_to_route WHERE product_id = '" . (int)$product_id . "'");
 		$this->db->query("DELETE FROM " . DB_PREFIX . "product_related WHERE product_id = '" . (int)$product_id . "'");
 		$this->db->query("DELETE FROM " . DB_PREFIX . "product_related WHERE related_id = '" . (int)$product_id . "'");
 		$this->db->query("DELETE FROM " . DB_PREFIX . "product_reward WHERE product_id = '" . (int)$product_id . "'");
@@ -639,6 +652,17 @@ class ModelCatalogProduct extends Model {
 		}
 
 		return $product_related_data;
+	}
+	public function getWaypointRelated($product_id) {
+		$waypoint_related_data = array();
+
+		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "waypoint_to_route WHERE product_id = '" . (int)$product_id . "'");
+
+		foreach ($query->rows as $result) {
+			$waypoint_related_data[] = $result['waypoint_id'];
+		}
+
+		return $waypoint_related_data;
 	}
 
 	public function getRecurrings($product_id) {

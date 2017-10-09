@@ -13,7 +13,6 @@ class ModelCatalogProduct extends Model {
 				'name'             => $query->row['pre_name']." <span>".$query->row['name']."</span>",
 				'from_name'        => $query->row['from_name'],
 				'to_name'          => $query->row['to_name'],
-				'waypoint_arrival_time'  => date("H:i", strtotime($query->row['waypoint_arrival_time'])),
 				'departure_from'   => $query->row['departure_from'],
 				'departure_to'     => $query->row['departure_to'],
 				'departure_time'   => date("H:i", strtotime($query->row['departure_time'])),
@@ -405,7 +404,11 @@ class ModelCatalogProduct extends Model {
 
 		return $product_data;
 	}
+	public function getWaypointRelated($product_id) {
 
+		$query = $this->db->query("SELECT DATE_FORMAT(wp.time, '%H:%i') AS time, wp.city, wp.place FROM " . DB_PREFIX . "waypoint_to_route wr LEFT JOIN " . DB_PREFIX . "way_point wp ON (wr.waypoint_id = wp.waypoint_id) WHERE wr.product_id = '" . (int)$product_id ."'");
+		return $query->rows;
+	}
 	public function getProductLayoutId($product_id) {
 		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "product_to_layout WHERE product_id = '" . (int)$product_id . "' AND store_id = '" . (int)$this->config->get('config_store_id') . "'");
 

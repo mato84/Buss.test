@@ -436,6 +436,7 @@ class ControllerProductProduct extends Controller {
 			$data['attribute_groups'] = $this->model_catalog_product->getProductAttributes($this->request->get['product_id']);
 
 			$data['products'] = array();
+			$data['waypoint_related'] = $this->model_catalog_product->getWaypointRelated($this->request->get['product_id']);
 
 			$results = $this->model_catalog_product->getProductRelated($this->request->get['product_id']);
 
@@ -482,8 +483,6 @@ class ControllerProductProduct extends Controller {
 					'from_name' => $result['from_name'],
 					'waypoint_arrival_time' => $result['waypoint_arrival_time'],
 					'departure_from' => $result['departure_from'],
-					// 'departure_to' => $result['departure_to'],
-					// 'road_time'    => $result['road_time'],
 					'description' => utf8_substr(strip_tags(html_entity_decode($result['description'], ENT_QUOTES, 'UTF-8')), 0, $this->config->get($this->config->get('config_theme') . '_product_description_length')) . '..',
 					'price'       => $price,
 					'special'     => $special,

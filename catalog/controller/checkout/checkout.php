@@ -16,11 +16,6 @@ class ControllerCheckoutCheckout extends Controller {
 		$data['entry_telephone'] = $this->language->get('entry_telephone');
 		$data['entry_passengers'] = $this->language->get('entry_passengers');
 
-
-
-
-
-
 		$this->document->setTitle($this->language->get('heading_title'));
 
 		$this->document->addScript('catalog/view/javascript/jquery/datetimepicker/moment.js');
@@ -148,7 +143,7 @@ class ControllerCheckoutCheckout extends Controller {
 			// $redirect = $this->url->link('checkout/checkout', '', true);
 		// }
 
-		 if (!isset($this->session->data['guest']) & !$this->customer->isLogged()) {
+		 if (!isset($this->session->data['guest']) && !$this->customer->isLogged()) {
 
 
 			 $this->session->data['guest']['customer_group_id'] = $this->config->get('config_customer_group_id');
@@ -260,13 +255,13 @@ class ControllerCheckoutCheckout extends Controller {
 				$order_data['custom_field'] = json_decode($customer_info['custom_field'], true);
 			} else {
 				$order_data['customer_id'] = 0;
-				$order_data['customer_group_id'] = $this->session->data['guest']['customer_group_id'];
+				$order_data['customer_group_id'] = $this->config->get('config_customer_group_id');
 				$order_data['firstname'] = $this->session->data['guest']['firstname'];
 				$order_data['lastname'] = $this->session->data['guest']['lastname'];
 				$order_data['email'] = $this->session->data['guest']['email'];
 				$order_data['telephone'] = $this->session->data['guest']['telephone'];
-				$order_data['fax'] = $this->session->data['guest']['fax'];
-				$order_data['custom_field'] = $this->session->data['guest']['custom_field'];
+				$order_data['fax'] = " ";
+				$order_data['custom_field'] = array();
 			}
 
 
