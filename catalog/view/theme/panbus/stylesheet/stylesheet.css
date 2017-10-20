@@ -1016,8 +1016,13 @@ span.hidden-lg {
 
 @media (min-width: 768px) {
     #content {
-        min-height: 650px;
         padding: 50px 15px;
+    }
+}
+
+@media (min-width: 1400px) {
+    #content {
+        min-height: 700px;
     }
 }
 
@@ -2354,4 +2359,12 @@ h2.price {
     /* display: none; <- Crashes Chrome on hover */
     -webkit-appearance: none;
     margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+.information-information-7 .well {
+    padding: 0;
+}
+
+.information-information-7 .well p {
+    margin: 0;
 }

@@ -1,6 +1,6 @@
 <?php
 // Heading
-$_['heading_title']     		= 'Точки маршруту';
+$_['heading_title']     = 'Точки маршруту';
 
 
 

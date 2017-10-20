@@ -196,10 +196,10 @@
             </div>
 
             <div class="product-tabs">
-              <ul class="nav nav-tabs">
+              <ul class="nav nav-tabs" style="display:none;">
                 <li class="active"><a href="#tab-description" data-toggle="tab"><?php echo $tab_description; ?></a></li>
                 <?php if ($review_status) { ?>
-                <li><a href="#tab-review" data-toggle="tab"><?php echo $tab_review; ?></a></li>
+                <li><a href="#tab-review" data-toggle="tab" "><?php echo $tab_review; ?></a></li>
                 <?php } ?>
               </ul>
               <div class="tab-content">
