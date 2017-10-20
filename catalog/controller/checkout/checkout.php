@@ -12,6 +12,7 @@ class ControllerCheckoutCheckout extends Controller {
 		$this->load->language('checkout/checkout');
 		$data['entry_firstname'] = $this->language->get('entry_firstname');
 		$data['entry_lastname'] = $this->language->get('entry_lastname');
+		$data['entry_email_address'] = $this->language->get('entry_email_address');
 		$data['entry_email'] = $this->language->get('entry_email');
 		$data['entry_telephone'] = $this->language->get('entry_telephone');
 		$data['entry_passengers'] = $this->language->get('entry_passengers');

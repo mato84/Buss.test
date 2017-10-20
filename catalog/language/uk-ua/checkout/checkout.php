@@ -57,7 +57,7 @@ $_['column_total']                   = 'Загалом';
 $_['button_remove']                  = 'Видалити';
 
 // Entry
-$_['entry_email_address']            = 'E-Mail';
+$_['entry_email_address']            = 'E-Mail <span style="font-size:12px;">(не обов`язково)</span>';
 $_['entry_email']                    = 'E-Mail';
 $_['entry_password']                 = 'Пароль';
 $_['entry_confirm']                  = 'Підтвердження паролю';

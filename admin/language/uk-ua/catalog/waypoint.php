@@ -1,6 +1,6 @@
 <?php
 // Heading
-$_['heading_title']     		= 'Точки маршруту';
+$_['heading_title']     = 'Точки маршруту';
 
 
 
@@ -20,10 +20,10 @@ $_['column_sort_order']  = 'Порядок сортування';
 $_['column_action']      = 'Дія';
 
 // Entry
-$_['entry_name']         = 'Назва точки';
-$_['entry_city']         = 'Назва Міста';
+$_['entry_name']         = 'Назва';
+$_['entry_city']         = 'Точка';
 $_['entry_time']         = 'Час прибуття';
-$_['entry_place']        = 'Пунк прибуття';
+$_['entry_place']        = 'Місце прибуття';
 $_['entry_manufacturer'] = 'Перевізник';
 $_['entry_sort_order']   = 'Порядок сортування';
 $_['entry_type']         = 'Тип';
