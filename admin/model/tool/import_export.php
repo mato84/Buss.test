@@ -7,13 +7,13 @@ use Box\Spout\Common\Type;
 
 class ModelToolImportExport extends Model{
   public function import($path){
-    $exclusion_sheet = ['product','way_point_to_route','url_alias']; //this is exclusion for setDependentTable function
+    $exclusion_sheet = ['product','waypoint_to_route','url_alias']; //this is exclusion for setDependentTable function
     try{
     $reading_data = $this->readFile($path);
     $last_id = $this->setProducts($reading_data['product']);
     $this->setDependentTable($reading_data, $last_id, $exclusion_sheet);
     $this->setUrlAliace($reading_data['url_alias'], $last_id);
-    $this->setWayPointToRoute($reading_data['way_point_to_route'], $last_id);
+    $this->setWayPointToRoute($reading_data['waypoint_to_route'], $last_id);
     return $last_id;
      }
   catch(Exception $e){
