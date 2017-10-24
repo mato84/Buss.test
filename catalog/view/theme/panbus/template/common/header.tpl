@@ -29,7 +29,7 @@
 
 <link href="catalog/view/javascript/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen" />
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i&amp;subset=cyrillic" rel="stylesheet">
-<link href="catalog/view/theme/panbus/stylesheet/stylesheet.css" rel="stylesheet">
+<link href="catalog/view/theme/panbus/stylesheet/stylesheet.min.css" rel="stylesheet">
 <link href="catalog/view/javascript/jquery/easy-autocomplete.css" type="text/css" rel="stylesheet" />
 <link href="catalog/view/javascript/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 <?php foreach ($styles as $style) { ?>
@@ -86,7 +86,7 @@
         <a class="choice-block__text" href="/щоденні-регулярні-рейси">Щоденні<br> регулярні<br> рейси</a>
       </div>
       <div class="choice-block__box">
-        <a class="choice-block__text" href="/знижка-60-відсотків-на-кожну-6-ту-поїздку">Знижка 60%<br> на кожну 6-ту<br> поїздку</a>
+        <a class="choice-block__text" href="/знижка-50-відсотків-на-кожну-6-ту-поїздку">Знижка 50%<br> на кожну 6-ту<br> поїздку</a>
       </div>
   </div>
   <div class="header-scroll">

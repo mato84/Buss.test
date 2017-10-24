@@ -1460,13 +1460,14 @@ footer .powered {
 
 .product-thumb h3 {
     margin: 0 -20px;
-    padding: 7px 0;
+    padding: 7px 5px;
     background-color: #eeeeee;
     text-align: center;
 }
 
 @media (min-width: 768px) {
     .product-thumb h3 {
+        padding: 7px 20px;
         margin: 0;
         text-align: left;
     }
@@ -1482,9 +1483,6 @@ footer .powered {
 }
 
 @media (min-width: 768px) {
-    .product-thumb h3 a {
-        padding: 0 20px;
-    }
     .product-thumb h3 span {
         display: inline-block;
         vertical-align: bottom;
@@ -1698,6 +1696,14 @@ h2.price {
 
 .product-details .product-title span {
     color: #cd4e37;
+    display: block;
+}
+
+@media (min-width: 768px) {
+    .product-details .product-title span {
+        display: inline-block;
+        vertical-align: bottom;
+    }
 }
 
 @media (min-width: 768px) {
@@ -1903,7 +1909,7 @@ h2.price {
 .route__waypoint .datetime b {
     display: block;
     font-size: 18px;
-    font-weight: 400;
+    font-weight: 300;
     color: #333333;
 }
 
@@ -2367,4 +2373,13 @@ h2.price {
 
 .information-information-7 .well p {
     margin: 0;
+}
+
+.table>tbody>tr>td,
+.table>tbody>tr>th,
+.table>tfoot>tr>td,
+.table>tfoot>tr>th,
+.table>thead>tr>td,
+.table>thead>tr>th {
+    vertical-align: baseline;
 }

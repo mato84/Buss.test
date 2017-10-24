@@ -64,7 +64,7 @@
               </div>
               <div class="product-thumb__manufacturer">
               <ul class="list-unstyled">
-                <li><?php echo $text_manufacturer; ?><br> <a href="<?php echo $manufacturer; ?>"><span itemprop="brand"><?php echo $product['manufacturer']; ?></span></a></li>
+                <li><?php echo $text_manufacturer; ?><br> <a ><span itemprop="brand"><?php echo $product['manufacturer']; ?></span></a></li>
               </ul>
               </div>
             </div>
