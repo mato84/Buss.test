@@ -29,7 +29,7 @@
 
 <link href="catalog/view/javascript/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen" />
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i&amp;subset=cyrillic" rel="stylesheet">
-<link href="catalog/view/theme/panbus/stylesheet/stylesheet.min.css" rel="stylesheet">
+<link href="catalog/view/theme/panbus/stylesheet/stylesheet.css" rel="stylesheet">
 <link href="catalog/view/javascript/jquery/easy-autocomplete.css" type="text/css" rel="stylesheet" />
 <link href="catalog/view/javascript/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 <?php foreach ($styles as $style) { ?>
@@ -45,9 +45,9 @@
 <?php foreach ($scripts as $script) { ?>
 <script src="<?php echo $script; ?>" type="text/javascript"></script>
 <?php } ?>
-<!-- <?php foreach ($analytics as $analytic) { ?>
+<?php foreach ($analytics as $analytic) { ?>
 <?php echo $analytic; ?>
-<?php } ?> -->
+<?php } ?>
 </head>
 <body class="<?php echo $class; ?>">
 <header>
@@ -90,7 +90,7 @@
       </div>
   </div>
   <div class="header-scroll">
-    <a href="#content" class="page-scroll"><?php echo $text_beast_deals; ?><i class="fa fa-arrow-down" aria-hidden="true"></i></a>
+    <a href="#map" class="page-scroll"><?php echo $text_beast_deals; ?><i class="fa fa-arrow-down" aria-hidden="true"></i></a>
   </div>
 </header>
 <?php if ($categories) { ?>

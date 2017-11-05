@@ -2383,3 +2383,7 @@ h2.price {
 .table>thead>tr>th {
     vertical-align: baseline;
 }
+
+#map {
+height: 500px;
+}
