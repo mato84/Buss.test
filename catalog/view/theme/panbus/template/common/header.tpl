@@ -45,9 +45,9 @@
 <?php foreach ($scripts as $script) { ?>
 <script src="<?php echo $script; ?>" type="text/javascript"></script>
 <?php } ?>
-<!-- <?php foreach ($analytics as $analytic) { ?>
+<?php foreach ($analytics as $analytic) { ?>
 <?php echo $analytic; ?>
-<?php } ?> -->
+<?php } ?>
 </head>
 <body class="<?php echo $class; ?>">
 <header>
@@ -86,11 +86,11 @@
         <a class="choice-block__text" href="/щоденні-регулярні-рейси">Щоденні<br> регулярні<br> рейси</a>
       </div>
       <div class="choice-block__box">
-        <a class="choice-block__text" href="/знижка-60-відсотків-на-кожну-6-ту-поїздку">Знижка 60%<br> на кожну 6-ту<br> поїздку</a>
+        <a class="choice-block__text" href="/знижка-50-відсотків-на-кожну-6-ту-поїздку">Знижка 50%<br> на кожну 6-ту<br> поїздку</a>
       </div>
   </div>
   <div class="header-scroll">
-    <a href="#content" class="page-scroll"><?php echo $text_beast_deals; ?><i class="fa fa-arrow-down" aria-hidden="true"></i></a>
+    <a href="#map" class="page-scroll"><?php echo $text_beast_deals; ?><i class="fa fa-arrow-down" aria-hidden="true"></i></a>
   </div>
 </header>
 <?php if ($categories) { ?>

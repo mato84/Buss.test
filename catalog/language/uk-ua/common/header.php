@@ -26,4 +26,4 @@ $_['text_wherefrom']     = 'Звідки';
 $_['text_choise_wherefrom']     = 'Виберіть місто відправлення';
 $_['text_from']          = 'Куди';
 $_['text_choise_from']   = 'Виберіть місто призначення';
-$_['text_beast_deals']   = 'Кращі пропозиції';
+$_['text_beast_deals']   = 'Наші маршрути на карті';
