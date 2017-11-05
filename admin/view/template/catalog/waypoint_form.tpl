@@ -3,6 +3,7 @@
   <div class="page-header">
     <div class="container-fluid">
       <div class="pull-right">
+        <button type="button" name="button" id="get_geocode" class="btn btn-primary"><?php echo $button_get_geo; ?></button>
         <button type="submit" form="form-waypoint" data-toggle="tooltip" title="<?php echo $button_save; ?>" class="btn btn-primary"><i class="fa fa-save"></i></button>
         <a href="<?php echo $cancel; ?>" data-toggle="tooltip" title="<?php echo $button_cancel; ?>" class="btn btn-default"><i class="fa fa-reply"></i></a></div>
       <h1><?php echo $heading_title; ?></h1>
@@ -81,6 +82,18 @@
                 <?php } ?>
               </div>
             </div>
+            <div class="form-group">
+              <div class="form-inline">
+                <label class="col-sm-2 control-label " for="input-latitude"><?php echo $entry_latitude; ?></label>
+                <div class="col-sm-4">
+                  <input type="text" name="latitude" value="<?php echo $latitude; ?>" placeholder="" id="input-latitude" class="form-control" />
+                </div>
+                <label class="col-sm-2 control-label " for="input-longitude"><?php echo $entry_longitude; ?></label>
+                <div class="col-sm-4">
+                  <input type="text" name="longitude" value="<?php echo $longitude; ?>" placeholder="" id="input-longitude" class="form-control" />
+                </div>
+              </div>
+            </div>
           <div class="form-group">
             <label class="col-sm-2 control-label" for="input-sort-order"><?php echo $entry_sort_order; ?></label>
             <div class="col-sm-10">
@@ -114,6 +127,21 @@ list: {
   $('.time').datetimepicker({
      pickDate: false
   });
-
+$('#get_geocode').on('click', function(){
+  GMaps.geocode({
+          address: $('#input-city').val().trim(),
+          callback: function(results, status){
+            if(status=='OK'){
+              var latlng = results[0].geometry.location;
+              const test = latlng.lat();
+              $('#input-latitude').val(latlng.lat());
+              $('#input-longitude').val(latlng.lng());        
+            }
+            else {
+              alert(`Для "${$('#input-city').val()}" невдалося завантажити координати !!!!!`);
+            }
+          }
+        });
+})
 //--></script>
 <?php echo $footer; ?>

@@ -3,7 +3,7 @@ class ModelCatalogWaypoint extends Model {
 
   public function addWaypoint($data) {
 
-		$this->db->query("INSERT INTO " . DB_PREFIX . "way_point SET name = '" . $this->db->escape($data['name']) . "', sort_order = '" . (int)$data['sort_order'] . "',city = '" . $this->db->escape($data['city']) . "',time = '" . $data['time'] . "',place = '" . $this->db->escape($data['place']) ."',manufacturer_id = '" . $data['manufacturer_id'] . "'");
+		$this->db->query("INSERT INTO " . DB_PREFIX . "way_point SET name = '" . $this->db->escape($data['name']) . "', sort_order = '" . (int)$data['sort_order'] . "',city = '" . $this->db->escape($data['city']) ."', latitude = '" . $data['latitude']."', longitude = '" . $data['longitude']. "',time = '" . $data['time'] . "',place = '" . $this->db->escape($data['place']) ."',manufacturer_id = '" . $data['manufacturer_id'] . "'");
 
 		$city_id = $this->db->getLastId();
 
@@ -13,7 +13,7 @@ class ModelCatalogWaypoint extends Model {
 	}
   public function editWaypoint($waypoint_id, $data) {
 
-    $this->db->query("UPDATE " . DB_PREFIX . "way_point SET name = '" . $this->db->escape($data['name']) . "', sort_order = '" . (int)$data['sort_order'] ."',city = '" . $this->db->escape($data['city']) . "',time = '" . $data['time'] ."',place = '" . $this->db->escape($data['place']) . "' WHERE waypoint_id = '" . (int)$waypoint_id . "'");
+    $this->db->query("UPDATE " . DB_PREFIX . "way_point SET name = '" . $this->db->escape($data['name']) . "', sort_order = '" . (int)$data['sort_order'] ."',city = '" . $this->db->escape($data['city']) ."', latitude = '" . $data['latitude']."', longitude = '" . $data['longitude']. "',time = '" . $data['time'] ."',place = '" . $this->db->escape($data['place']) . "' WHERE waypoint_id = '" . (int)$waypoint_id . "'");
 
     $this->cache->delete('waypoint');
   }

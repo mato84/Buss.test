@@ -282,6 +282,8 @@ class ControllerCatalogWaypoint extends Controller {
 		return !$this->error;
 	}
   protected function getForm() {
+    $this->document->addScript('http://maps.google.com/maps/api/js?key=AIzaSyB79WRG7sgoNE4ksW8S4vw6NOsx20H77_o');
+    $this->document->addScript('view/javascript/geocoding/gmaps.js');
     //CKEditor
     if ($this->config->get('config_editor_default')) {
         $this->document->addScript('view/javascript/ckeditor/ckeditor.js');
@@ -309,7 +311,9 @@ class ControllerCatalogWaypoint extends Controller {
 		$data['entry_time'] = $this->language->get('entry_time');
     $data['entry_place'] = $this->language->get('entry_place');
     $data['entry_manufacturer'] = $this->language->get('entry_manufacturer');
-
+    $data['entry_latitude'] = $this->language->get('entry_latitude');
+    $data['entry_longitude'] = $this->language->get('entry_longitude');
+    $data['button_get_geo'] = $this->language->get('button_get_geo');
 		$data['entry_sort_order'] = $this->language->get('entry_sort_order');
 
 		$data['button_save'] = $this->language->get('button_save');
@@ -410,6 +414,24 @@ class ControllerCatalogWaypoint extends Controller {
 		} else {
 			$data['name'] = "";
 		}
+
+
+    if (isset($this->request->post['latitude'])) {
+			$data['latitude'] = trim($this->request->post['latitude']);
+		} elseif (!empty($waypoint_info)) {
+			$data['latitude'] = $waypoint_info['latitude'];
+		} else {
+      $data['latitude'] = 0;
+		}
+
+    if (isset($this->request->post['longitude'])) {
+			$data['longitude'] = trim($this->request->post['longitude']);
+		} elseif (!empty($waypoint_info)) {
+			$data['longitude'] = $waypoint_info['longitude'];
+		} else {
+      $data['longitude'] = 0;
+		}
+
     if (isset($this->request->post['place'])) {
 			$data['place'] = $this->request->post['place'];
 		} elseif (!empty($waypoint_info)) {

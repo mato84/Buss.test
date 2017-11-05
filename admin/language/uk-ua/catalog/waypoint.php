@@ -27,8 +27,11 @@ $_['entry_place']        = 'Місце прибуття';
 $_['entry_manufacturer'] = 'Перевізник';
 $_['entry_sort_order']   = 'Порядок сортування';
 $_['entry_type']         = 'Тип';
+$_['entry_latitude']     = 'Широта(latitude)';
+$_['entry_longitude']    = 'Довгота(longitude)';
 
-
+//Button
+$_['button_get_geo']       = 'Отримати геолокацію';
 
 // Error
 $_['error_permission']   = 'У вас немає доступу для редагування маршрутних точок!';
