@@ -200,6 +200,15 @@ header {
     height: 110vh;
 }
 
+.common-home footer{
+    margin-top: 0px;
+}
+
+.common-home #content {
+    min-height: auto;
+    padding: 0;
+}
+
 @media (min-width: 768px) {
 	.common-home header {
 	    height: 100vh;
@@ -1949,9 +1958,9 @@ h2.price {
 }
 
 
-.route #collapse0 > div:first-child > i,
-.route #collapse0 > div:last-child > i {
-       color:#cd4e37; 
+.route #collapse0 > .route__waypoint:first-child > i,
+.route #collapse0 > .route__waypoint:last-child > i {
+    color:#cd4e37; 
 }
 
 .route .route__waypoint:last-child:after {
@@ -2384,6 +2393,17 @@ h2.price {
     vertical-align: baseline;
 }
 
+.common-home #map {
+height: 700px;
+}
+.common-home #map>div {
+    top:30px !important;
+    background-color: #eee !important;
+}
+
 #map {
-height: 500px;
+height: 300px;
+}
+#map>div {
+    background-color: #eee !important;
 }

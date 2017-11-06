@@ -59,11 +59,52 @@
                       <div class="form-group__value form-group__value_time"><?php echo $time_road; ?></div>
                     </div>
                   </div>
+                <script type="text/javascript">
+                  var map;
+                  var image = '../image/catalog/other/marker.png';
+                  $(document).ready(function(){
+                    map = new GMaps({
+                      el: '#map',
+                      lat:49.533368,
+                      lng: 25.462079,
+                      zoom:5
+                    });
 
+                    map.drawRoute({
+                      origin: [51.1078852, 17.03853760000004],
+                      waypoints: [
+
+                        { location: {lat: 51.8419861, lng: 16.593754499999932 },
+                          stopover:true
+                        },
+
+                        { location: {lat: 52.406374, lng: 16.925168100000064 },
+                          stopover:true
+                        },          
+
+                       ],
+                      strokeColor: '#cd4e37',
+                      strokeWeight: 3,
+                      destination: [52.2472962, 15.53357219999998],
+                      travelMode: 'driving',
+
+                    });
+
+                    map.addMarkers([
+                      {
+                        lat: 49.9935,
+                        lng: 36.230383000000074,
+                        title: 'Харків',
+                        icon: image,},
+                    ]);
+
+                  });
+                </script>
                 <div class="route">
                 <div class=route__bottons>
                   <a class="btn btn-link" data-toggle="collapse" href="#collapse0"><?php echo $button_route; ?></a>
                 </div>
+                <div id="map"></div> 
                 <div id="collapse0" class="route__way panel-collapse collapse" style="height: 0px;">
                   <div class="route__waypoint">
                     <div class="datetime"><b><?php echo $departure_time; ?></b></div>
@@ -84,7 +125,11 @@
                     <div class="info"><b><?php echo $to_name?></b><?php echo $departure_to; ?></div>
                     <i class="fa fa-map-marker" aria-hidden="true"></i>
                   </div>
+
+
+
                 </div>
+
                 </div>
                 <div class="product-options__add-block">
                 <?php if ($options) { ?>
