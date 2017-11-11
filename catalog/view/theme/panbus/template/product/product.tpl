@@ -65,7 +65,7 @@
                   $(document).ready(function(){
                     map = new GMaps({
                       el: '#map',
-                      lat:49.533368,
+                      lat:50.833368,
                       lng: 25.462079,
                       zoom:5
                     });
@@ -104,7 +104,7 @@
                 <div class=route__bottons>
                   <a class="btn btn-link" data-toggle="collapse" href="#collapse0"><?php echo $button_route; ?></a>
                 </div>
-                <div id="map"></div> 
+<!--                 <div id="map"></div>  -->
                 <div id="collapse0" class="route__way panel-collapse collapse" style="height: 0px;">
                   <div class="route__waypoint">
                     <div class="datetime"><b><?php echo $departure_time; ?></b></div>

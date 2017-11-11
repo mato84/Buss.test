@@ -212,18 +212,36 @@ var GMaps = (function(global) {
         markerClustererFunction = options.markerClusterer,
         mapType = google.maps.MapTypeId[options.mapType.toUpperCase()],
         map_center = new google.maps.LatLng(options.lat, options.lng),
+        fullscreenControl = valueOrDefault(options.fullscreenControl, true),
+        fullscreenControlOpt = options.fullscreenControlOpt || {
+          style: 'DEFAULT',
+          position: 'BOTTOM_RIGHT'
+        },         
+        mapTypeControl = valueOrDefault(options.mapTypeControl, true),
+        mapTypeControlOpt = options.mapTypeControlOpt || {
+          style: 'DEFAULT',
+          position: 'LEFT_BOTTOM'
+        },   
+
         zoomControl = valueOrDefault(options.zoomControl, true),
         zoomControlOpt = options.zoomControlOpt || {
           style: 'DEFAULT',
-          position: 'TOP_LEFT'
+          position: 'RIGHT_TOP'
         },
+        fullscreenControlStyle = fullscreenControlOpt.style || 'DEFAULT',
+        fullscreenControlPosition = fullscreenControlOpt.position || 'BOTTOM_RIGHT',
+        mapTypeControlStyle = mapTypeControlOpt.style || 'DEFAULT',
+        mapTypeControlPosition = mapTypeControlOpt.position || 'LEFT_BOTTOM',
         zoomControlStyle = zoomControlOpt.style || 'DEFAULT',
-        zoomControlPosition = zoomControlOpt.position || 'TOP_LEFT',
-        panControl = valueOrDefault(options.panControl, true),
-        mapTypeControl = valueOrDefault(options.mapTypeControl, true),
-        scaleControl = valueOrDefault(options.scaleControl, true),
-        streetViewControl = valueOrDefault(options.streetViewControl, true),
-        overviewMapControl = valueOrDefault(overviewMapControl, true),
+        zoomControlPosition = zoomControlOpt.position || 'RIGHT_TOP',
+        panControl = valueOrDefault(options.panControl, false),
+        fullscreenControl = valueOrDefault(options.fullscreenControl, false),
+        mapTypeControl = valueOrDefault(options.mapTypeControl, false),
+        scaleControl = valueOrDefault(options.scaleControl, false),
+        streetViewControl = valueOrDefault(options.streetViewControl, false),
+        overviewMapControl = valueOrDefault(overviewMapControl, false),
+        scrollwheel = valueOrDefault(scrollwheel, false),
+        disableDefaultUI = valueOrDefault(disableDefaultUI, true),  
         map_options = {},
         map_base_options = {
           zoom: this.zoom,
@@ -238,9 +256,18 @@ var GMaps = (function(global) {
             position: google.maps.ControlPosition[zoomControlPosition]
           },
           mapTypeControl: mapTypeControl,
+          mapTypeControlOptions: {
+            style: google.maps.MapTypeControlStyle[mapTypeControlStyle],
+            position: google.maps.ControlPosition[mapTypeControlPosition]
+          },
+          fullscreenControl: fullscreenControl,
+          fullscreenControlOptions: {
+            position: google.maps.ControlPosition[fullscreenControlPosition]
+          },                     
           scaleControl: scaleControl,
           streetViewControl: streetViewControl,
-          overviewMapControl: overviewMapControl
+          overviewMapControl: overviewMapControl,
+          scrollwheel: scrollwheel
         };
 
       if (typeof(options.el) === 'string' || typeof(options.div) === 'string') {
