@@ -38,7 +38,7 @@
 <script src="catalog/view/javascript/jquery/jquery-2.1.1.min.js" type="text/javascript"></script>
 <script src="catalog/view/javascript/jquery/jquery.easy-autocomplete.min.js" type="text/javascript"></script>
 <script src="catalog/view/javascript/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-<script src="catalog/view/javascript/common.min.js" type="text/javascript"></script>
+<script src="catalog/view/javascript/common.js" type="text/javascript"></script>
 <?php foreach ($links as $link) { ?>
 <link href="<?php echo $link['href']; ?>" rel="<?php echo $link['rel']; ?>" />
 <?php } ?>
@@ -135,7 +135,7 @@
 <?php } ?>
 
 <script src="catalog/view/javascript/jquery/jquery.easing.min.js" type="text/javascript"></script>
-<script src="catalog/view/javascript/panbus.min.js"></script>
+<script src="catalog/view/javascript/panbus.js"></script>
 
 <script type="text/javascript">
 

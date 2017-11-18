@@ -541,9 +541,10 @@ header {
 	text-transform: uppercase;
 	text-align: center;
 	margin-bottom: 40px;
+    padding: 20px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 500px) {
 	.common-home .choice-block-inmain {
 		display: block;
 	}
@@ -2394,7 +2395,16 @@ h2.price {
 }
 
 .common-home #map {
-height: 700px;
+    display: none;
+}
+@media (min-width: 768px) {
+    .common-home #map {
+        display: block;
+    }    
+}
+
+.common-home #map {
+    height: 700px;
 }
 .common-home #map>div {
     top:30px !important;
@@ -2402,8 +2412,9 @@ height: 700px;
 }
 
 #map {
-height: 300px;
+    height: 300px;
 }
+
 #map>div {
     background-color: #eee !important;
 }

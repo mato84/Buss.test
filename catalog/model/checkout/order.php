@@ -662,6 +662,7 @@ class ModelCheckoutOrder extends Model {
 				$mail->setText($text);
 				$mail->send();
 
+
 				// Admin Alert Mail
 				if (in_array('order', (array)$this->config->get('config_mail_alert'))) {
 					$subject = sprintf($language->get('text_new_subject'), html_entity_decode($this->config->get('config_name'), ENT_QUOTES, 'UTF-8'), $order_id);
