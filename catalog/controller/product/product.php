@@ -3,6 +3,8 @@ class ControllerProductProduct extends Controller {
 	private $error = array();
 
 	public function index() {
+		$this->document->addScript('http://maps.google.com/maps/api/js?key=AIzaSyB79WRG7sgoNE4ksW8S4vw6NOsx20H77_o');
+    $this->document->addScript('catalog/view/javascript/geocoding/gmaps.js');
 		$this->load->language('product/product');
 
 		$data['breadcrumbs'] = array();
@@ -772,5 +774,30 @@ class ControllerProductProduct extends Controller {
 
 		$this->response->addHeader('Content-Type: application/json');
 		$this->response->setOutput(json_encode($json));
+	}
+
+	public function getWaipointGeocode(){
+		if(isAjax()){
+			$infoProduct = array();
+			$result = array();
+			$this->load->model('catalog/waypoint');
+			$product_id = (int)$this->request->get['product_id'];
+			$infoProduct = $this->model_catalog_waypoint->getAllWaypointInProduct($product_id);
+
+
+			$result['waypoints'] = array_reduce($infoProduct,function($acc, $element){
+        list($id, $latitude, $longitude) = $element;
+				$acc[] = "{'location':{'lat':$latitude,'lng':$longitude},'stopover':true}";
+			},[]);
+
+			if(isset($this->request->get['markers'])){
+
+			}
+		}
+		else{
+			return $this->response->redirect($this->url->link('error/not_found', '', true));
+		}
+
+
 	}
 }
