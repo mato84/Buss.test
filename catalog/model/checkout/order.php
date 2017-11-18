@@ -662,6 +662,26 @@ class ModelCheckoutOrder extends Model {
 				$mail->setText($text);
 				$mail->send();
 
+
+                // Send Admins SMS if configure
+                if ($this->config->get('sms_config_alert')) {
+                    $options = array(
+                        'to'       => $this->config->get('sms_config_to'),
+                        'copy'     => $this->config->get('sms_config_copy'),
+                        'from'     => $this->config->get('sms_config_from'),
+                        'username' => $this->config->get('sms_config_gate_username'),
+                        'password' => $this->config->get('sms_config_gate_password'),
+                        'message'  => str_replace(array('{ID}', '{DATE}', '{TIME}', '{SUM}', '{PHONE}'),
+                            array($order_id, date('d.m.Y'), date('H:i'), floatval($order_info['total']), $order_info['telephone']),
+                            $this->config->get('sms_config_message'))
+                    );
+
+                    $this->load->library('sms');
+
+                    $sms = new Message($this->config->get('sms_config_gatename'), $options);
+                    $sms->send();
+                }
+
 				// Admin Alert Mail
 				if (in_array('order', (array)$this->config->get('config_mail_alert'))) {
 					$subject = sprintf($language->get('text_new_subject'), html_entity_decode($this->config->get('config_name'), ENT_QUOTES, 'UTF-8'), $order_id);
