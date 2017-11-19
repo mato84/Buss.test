@@ -1,7 +1,9 @@
-
+node_modules
+dist
 system/storage/
 install
 config.php
 image/cache/
 sftp-config.json
 sftp-config.jso
+tasks
