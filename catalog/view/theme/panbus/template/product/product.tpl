@@ -59,6 +59,8 @@
                       <div class="form-group__value form-group__value_time"><?php echo $time_road; ?></div>
                     </div>
                   </div>
+<<<<<<< HEAD
+=======
                 <script type="text/javascript">
                   var map;
                   var image = '../image/catalog/other/marker.png';
@@ -100,11 +102,16 @@
 
                   });
                 </script>
+>>>>>>> 16dd234bd28c868fef234dc66ea664223d01a359
                 <div class="route">
                 <div class=route__bottons>
                   <a class="btn btn-link" data-toggle="collapse" href="#collapse0"><?php echo $button_route; ?></a>
                 </div>
+<<<<<<< HEAD
+                <div id="map"></div>
+=======
 <!--                 <div id="map"></div>  -->
+>>>>>>> 16dd234bd28c868fef234dc66ea664223d01a359
                 <div id="collapse0" class="route__way panel-collapse collapse" style="height: 0px;">
                   <div class="route__waypoint">
                     <div class="datetime"><b><?php echo $departure_time; ?></b></div>
@@ -303,6 +310,98 @@
       <?php echo $content_bottom; ?></div>
     <?php echo $column_right; ?></div>
 </div>
+<script type="text/javascript">
+
+$(document).ready(function(){
+  var map;
+  var image = '../image/catalog/other/marker.png';
+  map = new GMaps({
+    el: '#map',
+    lat:49.533368,
+    lng: 25.462079,
+    zoom:5
+  });
+  var init = [<?php echo $from_name?>,<?php echo $to_name?>];
+  var origin = {} ;
+  var destination = {};
+  GMaps.geocode({
+          address: init[0],
+          callback: function(results, status){
+            if(status=='OK'){
+              var latlng = results[0].geometry.location;
+              origin.lat = latlng.lat();
+              origin.lng = latlng.lng();
+              origin.title = init[0];
+              origin.icon = image;
+            }
+            else {
+              alert(`Для "${init[0]}" невдалося завантажити координати !!!!!`);
+            }
+          }
+        });
+        GMaps.geocode({
+                address: init[1],
+                callback: function(results, status){
+                  if(status=='OK'){
+                    var latlng = results[0].geometry.location;
+                    destination.lat = latlng.lat();
+                    destination.lng = latlng.lng();
+                    destination.title = init[0];
+                    destination.icon = image;
+                  }
+                  else {
+                    alert(`Для "${init[0]}" невдалося завантажити координати !!!!!`);
+                  }
+                }
+              });
+              $.ajax({
+                url: 'ajax/test.html',
+                type: 'GET',
+                data: {id: <?php echo $product_id?>}
+                success: function(data){
+
+                }
+              })
+});
+
+
+
+  $(document).ready(function(){
+
+
+    map.drawRoute({
+      origin: [51.1078852, 17.03853760000004],
+      waypoints: [
+
+        { location: {lat: 51.8419861, lng: 16.593754499999932 },
+          stopover:true,
+
+        },
+
+        { location: {lat: 52.406374, lng: 16.925168100000064 },
+          stopover:true,
+
+        },
+
+       ],
+      strokeColor: '#cd4e37',
+      strokeWeight: 3,
+      destination: [52.2472962, 15.53357219999998],
+      travelMode: 'driving',
+
+    });
+
+    map.addMarkers([
+      {
+        lat: 49.9935,
+        lng: 36.230383000000074,
+        title: 'Харків',
+        icon: image
+      },
+    ]);
+
+  });
+</script>
 <script type="text/javascript"><!--
 
 $('#input-quantity').on('change', function(){

@@ -30,8 +30,6 @@
     <hr>
     <p class="powered"><?php echo $powered; ?></p>
   </div>
-  <script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyB79WRG7sgoNE4ksW8S4vw6NOsx20H77_o"></script>
-  <script type="text/javascript" src="catalog/view/javascript/gmaps.js"></script>
 </footer>
 
 </body></html>
