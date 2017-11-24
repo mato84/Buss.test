@@ -59,8 +59,7 @@
                       <div class="form-group__value form-group__value_time"><?php echo $time_road; ?></div>
                     </div>
                   </div>
-<<<<<<< HEAD
-=======
+
                 <script type="text/javascript">
                   var map;
                   var image = '../image/catalog/other/marker.png';
@@ -102,16 +101,14 @@
 
                   });
                 </script>
->>>>>>> 16dd234bd28c868fef234dc66ea664223d01a359
+
                 <div class="route">
                 <div class=route__bottons>
                   <a class="btn btn-link" data-toggle="collapse" href="#collapse0"><?php echo $button_route; ?></a>
                 </div>
-<<<<<<< HEAD
-                <div id="map"></div>
-=======
+
 <!--                 <div id="map"></div>  -->
->>>>>>> 16dd234bd28c868fef234dc66ea664223d01a359
+
                 <div id="collapse0" class="route__way panel-collapse collapse" style="height: 0px;">
                   <div class="route__waypoint">
                     <div class="datetime"><b><?php echo $departure_time; ?></b></div>

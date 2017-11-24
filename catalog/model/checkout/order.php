@@ -8,7 +8,7 @@ class ModelCheckoutOrder extends Model {
 		// Products
 		if (isset($data['products'])) {
 			foreach ($data['products'] as $product) {
-				$this->db->query("INSERT INTO " . DB_PREFIX . "order_product SET order_id = '" . (int)$order_id . "', product_id = '" . (int)$product['product_id'] . "', name = '" . $this->db->escape($product['name']) . "', model = '" . $this->db->escape($product['model']) . "', quantity = '" . (int)$product['quantity'] . "', price = '" . (float)$product['price'] . "', total = '" . (float)$product['total'] . "', tax = '" . (float)$product['tax'] . "', reward = '" . (int)$product['reward'] . "'");
+				$this->db->query("INSERT INTO " . DB_PREFIX . "order_product SET order_id = '" . (int)$order_id . "', product_id = '" . (int)$product['product_id'] . "', name = '" . $this->db->escape($product['name']) ."', model = '" . $this->db->escape($product['model']) . "', quantity = '" . (int)$product['quantity'] . "', price = '" . (float)$product['price'] . "', total = '" . (float)$product['total'] . "', tax = '" . (float)$product['tax'] . "', reward = '" . (int)$product['reward'] . "'");
 
 				$order_product_id = $this->db->getLastId();
 
@@ -236,6 +236,15 @@ class ModelCheckoutOrder extends Model {
 		} else {
 			return false;
 		}
+	}
+	public function getOrderProducts($order_id) {
+		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "order_product WHERE order_id = '" . (int)$order_id . "'");
+
+		return $query->rows;
+	}
+	public function getOrderOptions($order_id, $order_product_id) {
+		$query = $this->db->query("SELECT * FROM " . DB_PREFIX."order_option WHERE order_id = '" . (int)$order_id . "' AND order_product_id = '" . (int)$order_product_id . "' LIMIT 1");
+		return $query->rows;
 	}
 
 	public function addOrderHistory($order_id, $order_status_id, $comment = '', $notify = false, $override = false) {
