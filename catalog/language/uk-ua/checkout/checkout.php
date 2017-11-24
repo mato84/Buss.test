@@ -64,6 +64,7 @@ $_['entry_confirm']                  = 'Підтвердження паролю'
 $_['entry_firstname']                = 'Ім`я';
 $_['entry_lastname']                 = 'Прізвище';
 $_['entry_telephone']                = 'Телефон';
+$_['entry_telephone_format']         = 'У форматі 38000000000';
 $_['entry_fax']                      = 'Факс';
 $_['entry_address']                  = 'Оберіть адресу';
 $_['entry_company']                  = 'Компанія';
