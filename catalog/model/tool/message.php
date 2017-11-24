@@ -21,9 +21,8 @@ class ModelToolMessage extends Model{
 
       'message'  => str_replace(array('{NAME}', '{DATE}', '{TIME}', '{DEPAERTURE_TO}', '{CATEGORY}', '{CARRIER}'),
         array($product_info['name'], $order_option['value'], $product_info['departure_time'], $product_info['departure_to'],
-         $product_name_main_category,$product_manufacturer_name),
-         'Заброньовано:'."\xA".'{NAME}'."\xA".'{DATE} {TIME}'."\xA".'{DEPAERTURE_TO}
-         Автобус {CATEGORY} '."\xA".' Перевізник {CARRIER}')
+        $product_name_main_category,$product_manufacturer_name),
+        'Заброньовано:'."\xA".'{NAME}'."\xA".'{DATE}'."\xA".'{TIME}'."\xA".'{DEPAERTURE_TO}'."\xA".'Автобус {CATEGORY}'."\xA".'Перевізник {CARRIER}')
     );
     return $this;
   }

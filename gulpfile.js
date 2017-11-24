@@ -23,7 +23,7 @@ gulp.task('copy', function() {
     gulp.src(['system/**/*' , '!system/storage/cache/*'])
         .pipe(gulp.dest('dist/system'))  
 
-    gulp.src(['.htaccess' , 'index.php', 'php.ini', 'robots.txt'])
+    gulp.src(['index.php', 'php.ini', 'robots.txt'])
         .pipe(gulp.dest('dist'))  
 });
 

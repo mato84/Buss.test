@@ -5,3 +5,5 @@ install
 config.php
 image/cache/
 tasks
+sftp-config.jso
+sftp-config.json

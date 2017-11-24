@@ -78,7 +78,7 @@
               <td class="text-right"><?php echo $product['price']; ?></td>
               <td class="text-right"><?php echo $product['total']; ?></td>
               <td class="text-center">
-                <a class="btn btn-default" data-toggle="tooltip" name = "remove" id="<?php echo $product['cart_id']; ?>" href="#" title="<?php echo $button_remove; ?>"><i class="fa fa-times-circle"></i></a>
+                <a class="btn btn-default" data-toggle="tooltip" name = "remove" id="<?php echo $product['cart_id']; ?>" href="#" title="<?php echo $button_remove; ?>" style="display: inherit;"><i class="fa fa-times-circle"></i></a>
               </td>
             </tr>
             <?php } ?>

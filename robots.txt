@@ -54,4 +54,4 @@ Allow: /catalog/view/javascript
 Clean-param: tracking
 
 Host: panbus.com.ua
-Sitemap: http://panbus.com.ua/index.php?route=extension/feed/google_sitemap
+Sitemap: https://panbus.com.ua/index.php?route=extension/feed/google_sitemap
