@@ -110,11 +110,6 @@
 <!--                 <div id="map"></div>  -->
 
                 <div id="collapse0" class="route__way panel-collapse collapse" style="height: 0px;">
-                  <div class="route__waypoint">
-                    <div class="datetime"><b><?php echo $departure_time; ?></b></div>
-                    <div class="info"><b><?php echo $from_name?></b><?php echo $departure_from; ?></div>
-                    <i class="fa fa-map-marker" aria-hidden="true"></i>
-                  </div>
                   <?php if ($waypoint_related) { ?>
                     <?php foreach ($waypoint_related as $waypoint) { ?>
                       <div class="route__waypoint">
@@ -124,14 +119,6 @@
                       </div>
                     <?php } ?>
                   <?php } ?>
-                  <div class="route__waypoint">
-                    <div class="datetime"><b><?php echo $arrival_time; ?></b></div>
-                    <div class="info"><b><?php echo $to_name?></b><?php echo $departure_to; ?></div>
-                    <i class="fa fa-map-marker" aria-hidden="true"></i>
-                  </div>
-
-
-
                 </div>
 
                 </div>

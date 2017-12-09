@@ -302,13 +302,13 @@ header {
     margin: 0;
     padding: 5px 10px;
     color: #ffffff;
-    font-size: 25px;
+    font-size: 22px;
     font-weight: 300;
 }
 
 @media (min-width: 768px) {
     .header-content .header-content-inner h1 {
-        font-size: 35px;
+        font-size: 45px;
     }
 }
 

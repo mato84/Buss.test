@@ -22,8 +22,8 @@ $_['column_action']      = 'Дія';
 // Entry
 $_['entry_name']         = 'Назва';
 $_['entry_city']         = 'Точка';
-$_['entry_time']         = 'Час прибуття';
-$_['entry_place']        = 'Місце прибуття';
+$_['entry_time']         = 'Час';
+$_['entry_place']        = 'Місце';
 $_['entry_manufacturer'] = 'Перевізник';
 $_['entry_sort_order']   = 'Порядок сортування';
 $_['entry_type']         = 'Тип';

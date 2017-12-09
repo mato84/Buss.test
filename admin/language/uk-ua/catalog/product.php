@@ -9,13 +9,13 @@
 //fradee@gmail.com
 
 // Heading
-$_['heading_title']          = 'Товари';
+$_['heading_title']          = 'Квитки';
 
 // Text
-$_['text_success']           = 'Ви успішно змінили товар!';
-$_['text_list']              = 'Список товарів';
-$_['text_add']               = 'Додати товар';
-$_['text_edit']              = 'Змінити товар';
+$_['text_success']           = 'Ви успішно змінили квиток!';
+$_['text_list']              = 'Список квитків';
+$_['text_add']               = 'Додати квиток';
+$_['text_edit']              = 'Змінити квиток';
 $_['text_plus']              = '+';
 $_['text_minus']             = '-';
 $_['text_default']           = 'За замовчуванням';

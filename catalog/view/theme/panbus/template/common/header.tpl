@@ -55,7 +55,7 @@
   <div class="header-content">
     <div class="header-content-inner">
       <img class="header-logo" src="../image/catalog/logo.png" title="<?php echo $name; ?>" alt="<?php echo $name; ?>"/>
-        <h1><span>Автобусні міжнародні перевезення</span></h1>
+        <h1><span>Україна - Польща - Україна</span></h1>
       <div class="slogan"><div><span>П</span>одорожуйте</div>  <div><span>А</span>втобусами з</div>  <div><span>Н</span>ами</div></div>
     </div>
     <div class="header-search">
@@ -122,7 +122,7 @@
         <?php } ?>
         <?php } ?>
         <li><a href="<?php echo $special; ?>"><?php echo $text_promotion; ?></a></li>
-        <li><a href="/index.php?route=information/information&information_id=7"><?php echo $text_gallery; ?></a></li>
+        <li><a href="/галерея-фото"><?php echo $text_gallery; ?></a></li>
         <li><a href="<?php echo $contact; ?>"><?php echo $text_contact; ?></a></li>
           <?php if ($logged) { ?>
             <li><a href="<?php echo $account; ?>"><?php echo $text_account; ?></a></li>
