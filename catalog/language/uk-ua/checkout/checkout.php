@@ -53,6 +53,8 @@ $_['column_price']                   = 'Ціна за одиницю';
 $_['text_departure'] 				 = 'Відправлення:';
 $_['text_arrival']   				 = 'Прибуття:';
 $_['text_time_road']   				 = 'Час в дорозі:';
+$_['text_category']   			 	 = 'Автобус:';
+$_['text_manufacturer']   			 = 'Перевізник:';
 $_['column_total']                   = 'Загалом';
 $_['button_remove']                  = 'Видалити';
 

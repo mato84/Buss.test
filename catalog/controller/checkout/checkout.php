@@ -504,6 +504,8 @@ class ControllerCheckoutCheckout extends Controller {
 			$data['text_departure'] = $this->language->get('text_departure');
 			$data['text_arrival'] = $this->language->get('text_arrival');
 			$data['text_time_road'] = $this->language->get('text_time_road');
+			$data['text_category'] = $this->language->get('text_category');
+			$data['text_manufacturer'] = $this->language->get('text_manufacturer');						
 			$data['column_total'] = $this->language->get('column_total');
 			$data['button_remove'] = $this->language->get('button_remove');
 

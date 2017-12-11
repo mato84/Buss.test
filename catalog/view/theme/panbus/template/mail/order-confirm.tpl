@@ -30,6 +30,12 @@
           <p><?php echo $text_customer; ?> <b><?php echo $payment_address; ?></b></p>
           <p><?php echo $text_email; ?> <b><?php echo $email; ?></b></p>
           <p><?php echo $text_telephone; ?> <b><?php echo $telephone; ?></b></p>
+
+<!--           <?php echo $text_ip; ?> <b><?php echo $ip; ?></b><br /> -->
+<!--           <b><?php echo $text_payment_method; ?></b> <?php echo $payment_method; ?><br />
+          <?php if ($shipping_method) { ?>
+          <b><?php echo $text_shipping_method; ?></b> <?php echo $shipping_method; ?>
+          <?php } ?> -->
         </td>
       </tr>
     </tbody>
