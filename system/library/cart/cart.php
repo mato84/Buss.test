@@ -39,7 +39,8 @@ class Cart {
 			$stock = true;
 
 			$product_query = $this->db->query("SELECT * FROM " . DB_PREFIX . "product_to_store p2s LEFT JOIN " . DB_PREFIX . "product p ON (p2s.product_id = p.product_id) LEFT JOIN " . DB_PREFIX . "product_description pd ON (p.product_id = pd.product_id) WHERE p2s.store_id = '" . (int)$this->config->get('config_store_id') . "' AND p2s.product_id = '" . (int)$cart['product_id'] . "' AND pd.language_id = '" . (int)$this->config->get('config_language_id') . "' AND p.date_available <= NOW() AND p.status = '1'");
-
+            $product_main_category = $this->db->query("SELECT dc.name FROM " . DB_PREFIX . "category_description dc LEFT JOIN " . DB_PREFIX . "product_to_category pc ON dc.category_id = pc.category_id WHERE pc.product_id = '".$product_query->row['product_id']."' AND pc.main_category = 1");
+            $product_manufacturer = $this->db->query("SELECT m.name FROM ". DB_PREFIX ."manufacturer m LEFT JOIN " . DB_PREFIX . "product p ON m.manufacturer_id = p.manufacturer_id WHERE p.product_id = '".$product_query->row['product_id']."'");
 			if ($product_query->num_rows && ($cart['quantity'] > 0)) {
 				$option_price = 0;
 				$option_points = 0;
@@ -236,35 +237,37 @@ class Cart {
 				}
 
 				$product_data[] = array(
-					'cart_id'         => $cart['cart_id'],
-					'product_id'      => $product_query->row['product_id'],
-					'name'            => $product_query->row['name'],
-					'departure_from'  => $product_query->row['departure_from'],
-					'departure_to'    => $product_query->row['departure_to'],
-					'departure_time'  => date("H:i",strtotime($product_query->row['departure_time'])),
-					'arrival_time'    => date("H:i",strtotime($product_query->row['arrival_time'])),
-					'time_road'    => $product_query->row['time_road'],
-					'model'           => $product_query->row['model'],
-					'shipping'        => $product_query->row['shipping'],
-					'image'           => $product_query->row['image'],
-					'option'          => $option_data,
-					'download'        => $download_data,
-					'quantity'        => $cart['quantity'],
-					'minimum'         => $product_query->row['minimum'],
-					'subtract'        => $product_query->row['subtract'],
-					'stock'           => $stock,
-					'price'           => ($price + $option_price),
-					'total'           => ($price + $option_price) * $cart['quantity'],
-					'reward'          => $reward * $cart['quantity'],
-					'points'          => ($product_query->row['points'] ? ($product_query->row['points'] + $option_points) * $cart['quantity'] : 0),
-					'tax_class_id'    => $product_query->row['tax_class_id'],
-					'weight'          => ($product_query->row['weight'] + $option_weight) * $cart['quantity'],
-					'weight_class_id' => $product_query->row['weight_class_id'],
-					'length'          => $product_query->row['length'],
-					'width'           => $product_query->row['width'],
-					'height'          => $product_query->row['height'],
-					'length_class_id' => $product_query->row['length_class_id'],
-					'recurring'       => $recurring
+					'cart_id'           => $cart['cart_id'],
+					'product_id'        => $product_query->row['product_id'],
+					'name'              => $product_query->row['name'],
+                    'name_main_category'=> $product_main_category->row['name'],
+                    'name_manufacturer' => $product_manufacturer->row['name'],
+					'departure_from'    => $product_query->row['departure_from'],
+					'departure_to'      => $product_query->row['departure_to'],
+					'departure_time'    => date("H:i",strtotime($product_query->row['departure_time'])),
+					'arrival_time'      => date("H:i",strtotime($product_query->row['arrival_time'])),
+					'time_road'         => $product_query->row['time_road'],
+					'model'             => $product_query->row['model'],
+					'shipping'          => $product_query->row['shipping'],
+					'image'             => $product_query->row['image'],
+					'option'            => $option_data,
+					'download'          => $download_data,
+					'quantity'          => $cart['quantity'],
+					'minimum'           => $product_query->row['minimum'],
+					'subtract'          => $product_query->row['subtract'],
+					'stock'             => $stock,
+					'price'             => ($price + $option_price),
+					'total'             => ($price + $option_price) * $cart['quantity'],
+					'reward'            => $reward * $cart['quantity'],
+					'points'            => ($product_query->row['points'] ? ($product_query->row['points'] + $option_points) * $cart['quantity'] : 0),
+					'tax_class_id'      => $product_query->row['tax_class_id'],
+					'weight'            => ($product_query->row['weight'] + $option_weight) * $cart['quantity'],
+					'weight_class_id'   => $product_query->row['weight_class_id'],
+					'length'            => $product_query->row['length'],
+					'width'             => $product_query->row['width'],
+					'height'            => $product_query->row['height'],
+					'length_class_id'   => $product_query->row['length_class_id'],
+					'recurring'         => $recurring
 				);
 			} else {
 				$this->remove($cart['cart_id']);
