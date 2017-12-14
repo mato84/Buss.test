@@ -75,16 +75,16 @@ gulp.task('img', function () {
 });
 
 gulp.task("watch", [ "browser", "sass" ], function() {
-    gulp.watch("/**/*.scss", [ "sass" ]);
-    gulp.watch("/*.html", browserSync.reload);
+    gulp.watch('src/scss/*.scss', [ "sass" ]);
+    gulp.watch('catalog/view/theme/panbus/stylesheet/*.css', browserSync.reload);
+    gulp.watch('catalog/view/theme/**/*.tpl', browserSync.reload);
+    gulp.watch('catalog/**/*.php', browserSync.reload);
 });
 
 
 gulp.task("browser", function() {
     browserSync({
-        server: {
-            baseDir: ""
-        },
+        proxy: "Buss.test",
         browser: "chrome",
     });
 });

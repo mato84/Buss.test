@@ -457,7 +457,7 @@
         <a class="choice-block-inmain__text" href="/щоденні-регулярні-рейси">Щоденні<br> регулярні<br> рейси</a>
       </div>      
       <div class="choice-block-inmain__box">
-        <a class="choice-block-inmain__text" href="/знижка-50-відсотків-на-кожну-6-ту-поїздку">Знижка 50%<br> на кожну 6-ту<br> поїздку</a>
+        <a class="choice-block-inmain__text" href="/постійна-система-знижок">Постійна<br> система<br> знижок</a>
       </div>
     </div>
     <?php echo $content_top; ?><?php echo $content_bottom; ?></div>
