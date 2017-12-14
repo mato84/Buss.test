@@ -64,8 +64,8 @@
                   <br />
                   &nbsp;<small> - <?php echo $option['name']; ?> <b><?php echo $option['value']; ?></b></small>
                   <?php } ?><br>
-<!--                   &nbsp;<small> - <?php echo $text_category; ?> <b> <?php echo $product['category']; ?></b></small><br>
-                  &nbsp;<small> - <?php echo $text_manufacturer; ?> <b> <?php echo $product['manufacturer']; ?></b></small><br> -->
+                  &nbsp;<small> - <?php echo $text_category; ?> <b> <?php echo $product['main_category_name']; ?></b></small><br>
+                  &nbsp;<small> - <?php echo $text_manufacturer; ?> <b> <?php echo $product['manufacturer_name']; ?></b></small><br>
                   &nbsp;<small> - <?php echo $text_departure; ?> <b><?php echo $product['departure_time']; ?></b> <?php echo $product['departure_from']; ?></small><br>
                   &nbsp;<small> - <?php echo $text_arrival;  ?> <b><?php echo $product['arrival_time']; ?></b> <?php  echo $product['departure_to'];  ?></small><br>
                   &nbsp;<small> - <?php echo $text_time_road; ?> <b> <?php echo $product['time_road']; ?></b></small><br>

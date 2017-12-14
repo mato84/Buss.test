@@ -379,25 +379,27 @@ class ControllerCheckoutCheckout extends Controller {
 				}
         // add product to order data
 				$order_data['products'][] = array(
-					'cart_id'    => $product['cart_id'],
-					'product_id' => $product['product_id'],
-					'name'       => $product['name'],
-					// 'from_id'    => $product['from_id'],
-					// 'to_id'      => $product['to_id'],
-					'departure_from'  => $product['departure_from'],
-					'departure_to'  => $product['departure_to'],
-					'departure_time'  => $product['departure_time'],
-					'arrival_time'  => $product['arrival_time'],
-					'time_road'  => $product['time_road'],
-					'model'      => $product['model'],
-					'option'     => $option_data,
-					'download'   => $product['download'],
-					'quantity'   => $product['quantity'],
-					'subtract'   => $product['subtract'],
-					'price'      => $product['price'],
-					'total'      => $product['total'],
-					'tax'        => $this->tax->getTax($product['price'], $product['tax_class_id']),
-					'reward'     => $product['reward']
+					'cart_id'            => $product['cart_id'],
+					'product_id'         => $product['product_id'],
+					'name'               => $product['name'],
+                    'manufacturer_name'  => $product['name_manufacturer'],
+                    'main_category_name' => $product['name_main_category'],
+					// 'from_id'         => $product['from_id'],
+					// 'to_id'           => $product['to_id'],
+					'departure_from'     => $product['departure_from'],
+					'departure_to'       => $product['departure_to'],
+					'departure_time'     => $product['departure_time'],
+					'arrival_time'       => $product['arrival_time'],
+					'time_road'          => $product['time_road'],
+					'model'              => $product['model'],
+					'option'             => $option_data,
+					'download'           => $product['download'],
+					'quantity'           => $product['quantity'],
+					'subtract'           => $product['subtract'],
+					'price'              => $product['price'],
+					'total'              => $product['total'],
+					'tax'                => $this->tax->getTax($product['price'], $product['tax_class_id']),
+					'reward'             => $product['reward']
 				);
 			}
 
@@ -565,23 +567,25 @@ class ControllerCheckoutCheckout extends Controller {
 				}
 
 				$data['products'][] = array(
-					'cart_id'    => $product['cart_id'],
-					'thumb'     => $image,
-					'product_id' => $product['product_id'],
-					'departure_from'  => $product['departure_from'],
-					'departure_to'    => $product['departure_to'],
-					'departure_time'  => $product['departure_time'],
-					'arrival_time'  => $product['arrival_time'],
-					'time_road'    => $product['time_road'],
-					'name'       => $product['name'],
-					'model'      => $product['model'],
-					'option'     => $option_data,
-					'recurring'  => $recurring,
-					'quantity'   => $product['quantity'],
-					'subtract'   => $product['subtract'],
-					'price'      => $this->currency->format($this->tax->calculate($product['price'], $product['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']),
-					'total'      => $this->currency->format($this->tax->calculate($product['price'], $product['tax_class_id'], $this->config->get('config_tax')) * $product['quantity'], $this->session->data['currency']),
-					'href'       => $this->url->link('product/product', 'product_id=' . $product['product_id'])
+					'cart_id'            => $product['cart_id'],
+					'thumb'              => $image,
+					'product_id'         => $product['product_id'],
+					'departure_from'     => $product['departure_from'],
+					'departure_to'       => $product['departure_to'],
+					'departure_time'     => $product['departure_time'],
+					'arrival_time'       => $product['arrival_time'],
+                    'manufacturer_name'  => $product['name_manufacturer'],
+                    'main_category_name' => $product['name_main_category'],
+					'time_road'          => $product['time_road'],
+					'name'               => $product['name'],
+					'model'              => $product['model'],
+					'option'             => $option_data,
+					'recurring'          => $recurring,
+					'quantity'           => $product['quantity'],
+					'subtract'           => $product['subtract'],
+					'price'              => $this->currency->format($this->tax->calculate($product['price'], $product['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']),
+					'total'              => $this->currency->format($this->tax->calculate($product['price'], $product['tax_class_id'], $this->config->get('config_tax')) * $product['quantity'], $this->session->data['currency']),
+					'href'               => $this->url->link('product/product', 'product_id=' . $product['product_id'])
 				);
 			}
 
