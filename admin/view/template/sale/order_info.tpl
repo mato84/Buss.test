@@ -148,6 +148,8 @@
           <thead>
             <tr>
               <td class="text-left"><?php echo $column_product; ?></td>
+              <td class="text-center"><?php echo $column_manufacturer_name; ?></td>
+              <td class="text-center"><?php echo $column_main_category_name; ?></td>
 <!--               <td class="text-left"><?php echo $column_model; ?></td> -->
               <td class="text-right"><?php echo $column_quantity; ?></td>
               <td class="text-right"><?php echo $column_price; ?></td>
@@ -167,6 +169,8 @@
                 <?php } ?>
                 <?php } ?></td>
 <!--               <td class="text-left"><?php echo $product['model']; ?></td> -->
+              <td class="text-center"><?php echo $product['name_manufacturer']; ?></td>
+              <td class="text-center"><?php echo $product['name_main_category']; ?></td>
               <td class="text-right"><?php echo $product['quantity']; ?></td>
               <td class="text-right"><?php echo $product['price']; ?></td>
               <td class="text-right"><?php echo $product['total']; ?></td>
@@ -183,7 +187,7 @@
             <?php } ?>
             <?php foreach ($totals as $total) { ?>
             <tr>
-              <td colspan="3" class="text-right"></td>
+              <td colspan="5" class="text-right"></td>
               <td colspan="1" class="text-right"><?php echo $total['title']; ?> <?php echo $total['text']; ?></td>
             </tr>
             <?php } ?>

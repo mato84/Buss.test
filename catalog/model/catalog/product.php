@@ -424,13 +424,13 @@ class ModelCatalogProduct extends Model {
 
 		return $query->rows;
 	}
-	public function getProductMainCategoryName($product_id) {
+	public function getProductMainCategoryName($product_id = 0) {
 
 		$query = $this->db->query("SELECT cd.name FROM " .DB_PREFIX."product_to_category pc INNER JOIN ".DB_PREFIX."category_description cd ON pc.category_id = cd.category_id WHERE pc.product_id = '". (int)$product_id ."' AND pc.main_category = '1' LIMIT 1");
 
 		return ($query->num_rows ? $query->row['name'] : ' ');
 	}
-  public function getProductManufacturerName($product_id){
+    public function getProductManufacturerName($product_id = 0){
 		$query = $this->db->query("SELECT m.name FROM " .DB_PREFIX."product p INNER JOIN ".DB_PREFIX."manufacturer m ON p.manufacturer_id = m.manufacturer_id WHERE p.product_id = '". (int)$product_id ."'");
 		return ($query->num_rows ? $query->row['name'] : ' ');
 	}

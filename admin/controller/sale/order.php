@@ -807,6 +807,8 @@ class ControllerSaleOrder extends Controller {
 			$data['text_loading'] = $this->language->get('text_loading');
 
 			$data['column_product'] = $this->language->get('column_product');
+            $data['column_manufacturer_name'] = $this->language->get('column_manufacturer_name');
+            $data['column_main_category_name'] = $this->language->get('column_main_category_name');
 			$data['column_model'] = $this->language->get('column_model');
 			$data['column_quantity'] = $this->language->get('column_quantity');
 			$data['column_price'] = $this->language->get('column_price');
@@ -1007,6 +1009,7 @@ class ControllerSaleOrder extends Controller {
 
 			// Uploaded files
 			$this->load->model('tool/upload');
+            $this->load->model('catalog/product');
 
 			$data['products'] = array();
 
@@ -1014,6 +1017,11 @@ class ControllerSaleOrder extends Controller {
 
 			foreach ($products as $product) {
 				$option_data = array();
+                $product['name_manufacturer'] = $this->model_catalog_product
+                    ->getProductManufacturerName($product['product_id']);
+
+                $product['name_main_category'] = $this->model_catalog_product
+                    ->getProductMainCategoryName($product['product_id']);
 
 				$options = $this->model_sale_order->getOrderOptions($this->request->get['order_id'], $product['order_product_id']);
 
@@ -1039,15 +1047,17 @@ class ControllerSaleOrder extends Controller {
 				}
 
 				$data['products'][] = array(
-					'order_product_id' => $product['order_product_id'],
-					'product_id'       => $product['product_id'],
-					'name'    	 	   => $product['name'],
-					'model'    		   => $product['model'],
-					'option'   		   => $option_data,
-					'quantity'		   => $product['quantity'],
-					'price'    		   => $this->currency->format($product['price'] + ($this->config->get('config_tax') ? $product['tax'] : 0), $order_info['currency_code'], $order_info['currency_value']),
-					'total'    		   => $this->currency->format($product['total'] + ($this->config->get('config_tax') ? ($product['tax'] * $product['quantity']) : 0), $order_info['currency_code'], $order_info['currency_value']),
-					'href'     		   => $this->url->link('catalog/product/edit', 'token=' . $this->session->data['token'] . '&product_id=' . $product['product_id'], true)
+					'order_product_id'   => $product['order_product_id'],
+					'product_id'         => $product['product_id'],
+					'name_main_category' => $product['name_main_category'],
+                    'name_manufacturer'  => $product['name_manufacturer'],
+					'name'    	 	     => $product['name'],
+					'model'    		     => $product['model'],
+					'option'   		     => $option_data,
+					'quantity'		     => $product['quantity'],
+					'price'    		     => $this->currency->format($product['price'] + ($this->config->get('config_tax') ? $product['tax'] : 0), $order_info['currency_code'], $order_info['currency_value']),
+					'total'    		     => $this->currency->format($product['total'] + ($this->config->get('config_tax') ? ($product['tax'] * $product['quantity']) : 0), $order_info['currency_code'], $order_info['currency_value']),
+					'href'     		     => $this->url->link('catalog/product/edit', 'token=' . $this->session->data['token'] . '&product_id=' . $product['product_id'], true)
 				);
 			}
 
