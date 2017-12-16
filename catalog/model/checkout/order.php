@@ -423,6 +423,8 @@ class ModelCheckoutOrder extends Model {
 				$data['text_price'] = $language->get('text_new_price');
 				$data['text_total'] = $language->get('text_new_total');
 				$data['text_footer'] = $language->get('text_new_footer');
+				$data['text_category'] = $language->get('text_category');
+				$data['text_manufacturer'] = $language->get('text_manufacturer');	
 				$data['text_departure'] = $language->get('text_departure');
 				$data['text_arrival'] = $language->get('text_arrival');
 				$data['text_time_road'] = $language->get('text_time_road');
@@ -796,6 +798,8 @@ class ModelCheckoutOrder extends Model {
 				$order_product_query = $this->db->query("SELECT * FROM " . DB_PREFIX . "order_product WHERE order_id = '" . (int)$order_id . "'");
 
 
+
+
 				$language = new Language($order_info['language_code']);
 				$language->load($order_info['language_code']);
 				$language->load('mail/order');
@@ -842,6 +846,74 @@ class ModelCheckoutOrder extends Model {
 				$data['store_url'] = $order_info['store_url'];
 				$data['customer_id'] = $order_info['customer_id'];
 				$data['link'] = $order_info['store_url'] . 'index.php?route=account/order/info&order_id=' . $order_id;
+
+
+				$data['order_id'] = $order_id;
+				$data['date_added'] = date($language->get('date_format_short'), strtotime($order_info['date_added']));
+				$data['payment_method'] = $order_info['payment_method'];
+				$data['shipping_method'] = $order_info['shipping_method'];
+				$data['email'] = $order_info['email'];
+				$data['telephone'] = $order_info['telephone'];
+				$data['ip'] = $order_info['ip'];
+				$data['order_passenger'] = $order_info['comment'];
+
+				if ($comment && $notify) {
+					$data['comment'] = nl2br($comment);
+				} else {
+					$data['comment'] = '';
+				}
+
+				if ($order_info['payment_address_format']) {
+					$format = $order_info['payment_address_format'];
+				} else {
+					$format = '{lastname} {firstname}';
+				}
+
+				$find = array(
+					'{firstname}',
+					'{lastname}',
+				);
+
+				$replace = array(
+					'firstname' => $order_info['firstname'],
+					'lastname'  => $order_info['lastname'],
+				);
+
+				$data['payment_address'] = str_replace(array("\r\n", "\r", "\n"), '<br />', preg_replace(array("/\s\s+/", "/\r\r+/", "/\n\n+/"), '<br />', trim(str_replace($find, $replace, $format))));
+
+				if ($order_info['shipping_address_format']) {
+					$format = $order_info['shipping_address_format'];
+				} else {
+					$format = '{firstname} {lastname}' . "\n" . '{company}' . "\n" . '{address_1}' . "\n" . '{address_2}' . "\n" . '{city} {postcode}' . "\n" . '{zone}' . "\n" . '{country}';
+				}
+
+				$find = array(
+					'{firstname}',
+					'{lastname}',
+					'{company}',
+					'{address_1}',
+					'{address_2}',
+					'{city}',
+					'{postcode}',
+					'{zone}',
+					'{zone_code}',
+					'{country}'
+				);
+
+				$replace = array(
+					'firstname' => $order_info['shipping_firstname'],
+					'lastname'  => $order_info['shipping_lastname'],
+					'company'   => $order_info['shipping_company'],
+					'address_1' => $order_info['shipping_address_1'],
+					'address_2' => $order_info['shipping_address_2'],
+					'city'      => $order_info['shipping_city'],
+					'postcode'  => $order_info['shipping_postcode'],
+					'zone'      => $order_info['shipping_zone'],
+					'zone_code' => $order_info['shipping_zone_code'],
+					'country'   => $order_info['shipping_country']
+				);
+
+				$data['shipping_address'] = str_replace(array("\r\n", "\r", "\n"), '<br />', preg_replace(array("/\s\s+/", "/\r\r+/", "/\n\n+/"), '<br />', trim(str_replace($find, $replace, $format))));
 
 
 				// Products

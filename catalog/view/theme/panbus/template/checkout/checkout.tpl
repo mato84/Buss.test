@@ -57,18 +57,18 @@
             <tr>
               <td class="text-left">
               <div class="ticket">
-                <a class="ticket-img" href="<?php echo $product['href']; ?>"><img src="<?php echo $product['thumb']; ?>" alt="<?php  echo strip_tags($product['name']); ?>" title="<?php echo strip_tags($product['name']); ?>" /></a>
+<!--                 <a class="ticket-img" href="<?php echo $product['href']; ?>"><img src="<?php echo $product['thumb']; ?>" alt="<?php  echo strip_tags($product['name']); ?>" title="<?php echo strip_tags($product['name']); ?>" /></a> -->
                 <div class="ticket-info">
                   <a href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a>
                   <?php foreach ($product['option'] as $option) { ?>
                   <br />
-                  &nbsp;<small> - <?php echo $option['name']; ?> <b><?php echo $option['value']; ?></b></small>
+                  <small><?php echo $option['name']; ?> <b><?php echo $option['value']; ?></b></small>
                   <?php } ?><br>
-                  &nbsp;<small> - <?php echo $text_category; ?> <b> <?php echo $product['main_category_name']; ?></b></small><br>
-                  &nbsp;<small> - <?php echo $text_manufacturer; ?> <b> <?php echo $product['manufacturer_name']; ?></b></small><br>
-                  &nbsp;<small> - <?php echo $text_departure; ?> <b><?php echo $product['departure_time']; ?></b> <?php echo $product['departure_from']; ?></small><br>
-                  &nbsp;<small> - <?php echo $text_arrival;  ?> <b><?php echo $product['arrival_time']; ?></b> <?php  echo $product['departure_to'];  ?></small><br>
-                  &nbsp;<small> - <?php echo $text_time_road; ?> <b> <?php echo $product['time_road']; ?></b></small><br>
+                  <small><?php echo $text_category; ?> <b> <?php echo $product['main_category_name']; ?></b></small><br>
+                  <small><?php echo $text_manufacturer; ?> <b> <?php echo $product['manufacturer_name']; ?></b></small><br>
+                  <small><?php echo $text_departure; ?> <b><?php echo $product['departure_time']; ?></b> <?php echo $product['departure_from']; ?></small><br>
+                  <small><?php echo $text_arrival;  ?> <b><?php echo $product['arrival_time']; ?></b> <?php  echo $product['departure_to'];  ?></small><br>
+                  <small><?php echo $text_time_road; ?> <b> <?php echo $product['time_road']; ?></b></small><br>
 
                   <?php if($product['recurring']) { ?>
                   <br />

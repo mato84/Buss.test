@@ -4,15 +4,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title><?php echo $title; ?></title>
 </head>
-<body style="font-family:Helvetica, sans-serif; font-size: 16px; color: #444;background: #eee;">
-<div style="width: 600px;margin: 30px auto; padding: 10px; border-left: 8px solid #cd4e37; background: #fff; -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1); box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);">
+<body style="font-family:Helvetica, sans-serif; font-size: 16px; color: #444;background: #eee;padding: 20px 0;">
+<div style="width: 600px;margin: 20px auto; padding: 10px; border-left: 8px solid #cd4e37; background: #fff; -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1); box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);">
   <div style="text-align: center;">
     <a href="<?php echo $store_url; ?>" title="<?php echo $store_name; ?>"><img src="<?php echo $logo; ?>" alt="<?php echo $store_name; ?>" style="margin-bottom: 20px; border: none;" /></a>
   <p style="margin-top: 0px; margin-bottom: 20px;"><?php echo $text_greeting; ?></p>    
   </div>
   <?php if ($customer_id) { ?>
-  <p style="margin-top: 0px; margin-bottom: 20px;"><?php echo $text_link; ?></p>
-  <p style="margin-top: 0px; margin-bottom: 20px;"><a href="<?php echo $link; ?>"><?php echo $link; ?></a></p>
+  <p style="margin-top: 0px; margin-bottom: 20px;text-align: center;"><?php echo $text_link; ?></p>
+  <p style="margin-top: 0px; margin-bottom: 20px;text-align: center;"><a href="<?php echo $link; ?>"><?php echo $link; ?></a></p>
   <?php } ?>
   <?php if ($download) { ?>
   <p style="margin-top: 0px; margin-bottom: 20px;"><?php echo $text_download; ?></p>
