@@ -524,7 +524,7 @@ class ModelCheckoutOrder extends Model {
 
 				foreach ($order_product_query->rows as $product) {
 					$option_data = array();
-                $this->load->model('catalog/product');
+                	$this->load->model('catalog/product');
 					$product_data = $this->model_catalog_product->getProduct($product['product_id']);
 
                     $product['name_manufacturer'] = $this->model_catalog_product
@@ -924,13 +924,19 @@ class ModelCheckoutOrder extends Model {
 				$data['shipping_address'] = str_replace(array("\r\n", "\r", "\n"), '<br />', preg_replace(array("/\s\s+/", "/\r\r+/", "/\n\n+/"), '<br />', trim(str_replace($find, $replace, $format))));
 
 
-				// Products
+								// Products
 				$data['products'] = array();
 
 				foreach ($order_product_query->rows as $product) {
 					$option_data = array();
-          			$this->load->model('catalog/product');
+                	$this->load->model('catalog/product');
 					$product_data = $this->model_catalog_product->getProduct($product['product_id']);
+
+                    $product['name_manufacturer'] = $this->model_catalog_product
+                        ->getProductManufacturerName($product['product_id']);
+
+                    $product['name_main_category'] = $this->model_catalog_product
+                        ->getProductMainCategoryName($product['product_id']);
 
 					$order_option_query = $this->db->query("SELECT * FROM " . DB_PREFIX . "order_option WHERE order_id = '" . (int)$order_id . "' AND order_product_id = '" . (int)$product['order_product_id'] . "'");
 
@@ -956,6 +962,8 @@ class ModelCheckoutOrder extends Model {
 					$data['products'][] = array(
 						'name'     => $product['name'],
 						'model'    => $product['model'],
+                        'manufacturer_name'  => $product['name_manufacturer'],
+                        'main_category_name' => $product['name_main_category'],
 						'departure_from' => $product_data['departure_from'],
 						'time_road' => $product_data['time_road'],
 						'departure_to' => $product_data['departure_to'],
