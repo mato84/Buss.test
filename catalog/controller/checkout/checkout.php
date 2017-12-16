@@ -382,10 +382,6 @@ class ControllerCheckoutCheckout extends Controller {
 					'cart_id'            => $product['cart_id'],
 					'product_id'         => $product['product_id'],
 					'name'               => $product['name'],
-                    'manufacturer_name'  => $product['name_manufacturer'],
-                    'main_category_name' => $product['name_main_category'],
-					// 'from_id'         => $product['from_id'],
-					// 'to_id'           => $product['to_id'],
 					'departure_from'     => $product['departure_from'],
 					'departure_to'       => $product['departure_to'],
 					'departure_time'     => $product['departure_time'],
@@ -513,14 +509,24 @@ class ControllerCheckoutCheckout extends Controller {
 
 			$this->load->model('tool/image');
 			$this->load->model('tool/upload');
+            $this->load->model('catalog/product');
 
 			$data['products'] = array();
 
 			foreach ($this->cart->getProducts() as $product) {
 				$option_data = array();
 
+                $product['name_manufacturer'] = $this->model_catalog_product
+                    ->getProductManufacturerName($product['product_id']);
+
+                $product['name_main_category'] = $this->model_catalog_product
+                    ->getProductMainCategoryName($product['product_id']);
+
 				if ($product['image']) {
- 				 $image = $this->model_tool_image->resize($product['image'], $this->config->get($this->config->get('config_theme') . '_image_cart_width'), $this->config->get($this->config->get('config_theme') . '_image_cart_height'));
+ 				 $image = $this->model_tool_image
+                     ->resize($product['image'], $this->config
+                         ->get($this->config->get('config_theme') . '_image_cart_width'),
+                         $this->config->get($this->config->get('config_theme') . '_image_cart_height'));
  			 } else {
  				 $image = '';
  			 }
