@@ -4,9 +4,12 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title><?php echo $title; ?></title>
 </head>
-<body style="font-family: Arial, Helvetica, sans-serif; font-size: 16px; color: #000000;">
-<div style="width: 680px;"><a href="<?php echo $store_url; ?>" title="<?php echo $store_name; ?>"><img src="<?php echo $logo; ?>" alt="<?php echo $store_name; ?>" style="margin-bottom: 20px; border: none;" /></a>
-  <p style="margin-top: 0px; margin-bottom: 20px;"><?php echo $text_greeting; ?></p>
+<body style="font-family:Helvetica, sans-serif; font-size: 16px; color: #444;background: #eee;">
+<div style="width: 600px;margin: 30px auto; padding: 10px; border-left: 8px solid #cd4e37; background: #fff; -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1); box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);">
+  <div style="text-align: center;">
+    <a href="<?php echo $store_url; ?>" title="<?php echo $store_name; ?>"><img src="<?php echo $logo; ?>" alt="<?php echo $store_name; ?>" style="margin-bottom: 20px; border: none;" /></a>
+  <p style="margin-top: 0px; margin-bottom: 20px;"><?php echo $text_greeting; ?></p>    
+  </div>
   <?php if ($customer_id) { ?>
   <p style="margin-top: 0px; margin-bottom: 20px;"><?php echo $text_link; ?></p>
   <p style="margin-top: 0px; margin-bottom: 20px;"><a href="<?php echo $link; ?>"><?php echo $link; ?></a></p>
@@ -75,11 +78,9 @@
       <?php foreach ($products as $product) { ?>
       <tr>
         <td style="font-size: 16px;	text-align: left; padding: 10px;">
-          <div style="border-left: 4px solid #cd4e37; padding: 0 8px; ">
-            <p><a style="color: #cd4e37; text-decoration: none; " href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a></p>
+            <p><b><a style="color: #cd4e37; text-decoration: none; " href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a></b></p>
             <p>
             <?php foreach ($product['option'] as $option) { ?>
-            <br />
             <?php echo $option['name']; ?> <b><?php echo $option['value']; ?></b>
             <?php } ?></p>
             <p><?php echo $text_category; ?> <b> <!-- <?php echo $product['category']; ?> --></b></p>
@@ -87,7 +88,6 @@
             <p><?php echo $text_departure; ?> <b><?php echo $product['departure_time']; ?></b> <?php echo $product['departure_from']; ?></p>
             <p><?php echo $text_arrival; ?> <b><?php echo $product['arrival_time']; ?></b> <?php echo $product['departure_to']; ?></p>
             <p><?php echo $text_time_road; ?> <b><?php echo $product['time_road']; ?></b></p>
-          </div>
         </td>
       </tr>
       <?php } ?>
@@ -120,60 +120,7 @@
     </tfoot>
   </table>  
 
-<!--   <table style="border-collapse: collapse; width: 100%; margin-bottom: 20px;">
-    <thead>
-      <tr>
-        <td style="font-size: 16px; background-color: #EFEFEF; font-weight: bold; text-align: left; padding: 7px; color: #222222;"><?php echo $text_product; ?></td>
-        <td style="font-size: 16px; background-color: #EFEFEF; font-weight: bold; text-align: right; padding: 7px; color: #222222;"><?php echo $text_quantity; ?></td>
-        <td style="font-size: 16px; background-color: #EFEFEF; font-weight: bold; text-align: right; padding: 7px; color: #222222;"><?php echo $text_price; ?></td>
-        <td style="font-size: 16px; background-color: #EFEFEF; font-weight: bold; text-align: right; padding: 7px; color: #222222;"><?php echo $text_total; ?></td>
-      </tr>
-    </thead>
-    <tbody>
-      <?php foreach ($products as $product) { ?>
-      <tr>
-        <td style="font-size: 16px; border-bottom: 1px solid #DDDDDD; text-align: left; padding: 10px;">
-          <div style="border-left: 4px solid #cd4e37; padding: 0 8px; ">
-            <img src="<?php echo $logo; ?>" style="width:60px; margin-right: 10px; margin-top: 8px; display: inline-block; vertical-align: middle;" />
-            <div style="display: inline-block; vertical-align: middle;">
-            <a style="color: #cd4e37; text-decoration: none; " href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a>
-            <?php foreach ($product['option'] as $option) { ?>
-            <br />
-            &nbsp;<?php echo $option['name']; ?> <b><?php echo $option['value']; ?></b>
-            <?php } ?><br>
-                  &nbsp;<?php echo $text_category; ?> <b> <?php echo $product['category']; ?></b><br>
-                  &nbsp;<?php echo $text_manufacturer; ?> <b><?php echo $product['manufacturer']; ?></b><br>
-                  &nbsp;<?php echo $text_departure; ?> <b><?php echo $product['departure_time']; ?></b> <?php echo $product['departure_from']; ?><br>
-                  &nbsp;<?php echo $text_arrival; ?> <b><?php echo $product['arrival_time']; ?></b> <?php echo $product['departure_to']; ?><br>
-                  &nbsp;<?php echo $text_time_road; ?> <b><?php echo $product['time_road']; ?></b><br>
-            </div>
-          </div>
-
-        </td>
-        <td style="font-size: 16px; border-bottom: 1px solid #DDDDDD; text-align: right; padding: 7px;"><?php echo $product['quantity']; ?></td>
-        <td style="font-size: 16px; border-bottom: 1px solid #DDDDDD; text-align: right; padding: 7px;"><?php echo $product['price']; ?></td>
-        <td style="font-size: 16px; border-bottom: 1px solid #DDDDDD; text-align: right; padding: 7px;"><?php echo $product['total']; ?></td>
-      </tr>
-      <?php } ?>
-      <?php foreach ($vouchers as $voucher) { ?>
-      <tr>
-        <td style="font-size: 16px; text-align: left; padding: 7px;"><?php echo $voucher['description']; ?></td>
-        <td style="font-size: 16px; text-align: left; padding: 7px;"></td>
-        <td style="font-size: 16px; text-align: right; padding: 7px;">1</td>
-        <td style="font-size: 16px; text-align: right; padding: 7px;"><?php echo $voucher['amount']; ?></td>
-        <td style="font-size: 16px; text-align: right; padding: 7px;"><?php echo $voucher['amount']; ?></td>
-      </tr>
-      <?php } ?>
-    </tbody>
-    <tfoot>
-      <?php foreach ($totals as $total) { ?>
-      <tr>
-        <td style="font-size: 16px; text-align: right; padding: 7px;" colspan="4"><b><?php echo $total['title']; ?>: <?php echo $total['text']; ?></b></td>
-      <?php } ?>
-      </tr>
-    </tfoot>
-  </table>  --> 
-  <p style="margin-top: 0px; margin-bottom: 20px;"><?php echo $text_footer; ?></p>
 </div>
+<p style="margin-top: 0px; margin-bottom: 20px;text-align: center;"><?php echo $text_footer; ?></p>
 </body>
 </html>
