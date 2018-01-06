@@ -61,7 +61,7 @@ class ControllerCheckoutConfirm extends Controller {
 		$order_data['email'] = $this->request->post['email'];
 		$order_data['telephone'] = $this->request->post['telephone'];
 		$this->session->data['order_id'] = $this->model_checkout_order->addOrder($order_data);
-		if(isset($this->session->data['order_id']) & $this->session->data['order_id'] > 0 )
+		if(isset($this->session->data['order_id']) && $this->session->data['order_id'] > 0 )
       $json['redirect'] = 'index.php?route=extension/payment/'.$order_data['payment_code']."/confirm";
 		}
 		$this->response->addHeader('Content-Type: application/json');

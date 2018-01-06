@@ -37,7 +37,7 @@ $('#button-confirm').on('click', function() {
       else if(json['redirect']){
         $.ajax({
 		type: 'get',
-		url: 'index.php?route=extension/payment/cod/confirm',
+		url: json['redirect'],
 		cache: false,
 		beforeSend: function() {
 			$('#button-confirm').button('loading');
