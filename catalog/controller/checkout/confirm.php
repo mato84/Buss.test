@@ -21,7 +21,7 @@ class ControllerCheckoutConfirm extends Controller {
 			$this->session->data['guest']['email'] = $this->request->post['email'];
 		} else {
 			$this->session->data['guest']['email'] = '';
-			$this->request->post['email'] = ' ';
+			$this->request->post['email'] = '';
 		}
 
 		if (isset($this->request->post['telephone'])) {
