@@ -35,11 +35,39 @@
             <input type="text" name="email" value="<?php echo $email; ?>" placeholder="<?php echo $entry_email; ?>" id="input-payment-email" class="form-control" />
           </div>
         </div>
+
+        <div class="passengers">
+        
+          <div class="passenger-data">
+            <h4><?php echo $entry_passengers; ?></h4>
+            <div class="passenger-data__remove" data-toggle="tooltip" title="<?php echo $button_remove; ?>"><i class="fa fa-times" aria-hidden="true"></i></div>
+            <div class="form-group required">
+              <label class="control-label" for="input-payment-lastname"><?php echo $entry_lastname; ?></label>
+              <input type="text" name="lastname" value="<?php echo $lastname; ?>" placeholder="<?php echo $entry_lastname; ?>" id="input-payment-lastname" class="form-control" />
+            </div>
+            <div class="form-group required">
+              <label class="control-label" for="input-payment-firstname"><?php echo $entry_firstname; ?></label>
+              <input type="text" name="firstname" value="<?php echo $firstname; ?>" placeholder="<?php echo $entry_firstname; ?>" id="input-payment-firstname" class="form-control" />
+            </div>
+            <div class="form-group required">
+              <label class="control-label" for="input-payment-telephone"><?php echo $entry_telephone; ?></label>
+              <input type="text" name="telephone" value="<?php echo $telephone; ?>" placeholder="<?php echo $entry_telephone_format; ?>" id="input-payment-telephone" class="form-control" />
+            </div>
+            <div class="form-group">
+              <label class="control-label" for="input-payment-email"><?php echo $entry_email_address; ?></label>
+              <input type="text" name="email" value="<?php echo $email; ?>" placeholder="<?php echo $entry_email; ?>" id="input-payment-email" class="form-control" />
+            </div>
+          </div>
+
+          <div class="passengers__add buttons buttons-right">
+            <div class="btn btn-inverse"><?php echo $button_add; ?></div>
+          </div>
+        </div>
         <?php if ($logged) { ?>
-           <div id="passengers">
+<!--            <div id="passengers">
             <label class="control-label" for="passengers-list"><?php echo $entry_passengers; ?></label>
             <textarea name="comment" rows="8" id="passengers-list" class="form-control"><?php echo $comment; ?></textarea>
-          </div>
+          </div> -->
         <?php } ?>
       <div class="table-responsive">
         <table class="table table-hover">

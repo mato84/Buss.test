@@ -94,6 +94,11 @@ input[type="color"].form-control {
     box-shadow: none;
 }
 
+input:focus::-webkit-input-placeholder {color: transparent}
+input:focus::-moz-placeholder          {color: transparent}
+input:focus:-moz-placeholder           {color: transparent}
+input:focus:-ms-input-placeholder      {color: transparent}
+
 .form-control:focus {
     border-color: #dadada;
     -webkit-box-shadow: none;
@@ -1237,6 +1242,29 @@ footer .powered {
     outline: none;
 }
 
+
+.btn-inverse {
+    width: 100%;
+    color: #cd4e37;
+    background-color: transparent;
+    border: 2px solid #cd4e37;
+    outline: none;
+}
+
+@media (min-width: 768px) {
+    .btn-inverse {
+        width: auto;
+    }    
+}
+
+.btn-inverse:hover,
+.btn-inverse:active,
+.btn-inverse.active,
+.btn-inverse.disabled,
+.btn-inverse[disabled] {
+    color: #cd4e37;    
+}
+
 .btn-primary {
     color: #ffffff;
     background-color: #cd4e37;
@@ -1348,25 +1376,6 @@ footer .powered {
     outline: none;
     text-decoration: none;
 }
-
-.btn-inverse {
-    color: #ffffff;
-    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-    background-color: #363636;
-    background-image: linear-gradient(to bottom, #444444, #222222);
-    background-repeat: repeat-x;
-    border-color: #222222 #222222 #000000;
-}
-
-.btn-inverse:hover,
-.btn-inverse:active,
-.btn-inverse.active,
-.btn-inverse.disabled,
-.btn-inverse[disabled] {
-    background-color: #222222;
-    background-image: linear-gradient(to bottom, #333333, #111111);
-}
-
 
 /* list group */
 
@@ -2181,13 +2190,40 @@ h2.price {
 	margin: 0 auto;
 }
 
-.checkout-checkout #passengers {
-	max-width: 300px;
-	margin: 50px auto 0;
+.checkout-checkout .passengers {
+    max-width: 340px;
+    margin: 0 auto;    
 }
 
-.checkout-checkout #passengers textarea {
-	height: auto;
+
+.checkout-checkout .passenger-data {
+    position: relative;
+    max-width: 340px;
+    margin: 50px auto;
+    background-color: #eee;
+    padding: 5px 20px 20px 20px;
+}
+
+.checkout-checkout .passenger-data h4 {
+    margin-top: 5px;
+    margin-bottom: 30px;
+}
+
+.checkout-checkout .passenger-data__remove {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 8px 10px;
+    color: #fff;
+    background-color: #cd4e37;
+    cursor: pointer;
+    line-height: 0px;
+    border:2px solid #cd4e37;
+}
+
+.checkout-checkout  .passenger-data__remove:hover {
+    background-color: transparent;
+    color: #cd4e37;    
 }
 
 .checkout-checkout .table-responsive {
