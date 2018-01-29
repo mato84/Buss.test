@@ -178,8 +178,8 @@ class ControllerCatalogCity extends Controller {
 			$data['cities'][] = array(
 				'city_id'         => $result['city_id'],
 				'name'            => $result['name'],
-        'country'         => $result['country'],
-        'region'          => $result['region'],
+                'country'         => $result['country'],
+                'region'          => $result['region'],
 				'sort_order'      => $result['sort_order'],
 				'edit'            => $this->url->link('catalog/city/edit', 'token=' . $this->session->data['token'] . '&city_id=' . $result['city_id'] . $url, true)
 			);
