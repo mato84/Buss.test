@@ -664,6 +664,9 @@ class ModelCheckoutOrder extends Model {
 
 				$text .= $language->get('text_new_footer') . "\n\n";
 
+				if(array_key_exists('email', $order_info) && $order_info['email'])
+				{
+
 				$mail = new Mail();
 				$mail->protocol = $this->config->get('config_mail_protocol');
 				$mail->parameter = $this->config->get('config_mail_parameter');
@@ -680,6 +683,7 @@ class ModelCheckoutOrder extends Model {
 				$mail->setHtml($this->load->view('mail/order', $data));
 				$mail->setText($text);
 				$mail->send();
+				}
 
 
 				// Admin Alert Mail
@@ -1019,6 +1023,8 @@ class ModelCheckoutOrder extends Model {
 				}
 
 				$message .= $language->get('text_update_footer');
+				if(array_key_exists('email', $order_info) && $order_info['email'])
+				{
                 if ($notify) {
 				$mail = new Mail();
 				$mail->protocol = $this->config->get('config_mail_protocol');
@@ -1037,6 +1043,7 @@ class ModelCheckoutOrder extends Model {
 				$mail->setText($message);
 				$mail->send();
                 }
+            }
 			}
 		}
 	}

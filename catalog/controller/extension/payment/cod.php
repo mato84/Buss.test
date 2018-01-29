@@ -17,7 +17,7 @@ class ControllerExtensionPaymentCod extends Controller {
 
             $this->model_checkout_order->addOrderHistory($this->session->data['order_id'], $this->config->get('cod_order_status_id'));
 
-            return this;
+            return $this;
         }
         $this->response->redirect($this->url->link('catalog/controller/error/not_found', '', true));
 	}

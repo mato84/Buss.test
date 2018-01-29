@@ -17,11 +17,11 @@ class ControllerCheckoutConfirm extends Controller {
 			$this->request->post['lastname'] = '';
 		}
 
-		if (isset($this->request->post['email'])) {
+		if (array_key_exists('email', $this->request->post) && $this->request->post['email']) {
 			$this->session->data['guest']['email'] = $this->request->post['email'];
 		} else {
-			$this->session->data['guest']['email'] = '';
-			$this->request->post['email'] = ' ';
+			$this->session->data['guest']['email'] = 'no_mail@panbus.com.ua';
+			$this->request->post['email'] = 'no_mail@panbus.com.ua';
 		}
 
 		if (isset($this->request->post['telephone'])) {
