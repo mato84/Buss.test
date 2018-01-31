@@ -291,10 +291,15 @@ class ControllerCheckoutCart extends Controller {
 		} else {
 			$product_id = 0;
 		}
+        $allProductInCart = $this->cart->getProducts();
 
 		$this->load->model('catalog/product');
 
 		$product_info = $this->model_catalog_product->getProduct($product_id);
+
+        if (count($allProductInCart) && $product_info['product_id'] != $allProductInCart[0]['product_id'] ){
+            $json['error']['only_one'] = true;
+        }
 
 		if ($product_info) {
 			if (isset($this->request->post['quantity']) && ((int)$this->request->post['quantity'] >= $product_info['minimum'])) {

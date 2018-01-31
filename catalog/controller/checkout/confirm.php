@@ -2,8 +2,8 @@
 class ControllerCheckoutConfirm extends Controller {
 	public function index() {
 		if(($this->request->server['REQUEST_METHOD'] == 'POST')){
-    $json = array();
-    $this->load->language('checkout/checkout');
+            $json = array();
+            $this->load->language('checkout/checkout');
 		if (isset($this->request->post['firstname'])) {
 			$this->session->data['guest']['firstname'] = $this->request->post['firstname'];
 		} else {

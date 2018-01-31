@@ -465,6 +465,9 @@ $('#button-cart').on('click', function() {
 				if (json['error']['recurring']) {
 					$('select[name=\'recurring_id\']').after('<div class="text-danger">' + json['error']['recurring'] + '</div>');
 				}
+				if (json['error']['only_one']) {
+                    location = '/index.php?route=checkout/checkout'
+                }
 
 				// Highlight any found errors
 				$('.text-danger').parent().addClass('has-error');

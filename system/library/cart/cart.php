@@ -360,11 +360,12 @@ class Cart {
 		return $total;
 	}
 
-  public function getTotalPriceForProduct($cart_id){
-		$this->db->query("SELECT sum(c.quantity * p.price) FROM " . DB_PREFIX . "cart c LEFT JOIN '" . DB_PREFIX . "' product p ON c.product_id = p.product_id  WHERE cart_id = '" . (int)$cart_id . "' AND api_id = '" . (isset($this->session->data['api_id']) ? (int)$this->session->data['api_id'] : 0) . "' AND customer_id = '" . (int)$this->customer->getId() . "' AND session_id = '" . $this->db->escape($this->session->getId()) . "'");
+    public function getTotalPriceForProduct($cart_id){
+      $query = $this->db->query("SELECT sum(c.quantity * p.price) FROM " . DB_PREFIX . "cart c LEFT JOIN '" . DB_PREFIX . "' product p ON c.product_id = p.product_id  WHERE cart_id = '" . (int)$cart_id . "' AND api_id = '" . (isset($this->session->data['api_id']) ? (int)$this->session->data['api_id'] : 0) . "' AND customer_id = '" . (int)$this->customer->getId() . "' AND session_id = '" . $this->db->escape($this->session->getId()) . "'");
 
 		return $query->row['total'];
 	}
+
 	public function countProducts() {
 		$query = $this->db->query("SELECT SUM(quantity) as total FROM " . DB_PREFIX . "cart WHERE api_id = '" . (isset($this->session->data['api_id']) ? (int)$this->session->data['api_id'] : 0) . "' AND customer_id = '" . (int)$this->customer->getId() . "' AND session_id = '" . $this->db->escape($this->session->getId()) . "'");
 		return $query->row['total'];
@@ -373,6 +374,12 @@ class Cart {
 	public function hasProducts() {
 		return $this->countProducts();
 	}
+
+	public function hasProduct($product_id){
+
+        return $this->db->query("SELECT COUNT(*) FROM " . DB_PREFIX . "cart WHERE product_id = $product_id ") ? true : false;
+
+    }
 
 	public function hasRecurringProducts() {
 		return count($this->getRecurringProducts());
