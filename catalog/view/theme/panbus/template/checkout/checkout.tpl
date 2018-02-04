@@ -14,6 +14,9 @@
     <?php $class = 'col-sm-12'; ?>
     <?php } ?>
     <div id="content"><?php echo $content_top; ?>
+        <?php if ($not_only_one) { ?>
+        <h1><?php echo $notice_only_one; ?> </h1>
+        <?php } ?>
       <h1><?php echo $heading_title; ?></h1>
       <div class="well">
       <?php if (!isset($redirect)) { ?>
@@ -37,9 +40,9 @@
         </div>
 
         <div class="passengers">
-        
+            <?php for ($i = 2; $i <= $qtyPassengers; $i++): ?>
           <div class="passenger-data">
-            <h4><?php echo $entry_passengers; ?></h4>
+            <h4><?php echo $entry_passengers.' '.$i; ?></h4>
             <div class="passenger-data__remove" data-toggle="tooltip" title="<?php echo $button_remove; ?>"><i class="fa fa-times" aria-hidden="true"></i></div>
             <div class="form-group required">
               <label class="control-label" for="input-payment-lastname"><?php echo $entry_lastname; ?></label>
@@ -58,6 +61,7 @@
               <input type="text" name="passenger_email[]" value="<?php echo $email; ?>" placeholder="<?php echo $entry_email; ?>" id="input-payment-email" class="form-control" />
             </div>
           </div>
+            <?php endfor; ?>
 
         </div>
           <div class="passengers__add buttons buttons-right">
@@ -149,30 +153,17 @@
 <script type="text/javascript">
 
     $(function() {
+
         $('a[name=\'remove\']').on('click',function(event){
             event.preventDefault();
-            $.ajax({
-                url: 'index.php?route=checkout/cart/remove',
-                type: 'post',
-                data: 'key=' + this.id,
-                dataType: 'json',
-                success: function(json) {
-                    location = 'index.php?route=checkout/checkout';
-                },
-                error: function(xhr, ajaxOptions, thrownError) {
-                    alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
-                }
-            })
+            passenger.remove(this.id);
         });
 
+        $('.passenger-data__remove').on('click', function () {
+           passenger.update($("a[name = 'remove']").attr('id'), true);
+        })
         $('.passengers__add').on('click', function () {
-            $('.passenger-data')
-                .clone()
-                .appendTo('.passengers')
-                .find('.passenger-data__remove')
-                .click(function(){
-                    $(this).parent().remove();
-                });
+            passenger.update($("a[name = 'remove']").attr('id'), false);
         })
 
     });

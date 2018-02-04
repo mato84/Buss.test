@@ -134,8 +134,43 @@ $(document).ready(function() {
 		$('[data-toggle=\'tooltip\']').tooltip({container: 'body'});
 	});
 
-	// Passanger
+
+
 });
+// Passenger add remove fucntion
+
+var passenger = {
+	'update': function (cartId,  decrease ) {
+        $.ajax({
+            url: 'index.php?route=checkout/cart/edit',
+            type: 'post',
+            data: {key: cartId,
+                decrease: decrease
+            },
+            dataType: 'json',
+            success: function(json) {
+                location = 'index.php?route=checkout/checkout';
+            },
+            error: function(xhr, ajaxOptions, thrownError) {
+                alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+            }
+        });
+    },
+	'remove': function (cart_id) {
+        $.ajax({
+            url: 'index.php?route=checkout/cart/remove',
+            type: 'post',
+            data: 'key=' + cart_id,
+            dataType: 'json',
+            success: function(json) {
+                location = 'index.php?route=checkout/checkout';
+            },
+            error: function(xhr, ajaxOptions, thrownError) {
+                alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+            }
+        })
+    }
+}
 
 // Cart add remove functions
 var cart = {

@@ -19,6 +19,8 @@ class ControllerCheckoutCheckout extends Controller {
 		$data['entry_passengers'] = $this->language->get('entry_passengers');
 		$data['button_add'] = $this->language->get('button_add');
 
+        $data['notice_only_one'] = $this->language->get('notice_only_one');
+
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
@@ -64,7 +66,11 @@ class ControllerCheckoutCheckout extends Controller {
 			$data['text_checkout_payment_method'] = sprintf($this->language->get('text_checkout_payment_method'), 3);
 			$data['text_checkout_confirm'] = sprintf($this->language->get('text_checkout_confirm'), 4);
 		}
-
+        //validate that is only ticket in cart
+        $data['not_only_one'] = false;
+		if (isset($this->request->get['one'])) {
+		    $data['not_only_one'] = true;
+        }
 		if (isset($this->session->data['error'])) {
 			$data['error_warning'] = $this->session->data['error'];
 			unset($this->session->data['error']);
@@ -365,6 +371,7 @@ class ControllerCheckoutCheckout extends Controller {
 
 			$order_data['products'] = array();
 
+
 			foreach ($this->cart->getProducts() as $product) {
 				$option_data = array();
 
@@ -515,6 +522,11 @@ class ControllerCheckoutCheckout extends Controller {
 
 			$data['products'] = array();
 
+			$data['qtyPassengers'] = 1;
+			$qtyPassenger = $this->cart->countProducts();
+			if($qtyPassenger > 1){
+                $data['qtyPassengers'] = $qtyPassenger;
+            }
 			foreach ($this->cart->getProducts() as $product) {
 				$option_data = array();
 

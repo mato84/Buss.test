@@ -60,7 +60,7 @@
                     </div>
                   </div>
 
-                <script type="text/javascript">
+                <!--   <script type="text/javascript">
                   var map;
                   var image = '../image/catalog/other/marker.png';
                   $(document).ready(function(){
@@ -81,7 +81,7 @@
 
                         { location: {lat: 52.406374, lng: 16.925168100000064 },
                           stopover:true
-                        },          
+                        },
 
                        ],
                       strokeColor: '#cd4e37',
@@ -100,7 +100,7 @@
                     ]);
 
                   });
-                </script>
+                </script>-->
 
                 <div class="route">
                 <div class=route__bottons>
@@ -296,104 +296,13 @@
 </div>
 <script type="text/javascript">
 
-$(document).ready(function(){
-  var map;
-  var image = '../image/catalog/other/marker.png';
-  map = new GMaps({
-    el: '#map',
-    lat:49.533368,
-    lng: 25.462079,
-    zoom:5
-  });
-  var init = [<?php echo $from_name?>,<?php echo $to_name?>];
-  var origin = {} ;
-  var destination = {};
-  GMaps.geocode({
-          address: init[0],
-          callback: function(results, status){
-            if(status=='OK'){
-              var latlng = results[0].geometry.location;
-              origin.lat = latlng.lat();
-              origin.lng = latlng.lng();
-              origin.title = init[0];
-              origin.icon = image;
-            }
-            else {
-              alert(`Для "${init[0]}" невдалося завантажити координати !!!!!`);
-            }
-          }
-        });
-        GMaps.geocode({
-                address: init[1],
-                callback: function(results, status){
-                  if(status=='OK'){
-                    var latlng = results[0].geometry.location;
-                    destination.lat = latlng.lat();
-                    destination.lng = latlng.lng();
-                    destination.title = init[0];
-                    destination.icon = image;
-                  }
-                  else {
-                    alert(`Для "${init[0]}" невдалося завантажити координати !!!!!`);
-                  }
-                }
-              });
-              $.ajax({
-                url: 'ajax/test.html',
-                type: 'GET',
-                data: {id: <?php echo $product_id?>}
-                success: function(data){
-
-                }
-              })
-});
-
-
-
-  $(document).ready(function(){
-
-
-    map.drawRoute({
-      origin: [51.1078852, 17.03853760000004],
-      waypoints: [
-
-        { location: {lat: 51.8419861, lng: 16.593754499999932 },
-          stopover:true,
-
-        },
-
-        { location: {lat: 52.406374, lng: 16.925168100000064 },
-          stopover:true,
-
-        },
-
-       ],
-      strokeColor: '#cd4e37',
-      strokeWeight: 3,
-      destination: [52.2472962, 15.53357219999998],
-      travelMode: 'driving',
-
-    });
-
-    map.addMarkers([
-      {
-        lat: 49.9935,
-        lng: 36.230383000000074,
-        title: 'Харків',
-        icon: image
-      },
-    ]);
-
-  });
-</script>
-<script type="text/javascript"><!--
-
 $('#input-quantity').on('change', function(){
 
   $.ajax({
     url:'index.php?route=product/product/changePrice',
-    data: {quantity: $('input[name=\'quantity\']').val(),
-           product_id: $('input[name=\'product_id\']').val()
+    data: {
+        quantity: $('input[name=\'quantity\']').val(),
+        product_id: $('input[name=\'product_id\']').val()
          },
     beforeSend:function(){
      $('#product .price').text('loading');
@@ -431,8 +340,8 @@ $('select[name=\'recurring_id\'], input[name="quantity"]').change(function(){
 		}
 	});
 });
-//--></script>
-<script type="text/javascript"><!--
+</script>
+<script type="text/javascript">
 $('#button-cart').on('click', function() {
 	$.ajax({
 		url: 'index.php?route=checkout/cart/add',
@@ -466,7 +375,7 @@ $('#button-cart').on('click', function() {
 					$('select[name=\'recurring_id\']').after('<div class="text-danger">' + json['error']['recurring'] + '</div>');
 				}
 				if (json['error']['only_one']) {
-                    location = '/index.php?route=checkout/checkout'
+                    location = '/index.php?route=checkout/checkout&one=false'
                 }
 
 				// Highlight any found errors
@@ -489,9 +398,9 @@ $('#button-cart').on('click', function() {
         }
 	});
 });
-//--></script>
+</script>
 
-<script type="text/javascript"><!--
+<script type="text/javascript">
 var dateToday = new Date();
 $('.date').datetimepicker({
 	pickTime: false,
@@ -558,7 +467,7 @@ $('button[id^=\'button-upload\']').on('click', function() {
 		}
 	}, 500);
 });
-//--></script>
+</script>
 <script type="text/javascript"><!--
 $('#review').delegate('.pagination a', 'click', function(e) {
     e.preventDefault();

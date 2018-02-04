@@ -3,8 +3,8 @@ class ControllerProductProduct extends Controller {
 	private $error = array();
 
 	public function index() {
-		$this->document->addScript('https://maps.google.com/maps/api/js?key=AIzaSyB79WRG7sgoNE4ksW8S4vw6NOsx20H77_o');
-    $this->document->addScript('catalog/view/javascript/geocoding/gmaps.js');
+//		$this->document->addScript('https://maps.google.com/maps/api/js?key=AIzaSyB79WRG7sgoNE4ksW8S4vw6NOsx20H77_o');
+//    $this->document->addScript('catalog/view/javascript/geocoding/gmaps.js');
 		$this->load->language('product/product');
 
 		$data['breadcrumbs'] = array();

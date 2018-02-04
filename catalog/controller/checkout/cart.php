@@ -412,6 +412,20 @@ class ControllerCheckoutCart extends Controller {
 
 		$json = array();
 
+		//Custom update cart
+		if(isset($this->request->post['decrease']) && is_numeric($this->request->post['key'])){
+            $updateQtyProduct = $this->cart->countProducts();
+		    if($this->request->post['decrease'] === 'true'){
+                $updateQtyProduct =  $updateQtyProduct - 1;
+            }
+            else {
+                $updateQtyProduct =  $updateQtyProduct + 1;
+            }
+		    if($updateQtyProduct > 0 && $updateQtyProduct < 10 ){
+                $this->cart->update($this->request->post['key'], $updateQtyProduct);
+            }
+        }
+
 		// Update
 		if (!empty($this->request->post['quantity'])) {
 			foreach ($this->request->post['quantity'] as $key => $value) {
