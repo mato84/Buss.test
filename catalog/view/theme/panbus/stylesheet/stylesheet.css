@@ -1093,8 +1093,13 @@ footer .powered {
     padding: 8px 14px 8px 14px;
     border: none;
     border-radius: 0;
+    font-size: 18px;
+    text-align: center;
 }
 
+.alert i {
+    margin-right: 10px;
+}
 
 /* breadcrumb */
 
@@ -2169,11 +2174,66 @@ h2.price {
     background-image: url(/image/catalog/gallery/page-bg4.jpg);
 }
 
+.table-checkout {
+    display: none;
+}
+
+@media (min-width: 601px) {
+    .table-checkout {
+        display: block;
+    }
+}
+
+.table-checkout.mobile {
+    display:none;
+    margin-top: 40px;   
+}
+
+@media (max-width: 600px) {
+     .table-checkout.mobile {
+        display: block;
+    }  
+}
+
+.table-checkout__column {
+}
+
+.table-checkout__head {
+    background-color: #efefef;
+    padding: 10px;
+    height: 40px;
+}
+
+.table-checkout__body {
+    padding: 10px;
+    text-align: center;
+}
+
+.table-checkout__body-quantity {
+    display: inline-block;
+    padding: 5px 10px;
+    color: #cd4e37;
+    border: 2px solid #cd4e37;
+}
+
+.table-checkout__body-total {
+    margin-bottom: 50px;
+    text-align: right;
+    padding-right: 0;
+}
+
+.table-checkout__body-total strong {
+    float: left;
+    padding-top: 5px;
+    font-size: 18px;
+}
+
 .ticket {
 	border-left: 4px solid #cd4e37;
 	padding: 0 8px;
     font-size: 16px;
     line-height: 24px;
+    text-align: left;
 }
 
 .ticket .ticket-img,
@@ -2186,7 +2246,6 @@ h2.price {
 }
 
 .checkout-checkout #guest-data {
-	max-width: 300px;
 	margin: 0 auto;
 }
 
