@@ -31,6 +31,19 @@ class ControllerCheckoutConfirm extends Controller {
 			$this->request->post['telephone'] = ' ';
 		}
 
+		$countPassangers = $this->cart->countProducts();
+		if($countPassangers > 1
+            && isset($this->request->post['passenger_lastname'])
+            && isset($this->request->post['passenger_firstname'])
+            && isset($this->request->post['passenger_telephone']))
+		{
+           $passengers =  $this->validatePassengers($countPassangers-1);
+           if($passengers['error'] === true){
+               unset($passengers['error']);
+               $json['error']['passengers'] = $passengers;
+           }
+        }
+
 		if ((utf8_strlen(trim($this->request->post['firstname'])) < 1) || (utf8_strlen(trim($this->request->post['firstname'])) > 32)) {
 			$json['error']['firstname'] = $this->language->get('error_firstname');
 		}
@@ -42,7 +55,8 @@ class ControllerCheckoutConfirm extends Controller {
 		// 	$json['error']['email'] = $this->language->get('error_email');
 		// }
 
-		if ((utf8_strlen($this->request->post['telephone']) < 3) || (utf8_strlen($this->request->post['telephone']) > 32)) {
+
+		if (!preg_match("/^[0-9]{12,15}$/", $this->request->post['telephone'])) {
 			$json['error']['telephone'] = $this->language->get('error_telephone');
 		}
 
@@ -71,4 +85,48 @@ class ControllerCheckoutConfirm extends Controller {
 			$this->response->redirect($this->url->link('error/not_found', '', true));
 		}
 	 }
+	 private function validatePassengers($countPassangers){
+         $this->load->language('checkout/checkout');
+         $error = false;
+         $passengers = [];
+         for($count = 0; $count < $countPassangers; $count++){
+             $currentPassenger= [];
+             if ((mb_strlen($this->request->post['passenger_lastname'][$count]) < 1)
+                 || (mb_strlen($this->request->post['passenger_lastname'][$count])) > 32){
+                 $currentPassenger['last_name']['error'] = $this->language->get('error_lastname');
+                 $error = true;
+             }
+             else{
+                 $currentPassenger['last_name'] = $this->request->post['passenger_lastname'][$count];
+
+         }
+
+             if ((mb_strlen($this->request->post['passenger_firstname'][$count]) < 1)
+                 || (mb_strlen($this->request->post['passenger_firstname'][$count])) > 32){
+                 $currentPassenger['first_name']['error'] = $this->language->get('error_firstname');
+                 $error = true;
+
+             }
+             else{
+                 $currentPassenger['first_name'] = $this->request->post['passenger_firstname'][$count];
+
+             }
+
+             if (!preg_match("/^[0-9]{12,15}$/", $this->request->post['passenger_telephone'][$count])){
+                 $currentPassenger['phone']['error'] = $this->language->get('error_telephone');
+                 $error = true;
+
+             }
+             else{
+                 $currentPassenger['phone'] = $this->request->post['passenger_telephone'][$count];
+
+             }
+
+             $passengers[] = $currentPassenger;
+         }
+
+         $passengers['error'] = $error;
+         return $passengers;
+
+     }
   }

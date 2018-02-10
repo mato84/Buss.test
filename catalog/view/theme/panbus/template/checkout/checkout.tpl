@@ -46,19 +46,19 @@
             <div class="passenger-data__remove" data-toggle="tooltip" title="<?php echo $button_remove; ?>"><i class="fa fa-times" aria-hidden="true"></i></div>
             <div class="form-group required">
               <label class="control-label" for="input-payment-lastname"><?php echo $entry_lastname; ?></label>
-              <input type="text" name="passenger_lastname[]" value="<?php echo $lastname; ?>" placeholder="<?php echo $entry_lastname; ?>" id="input-payment-lastname" class="form-control" />
+              <input type="text" name="passenger_lastname[]" placeholder="<?php echo $entry_lastname; ?>"  class="form-control" />
             </div>
             <div class="form-group required">
               <label class="control-label" for="input-payment-firstname"><?php echo $entry_firstname; ?></label>
-              <input type="text" name="passenger_firstname[]" value="<?php echo $firstname; ?>" placeholder="<?php echo $entry_firstname; ?>" id="input-payment-firstname" class="form-control" />
+              <input type="text" name="passenger_firstname[]"  placeholder="<?php echo $entry_firstname; ?>"  class="form-control" />
             </div>
             <div class="form-group required">
               <label class="control-label" for="input-payment-telephone"><?php echo $entry_telephone; ?></label>
-              <input type="text" name="passenger_telephone[]" value="<?php echo $telephone; ?>" placeholder="<?php echo $entry_telephone_format; ?>" id="input-payment-telephone" class="form-control" />
+              <input type="text" name="passenger_telephone[]" placeholder="<?php echo $entry_telephone_format; ?>"  class="form-control" />
             </div>
             <div class="form-group">
               <label class="control-label" for="input-payment-email"><?php echo $entry_email_address; ?></label>
-              <input type="text" name="passenger_email[]" value="<?php echo $email; ?>" placeholder="<?php echo $entry_email; ?>" id="input-payment-email" class="form-control" />
+              <input type="text" name="passenger_email[]"  placeholder="<?php echo $entry_email; ?>"  class="form-control" />
             </div>
           </div>
             <?php endfor; ?>
