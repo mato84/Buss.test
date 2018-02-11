@@ -68,6 +68,11 @@ label {
     line-height: 20px;
 }
 
+.checkout-checkout label {
+    font-weight: normal;
+    font-size: 16px;
+}
+
 select.form-control,
 textarea.form-control,
 input[type="text"].form-control,
@@ -129,6 +134,52 @@ input[type=checkbox]:not(:checked) {
 input[type=radio]:checked,
 input[type=checkbox]:checked {
     background: url(/image/catalog/other/radio.png) 0px -45px transparent no-repeat;
+}
+
+.input-phone {
+    padding-left: 60px;
+}
+
+.input-phone-group {
+    position: relative;
+}
+
+.region-selector {
+    position: absolute;
+    top: 27px;
+    width: 50px;
+}
+
+.region-selector::after {
+    content: '';
+    position: absolute;
+    top: 15px;
+    right: 4px;
+    pointer-events: none;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 8px 6px 0;
+    border-color: #cd4e37 transparent transparent;
+}
+
+.region-selector .select-box {
+    cursor: pointer;
+    padding-left: 5px;
+    width: 50px;
+    height: 36px;
+    -webkit-appearance: menulist-button;
+    -moz-appearance: menulist-button;
+    appearance: menulist-button;
+    border:none;
+    color: #cd4e37;
+    font-size: 15px;
+    font-weight: 700;
+    background-color: transparent;
+}
+
+.region-selector .select-box:focus {
+    outline: none;
 }
 
 .checkbox,
