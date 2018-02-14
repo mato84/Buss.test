@@ -246,6 +246,15 @@ class ModelCheckoutOrder extends Model {
 		$query = $this->db->query("SELECT * FROM " . DB_PREFIX."order_option WHERE order_id = '" . (int)$order_id . "' AND order_product_id = '" . (int)$order_product_id . "' LIMIT 1");
 		return $query->rows;
 	}
+	public function addPassengerToOrder(array $passengerIds, $orderId){
+        $queryAddPassenger = 'INSERT INTO '. DB_PREFIX .'passenger_to_order (pass_id, order_id) VALUES';
+        $queryAddPassenger.= array_reduce($passengerIds, function($acc, $passId) use ($orderId){
+            $acc .= sprintf( " ('%s', '%s' ) , ",$passId, $orderId);
+            return $acc;
+        }, '');
+        $this->db->query(rtrim($queryAddPassenger, ' , '));
+
+    }
 
 	public function addOrderHistory($order_id, $order_status_id, $comment = '', $notify = false, $override = false) {
 		$order_info = $this->getOrder($order_id);
