@@ -193,6 +193,31 @@
             <?php } ?>
           </tbody>
         </table>
+
+
+
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <td class="text-left"><?php echo $column_passenger; ?></td>
+              <td class="text-center"><?php echo $column_passenger_telephone; ?></td>
+              <td class="text-center"><?php echo $column_passenger_email; ?></td>
+            </tr>
+          </thead>
+<!--           <tbody>
+            <?php foreach ($passengers as $passenger) { ?>
+            <tr>
+              <td class="text-left"><?php echo $passenger['surname''name']; ?>
+              <td class="text-center"><?php echo $passenger['passenger_telephone']; ?></td>
+              <td class="text-center"><?php echo $passenger['passenger_email']; ?></td>
+            </tr>
+            <?php } ?>
+          </tbody> -->
+        </table>
+
+
+
+
         <?php if ($comment) { ?>
         <table class="table table-bordered">
           <thead>

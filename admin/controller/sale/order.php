@@ -813,6 +813,10 @@ class ControllerSaleOrder extends Controller {
 			$data['column_quantity'] = $this->language->get('column_quantity');
 			$data['column_price'] = $this->language->get('column_price');
 			$data['column_total'] = $this->language->get('column_total');
+			$data['column_passenger'] = $this->language->get('column_passenger');			
+			$data['column_passenger_telephone'] = $this->language->get('column_passenger_telephone');
+			$data['column_passenger_email'] = $this->language->get('column_passenger_email');				
+
 
 			$data['entry_order_status'] = $this->language->get('entry_order_status');
 			$data['entry_notify'] = $this->language->get('entry_notify');

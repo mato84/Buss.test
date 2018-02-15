@@ -88,6 +88,10 @@ $_['column_location']                         = 'Розміщення';
 $_['column_reference']                        = 'Посилання';
 $_['column_action']                           = 'Дія';
 $_['column_weight']                           = 'Вага товару';
+$_['column_passenger']                         = 'Пасажир';
+$_['column_passenger_telephone']              = 'Телефон';
+$_['column_passenger_email']              	  = 'E-Mail';
+
 
 // Entry
 $_['entry_store']                             = 'Магазин';

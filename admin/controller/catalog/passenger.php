@@ -191,6 +191,7 @@ class ControllerCatalogPassenger extends Controller
         $data['column_name'] = $this->language->get('column_name');
         $data['column_surname'] = $this->language->get('column_surname');
         $data['column_phone'] = $this->language->get('column_phone');
+        $data['column_email'] = $this->language->get('column_email');
         $data['column_sort_order'] = $this->language->get('column_sort_order');
         $data['column_action'] = $this->language->get('column_action');
 

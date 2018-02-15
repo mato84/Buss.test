@@ -14,9 +14,10 @@ $_['text_edit']          = 'Редагувати пасажира';
 $_['text_default']       = 'За замовчуванням';
 
 // Column
-$_['column_name']        = 'Імя пасажира';
+$_['column_name']        = 'Імя';
 $_['column_surname']     = 'Прізвище';
 $_['column_phone']       = 'Телефон';
+$_['column_email']       = 'E-mail';
 $_['column_sort_order']  = 'Порядок сортування';
 $_['column_action']      = 'Дія';
 
@@ -24,7 +25,7 @@ $_['column_action']      = 'Дія';
 $_['entry_name']         = 'Імя';
 $_['entry_surname']      = 'Прізвище';
 $_['entry_phone']        = 'Телефон';
-$_['entry_email']        = 'Електрона пошта';
+$_['entry_email']        = 'E-mail';
 
 
 

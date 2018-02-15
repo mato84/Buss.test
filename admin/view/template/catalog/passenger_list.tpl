@@ -35,13 +35,14 @@
               <thead>
                 <tr>
                   <td style="width: 1px;" class="text-center"><input type="checkbox" onclick="$('input[name*=\'selected\']').prop('checked', this.checked);" /></td>
-                  <td class="text-left"><?php if ($sort == 'name') { ?>
-                    <a href="<?php echo $sort_name; ?>"><?php echo $column_name; ?></a>
+                  <td class="text-left"><?php if ($sort == 'surname') { ?>
+                    <a href="<?php echo $sort_name; ?>"><?php echo $column_surname; ?></a>
                     <?php } else { ?>
-                    <a href="<?php echo $sort_name; ?>"><?php echo $column_name; ?></a>
+                    <a href="<?php echo $sort_name; ?>"><?php echo $column_surname; ?></a>
                     <?php } ?></td>
-                  <td class="text-right"><?php echo $column_surname; ?></td>
-                  <td class="text-right"><?php echo $column_phone; ?></td>
+                  <td class="text-left"><?php echo $column_name; ?></td>
+                  <td class="text-left"><?php echo $column_phone; ?></td>
+                  <td class="text-left"><?php echo $column_email; ?></td>                  
                   <td class="text-right"><?php echo $column_action; ?></td>
                 </tr>
               </thead>
@@ -54,9 +55,10 @@
                     <?php } else { ?>
                     <input type="checkbox" name="selected[]" value="<?php echo $passenger['pass_id']; ?>" />
                     <?php } ?></td>
+                  <td class="text-left"><?php echo $passenger['surname']; ?></td>                    
                   <td class="text-left"><?php echo $passenger['name']; ?></td>
-                  <td class="text-left"><?php echo $passenger['surname']; ?></td>
                   <td class="text-left"><?php echo $passenger['phone']; ?></td>
+                  <td class="text-left"><?php echo $passenger['email']; ?></td>                  
                   <td class="text-right"><a href="<?php echo $passenger['edit']; ?>" data-toggle="tooltip" title="<?php echo $button_edit; ?>" class="btn btn-primary"><i class="fa fa-pencil"></i></a></td>
                 </tr>
                 <?php } ?>
