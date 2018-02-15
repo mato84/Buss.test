@@ -447,4 +447,9 @@ class ModelSaleOrder extends Model {
 
 		return $query->row['email'];
 	}
+
+	public function getPassengersInOrder($order_id){
+        $query = $this->db->query("SELECT p.pass_id, p.name, p.surname, p.phone, p.email FROM ". DB_PREFIX ."passenger p LEFT JOIN ". DB_PREFIX ."passenger_to_order po ON (p.pass_id = po.pass_id) WHERE po.order_id = ".(int)$order_id);
+        return $query->rows;
+    }
 }

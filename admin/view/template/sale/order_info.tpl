@@ -196,6 +196,7 @@
 
 
 
+        <?php if (!empty($passengers)) { ?>
         <table class="table table-bordered">
           <thead>
             <tr>
@@ -204,16 +205,17 @@
               <td class="text-center"><?php echo $column_passenger_email; ?></td>
             </tr>
           </thead>
-<!--           <tbody>
+         <tbody>
             <?php foreach ($passengers as $passenger) { ?>
             <tr>
-              <td class="text-left"><?php echo $passenger['surname''name']; ?>
-              <td class="text-center"><?php echo $passenger['passenger_telephone']; ?></td>
+              <td class="text-left"><?php echo $passenger['passenger_surname']." ". $passenger['passenger_name']; ?>
+              <td class="text-center"><?php echo $passenger['passenger_phone']; ?></td>
               <td class="text-center"><?php echo $passenger['passenger_email']; ?></td>
             </tr>
             <?php } ?>
-          </tbody> -->
+          </tbody>
         </table>
+        <?php } ?>
 
 
 

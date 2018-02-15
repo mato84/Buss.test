@@ -1010,6 +1010,17 @@ class ControllerSaleOrder extends Controller {
 			);
 
 			$data['shipping_address'] = str_replace(array("\r\n", "\r", "\n"), '<br />', preg_replace(array("/\s\s+/", "/\r\r+/", "/\n\n+/"), '<br />', trim(str_replace($find, $replace, $format))));
+            // Upload Passenger
+            $passengers = $this->model_sale_order->getPassengersInOrder($this->request->get['order_id']);
+            foreach ($passengers as $passenger) {
+                $data['passengers'][] = [
+                    'passenger_id'        =>$passenger['pass_id'],
+                    'passenger_name'      => $passenger['name'],
+                    'passenger_surname'   => $passenger['surname'],
+                    'passenger_phone'     => $passenger['phone'],
+                    'passenger_email'     => $passenger['email'],
+                ];
+            }
 
 			// Uploaded files
 			$this->load->model('tool/upload');
@@ -1018,6 +1029,8 @@ class ControllerSaleOrder extends Controller {
 			$data['products'] = array();
 
 			$products = $this->model_sale_order->getOrderProducts($this->request->get['order_id']);
+
+
 
 			foreach ($products as $product) {
 				$option_data = array();
