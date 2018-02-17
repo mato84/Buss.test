@@ -21,8 +21,8 @@ class ControllerCheckoutConfirm extends Controller {
 		if (array_key_exists('email', $this->request->post) && $this->request->post['email']) {
 			$this->session->data['guest']['email'] = $this->request->post['email'];
 		} else {
-			$this->session->data['guest']['email'] = 'no_mail@panbus.com.ua';
-			$this->request->post['email'] = 'no_mail@panbus.com.ua';
+			$this->session->data['guest']['email'] = '';
+			$this->request->post['email'] = '';
 		}
 
 		if (isset($this->request->post['telephone'])) {
@@ -57,7 +57,7 @@ class ControllerCheckoutConfirm extends Controller {
 		// }
 
 
-		if (!preg_match("/^[0-9]{12,15}$/", $this->request->post['telephone'])) {
+		if (!preg_match("/^[0-9]{12,14}$/", str_replace(' ', '', $this->request->post['telephone']) )) {
 			$json['error']['telephone'] = $this->language->get('error_telephone');
 		}
 
@@ -73,8 +73,10 @@ class ControllerCheckoutConfirm extends Controller {
 		}
 		$order_data['firstname'] = $this->request->post['firstname'];
 		$order_data['lastname'] = $this->request->post['lastname'];
-		$order_data['email'] = $this->request->post['email'];
-		$order_data['telephone'] = $this->request->post['telephone'];
+		$order_data['email'] = filter_var($this->request->post['email'], FILTER_VALIDATE_EMAIL )
+            ? $this->request->post['email']
+            : 'no_mail@panbus.com.ua' ;
+		$order_data['telephone'] = str_replace(' ', '', $this->request->post['telephone']);
 		$orderId = $this->model_checkout_order->addOrder($order_data);
 		$this->session->data['order_id'] = $orderId;
 		if($passengers){
@@ -117,16 +119,16 @@ class ControllerCheckoutConfirm extends Controller {
              else{
                  $currentPassenger['first_name'] = $this->request->post['passenger_firstname'][$count];
              }
-             if (!preg_match("/^[0-9]{12,15}$/", $this->request->post['passenger_telephone'][$count])){
+             if (!preg_match("/^[0-9]{12,14}$/", str_replace(' ', '', $this->request->post['passenger_telephone'][$count]))){
                  $currentPassenger['phone']['error'] = $this->language->get('error_telephone');
                  $error = true;
              }
              else{
-                 $currentPassenger['phone'] = $this->request->post['passenger_telephone'][$count];
+                 $currentPassenger['phone'] = str_replace(' ', '', $this->request->post['passenger_telephone'][$count]);
              }
              $currentPassenger['passenger_email'] = isset($this->request->post['passenger_email'])
                  ? $this->request->post['passenger_email'][$count]
-                 :" ";
+                 :"";
              $passengers[] = $currentPassenger;
          }
          $passengers['error'] = $error;

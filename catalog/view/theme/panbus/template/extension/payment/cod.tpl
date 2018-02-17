@@ -10,6 +10,7 @@ $('#button-confirm').on('click', function() {
 		data: $('#guest-data input[type=\'text\'], .passengers input[type=\'text\']'),
 		beforeSend: function() {
 			$('#button-confirm').button('loading');
+			$('.spinner').show();
 		},
 		success: function(json) {
         $('.alert, .text-danger').remove();
@@ -31,6 +32,7 @@ $('#button-confirm').on('click', function() {
                 });
             }
         if(json['error']){
+            $('.spinner').hide();
            for (i in json['error']) {
 					var element = $('#input-payment-' + i.replace('_', '-'));
 
@@ -66,6 +68,7 @@ $('#button-confirm').on('click', function() {
         }
 		},
         error: function (jqXHR, exception) {
+            $('.spinner').hide();
             $('#button-confirm').button('reset');
             console.log(exception);
         }

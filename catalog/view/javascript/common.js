@@ -172,6 +172,29 @@ var passenger = {
     }
 }
 
+//Change County function phone
+
+function changeCountryPhone(arrPhonesField) {
+    $.each(arrPhonesField.toArray(), function (item, val) {
+        var phoneInput = $(val);
+        phoneInput.mask("38 999 999 9999", {placeholder: "_" });
+        phoneInput
+            .parent()
+            .find('select')
+            .on('change', function () {
+                input = $(val);
+                input.val(" ");
+                if(this.value == 'PL'){
+                    input.mask("48 999 999 999", {placeholder: "_" });
+                }
+                else{
+                    input.mask("38 999 999 9999", {placeholder: "_" });
+                }
+                console.log(this.value);
+            } )
+    });
+}
+
 // Cart add remove functions
 var cart = {
 	'add': function(product_id, quantity) {

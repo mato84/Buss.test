@@ -41,23 +41,13 @@
                 <div class="region-selector">
                   <select class="select-box"><option value="UA">UA</option><option value="PL">PL</option></select>
                 </div>
-            <input type="text" name="telephone" value="<?php echo $telephone; ?>" placeholder="" id="phone" class="form-control input-phone" />
+            <input type="text" name="telephone" value="<?php echo $telephone; ?>" placeholder="" id="input-payment-telephone" class="form-control input-phone" />
           </div>
           <div class="form-group">
             <label class="control-label" for="input-payment-email"><?php echo $entry_email_address; ?></label>
             <input type="text" name="email" value="<?php echo $email; ?>" placeholder="" id="input-payment-email" class="form-control" />
           </div>
         </div>
-
-
-<script>
-$(document).ready(function(){
-  $("#phone").mask("+38 999 999 9999", {placeholder: "_" });
-    // $("#phone").mask("+48 (999) 999 999", {placeholder: " " });
-})
-</script>
-
-
             <?php for ($i = 2; $i <= $qtyPassengers; $i++): ?>
           <div class="passenger-data">
             <h4><?php echo $entry_passengers.' '.$i; ?></h4>
@@ -225,7 +215,8 @@ $(document).ready(function(){
 <script type="text/javascript">
 
     $(function() {
-        $('.spinner-overlay').animate({opacity: 0.9}); 
+        $('.spinner-overlay').animate({opacity: 0.9});
+        changeCountryPhone($("input[name = 'passenger_telephone[]'], input[name = 'telephone']"));
 
         $('a[name=\'remove\']').on('click',function(event){
             event.preventDefault();
