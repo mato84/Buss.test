@@ -43,7 +43,6 @@ class ModelCheckoutOrder extends Model {
 
 		return $order_id;
 	}
-
 	public function editOrder($order_id, $data) {
 		// Void the order first
 		$this->addOrderHistory($order_id, 0);
@@ -95,7 +94,6 @@ class ModelCheckoutOrder extends Model {
 			}
 		}
 	}
-
 	public function deleteOrder($order_id) {
 		// Void the order first
 		$this->addOrderHistory($order_id, 0);
@@ -114,7 +112,6 @@ class ModelCheckoutOrder extends Model {
 
 		$this->model_extension_total_voucher->disableVoucher($order_id);
 	}
-
 	public function getOrder($order_id) {
 		$order_query = $this->db->query("SELECT *, (SELECT os.name FROM `" . DB_PREFIX . "order_status` os WHERE os.order_status_id = o.order_status_id AND os.language_id = o.language_id) AS order_status FROM `" . DB_PREFIX . "order` o WHERE o.order_id = '" . (int)$order_id . "'");
 
@@ -164,6 +161,8 @@ class ModelCheckoutOrder extends Model {
 			} else {
 				$language_code = $this->config->get('config_language');
 			}
+
+			$passengers = $this->getPassengersInOrder($order_query->row['order_id']);
 
 			return array(
 				'order_id'                => $order_query->row['order_id'],
@@ -231,7 +230,8 @@ class ModelCheckoutOrder extends Model {
 				'user_agent'              => $order_query->row['user_agent'],
 				'accept_language'         => $order_query->row['accept_language'],
 				'date_added'              => $order_query->row['date_added'],
-				'date_modified'           => $order_query->row['date_modified']
+				'date_modified'           => $order_query->row['date_modified'],
+                'passengers'              => $passengers
 			);
 		} else {
 			return false;
@@ -255,8 +255,11 @@ class ModelCheckoutOrder extends Model {
         $this->db->query(rtrim($queryAddPassenger, ' , '));
 
     }
-
-	public function addOrderHistory($order_id, $order_status_id, $comment = '', $notify = false, $override = false) {
+    public function getPassengersInOrder($order_id){
+        $query = $this->db->query("SELECT p.pass_id, p.name, p.surname, p.phone, p.email FROM ". DB_PREFIX ."passenger p LEFT JOIN ". DB_PREFIX ."passenger_to_order po ON (p.pass_id = po.pass_id) WHERE po.order_id = ".(int)$order_id);
+        return $query->rows;
+    }
+    public function addOrderHistory($order_id, $order_status_id, $comment = '', $notify = false, $override = false) {
 		$order_info = $this->getOrder($order_id);
 
 		if ($order_info) {

@@ -677,11 +677,13 @@ function addOrderInfo(){
 
 $(document).ready(function() {
 	changeStatus();
+
+    $('select[name="order_status_id"]').change(function(){
+        changeStatus();
+    });
 });
 
-$('select[name="order_status_id"]').change(function(){
-	changeStatus();
-});
+
 //--></script> 
 </div>
 <?php echo $footer; ?> 

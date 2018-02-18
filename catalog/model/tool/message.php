@@ -2,6 +2,8 @@
 class ModelToolMessage extends Model{
 
   private $optionMessage  = '';
+  private $passengerOptionMessage = [];
+
   public function prepareMessage($order_info){
 
     list($product_order) = $this->getOrderProducts($order_info['order_id']);
@@ -10,6 +12,8 @@ class ModelToolMessage extends Model{
     $product_info = $this->getProduct($product_order['product_id']);
     $product_name_main_category = $this->getProductMainCategoryName($product_order['product_id']);
     $product_manufacturer_name =  $this->getProductManufacturerName($product_order['product_id']);
+
+
 
     $this->optionMessage = array(
       'to'       => $order_info['telephone'],
@@ -24,12 +28,39 @@ class ModelToolMessage extends Model{
         $product_name_main_category,$product_manufacturer_name),
         'Заброньовано:'."\xA".'{NAME}'."\xA".'{DATE}'."\xA".'{TIME}'."\xA".'{DEPAERTURE_FROM}'."\xA".'Автобус {CATEGORY}'."\xA".'Перевізник {CARRIER}')
     );
+
+      if(!empty($order_info['passengers'])){
+          foreach ($order_info['passengers'] as $passenger){
+              $this->passengerOptionMessage[] = [
+                  'to'       => $passenger['phone'],
+                  'copy'     => $this->config->get('config_sms_copy'),
+                  'from'     => $this->config->get('config_sms_from'),
+                  'username' => $this->config->get('config_sms_gate_username'),
+                  'password' => $this->config->get('config_sms_gate_password'),
+
+
+                  'message'  => str_replace(array('{NAME}', '{DATE}', '{TIME}', '{DEPAERTURE_FROM}', '{CATEGORY}', '{CARRIER}'),
+                      array($product_info['name'], $order_option['value'], $product_info['departure_time'], $product_info['departure_to'],
+                          $product_name_main_category,$product_manufacturer_name),
+                      'Заброньовано:'."\xA".'{NAME}'."\xA".'{DATE}'."\xA".'{TIME}'."\xA".'{DEPAERTURE_FROM}'."\xA".'Автобус {CATEGORY}'."\xA".'Перевізник {CARRIER}')
+
+              ];
+          }
+
+      }
+
     return $this;
   }
   public function sendMessage(){
     try {
       $sms = new Sms($this->config->get('config_sms_gatename'), $this->optionMessage);
       $sms->send();
+      if( !empty($this->passengerOptionMessage)){
+          foreach ($this->passengerOptionMessage as $optionMessageToPassenger){
+              $sms = new Sms($this->config->get('config_sms_gatename'), $optionMessageToPassenger);
+              $sms->send();
+          }
+      }
 
     } catch (Exception $e) {
       return $e;
