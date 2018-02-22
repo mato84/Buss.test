@@ -291,13 +291,13 @@ class ControllerCheckoutCart extends Controller {
 		} else {
 			$product_id = 0;
 		}
-        $allProductInCart = $this->cart->getProducts();
+        list($productInCart) = $this->cart->getProducts();
 
 		$this->load->model('catalog/product');
 
 		$product_info = $this->model_catalog_product->getProduct($product_id);
 
-        if (count($allProductInCart) && $product_info['product_id'] != $allProductInCart[0]['product_id'] ){
+        if ($productInCart && $product_info['product_id'] != $productInCart['product_id'] ){
             $json['error']['only_one'] = true;
         }
 
@@ -315,6 +315,12 @@ class ControllerCheckoutCart extends Controller {
 			}
 
 			$product_options = $this->model_catalog_product->getProductOptions($this->request->post['product_id']);
+
+			$productInCartOptionsValues = $this->getOptionsData($productInCart['option']);
+
+			if(count(array_diff($option, $productInCartOptionsValues)) > 0 && !isset($json['error']['only_one']) ){
+                $json['error']['only_one'] = true;
+            }
 
 			foreach ($product_options as $product_option) {
 				if ($product_option['required'] && empty($option[$product_option['product_option_id']])) {
@@ -516,4 +522,15 @@ class ControllerCheckoutCart extends Controller {
 		$this->response->addHeader('Content-Type: application/json');
 		$this->response->setOutput(json_encode($json));
 	}
+
+	private function getOptionsData($options){
+	    if(!is_array($options)){
+	        $options = [$options];
+        }
+	    return array_reduce($options, function($acc, $item){
+            $acc[$item['product_option_id']] = $item['value'];
+            return $acc;
+        },[]);
+
+    }
 }
