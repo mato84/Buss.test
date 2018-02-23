@@ -291,7 +291,13 @@ class ControllerCheckoutCart extends Controller {
 		} else {
 			$product_id = 0;
 		}
-        list($productInCart) = $this->cart->getProducts();
+		if($this->cart->hasProducts()){
+            list($productInCart) = $this->cart->getProducts();
+        }
+        else{
+            $productInCart = [];
+        }
+
 
 		$this->load->model('catalog/product');
 
@@ -316,10 +322,11 @@ class ControllerCheckoutCart extends Controller {
 
 			$product_options = $this->model_catalog_product->getProductOptions($this->request->post['product_id']);
 
-			$productInCartOptionsValues = $this->getOptionsData($productInCart['option']);
-
-			if(count(array_diff($option, $productInCartOptionsValues)) > 0 && !isset($json['error']['only_one']) ){
-                $json['error']['only_one'] = true;
+            if(array_key_exists('option', $productInCart)){
+                $productInCartOptionsValues = $this->getOptionsData($productInCart['option']);
+                if(count(array_diff($option, $productInCartOptionsValues)) > 0 && !isset($json['error']['only_one']) ){
+                    $json['error']['only_one'] = true;
+                }
             }
 
 			foreach ($product_options as $product_option) {
