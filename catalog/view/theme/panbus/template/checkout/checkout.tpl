@@ -73,11 +73,11 @@
             </div>
           </div>
             <?php endfor; ?>
-
-      </div>
           <div class="passengers__add buttons buttons-right">
-              <div class="btn btn-inverse"><?php echo $button_add; ?></div>
+              <div class="btn btn-inverse" data-toggle="tooltip" title="<?php echo $button_add; ?>"><i class="fa fa-plus"></i></div>
           </div>
+      </div>
+
         <?php if ($logged) { ?>
 <!--            <div id="passengers">
             <label class="control-label" for="passengers-list"><?php echo $entry_passengers; ?></label>

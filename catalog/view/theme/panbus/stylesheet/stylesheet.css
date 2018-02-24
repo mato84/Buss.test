@@ -154,7 +154,7 @@ input[type=checkbox]:checked {
     content: '';
     position: absolute;
     top: 15px;
-    right: 4px;
+    right: 3px;
     pointer-events: none;
     width: 0;
     height: 0;
@@ -164,18 +164,27 @@ input[type=checkbox]:checked {
 }
 
 .region-selector .select-box {
-    cursor: pointer;
-    padding-left: 5px;
-    width: 50px;
-    height: 36px;
     -webkit-appearance: menulist-button;
     -moz-appearance: menulist-button;
     appearance: menulist-button;
-    border:none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none!important;
+    cursor: pointer;
+    padding-left: 10px;
+    width: 50px;
+    height: 36px;
+    border:0;
     color: #cd4e37;
     font-size: 15px;
     font-weight: 700;
     background-color: transparent;
+
+}
+
+.region-selector select > option {
+    border:0;
 }
 
 .region-selector .select-box:focus {
@@ -2310,7 +2319,7 @@ h2.price {
 }
 
 .checkout-checkout #guest-data {
-	margin: 0 auto;
+	margin-top: 0px;
 }
 
 .checkout-checkout .passengers {
@@ -2322,7 +2331,7 @@ h2.price {
 .checkout-checkout .passenger-data {
     position: relative;
     max-width: 340px;
-    margin: 50px auto;
+    margin: 50px auto 0;
     background-color: #eee;
     padding: 5px 20px 20px 20px;
 }
