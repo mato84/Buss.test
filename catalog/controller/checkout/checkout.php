@@ -18,6 +18,7 @@ class ControllerCheckoutCheckout extends Controller {
 		$data['entry_telephone_format'] = $this->language->get('entry_telephone_format');
 		$data['entry_passengers'] = $this->language->get('entry_passengers');
 		$data['button_add'] = $this->language->get('button_add');
+		$data['text_agent'] = $this->language->get('text_agent');
 
         $data['notice_only_one'] = $this->language->get('notice_only_one');
 

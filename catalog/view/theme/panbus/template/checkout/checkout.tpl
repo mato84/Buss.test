@@ -24,7 +24,14 @@
       <h1><?php echo $heading_title; ?></h1>
       <div class="well">
       <?php if (!isset($redirect)) { ?>
-
+      <div class="agent">
+        <div class="agent__data">
+          <h4><?php echo $text_agent ?></h4>
+          <div class="agent__data-name"><?php echo $lastname; ?> <?php echo $firstname; ?></div>
+          <div class="agent__data-telephone"><?php echo $telephone; ?></div>
+          <div class="agent__data-email"><?php echo $email; ?></div>
+        </div>         
+      </div>
       <div class="passengers">      
         <div id="guest-data" class="passenger-data">
         <h4><?php echo $entry_passengers ?></h4>

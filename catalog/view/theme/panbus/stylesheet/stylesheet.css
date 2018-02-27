@@ -2318,6 +2318,35 @@ h2.price {
 	margin-left: 10px;
 }
 
+
+.checkout-checkout .agent {
+    text-align: right;
+}
+
+.agent .agent__data {
+    display: inline-block;
+    text-align: left;
+    margin-top: -20px;
+    margin-right: -20px;
+    margin-bottom: 20px;
+    padding: 15px;
+    font-size: 16px;
+    border: 2px solid #cd4e37;
+    border-right: 0;
+}
+
+@media (min-width: 800px) {
+    .agent .agent__data {
+        float: right;
+        margin-top: 0;
+    }  
+}
+
+.agent .agent__data h4 {
+    font-size: 18px;
+    margin-top: 0;
+}
+
 .checkout-checkout #guest-data {
 	margin-top: 0px;
 }
