@@ -154,7 +154,7 @@ input[type=checkbox]:checked {
     content: '';
     position: absolute;
     top: 15px;
-    right: 4px;
+    right: 3px;
     pointer-events: none;
     width: 0;
     height: 0;
@@ -164,18 +164,27 @@ input[type=checkbox]:checked {
 }
 
 .region-selector .select-box {
-    cursor: pointer;
-    padding-left: 5px;
-    width: 50px;
-    height: 36px;
     -webkit-appearance: menulist-button;
     -moz-appearance: menulist-button;
     appearance: menulist-button;
-    border:none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none!important;
+    cursor: pointer;
+    padding-left: 10px;
+    width: 50px;
+    height: 36px;
+    border:0;
     color: #cd4e37;
     font-size: 15px;
     font-weight: 700;
     background-color: transparent;
+
+}
+
+.region-selector select > option {
+    border:0;
 }
 
 .region-selector .select-box:focus {
@@ -1648,6 +1657,12 @@ h2.price {
     padding: 10px 0;
 }
 
+@media (min-width: 768px) {
+    .product-thumb .form-group__value {
+        max-width: 200px
+    }  
+}
+
 .product-thumb .form-group__value_time {
     display: inline-block;
     vertical-align: top;
@@ -1742,7 +1757,7 @@ h2.price {
 	max-width: 190px;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 800px) {
     .product-details .details-caption-left {
         display: inline-block;
         vertical-align: top;
@@ -1756,7 +1771,7 @@ h2.price {
     padding: 0 20px;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 800px) {
     .product-details .details-caption-right {
         width: 72%;
         float: right;
@@ -1909,6 +1924,13 @@ h2.price {
     font-weight: 300;
 }
 
+@media (min-width: 768px) {
+    .product-options .form-group__value {
+        max-width: 200px
+    }  
+}
+
+
 .product-options .form-group__value_time {
 	min-width: 65px;
 	font-size: 25px;
@@ -2054,7 +2076,7 @@ h2.price {
     margin-bottom: 15px;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 800px) {
 	.product-options__add-block .form-group {
 		display: inline-block;
         vertical-align: top;
@@ -2296,8 +2318,43 @@ h2.price {
 	margin-left: 10px;
 }
 
+
+.checkout-checkout .agent {
+    text-align: right;
+}
+
+.agent .agent__data {
+    display: inline-block;
+    text-align: left;
+    margin-top: -20px;
+    margin-right: -20px;
+    margin-bottom: 20px;
+    padding: 15px;
+    font-size: 16px;
+    border: 2px solid #cd4e37;
+    border-right: 0;
+}
+
+@media (min-width: 800px) {
+    .agent .agent__data {
+        float: right;
+        margin-top: 0;
+    }  
+}
+
+.agent .agent__data h4 {
+    font-size: 18px;
+    margin-top: 0;
+}
+
+.agent .agent__data input {
+    max-width: 160px;
+    padding: 8px;
+    margin-top: 10px;
+}
+
 .checkout-checkout #guest-data {
-	margin: 0 auto;
+	margin-top: 0px;
 }
 
 .checkout-checkout .passengers {
@@ -2309,7 +2366,7 @@ h2.price {
 .checkout-checkout .passenger-data {
     position: relative;
     max-width: 340px;
-    margin: 50px auto;
+    margin: 50px auto 0;
     background-color: #eee;
     padding: 5px 20px 20px 20px;
 }
