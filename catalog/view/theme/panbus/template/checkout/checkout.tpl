@@ -28,8 +28,11 @@
         <div class="agent__data">
           <h4><?php echo $text_agent ?></h4>
           <div class="agent__data-name"><?php echo $lastname; ?> <?php echo $firstname; ?></div>
-          <div class="agent__data-telephone"><?php echo $telephone; ?></div>
-          <div class="agent__data-email"><?php echo $email; ?></div>
+<!--           <div class="agent__data-telephone"></div>
+          <div class="agent__data-email">/div> -->
+          <div class="required input-phone-group">
+              <input type="text" name="passenger_telephone[]" placeholder="<?php echo $text_agent_number ?>"  id="agent-number" class="form-control" />
+          </div>
         </div>         
       </div>
       <div class="passengers">      
