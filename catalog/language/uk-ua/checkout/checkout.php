@@ -45,7 +45,7 @@ $_['text_semi_month']                = 'половину місяця';
 $_['text_month']                     = 'місяць';
 $_['text_year']                      = 'рік';
 $_['text_agent'] 	             	 = 'Агент';
-$_['text_agent_number'] 	         = 'Номер';
+$_['text_agent_number'] 	         = 'Контрольний номер';
 
 // Column
 $_['column_name']                    = 'Квиток';

@@ -30,7 +30,9 @@
           <div class="agent__data-name"><?php echo $lastname; ?> <?php echo $firstname; ?></div>
 <!--           <div class="agent__data-telephone"></div>
           <div class="agent__data-email">/div> -->
-          <div class="required input-phone-group">
+        </div>
+        <div class="control-number">
+            <div class="required input-phone-group">
               <input type="text" name="passenger_telephone[]" placeholder="<?php echo $text_agent_number ?>"  id="agent-number" class="form-control" />
           </div>
         </div>         
