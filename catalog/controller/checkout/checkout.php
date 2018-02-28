@@ -1,6 +1,9 @@
 <?php
 class ControllerCheckoutCheckout extends Controller {
+    const AGENT = 'agent';
+    const PASSENGER = 'passenger';
 	public function index() {
+
 		// Validate cart has products and has stock.
 		if ((!$this->cart->hasProducts() && empty($this->session->data['vouchers'])) || (!$this->cart->hasStock() && !$this->config->get('config_stock_checkout'))) {
 			$this->response->redirect($this->url->link('checkout/cart'));
@@ -257,6 +260,8 @@ class ControllerCheckoutCheckout extends Controller {
 				$customer_info = $this->model_account_customer->getCustomer($this->customer->getId());
 
 				$order_data['customer_id'] = $this->customer->getId();
+				$order_data['customer_group_short_name'] = $customer_info['short_name'];
+				$data['customer_group_short_name'] = $customer_info['short_name'];
 				$order_data['customer_group_id'] = $customer_info['customer_group_id'];
 				$order_data['firstname'] = $customer_info['firstname'];
 				$order_data['lastname'] = $customer_info['lastname'];
@@ -267,6 +272,8 @@ class ControllerCheckoutCheckout extends Controller {
 			} else {
 				$order_data['customer_id'] = 0;
 				$order_data['customer_group_id'] = $this->config->get('config_customer_group_id');
+                $data['customer_group_short_name'] = self::PASSENGER;
+                $order_data['customer_group_short_name'] = self::PASSENGER;
 				$order_data['firstname'] = $this->session->data['guest']['firstname'];
 				$order_data['lastname'] = $this->session->data['guest']['lastname'];
 				$order_data['email'] = $this->session->data['guest']['email'];

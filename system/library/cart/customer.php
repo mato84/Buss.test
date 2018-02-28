@@ -5,6 +5,7 @@ class Customer {
 	private $firstname;
 	private $lastname;
 	private $customer_group_id;
+	private $customer_group_short_name;
 	private $email;
 	private $telephone;
 	private $fax;
@@ -18,13 +19,14 @@ class Customer {
 		$this->session = $registry->get('session');
 
 		if (isset($this->session->data['customer_id'])) {
-			$customer_query = $this->db->query("SELECT * FROM " . DB_PREFIX . "customer WHERE customer_id = '" . (int)$this->session->data['customer_id'] . "' AND status = '1'");
+			$customer_query = $this->db->query("SELECT *, cd.short_name as group_short_name FROM " . DB_PREFIX . "customer c INNER JOIN ". DB_PREFIX ."customer_group_description cd ON c.customer_group_id = cd.customer_group_id AND c.customer_id = '" . (int)$this->session->data['customer_id'] . "' AND status = '1'");
 
 			if ($customer_query->num_rows) {
 				$this->customer_id = $customer_query->row['customer_id'];
 				$this->firstname = $customer_query->row['firstname'];
 				$this->lastname = $customer_query->row['lastname'];
 				$this->customer_group_id = $customer_query->row['customer_group_id'];
+				$this->customer_group_short_name = $customer_query->row['group_short_name'];
 				$this->email = $customer_query->row['email'];
 				$this->telephone = $customer_query->row['telephone'];
 				$this->fax = $customer_query->row['fax'];
@@ -48,7 +50,7 @@ class Customer {
 		if ($override) {
 			$customer_query = $this->db->query("SELECT * FROM " . DB_PREFIX . "customer WHERE LOWER(email) = '" . $this->db->escape(utf8_strtolower($email)) . "' AND status = '1'");
 		} else {
-			$customer_query = $this->db->query("SELECT * FROM " . DB_PREFIX . "customer WHERE LOWER(email) = '" . $this->db->escape(utf8_strtolower($email)) . "' AND (password = SHA1(CONCAT(salt, SHA1(CONCAT(salt, SHA1('" . $this->db->escape($password) . "'))))) OR password = '" . $this->db->escape(md5($password)) . "') AND status = '1' AND approved = '1'");
+			$customer_query = $this->db->query("SELECT * FROM " . DB_PREFIX . "customer c INNER JOIN ". DB_PREFIX ."customer_group_description cd ON c.customer_group_id = cd.customer_group_id AND LOWER(email) = '" . $this->db->escape(utf8_strtolower($email)) . "' AND (password = SHA1(CONCAT(salt, SHA1(CONCAT(salt, SHA1('" . $this->db->escape($password) . "'))))) OR password = '" . $this->db->escape(md5($password)) . "') AND status = '1' AND approved = '1'");
 		}
 
 		if ($customer_query->num_rows) {
@@ -58,6 +60,7 @@ class Customer {
 			$this->firstname = $customer_query->row['firstname'];
 			$this->lastname = $customer_query->row['lastname'];
 			$this->customer_group_id = $customer_query->row['customer_group_id'];
+            $this->customer_group_short_name = $customer_query->row['group_short_name'];
 			$this->email = $customer_query->row['email'];
 			$this->telephone = $customer_query->row['telephone'];
 			$this->fax = $customer_query->row['fax'];
@@ -79,6 +82,7 @@ class Customer {
 		$this->firstname = '';
 		$this->lastname = '';
 		$this->customer_group_id = '';
+        $this->customer_group_short_name = '';
 		$this->email = '';
 		$this->telephone = '';
 		$this->fax = '';

@@ -270,6 +270,7 @@ class ControllerCustomerCustomerGroup extends Controller {
 		$data['entry_description'] = $this->language->get('entry_description');
 		$data['entry_approval'] = $this->language->get('entry_approval');
 		$data['entry_sort_order'] = $this->language->get('entry_sort_order');
+		$data['entry_short_name'] = $this->language->get('entry_short_name');
 
 		$data['help_approval'] = $this->language->get('help_approval');
 
@@ -370,6 +371,9 @@ class ControllerCustomerCustomerGroup extends Controller {
 			if ((utf8_strlen($value['name']) < 3) || (utf8_strlen($value['name']) > 32)) {
 				$this->error['name'][$language_id] = $this->language->get('error_name');
 			}
+			if(empty($value['short_name'])){
+                $this->request->post['customer_group_description'][$language_id]['short_name'] = ukrToTranslit($value['name']);
+            }
 		}
 
 		return !$this->error;

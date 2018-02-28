@@ -113,7 +113,7 @@ class ModelAccountCustomer extends Model {
 	}
 
 	public function getCustomer($customer_id) {
-		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "customer WHERE customer_id = '" . (int)$customer_id . "'");
+		$query = $this->db->query("SELECT * FROM ". DB_PREFIX ."customer c INNER JOIN ". DB_PREFIX ."customer_group_description cd ON c.customer_group_id = cd.customer_group_id AND c.customer_id = '". (int)$customer_id . "'");
 
 		return $query->row;
 	}

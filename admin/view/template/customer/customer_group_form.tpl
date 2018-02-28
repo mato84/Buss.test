@@ -47,6 +47,14 @@
               </div>
             </div>
           </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="short-name"><?php echo $entry_short_name; ?></label>
+            <div class="col-sm-10">
+              <div class="input-group">
+                <input type="text" name="customer_group_description[<?php echo $language['language_id']; ?>][short_name]"  placeholder="<?php echo $entry_short_name; ?>" value="<?php echo isset($customer_group_description[$language['language_id']]) ? $customer_group_description[$language['language_id']]['short_name'] : '' ?>" id="short-name" class="form-control"/>
+              </div>
+            </div>
+          </div>
           <?php } ?>
           <div class="form-group">
             <label class="col-sm-2 control-label"><span data-toggle="tooltip" title="<?php echo $help_approval; ?>"><?php echo $entry_approval; ?></span></label>
