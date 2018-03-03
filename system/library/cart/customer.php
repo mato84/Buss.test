@@ -60,7 +60,7 @@ class Customer {
 			$this->firstname = $customer_query->row['firstname'];
 			$this->lastname = $customer_query->row['lastname'];
 			$this->customer_group_id = $customer_query->row['customer_group_id'];
-            $this->customer_group_short_name = $customer_query->row['group_short_name'];
+            $this->customer_group_short_name = $customer_query->row['short_name'];
 			$this->email = $customer_query->row['email'];
 			$this->telephone = $customer_query->row['telephone'];
 			$this->fax = $customer_query->row['fax'];
@@ -77,6 +77,7 @@ class Customer {
 
 	public function logout() {
 		unset($this->session->data['customer_id']);
+		unset($this->session->data['guest']);
 
 		$this->customer_id = '';
 		$this->firstname = '';
@@ -93,6 +94,10 @@ class Customer {
 	public function isLogged() {
 		return $this->customer_id;
 	}
+
+	public function getGroupShortName() {
+	    return $this-> customer_group_short_name;
+    }
 
 	public function getId() {
 		return $this->customer_id;

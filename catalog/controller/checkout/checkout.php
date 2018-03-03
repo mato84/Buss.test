@@ -4,6 +4,8 @@ class ControllerCheckoutCheckout extends Controller {
     const PASSENGER = 'passenger';
 	public function index() {
 
+
+	    $data['entry_agent'] = self::AGENT;
 		// Validate cart has products and has stock.
 		if ((!$this->cart->hasProducts() && empty($this->session->data['vouchers'])) || (!$this->cart->hasStock() && !$this->config->get('config_stock_checkout'))) {
 			$this->response->redirect($this->url->link('checkout/cart'));
@@ -530,8 +532,12 @@ class ControllerCheckoutCheckout extends Controller {
 			$this->load->model('tool/upload');
             $this->load->model('catalog/product');
 
-			$data['products'] = array();
+            $data['multiply_passages'] = 2;
+            if($data['customer_group_short_name'] === self::AGENT){
+                $data['multiply_passages'] = 1;
+            }
 
+			$data['products'] = array();
 			$data['qtyPassengers'] = 1;
 			$qtyPassenger = $this->cart->countProducts();
 			if($qtyPassenger > 1){
