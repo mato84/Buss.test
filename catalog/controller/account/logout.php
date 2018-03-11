@@ -2,6 +2,7 @@
 class ControllerAccountLogout extends Controller {
 	public function index() {
 		if ($this->customer->isLogged()) {
+		    $this->cart->clear();
 			$this->customer->logout();
 
 			unset($this->session->data['shipping_address']);

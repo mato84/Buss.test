@@ -1,6 +1,6 @@
 <?php
 class ModelCatalogPassenger extends Model{
-    public function addArrayPassenger(array $arrPassengers){
+    public function addPassengers(array $arrPassengers){
       $passengerIds = [];
       $queryAddPassenger = 'INSERT INTO '. DB_PREFIX .'passenger (name, surname, phone, email) VALUES';
       foreach ($arrPassengers as $passenger){

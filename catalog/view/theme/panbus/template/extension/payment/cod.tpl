@@ -7,7 +7,7 @@ $('#button-confirm').on('click', function() {
 	$.ajax({
 		type: 'post',
 		url: 'index.php?route=checkout/confirm',
-		data: $('#guest-data input[type=\'text\'], .passengers input[type=\'text\']'),
+		data: $('#guest-data input[type=\'text\'], #passengers-data input[type=\'text\']'),
 		beforeSend: function() {
 			$('#button-confirm').button('loading');
 			$('.spinner').show();

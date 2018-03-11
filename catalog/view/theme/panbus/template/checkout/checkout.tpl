@@ -9,7 +9,6 @@
     <div class="alert alert-danger"><i class="fa fa-exclamation-circle"></i><?php echo $notice_only_one; ?> 
     <button type="button" class="close" data-dismiss="alert">&times;</button>
   </div>
-
   <?php } ?>
   <div class="row"><?php echo $column_left; ?>
     <?php if ($column_left && $column_right) { ?>
@@ -24,23 +23,23 @@
       <h1><?php echo $heading_title; ?></h1>
       <div class="well">
       <?php if (!isset($redirect)) { ?>
-      <div class="tech-block">
+        <?php if ($customer_group_short_name === $entry_agent) { ?>
+      <div class="tech-block">        
         <div class="agent">
           <div class="agent__data">
             <h4><?php echo $text_agent ?></h4>
             <div class="agent__data-name"><?php echo $lastname; ?> <?php echo $firstname; ?></div>
-  <!--           <div class="agent__data-telephone"></div>
-            <div class="agent__data-email">/div> -->
           </div>
           <div class="control-number">
               <div class="required input-phone-group">
-                <input type="text" name="passenger_telephone[]" placeholder="<?php echo $text_agent_number ?>"  id="agent-number" class="form-control" />
+                <input type="text" name="control_number" placeholder="<?php echo $text_agent_number ?>"  id="agent-number" class="form-control" />
             </div>
-          </div>         
+          </div>
         </div>
       </div>
-      <div class="passengers">      
-        <div id="guest-data" class="passenger-data">
+        <div class="passengers">
+          <?php } else { ?>
+          <div id="guest-data" class="passenger-data">
         <h4><?php echo $entry_passengers ?></h4>
           <div class="form-group required">
             <label class="control-label" for="input-payment-lastname"><?php echo $entry_lastname; ?></label>
@@ -62,8 +61,9 @@
             <input type="text" name="email" value="<?php echo $email; ?>" placeholder="" id="input-payment-email" class="form-control" />
           </div>
         </div>
-            <?php for ($i = 2; $i <= $qtyPassengers; $i++): ?>
-          <div class="passenger-data">
+          <?php } ?>
+          <?php for ($i = $multiply_passages; $i <= $qtyPassengers; $i++): ?>
+          <div id="passengers-data" class="passenger-data">
             <h4><?php echo $entry_passengers.' '.$i; ?></h4>
             <div class="passenger-data__remove" data-toggle="tooltip" title="<?php echo $button_remove; ?>"><i class="fa fa-times" aria-hidden="true"></i></div>
             <div class="form-group required">
@@ -91,13 +91,6 @@
               <div class="btn btn-inverse" data-toggle="tooltip" title="<?php echo $button_add; ?>"><i class="fa fa-plus"></i></div>
           </div>
       </div>
-
-        <?php if ($logged) { ?>
-<!--            <div id="passengers">
-            <label class="control-label" for="passengers-list"><?php echo $entry_passengers; ?></label>
-            <textarea name="comment" rows="8" id="passengers-list" class="form-control"><?php echo $comment; ?></textarea>
-          </div> -->
-        <?php } ?>
       <div class="table-responsive table-checkout">
         <table class="table table-hover">
           <thead>
