@@ -46,6 +46,7 @@ $_['text_update_instruction']  	= 'Інформація';
 $_['text_update_order']         = 'Замовлення ';
 $_['text_update_date_added']    = 'Дата замовлення:';
 $_['text_update_order_status']  = 'Статус Вашого замовлення змінено на:';
+$_['text_update_order_status_on']  = 'Статус Вашого замовлення було змінено';
 $_['text_update_comment']       = 'Коментарі до вашого замовлення наступні:';
 $_['text_update_link']          = 'Для перегляду замовлення натисніть наступне посилання:';
 $_['text_update_footer']        = 'ЩАСЛИВОЇ ДОРОГИ!';
