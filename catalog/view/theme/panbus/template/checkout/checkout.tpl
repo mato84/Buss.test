@@ -24,18 +24,20 @@
       <h1><?php echo $heading_title; ?></h1>
       <div class="well">
       <?php if (!isset($redirect)) { ?>
-      <div class="agent">
-        <div class="agent__data">
-          <h4><?php echo $text_agent ?></h4>
-          <div class="agent__data-name"><?php echo $lastname; ?> <?php echo $firstname; ?></div>
-<!--           <div class="agent__data-telephone"></div>
-          <div class="agent__data-email">/div> -->
-        </div>
-        <div class="control-number">
-            <div class="required input-phone-group">
-              <input type="text" name="passenger_telephone[]" placeholder="<?php echo $text_agent_number ?>"  id="agent-number" class="form-control" />
+      <div class="tech-block">
+        <div class="agent">
+          <div class="agent__data">
+            <h4><?php echo $text_agent ?></h4>
+            <div class="agent__data-name"><?php echo $lastname; ?> <?php echo $firstname; ?></div>
+  <!--           <div class="agent__data-telephone"></div>
+            <div class="agent__data-email">/div> -->
           </div>
-        </div>         
+          <div class="control-number">
+              <div class="required input-phone-group">
+                <input type="text" name="passenger_telephone[]" placeholder="<?php echo $text_agent_number ?>"  id="agent-number" class="form-control" />
+            </div>
+          </div>         
+        </div>
       </div>
       <div class="passengers">      
         <div id="guest-data" class="passenger-data">
