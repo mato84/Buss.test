@@ -17,8 +17,8 @@ gulp.task('copy', function() {
     gulp.src(['admin/**/*', '!admin/**/config.php'])
         .pipe(gulp.dest('dist/admin'))
 
-    gulp.src(['catalog/**/*' , '!catalog/view/javascript/*', '!catalog/view/theme/panbus/stylesheet/*.css'])
-        .pipe(gulp.dest('dist/catalog'))  
+    gulp.src(['catalog/**/*' , '!catalog/view/javascript/**/*.js', '!catalog/view/theme/panbus/stylesheet/**/*'])
+        .pipe(gulp.dest('dist/catalog'))    
 
     gulp.src(['system/**/*' , '!system/storage/cache/*'])
         .pipe(gulp.dest('dist/system'))  
@@ -48,14 +48,23 @@ gulp.task("css", function () {
 });
 
 
-gulp.task('js', function () {
-    return gulp.src('catalog/view/javascript/*.js')
-    .pipe(uglify())
-    // .pipe(rename({ suffix: '.min' }))
-    .pipe(gulp.dest('dist/catalog/view/javascript'))
+// gulp.task('js', function () {
+//     return gulp.src('catalog/view/javascript/*.js')
+//     .pipe(uglify())
+//     // .pipe(rename({ suffix: '.min' }))
+//     .pipe(gulp.dest('dist/catalog/view/javascript'))
 
+// });
+
+gulp.task('js', function (cb) {
+  pump([
+        gulp.src('catalog/view/javascript/**/*.js'),
+        uglify(),
+        gulp.dest('dist/catalog/view/javascript')
+    ],
+    cb
+  );
 });
-
 
 gulp.task('img', function () {
     gulp.src(['image/**/*', '!image/cache/**/*'])
