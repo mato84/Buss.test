@@ -1309,7 +1309,6 @@ footer .powered {
 
 
 .btn-inverse {
-    width: 100%;
     color: #cd4e37;
     background-color: transparent;
     border: 2px solid #cd4e37;
@@ -2318,9 +2317,14 @@ h2.price {
 	margin-left: 10px;
 }
 
+.tech-block {
+    text-align: right;
+}
 
 .checkout-checkout .agent {
     display: inline-block;
+    vertical-align: top;
+    text-align: left;
     margin-top: -20px;
     margin-right: -20px;
     margin-bottom: 20px;

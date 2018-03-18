@@ -10,14 +10,14 @@
     <a href="<?php echo $store_url; ?>" title="<?php echo $store_name; ?>"><img src="<?php echo $logo; ?>" alt="<?php echo $store_name; ?>" style="margin-bottom: 20px; border: none;" /></a>
   <p style="margin-top: 0px; margin-bottom: 20px;"><?php echo $text_greeting; ?></p>    
   </div>
-  <?php if ($customer_id) { ?>
+<!--   <?php if ($customer_id) { ?>
   <p style="margin-top: 0px; margin-bottom: 20px;text-align: center;"><?php echo $text_link; ?></p>
   <p style="margin-top: 0px; margin-bottom: 20px;text-align: center;"><a href="<?php echo $link; ?>"><?php echo $link; ?></a></p>
   <?php } ?>
   <?php if ($download) { ?>
   <p style="margin-top: 0px; margin-bottom: 20px;"><?php echo $text_download; ?></p>
   <p style="margin-top: 0px; margin-bottom: 20px;"><a href="<?php echo $download; ?>"><?php echo $download; ?></a></p>
-  <?php } ?>
+  <?php } ?> -->
   <table style="border-collapse: collapse; width: 100%; margin-bottom: 20px;">
     <thead>
       <tr>
@@ -111,13 +111,13 @@
       </tr>
       <?php } ?>
     </tbody>
-    <tfoot>
+<!--     <tfoot>
       <?php foreach ($totals as $total) { ?>
       <tr>
         <td style="font-size: 16px; text-align: right; padding: 7px;" colspan="4"><b><?php echo $total['title']; ?>: <?php echo $total['text']; ?></b></td>
       <?php } ?>
       </tr>
-    </tfoot>
+    </tfoot> -->
   </table>  
 
 </div>

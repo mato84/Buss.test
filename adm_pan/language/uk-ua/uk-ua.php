@@ -108,7 +108,7 @@ $_['button_order_recurring']        = 'View Recurring Order';
 
 // Tab
 $_['tab_address']                   = 'Адреса';
-$_['tab_additional']                = 'Additional';
+$_['tab_additional']                = 'Додатково';
 $_['tab_admin']                     = 'Адміністратор';
 $_['tab_attribute']                 = 'Атрибут';
 $_['tab_customer']                  = 'Інформація про покупця';

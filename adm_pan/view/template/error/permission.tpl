@@ -1,6 +1,6 @@
-<?php echo $header; ?><?php echo $column_left; ?>
+<!-- <?php echo $header; ?><?php echo $column_left; ?> -->
 <div id="content">
-<div class="page-header">
+<!-- <div class="page-header">
   <div class="container-fluid">
     <h1><?php echo $heading_title; ?></h1>
     <ul class="breadcrumb">
@@ -9,7 +9,7 @@
       <?php } ?>
     </ul>
   </div>
-</div>
+</div> -->
 <div class="container-fluid">
   <div class="panel panel-default">
     <div class="panel-heading">
@@ -20,4 +20,4 @@
     </div>
   </div>
 </div>
-<?php echo $footer; ?>
+<!-- <?php echo $footer; ?>
