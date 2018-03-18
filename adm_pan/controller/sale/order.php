@@ -79,6 +79,18 @@ class ControllerSaleOrder extends Controller {
 	}
 
 	protected function getList() {
+
+        if (isset($this->request->get['filter_bus_ride_id'])) {
+            $filter_bus_ride_id = $this->request->get['filter_bus_ride_id'];
+        } else {
+            $filter_bus_ride_id = null;
+        }
+        if (isset($this->request->get['filter_carrier_id'])) {
+            $filter_carrier_id = $this->request->get['filter_carrier_id'];
+        } else {
+            $filter_carrier_id = null;
+        }
+
 		if (isset($this->request->get['filter_order_id'])) {
 			$filter_order_id = $this->request->get['filter_order_id'];
 		} else {
@@ -192,7 +204,8 @@ class ControllerSaleOrder extends Controller {
 
 		$filter_data = array(
 			'filter_order_id'      => $filter_order_id,
-			'filter_customer'	   => $filter_customer,
+			'filter_bus_ride_id'   => $filter_bus_ride_id,
+			'filter_carrier_id'	   => $filter_carrier_id,
 			'filter_order_status'  => $filter_order_status,
 			'filter_total'         => $filter_total,
 			'filter_date_added'    => $filter_date_added,
@@ -207,9 +220,14 @@ class ControllerSaleOrder extends Controller {
 
 		$results = $this->model_sale_order->getOrders($filter_data);
 
+		$data['allPassengers'] = 0;
 		foreach ($results as $result) {
+            $data['allPassengers'] += $result['passengers'];
 			$data['orders'][] = array(
 				'order_id'      => $result['order_id'],
+                'passenger'     => $result['passengers'],
+                'carrier'       => $result['carrier'],
+                'tour'          => $result['tour'],
 				'customer'      => $result['customer'],
 				'order_status'  => $result['order_status'] ? $result['order_status'] : $this->language->get('text_missing'),
 				'total'         => $this->currency->format($result['total'], $result['currency_code'], $result['currency_value']),
@@ -229,16 +247,21 @@ class ControllerSaleOrder extends Controller {
 		$data['text_missing'] = $this->language->get('text_missing');
 		$data['text_loading'] = $this->language->get('text_loading');
 
-		$data['column_order_id'] = $this->language->get('column_order_id');
-		$data['column_customer'] = $this->language->get('column_customer');
-		$data['column_status'] = $this->language->get('column_status');
-		$data['column_total'] = $this->language->get('column_total');
-		$data['column_date_added'] = $this->language->get('column_date_added');
-		$data['column_date_modified'] = $this->language->get('column_date_modified');
+		$data['column_order_id']        = $this->language->get('column_order_id');
+		$data['column_qtx_passengers']  = $this->language->get('column_qtx_passengers');
+		$data['column_carrier']         = $this->language->get('column_carrier');
+		$data['column_tour']            = $this->language->get('column_tour');
+		$data['column_customer']        = $this->language->get('column_customer');
+		$data['column_status']          = $this->language->get('column_status');
+		$data['column_total']           = $this->language->get('column_total');
+		$data['column_date_added']      = $this->language->get('column_date_added');
+		$data['column_date_modified']   = $this->language->get('column_date_modified');
 		$data['column_action'] = $this->language->get('column_action');
 
 		$data['entry_order_id'] = $this->language->get('entry_order_id');
 		$data['entry_customer'] = $this->language->get('entry_customer');
+		$data['entry_carrier']  = $this->language->get('entry_carrier');
+		$data['entry_tour']     = $this->language->get('entry_tour');
 		$data['entry_order_status'] = $this->language->get('entry_order_status');
 		$data['entry_total'] = $this->language->get('entry_total');
 		$data['entry_date_added'] = $this->language->get('entry_date_added');
@@ -250,6 +273,7 @@ class ControllerSaleOrder extends Controller {
 		$data['button_edit'] = $this->language->get('button_edit');
 		$data['button_delete'] = $this->language->get('button_delete');
 		$data['button_filter'] = $this->language->get('button_filter');
+		$data['button_reset_filter'] = $this->language->get('button_reset_filter');
 		$data['button_view'] = $this->language->get('button_view');
 		$data['button_ip_add'] = $this->language->get('button_ip_add');
 
@@ -364,6 +388,8 @@ class ControllerSaleOrder extends Controller {
 
 		$data['filter_order_id'] = $filter_order_id;
 		$data['filter_customer'] = $filter_customer;
+		$data['filter_bus_ride_id'] = $filter_bus_ride_id;
+		$data['filter_carrier_id'] = $filter_carrier_id;
 		$data['filter_order_status'] = $filter_order_status;
 		$data['filter_total'] = $filter_total;
 		$data['filter_date_added'] = $filter_date_added;
@@ -373,8 +399,12 @@ class ControllerSaleOrder extends Controller {
 		$data['order'] = $order;
 
 		$this->load->model('localisation/order_status');
+		$this->load->model('catalog/category');
+		$this->load->model('catalog/manufacturer');
 
-		$data['order_statuses'] = $this->model_localisation_order_status->getOrderStatuses();
+		$data['order_statuses']  = $this->model_localisation_order_status->getOrderStatuses();
+		$data['bus_rides']        = $this->model_catalog_category->getCategories();
+		$data['carriers']    = $this->model_catalog_manufacturer->getManufacturers();
 
 		$data['header'] = $this->load->controller('common/header');
 		$data['column_left'] = $this->load->controller('common/column_left');
@@ -581,6 +611,7 @@ class ControllerSaleOrder extends Controller {
 					'reward'     => $product['reward']
 				);
 			}
+
 
 			// Vouchers
 			$data['order_vouchers'] = $this->model_sale_order->getOrderVouchers($this->request->get['order_id']);

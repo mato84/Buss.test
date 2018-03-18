@@ -43,6 +43,19 @@
                 <label class="control-label" for="input-customer"><?php echo $entry_customer; ?></label>
                 <input type="text" name="filter_customer" value="<?php echo $filter_customer; ?>" placeholder="<?php echo $entry_customer; ?>" id="input-customer" class="form-control" />
               </div>
+              <div class="form-group">
+                <label class="control-label" for="input-customer"><?php echo $entry_carrier; ?></label>
+                <select name="filter_carrier_id" id="input-customer" class="form-control">
+                  <option value="*"></option>
+                  <?php foreach ($carriers as $carrier) { ?>
+                  <?php if ($carrier['manufacturer_id'] == $filter_carrier_id) { ?>
+                  <option value="<?php echo $carrier['manufacturer_id']; ?>" selected="selected"><?php echo $carrier['name']; ?></option>
+                  <?php } else { ?>
+                  <option value="<?php echo $carrier['manufacturer_id']; ?>"><?php echo $carrier['name']; ?></option>
+                  <?php } ?>
+                  <?php } ?>
+                </select>
+              </div>
             </div>
             <div class="col-sm-4">
               <div class="form-group">
@@ -67,6 +80,19 @@
                 <label class="control-label" for="input-total"><?php echo $entry_total; ?></label>
                 <input type="text" name="filter_total" value="<?php echo $filter_total; ?>" placeholder="<?php echo $entry_total; ?>" id="input-total" class="form-control" />
               </div>
+              <div class="form-group">
+                <label class="control-label" for="input-customer"><?php echo $entry_tour; ?></label>
+                <select name="filter_bus_ride_id" id="input-tour" class="form-control">
+                  <option value="*"></option>
+                  <?php foreach ($bus_rides as $bus_ride) { ?>
+                  <?php if ($bus_ride['category_id'] == $filter_bus_ride_id) { ?>
+                  <option value="<?php echo $bus_ride['category_id']; ?>" selected="selected"><?php echo $bus_ride['name']; ?></option>
+                  <?php } else { ?>
+                  <option value="<?php echo $bus_ride['category_id']; ?>"><?php echo $bus_ride['name']; ?></option>
+                  <?php } ?>
+                  <?php } ?>
+                </select>
+              </div>
             </div>
             <div class="col-sm-4">
               <div class="form-group">
@@ -86,6 +112,10 @@
                   </span></div>
               </div>
               <button type="button" id="button-filter" class="btn btn-primary pull-right"><i class="fa fa-filter"></i> <?php echo $button_filter; ?></button>
+              <button type="button" id="button-reset-filter" class="btn btn-primary pull-right"><i class="fa fa-filter"></i> <?php echo $button_reset_filter; ?></button>
+
+              <div>Загальна кількість пасажирів <span><?php echo $allPassengers; ?></span> </div>
+
             </div>
           </div>
         </div>
@@ -100,6 +130,15 @@
                     <?php } else { ?>
                     <a href="<?php echo $sort_order; ?>"><?php echo $column_order_id; ?></a>
                     <?php } ?></td>
+                  <td class="text-left">
+                    <a href="#"><?php echo $column_qtx_passengers; ?></a>
+                  </td>
+                  <td class="text-left">
+                    <a href="#"><?php echo $column_carrier; ?></a>
+                  </td>
+                  <td class="text-left">
+                    <a href="#"><?php echo $column_tour; ?></a>
+                  </td>
                   <td class="text-left"><?php if ($sort == 'customer') { ?>
                     <a href="<?php echo $sort_customer; ?>" class="<?php echo strtolower($order); ?>"><?php echo $column_customer; ?></a>
                     <?php } else { ?>
@@ -125,7 +164,9 @@
                     <?php } else { ?>
                     <a href="<?php echo $sort_date_modified; ?>"><?php echo $column_date_modified; ?></a>
                     <?php } ?></td>
+
                   <td class="text-right"><?php echo $column_action; ?></td>
+
                 </tr>
               </thead>
               <tbody>
@@ -139,11 +180,14 @@
                     <?php } ?>
                     <input type="hidden" name="shipping_code[]" value="<?php echo $order['shipping_code']; ?>" /></td>
                   <td class="text-right"><?php echo $order['order_id']; ?></td>
-                  <td class="text-left"><?php echo $order['customer']; ?></td>
-                  <td class="text-left"><?php echo $order['order_status']; ?></td>
+                  <td class="text-left"><?php echo $order['passenger']; ?></td>
+                  <td class="text-right"><?php echo $order['carrier']; ?></td>
+                  <td class="text-right"><?php echo $order['tour']; ?></td>
+                  <td class="text-left"><?php  echo $order['customer']; ?></td>
+                  <td class="text-left"><?php  echo $order['order_status']; ?></td>
                   <td class="text-right"><?php echo $order['total']; ?></td>
-                  <td class="text-left"><?php echo $order['date_added']; ?></td>
-                  <td class="text-left"><?php echo $order['date_modified']; ?></td>
+                  <td class="text-left"><?php  echo $order['date_added']; ?></td>
+                  <td class="text-left"><?php  echo $order['date_modified']; ?></td>
                   <td class="text-right"><a href="<?php echo $order['view']; ?>" data-toggle="tooltip" title="<?php echo $button_view; ?>" class="btn btn-info"><i class="fa fa-eye"></i></a> <a href="<?php echo $order['edit']; ?>" data-toggle="tooltip" title="<?php echo $button_edit; ?>" class="btn btn-primary"><i class="fa fa-pencil"></i></a></td>
                 </tr>
                 <?php } ?>
@@ -164,6 +208,9 @@
     </div>
   </div>
   <script type="text/javascript"><!--
+      $('#button-reset-filter').on('click', function () {
+        location = 'index.php?route=sale/order&token=<?php echo $token; ?>';
+    });
 $('#button-filter').on('click', function() {
 	url = 'index.php?route=sale/order&token=<?php echo $token; ?>';
 
@@ -171,6 +218,16 @@ $('#button-filter').on('click', function() {
 
 	if (filter_order_id) {
 		url += '&filter_order_id=' + encodeURIComponent(filter_order_id);
+	}
+	var filter_bus_ride_id = $('select[name=\'filter_bus_ride_id\']').val();
+
+	if (filter_bus_ride_id !== '*') {
+		url += '&filter_bus_ride_id=' + encodeURIComponent(filter_bus_ride_id);
+	}
+	var filter_carrier_id = $('select[name=\'filter_carrier_id\']').val();
+
+	if (filter_carrier_id !== '*') {
+		url += '&filter_carrier_id=' + encodeURIComponent(filter_carrier_id);
 	}
 
 	var filter_customer = $('input[name=\'filter_customer\']').val();

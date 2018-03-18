@@ -44,6 +44,7 @@ $_['button_close']                  = 'Закрити';
 $_['button_enable']                 = 'Увімкнути';
 $_['button_disable']                = 'Вимкнути';
 $_['button_filter']                 = 'Фільтрувати';
+$_['button_reset_filter']           = 'Очистити фільтри';
 $_['button_send']                   = 'Відправити';
 $_['button_edit']                   = 'Редагувати';
 $_['button_copy']                   = 'Копіювати';
