@@ -50,25 +50,30 @@ class ModelToolImportExport extends Model{
   protected function setProducts($array_product){
     $last_id = array();
     foreach ($array_product as $key => $value) {
-      $sql = "INSERT INTO " .DB_PREFIX. "product SET ";
-      $sql .= array_reduce(array_keys($value), function($carry,$key) use($value){
-        if(!empty($key) && !empty($value[$key]) ){
-          if((strcasecmp($key,'from_t') == 0 || strcasecmp($key,'to_t') == 0)
-          && !is_numeric($value[$key]) ){
-            $query = $this->db->query("SELECT c.city_id FROM ".DB_PREFIX."city c WHERE c.name = '".$value[$key]."'");
-            if(array_key_exists('city_id',$query->row)){
-              return $carry." ".$key." = '" .$query->row['city_id']."',";
-            }
-            throw new \Exception('not find city_id in ' . $value[$key]);
-          }
-           return $carry." ".$key." = '" .$value[$key]."',";
+        if (array_key_exists('product_id', $value)) {
+            $this->updataProduct($value);
+            $last_id[] = $value['product_id'];
+        } else {
+            $sql = "INSERT INTO " .DB_PREFIX. "product SET ";
+            $sql .= array_reduce(array_keys($value), function($carry,$key) use($value) {
+                if(!empty($key) && !empty($value[$key]) ){
+                    if((strcasecmp($key,'from_t') == 0 || strcasecmp($key,'to_t') == 0)
+                        && !is_numeric($value[$key]) ){
+                        $query = $this->db->query("SELECT c.city_id FROM ".DB_PREFIX."city c WHERE c.name = '".$value[$key]."'");
+                        if(array_key_exists('city_id',$query->row)){
+                            return $carry." ".$key." = '" .$query->row['city_id']."',";
+                        }
+                        throw new \Exception('not find city_id in ' . $value[$key]);
+                    }
+                    return $carry." ".$key." = '" .$value[$key]."',";
+                } else {
+                    return $carry;
+                }
+            },"");
+            $this->db->query(rtrim($sql,", "));
+            $last_id[] = $this->db->getLastId();
         }
-        else{
-        return $carry;
-        }
-     },"");
-     $this->db->query(rtrim($sql,", "));
-     $last_id[] = $this->db->getLastId();
+
     }
    return $last_id;
   }
@@ -76,7 +81,6 @@ class ModelToolImportExport extends Model{
     $new_array = array();
     foreach ($array_dependent as $name_sheet => $values) {
       if(in_array($name_sheet, $exclusion_sheet_name )) continue;
-      $temp_array = array();
         $temp_array = array_map(function($a, $product_id){
           $a['product_id'] = $product_id;
           return $a;
@@ -85,19 +89,8 @@ class ModelToolImportExport extends Model{
     }
 
     foreach ($new_array as $nameTable => $values) {
-         foreach ($values as $key => $value) {
-           $sql = "INSERT INTO " .DB_PREFIX."".$nameTable." SET ";
-           $sql .= array_reduce(array_keys($value), function($carry,$val) use($value){
-             if(!empty($val) && !empty($value[$val]) ){
-             return $carry." ".$val." = '" .$value[$val]." ',";
-             }
-             else{
-               return $carry;
-             }
-             },"");
-           $this->db->query(rtrim($sql,", "));
-         }
-
+        $updateValue = $this->existDataInTable($nameTable, $products_last_id);
+        $this->setDataInDependentTable($nameTable, $values, $updateValue);
     }
 
   }
@@ -135,4 +128,55 @@ class ModelToolImportExport extends Model{
        $this->db->query(rtrim($sql,", "));
     }
   }
+    private function updataProduct($productData) {
+        $sqlQuery = 'UPDATE ' . DB_PREFIX . 'product SET';
+        $sqlQuery .= array_reduce(array_keys($productData), function($carry,$key) use($productData) {
+            if(!empty($key) && !empty($productData[$key]) ){
+                if((strcasecmp($key,'from_t') == 0 || strcasecmp($key,'to_t') == 0)
+                    && !is_numeric($productData[$key]) ){
+                    $query = $this->db->query("SELECT c.city_id FROM ".DB_PREFIX."city c WHERE c.name = '".$productData[$key]."'");
+                    if(array_key_exists('city_id',$query->row)){
+                        return $carry." ".$key." = '" .$query->row['city_id']."',";
+                    }
+                    throw new \Exception('not find city_id in ' . $productData[$key]);
+                }
+                return $carry." ".$key." = '" .$productData[$key]."',";
+            } else {
+                return $carry;
+            }
+        },"");
+        $sqlQuery = rtrim($sqlQuery,", ");
+        $sqlQuery .= sprintf(' WHERE product_id = \'%s\'', $productData['product_id']);
+        $this->db->query($sqlQuery);
+    }
+    private function setDataInDependentTable($nameTable, $data, $updateData)
+    {
+        $sqlOperation = 'INSERT INTO';
+        foreach ($data as $key => $value) {
+            $isUpdate = array_key_exists($value['product_id'], $updateData);
+            $isUpdate ? $sqlOperation = 'UPDATE':null;
+            $sql = sprintf('%s %s%s SET ',$sqlOperation, DB_PREFIX, $nameTable);
+            $sql .= array_reduce(array_keys($value), function($carry,$val) use($value){
+                if(!empty($val) && !empty($value[$val]) ){
+                    return $carry." ".$val." = '" .$value[$val]." ',";
+                }
+                else{
+                    return $carry;
+                }
+            },"");
+            $isUpdate ? $sql = rtrim($sql,", ").sprintf(' WHERE product_id = \'%s\'', $value['product_id']):null;
+            $this->db->query(rtrim($sql,", "));
+        }
+
+    }
+    private function existDataInTable($tableName, $data)
+    {
+        $sqlQuery = 'SELECT product_id FROM '.DB_PREFIX.$tableName.' WHERE product_id IN ';
+        $sqlQuery .= sprintf('(%s)', implode(',', $data));
+        $result = $this->db->query($sqlQuery);
+        return array_reduce($result->rows, function($acc, $value) {
+            $acc[$value['product_id']] = 0;
+            return $acc;
+        }, []);
+    }
 }
