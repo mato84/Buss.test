@@ -14,8 +14,8 @@ requireDir('./tasks', {recurse: true});
 
 
 gulp.task('copy', function() {
-    gulp.src(['admin/**/*', '!admin/**/config.php'])
-        .pipe(gulp.dest('dist/admin'))
+    gulp.src(['adm_pan/**/*', '!adm_pan/**/config.php'])
+        .pipe(gulp.dest('dist/adm_pan'))
 
     gulp.src(['catalog/**/*' , '!catalog/view/javascript/**/*.js', '!catalog/view/theme/panbus/stylesheet/**/*'])
         .pipe(gulp.dest('dist/catalog'))    

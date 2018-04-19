@@ -8,6 +8,7 @@
 $_['text_search']                             = 'Пошук';
 $_['text_brand']                              = 'Бренд';
 $_['text_manufacturer']                       = 'Перевізник:';
+$_['text_bus']                       		  = 'Автобус:';
 $_['text_model']                              = 'Артикул:';
 $_['text_reward']                             = 'Бонусні бали:';
 $_['text_points']                             = 'Ціна в бонусних балах:';

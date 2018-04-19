@@ -326,7 +326,8 @@ header {
     position: absolute;
     text-align: center;
     width: 100%;
-    top: 10%
+    top: 10%;
+    z-index: 999;
 }
 
 @media (min-width: 768px) {
@@ -486,7 +487,7 @@ header {
 	    margin: 30px auto;
 	    padding: 40px 10px 20px 10px;
 	    background-color: rgba(255, 255, 255, 0.24);
-	    max-width: 700px;
+	    max-width: 850px;
 	}
 	.common-home .header-content .header-search.affix {
 	    position: relative;
@@ -495,7 +496,7 @@ header {
 	    margin: 30px auto;
 	    padding: 40px 10px 20px 10px;
 	    background-color: rgba(255, 255, 255, 0.24);
-	    max-width: 700px;		
+	
 	}
 }
 
@@ -514,7 +515,7 @@ header {
 
 @media (min-width:768px) {
     .header-content .header-search .search-item {
-        width: 38%;
+        width: 35%;
     }
     .header-content .header-search .search-item:last-child {
         width: 130px;
@@ -544,7 +545,7 @@ header {
     top: 4px;
     color: #c3c3c3;
     font-size: 30px;
-    z-index: 2;
+    z-index: 1;
 }
 
 .header-content .header-search .search-item:hover .fa {
@@ -1669,6 +1670,8 @@ h2.price {
     font-weight: 400;
     padding: 8px 10px;
     background-color: #eeeeee;
+    min-width: 80px;
+    min-height: 36px;
 
 }
 
@@ -1753,7 +1756,7 @@ h2.price {
 }
 
 .product-details .details-caption-left .product-img img {
-	max-width: 190px;
+	max-width: 180px;
 }
 
 @media (min-width: 800px) {
@@ -1938,6 +1941,7 @@ h2.price {
 
 .product-details .timeinroad-data .form-group__value_time {
     font-size: 20px;
+    min-height: 40px;
 }
 
 @media (min-width: 768px) {

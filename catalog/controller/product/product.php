@@ -240,6 +240,7 @@ class ControllerProductProduct extends Controller {
 
 			$data['text_select'] = $this->language->get('text_select');
 			$data['text_manufacturer'] = $this->language->get('text_manufacturer');
+			$data['text_bus'] = $this->language->get('text_bus');
 			$data['text_model'] = $this->language->get('text_model');
 			$data['text_reward'] = $this->language->get('text_reward');
 			$data['text_points'] = $this->language->get('text_points');

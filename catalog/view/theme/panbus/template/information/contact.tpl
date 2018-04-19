@@ -18,10 +18,9 @@
             <div class="contact-block col-sm-3 telephone">
               <h4><?php echo $text_telephone; ?> <i class="fa fa-mobile" aria-hidden="true"></i></h4>
               <a href="tel:+380677661876">+38(067)766-18-76</a>
+              <a href="tel:+380637661876">+38(063)766-18-76</a>              
               <a href="tel:+380509833358">+38(050)983-33-58</a>
-              <a href="tel:+380637038001">+38(063)703-80-01</a>
-              <a href="tel:+48223079083">+48(22)307-90-83</a>
-              <a href="tel:+48223079084">+48(22)307-90-84</a>              
+              <a href="tel:+48223079083">+48(22)307-90-83</a>           
             </div>
 
             <div class="contact-block col-sm-3">

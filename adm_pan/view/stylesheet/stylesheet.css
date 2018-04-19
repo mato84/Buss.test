@@ -153,7 +153,7 @@ span.hidden-xs, span.hidden-sm, span.hidden-md, span.hidden-lg {
 	background-color: #515151;
 	position: absolute;
 	top: 0px;
-	padding-top: 50px;
+	padding-top: 100px;
 	z-index: 10;
 	transition: all 0.3s;
 }
@@ -654,4 +654,14 @@ div.ckeditor {
 }
 .time{
 	z-index: 0;
+}
+
+
+.passengers-count {
+	margin-top: 10px;
+	font-size: 16px;
+}
+
+.passengers-count span {
+	font-weight: bold;
 }
