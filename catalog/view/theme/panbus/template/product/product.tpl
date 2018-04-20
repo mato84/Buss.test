@@ -35,7 +35,7 @@
               </div>
               <div class="product-category">
                 <ul class="list-unstyled">
-                  <li><?php echo $text_bus; ?><br> <a href="<?php echo $manufacturers; ?>"><span ><?php echo $manufacturer; ?></span></a></li>
+                  <li><?php echo $text_bus; ?><br> <a><span ><?php echo $main_catagory; ?></span></a></li>
                 </ul>
               </div>
             </div>

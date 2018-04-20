@@ -110,6 +110,7 @@ class ControllerProductCategory extends Controller {
 			$data['text_empty'] = $this->language->get('text_empty');
 			$data['text_quantity'] = $this->language->get('text_quantity');
 			$data['text_manufacturer'] = $this->language->get('text_manufacturer');
+			$data['text_bus'] = $this->language->get('text_bus');			
 			$data['text_model'] = $this->language->get('text_model');
 			$data['text_price'] = $this->language->get('text_price');
 			$data['text_tax'] = $this->language->get('text_tax');
@@ -225,6 +226,7 @@ class ControllerProductCategory extends Controller {
 				}
 
 				$data['products'][] = array(
+					'main_сategory'=> $this->model_catalog_product->getProductMainCategoryName($result['product_id']),
 					'product_id'  => $result['product_id'],
 					'thumb'       => $image,
 					'name'        => $result['name'],

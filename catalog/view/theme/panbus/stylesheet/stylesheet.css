@@ -1528,7 +1528,7 @@ footer .powered {
 .product-thumb .image img {
     margin-left: auto;
     margin-right: auto;
-    max-width: 150px;
+    max-width: 180px;
 }
 
 .product-grid .product-thumb .image {
@@ -1587,7 +1587,7 @@ footer .powered {
         vertical-align: top;
         padding: 0;
         float: right;
-        width: 75%;
+        width: 72%;
     }
 }
 
