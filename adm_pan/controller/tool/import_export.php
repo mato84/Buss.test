@@ -25,12 +25,18 @@ class ControllerToolImportExport extends Controller{
    $this->response->setOutput($this->load->view('tool/import_export', $data));
   }
   protected function upload(){
+
+      $supportedFormats = [
+          'application/vnd.ms-office',
+          'application/octet-stream',
+          'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+      ];
     $is_upload = array();
     $is_upload['is_uploaded'] = false;
     $is_upload['errors'] = $this->request->files['import']['error'];
     $finfo = new finfo(FILEINFO_MIME_TYPE);
-    if (!($finfo->file($this->request->files['import']['tmp_name']) === 'application/vnd.ms-office' || $finfo->file($_FILES['import']['tmp_name']) === 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'))
-       {
+
+    if (!in_array($finfo->file($this->request->files['import']['tmp_name']), $supportedFormats)) {
      $is_upload['errors'] = "not mime is excel format";
      return $is_upload;
    }
