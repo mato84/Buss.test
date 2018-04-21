@@ -141,17 +141,12 @@
 
 var options = {
 
-url: function() {
+url: function(phrase) {
 
-  return "index.php?route=product/search/autocomplete&field_id="+ document.activeElement.id;
+  return "index.php?route=product/search/autocomplete&q=" + phrase;
 },
 list: {
-  // maxNumberOfElements: 10,
-  // onChooseEvent:function(){
-  //
-  // },
   onChooseEvent: function(){
-    // $('.')
     var wherefrom = $('#wherefrom');
     var where = $('#where');
     if(wherefrom.getSelectedItemData().city_id != undefined)
@@ -176,10 +171,11 @@ template: {
   },
 
   adjustWidth: false,
-  getValue: "name"
+  getValue: "name",
+  requestDelay: 500
 
 };
-  var valueID = {} //Associative array containing data from the search fields
+  var valueID = {}
   $('#wherefrom, #where').easyAutocomplete(options);
   $('#search-submit').on('click',function(){
     if(!valueID['from_id']  && !valueID['to_id'] ){
@@ -199,7 +195,7 @@ template: {
 
   })
   $('.search-item ').keypress(function(e){
-        if(e.which == 13){//Enter key pressed
+        if(e.which == 13){
             $('#search-submit').trigger('click');//Trigger search button click event
         }
     });

@@ -654,15 +654,22 @@ class ModelCatalogProduct extends Model {
 		}
 	}
 
-	public function getProductSearchToAutocomplite($key_field="from"){
-		$product_data = $this->cache->get("product.searchAutocomplite".$key_field.".". (int)$this->config->get('config_language_id') . '.' . (int)$this->config->get('config_store_id') . '.' . $this->config->get('config_customer_group_id'));
+	public function getProductSearchToAutocomplite($q = '') {
+		$allCityIds = $this->cache->get('cityData');
 
-		if (!$product_data) {
-			$query = $this->db->query("SELECT DISTINCT c.name, c.contry_iso, c.city_id FROM " . DB_PREFIX . "product p INNER JOIN ". DB_PREFIX ."city c ON p.".$key_field."_t = c.city_id");
-			$product_data = $query->rows ;
-			$this->cache->set('product.searchAutocompliteFrom.' . (int)$this->config->get('config_language_id') . '.' . (int)$this->config->get('config_store_id') . '.' . $this->config->get('config_customer_group_id'),$product_data);
+		if (!$allCityIds) {
+			$allCityIds = $this->db->query("SELECT city_id, name, contry_iso FROM " . DB_PREFIX . "city ORDER BY name ASC" )->rows;
+			$this->cache->set('cityData', $allCityIds);
 		}
 
-		return $product_data;
+		$filterData = array_reduce($allCityIds, function ($acc, $value) use ($q) {
+			if(mb_stripos(mb_strtolower($value['name']), mb_strtolower($q)) === 0)
+			{
+				$acc[] = $value;
+			}
+			return $acc;
+		}, []);
+
+		return $filterData;
 	}
 }
