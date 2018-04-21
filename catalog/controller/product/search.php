@@ -399,9 +399,7 @@ class ControllerProductSearch extends Controller {
 			$this->load->model('catalog/product');
 			if (isset($this->request->get['q']))
 			{
-				$sessionId = $this->session->getId();
-				$json = $this->model_catalog_product->getProductSearchToAutocomplite($this->request->get['q'], $sessionId);
-				
+				$json = $this->model_catalog_product->getProductSearchToAutocomplite($this->request->get['q']);
 			}
 		$this->response->addHeader('Content-Type: application/json');
 		$this->response->setOutput(json_encode($json));
