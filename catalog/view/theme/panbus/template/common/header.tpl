@@ -62,11 +62,17 @@
       <div class="search-item ">
         <i class="fa fa-map-marker" aria-hidden="true"></i>
         <input type="text" id="wherefrom" placeholder="<?php echo $text_wherefrom; ?>">
+        <div class="search-item__spiner search-item__spiner-wherefrom">
+          <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+        </div>
         <div class="error error-search"><?php echo $text_choise_wherefrom; ?></div>
       </div>
       <div class="search-item">
         <i class="fa fa-map-marker" aria-hidden="true"></i>
         <input type="text" id="where" placeholder="<?php echo $text_from; ?>">
+        <div class="search-item__spiner search-item__spiner-from">
+          <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+        </div>
         <div class="error error-search"><?php echo $text_choise_from; ?></div>
       </div>
       <div class="search-item">
