@@ -2503,6 +2503,9 @@ h2.price {
     font-size: 20px;
 }
 
+.contact-foto img {
+    width: 100%;
+}
 
 @media (min-width: 768px) {
     .modal-dialog {

@@ -61,7 +61,13 @@
             </div>
             <?php } ?>
           </div>
-
+          
+          <div class="contact-map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d769.6607011211225!2d25.59646964205896!3d49.54455496600791!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x473036afd1e00c41%3A0xb92615f1fbdbdf22!2z0J_QkNCd0JHQo9Ch!5e0!3m2!1suk!2sua!4v1524500406468" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+          </div>
+          <div class="contact-foto">
+            <img src="../image/catalog/other/office.jpg" alt="">
+          </div>
 
 
       </div>
