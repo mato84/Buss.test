@@ -8,7 +8,6 @@ class ModelCatalogCity extends Model {
 
 		$city_id = $this->db->getLastId();
 
-		$this->cache->delete('city');
 		$this->cache->delete('cityData');
 
 		return $city_id;
@@ -22,15 +21,12 @@ class ModelCatalogCity extends Model {
 
 		$this->db->query("UPDATE " . DB_PREFIX . "city SET name = '" . $this->db->escape($data['name']) . "', sort_order = '" . (int)$data['sort_order'] ."',country = '" . $this->db->escape($data['city_country_id']) . "',region = '" . $this->db->escape($data['city_zone_id']) ."',contry_iso = '" . $this->db->escape($country_id['iso_code_2']) . "' WHERE city_id = '" . (int)$city_id . "'");
 
-		$this->cache->delete('city');
 		$this->cache->delete('cityData');
 	}
 
 	public function deleteCity($city_id) {
 		$this->db->query("DELETE FROM " . DB_PREFIX . "city WHERE city_id = '" . (int)$city_id . "'");
-
-
-		$this->cache->delete('city');
+		
 		$this->cache->delete('cityData');
 	}
 

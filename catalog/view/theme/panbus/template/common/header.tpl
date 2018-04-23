@@ -145,25 +145,45 @@
 
 <script type="text/javascript">
 
-var options = {
+var optionsTo = {
 
 url: function(phrase) {
+  return "index.php?route=product/search/autocomplete&q=" + phrase;
+},
+list: {
+  onChooseEvent: function(){
+    var where = $('#where');
+    valueID.to_id = where.getSelectedItemData().city_id ? where.getSelectedItemData().city_id:"";
+  },
+  onLoadEvent: function() {
+    $('.search-item__spiner-from').hide();
+  },
+  match: {
+    enabled: true
+  }
+},
+template: {
+      type: "description",
+      fields: {
+          description: "contry_iso"
+      }
+  },
+  adjustWidth: false,
+  getValue: "name",
+  requestDelay: 500
+};
+var optionsFrom = {
 
+url: function(phrase) {
   return "index.php?route=product/search/autocomplete&q=" + phrase;
 },
 list: {
   onChooseEvent: function(){
     var wherefrom = $('#wherefrom');
-    var where = $('#where');
-    if(wherefrom.getSelectedItemData().city_id != undefined)
-    {
-    valueID.from_id = wherefrom.getSelectedItemData().city_id;
-  };
-    if(where.getSelectedItemData().city_id != undefined)
-    {
-    valueID.to_id = where.getSelectedItemData().city_id;
-  };
-
+    valueID['from_id'] =  wherefrom.getSelectedItemData().city_id ? wherefrom.getSelectedItemData().city_id:"";
+  },
+  onLoadEvent: function() {
+    $('.search-item__spiner-wherefrom').hide();
   },
   match: {
     enabled: true
@@ -181,8 +201,16 @@ template: {
   requestDelay: 500
 
 };
-  var valueID = {}
-  $('#wherefrom, #where').easyAutocomplete(options);
+  var valueID = { };
+  $('#where').easyAutocomplete(optionsTo);
+  $('#where').on('input', function () {
+    this.value ? $('.search-item__spiner-from').show() : $('.search-item__spiner-from').hide();
+  })
+  $('#wherefrom').easyAutocomplete(optionsFrom);
+  $('#wherefrom').on('input', function () {
+    this.value ? $('.search-item__spiner-wherefrom').show() : $('.search-item__spiner-wherefrom').hide();
+    ;
+})
   $('#search-submit').on('click',function(){
     if(!valueID['from_id']  && !valueID['to_id'] ){
      $('.error-search').show();
