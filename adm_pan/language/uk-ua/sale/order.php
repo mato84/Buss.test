@@ -23,7 +23,7 @@ $_['text_store']                              = 'Магазин';
 $_['text_date_added']                         = 'Дата додавання:';
 $_['text_payment_method']                     = 'Спосіб оплати:';
 $_['text_shipping_method']                    = 'Спосіб доставки:';
-$_['text_customer']                           = 'Покупець:';
+$_['text_customer']                           = 'Замовник:';
 $_['text_customer_group']                     = 'Група поуцпців:';
 $_['text_email']                              = 'E-Mail:';
 $_['text_telephone']                          = 'Телефон:';
@@ -71,10 +71,10 @@ $_['text_picklist']                           = 'Повідомлення про
 
 // Column
 $_['column_order_id']                         = '№ замовлення';
-$_['column_qtx_passengers']                   = 'Кількість пасажирів';
+$_['column_qtx_passengers']                   = 'Пасажирів';
 $_['column_carrier']                          = 'Перевізник';
 $_['column_tour']                             = 'Рейс';
-$_['column_customer']                         = 'Покупець';
+$_['column_customer']                         = 'Замовник';
 $_['column_status']                           = 'Статус';
 $_['column_date_added']                       = 'Дата додавання';
 $_['column_date_modified']                    = 'Дата зміни';
@@ -98,9 +98,9 @@ $_['column_passenger_email']              	  = 'E-Mail';
 
 // Entry
 $_['entry_store']                             = 'Магазин';
-$_['entry_customer']                          = 'Покупець';
+$_['entry_customer']                          = 'Замовник';
 $_['entry_carrier']                           = 'Перевізник';
-$_['entry_tour']                              = 'Назва рейсу';
+$_['entry_tour']                              = 'Рейс';
 $_['entry_customer_group']                    = 'Група покупців';
 $_['entry_firstname']                         = 'Ім’я';
 $_['entry_lastname']                          = 'Прізвище';

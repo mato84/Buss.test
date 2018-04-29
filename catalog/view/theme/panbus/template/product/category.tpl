@@ -63,10 +63,15 @@
               <div class="image"><a href="<?php echo $product['href']; ?>"><img itemprop="image" src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>" title="<?php echo $product['name']; ?>" class="img-responsive" /></a>
               </div>
               <div class="product-thumb__manufacturer">
-              <ul class="list-unstyled">
-                <li><?php echo $text_manufacturer; ?><br> <a ><span itemprop="brand"><?php echo $product['manufacturer']; ?></span></a></li>
-              </ul>
+                <ul class="list-unstyled">
+                  <li><?php echo $text_manufacturer; ?><br> <a ><span itemprop="brand"><?php echo $product['manufacturer']; ?></span></a></li>
+                </ul>
               </div>
+              <div class="product-thumb__category">
+                <ul class="list-unstyled">
+                  <li><?php echo $text_bus; ?><br> <a><span><?php echo $product['main_сategory']; ?></span></a></li>
+                </ul>
+              </div>              
             </div>
             <div class="caption">
                 <h3 itemprop="name"><a href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a></h3>

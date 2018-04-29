@@ -109,13 +109,19 @@
                   <input type="text" name="filter_date_modified" value="<?php echo $filter_date_modified; ?>" placeholder="<?php echo $entry_date_modified; ?>" data-date-format="YYYY-MM-DD" id="input-date-modified" class="form-control" />
                   <span class="input-group-btn">
                   <button type="button" class="btn btn-default"><i class="fa fa-calendar"></i></button>
-                  </span></div>
+                  </span>
+                </div>
               </div>
-              <button type="button" id="button-filter" class="btn btn-primary pull-right"><i class="fa fa-filter"></i> <?php echo $button_filter; ?></button>
-              <button type="button" id="button-reset-filter" class="btn btn-primary pull-right"><i class="fa fa-filter"></i> <?php echo $button_reset_filter; ?></button>
-
-              <div>Загальна кількість пасажирів <span><?php echo $allPassengers; ?></span> </div>
-
+              <div class="form-group">
+                <label class="control-label"></label>
+                <div>
+                  <button type="button" id="button-filter" class="btn btn-primary pull-right"><i class="fa fa-filter"></i> <?php echo $button_filter; ?></button>
+                <button type="button" id="button-reset-filter" class="btn btn-info"><i class="fa fa-filter"></i> <?php echo $button_reset_filter; ?></button>
+                </div>               
+              </div>
+              <div class="form-group">
+                <div class="passengers-count">Загальна кількість пасажирів:  <span><?php echo $allPassengers; ?></span> </div>
+              </div>
             </div>
           </div>
         </div>
@@ -125,14 +131,11 @@
               <thead>
                 <tr>
                   <td style="width: 1px;" class="text-center"><input type="checkbox" onclick="$('input[name*=\'selected\']').prop('checked', this.checked);" /></td>
-                  <td class="text-right"><?php if ($sort == 'o.order_id') { ?>
+                  <td class="text-left"><?php if ($sort == 'o.order_id') { ?>
                     <a href="<?php echo $sort_order; ?>" class="<?php echo strtolower($order); ?>"><?php echo $column_order_id; ?></a>
                     <?php } else { ?>
                     <a href="<?php echo $sort_order; ?>"><?php echo $column_order_id; ?></a>
                     <?php } ?></td>
-                  <td class="text-left">
-                    <a href="#"><?php echo $column_qtx_passengers; ?></a>
-                  </td>
                   <td class="text-left">
                     <a href="#"><?php echo $column_carrier; ?></a>
                   </td>
@@ -144,12 +147,10 @@
                     <?php } else { ?>
                     <a href="<?php echo $sort_customer; ?>"><?php echo $column_customer; ?></a>
                     <?php } ?></td>
-                  <td class="text-left"><?php if ($sort == 'order_status') { ?>
-                    <a href="<?php echo $sort_status; ?>" class="<?php echo strtolower($order); ?>"><?php echo $column_status; ?></a>
-                    <?php } else { ?>
-                    <a href="<?php echo $sort_status; ?>"><?php echo $column_status; ?></a>
-                    <?php } ?></td>
-                  <td class="text-right"><?php if ($sort == 'o.total') { ?>
+                  <td class="text-left">
+                    <a href="#"><?php echo $column_qtx_passengers; ?></a>
+                  </td>
+                  <td class="text-left"><?php if ($sort == 'o.total') { ?>
                     <a href="<?php echo $sort_total; ?>" class="<?php echo strtolower($order); ?>"><?php echo $column_total; ?></a>
                     <?php } else { ?>
                     <a href="<?php echo $sort_total; ?>"><?php echo $column_total; ?></a>
@@ -164,7 +165,12 @@
                     <?php } else { ?>
                     <a href="<?php echo $sort_date_modified; ?>"><?php echo $column_date_modified; ?></a>
                     <?php } ?></td>
-
+                  <td class="text-left"><?php if ($sort == 'order_status') { ?>
+                    <a href="<?php echo $sort_status; ?>" class="<?php echo strtolower($order); ?>"><?php echo $column_status; ?></a>
+                    <?php } else { ?>
+                    <a href="<?php echo $sort_status; ?>"><?php echo $column_status; ?></a>
+                    <?php } ?>
+                  </td>
                   <td class="text-right"><?php echo $column_action; ?></td>
 
                 </tr>
@@ -179,16 +185,20 @@
                     <input type="checkbox" name="selected[]" value="<?php echo $order['order_id']; ?>" />
                     <?php } ?>
                     <input type="hidden" name="shipping_code[]" value="<?php echo $order['shipping_code']; ?>" /></td>
-                  <td class="text-right"><?php echo $order['order_id']; ?></td>
-                  <td class="text-left"><?php echo $order['passenger']; ?></td>
-                  <td class="text-right"><?php echo $order['carrier']; ?></td>
-                  <td class="text-right"><?php echo $order['tour']; ?></td>
+                  <td class="text-left"><?php echo $order['order_id']; ?></td>
+
+                  <td class="text-left"><?php echo $order['carrier']; ?></td>
+                  <td class="text-left"><?php echo $order['tour']; ?></td>
                   <td class="text-left"><?php  echo $order['customer']; ?></td>
-                  <td class="text-left"><?php  echo $order['order_status']; ?></td>
-                  <td class="text-right"><?php echo $order['total']; ?></td>
+                  <td class="text-left"><?php echo $order['passenger']; ?></td>
+                  <td class="text-left"><?php echo $order['total']; ?></td>
                   <td class="text-left"><?php  echo $order['date_added']; ?></td>
                   <td class="text-left"><?php  echo $order['date_modified']; ?></td>
-                  <td class="text-right"><a href="<?php echo $order['view']; ?>" data-toggle="tooltip" title="<?php echo $button_view; ?>" class="btn btn-info"><i class="fa fa-eye"></i></a> <a href="<?php echo $order['edit']; ?>" data-toggle="tooltip" title="<?php echo $button_edit; ?>" class="btn btn-primary"><i class="fa fa-pencil"></i></a></td>
+                  <td class="text-left"><?php  echo $order['order_status']; ?></td>
+                  <td class="text-right">
+                    <a href="<?php echo $order['edit']; ?>" data-toggle="tooltip" title="<?php echo $button_edit; ?>" class="btn btn-info"><i class="fa fa-pencil"></i></a>
+                    <a href="<?php echo $order['view']; ?>" data-toggle="tooltip" title="<?php echo $button_view; ?>" class="btn btn-primary"><i class="fa fa-eye"></i></a>
+                  </td>
                 </tr>
                 <?php } ?>
                 <?php } else { ?>

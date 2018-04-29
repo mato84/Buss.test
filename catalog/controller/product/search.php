@@ -108,6 +108,7 @@ class ControllerProductSearch extends Controller {
 		$data['text_sub_category'] = $this->language->get('text_sub_category');
 		$data['text_quantity'] = $this->language->get('text_quantity');
 		$data['text_manufacturer'] = $this->language->get('text_manufacturer');
+		$data['text_bus'] = $this->language->get('text_bus');
 		$data['text_model'] = $this->language->get('text_model');
 		$data['text_price'] = $this->language->get('text_price');
 		$data['text_tax'] = $this->language->get('text_tax');
@@ -192,6 +193,7 @@ class ControllerProductSearch extends Controller {
 				}
 
 				$data['products'][] = array(
+					'main_сategory'=> $this->model_catalog_product->getProductMainCategoryName($result['product_id']),
 					'product_id'  => $result['product_id'],
 					'thumb'       => $image,
 					'name'        => $result['name'],
@@ -394,39 +396,10 @@ class ControllerProductSearch extends Controller {
 	}
 	public function autocomplete(){
 		 $json = array();
-
 			$this->load->model('catalog/product');
-			if (isset($this->request->get['field_id']))
+			if (isset($this->request->get['q']))
 			{
-				$field_id = $this->request->get['field_id'];
-				switch ($field_id) {
-					case 'wherefrom':
-						$field_id = 'from';
-						break;
-					case 'where':
-							$field_id = 'to';
-							break;
-
-					default:
-						$field_id = 'from';
-						break;
-				}
-				$results = $this->model_catalog_product->getProductSearchToAutocomplite($field_id);
-
-				foreach ($results as $result) {
-					$json[] = array(
-						'name'            => strip_tags(html_entity_decode($result['name'], ENT_QUOTES, 'UTF-8')),
-						'contry_iso'        => strip_tags(html_entity_decode($result['contry_iso'], ENT_QUOTES, 'UTF-8')),
-						'city_id'           => $result['city_id']
-
-					);
-				}
-			$sort_order = array();
-
-			foreach ($json as $key => $value) {
-				$sort_order[$key] = $value['name'];
-			}
-			array_multisort($sort_order, SORT_ASC, $json);
+				$json = $this->model_catalog_product->getProductSearchToAutocomplite($this->request->get['q']);
 			}
 		$this->response->addHeader('Content-Type: application/json');
 		$this->response->setOutput(json_encode($json));

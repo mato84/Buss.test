@@ -169,6 +169,7 @@ class ControllerProductManufacturer extends Controller {
 			$data['text_empty'] = $this->language->get('text_empty');
 			$data['text_quantity'] = $this->language->get('text_quantity');
 			$data['text_manufacturer'] = $this->language->get('text_manufacturer');
+			$data['text_bus'] = $this->language->get('text_bus');				
 			$data['text_departure'] = $this->language->get('text_departure');
 			$data['text_time_road'] = $this->language->get('text_time_road');
 			$data['text_arrival'] = $this->language->get('text_arrival');
@@ -235,6 +236,7 @@ class ControllerProductManufacturer extends Controller {
 				}
 
 				$data['products'][] = array(
+					'main_сategory'=> $this->model_catalog_product->getProductMainCategoryName($result['product_id']),					
 					'product_id'  => $result['product_id'],
 					'thumb'       => $image,
 					'name'        => $result['name'],
@@ -296,17 +298,17 @@ class ControllerProductManufacturer extends Controller {
 				);
 			}
 
-			$data['sorts'][] = array(
-				'text'  => $this->language->get('text_model_asc'),
-				'value' => 'p.model-ASC',
-				'href'  => $this->url->link('product/manufacturer/info', 'manufacturer_id=' . $this->request->get['manufacturer_id'] . '&sort=p.model&order=ASC' . $url)
-			);
+			// $data['sorts'][] = array(
+			// 	'text'  => $this->language->get('text_model_asc'),
+			// 	'value' => 'p.model-ASC',
+			// 	'href'  => $this->url->link('product/manufacturer/info', 'manufacturer_id=' . $this->request->get['manufacturer_id'] . '&sort=p.model&order=ASC' . $url)
+			// );
 
-			$data['sorts'][] = array(
-				'text'  => $this->language->get('text_model_desc'),
-				'value' => 'p.model-DESC',
-				'href'  => $this->url->link('product/manufacturer/info', 'manufacturer_id=' . $this->request->get['manufacturer_id'] . '&sort=p.model&order=DESC' . $url)
-			);
+			// $data['sorts'][] = array(
+			// 	'text'  => $this->language->get('text_model_desc'),
+			// 	'value' => 'p.model-DESC',
+			// 	'href'  => $this->url->link('product/manufacturer/info', 'manufacturer_id=' . $this->request->get['manufacturer_id'] . '&sort=p.model&order=DESC' . $url)
+			// );
 
 			$url = '';
 

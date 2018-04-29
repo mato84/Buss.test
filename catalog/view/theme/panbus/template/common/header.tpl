@@ -62,11 +62,17 @@
       <div class="search-item ">
         <i class="fa fa-map-marker" aria-hidden="true"></i>
         <input type="text" id="wherefrom" placeholder="<?php echo $text_wherefrom; ?>">
+        <div class="search-item__spiner search-item__spiner-wherefrom">
+          <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+        </div>
         <div class="error error-search"><?php echo $text_choise_wherefrom; ?></div>
       </div>
       <div class="search-item">
         <i class="fa fa-map-marker" aria-hidden="true"></i>
         <input type="text" id="where" placeholder="<?php echo $text_from; ?>">
+        <div class="search-item__spiner search-item__spiner-from">
+          <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+        </div>
         <div class="error error-search"><?php echo $text_choise_from; ?></div>
       </div>
       <div class="search-item">
@@ -139,30 +145,45 @@
 
 <script type="text/javascript">
 
-var options = {
+var optionsTo = {
 
-url: function() {
-
-  return "index.php?route=product/search/autocomplete&field_id="+ document.activeElement.id;
+url: function(phrase) {
+  return "index.php?route=product/search/autocomplete&q=" + phrase;
 },
 list: {
-  // maxNumberOfElements: 10,
-  // onChooseEvent:function(){
-  //
-  // },
   onChooseEvent: function(){
-    // $('.')
-    var wherefrom = $('#wherefrom');
     var where = $('#where');
-    if(wherefrom.getSelectedItemData().city_id != undefined)
-    {
-    valueID.from_id = wherefrom.getSelectedItemData().city_id;
-  };
-    if(where.getSelectedItemData().city_id != undefined)
-    {
-    valueID.to_id = where.getSelectedItemData().city_id;
-  };
+    valueID.to_id = where.getSelectedItemData().city_id ? where.getSelectedItemData().city_id:"";
+  },
+  onLoadEvent: function() {
+    $('.search-item__spiner-from').hide();
+  },
+  match: {
+    enabled: true
+  }
+},
+template: {
+      type: "description",
+      fields: {
+          description: "contry_iso"
+      }
+  },
+  adjustWidth: false,
+  getValue: "name",
+  requestDelay: 500
+};
+var optionsFrom = {
 
+url: function(phrase) {
+  return "index.php?route=product/search/autocomplete&q=" + phrase;
+},
+list: {
+  onChooseEvent: function(){
+    var wherefrom = $('#wherefrom');
+    valueID['from_id'] =  wherefrom.getSelectedItemData().city_id ? wherefrom.getSelectedItemData().city_id:"";
+  },
+  onLoadEvent: function() {
+    $('.search-item__spiner-wherefrom').hide();
   },
   match: {
     enabled: true
@@ -176,11 +197,20 @@ template: {
   },
 
   adjustWidth: false,
-  getValue: "name"
+  getValue: "name",
+  requestDelay: 500
 
 };
-  var valueID = {} //Associative array containing data from the search fields
-  $('#wherefrom, #where').easyAutocomplete(options);
+  var valueID = { };
+  $('#where').easyAutocomplete(optionsTo);
+  $('#where').on('input', function () {
+    this.value ? $('.search-item__spiner-from').show() : $('.search-item__spiner-from').hide();
+  })
+  $('#wherefrom').easyAutocomplete(optionsFrom);
+  $('#wherefrom').on('input', function () {
+    this.value ? $('.search-item__spiner-wherefrom').show() : $('.search-item__spiner-wherefrom').hide();
+    ;
+})
   $('#search-submit').on('click',function(){
     if(!valueID['from_id']  && !valueID['to_id'] ){
      $('.error-search').show();
@@ -199,7 +229,7 @@ template: {
 
   })
   $('.search-item ').keypress(function(e){
-        if(e.which == 13){//Enter key pressed
+        if(e.which == 13){
             $('#search-submit').trigger('click');//Trigger search button click event
         }
     });

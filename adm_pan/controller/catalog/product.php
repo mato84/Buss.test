@@ -1604,9 +1604,9 @@ class ControllerCatalogProduct extends Controller {
 		if ((utf8_strlen($this->request->post['departure_time']) < 1) || (utf8_strlen($this->request->post['departure_time']) > 10)) {
 			$this->error['departure_time'] = $this->language->get('error_departure_time');
 		}
-		if ((utf8_strlen($this->request->post['time_road']) < 1) || (utf8_strlen($this->request->post['time_road']) > 20)) {
-			$this->error['time_road'] = $this->language->get('error_time_road');
-		}
+		// if ((utf8_strlen($this->request->post['time_road']) < 1) || (utf8_strlen($this->request->post['time_road']) > 20)) {
+		// 	$this->error['time_road'] = $this->language->get('error_time_road');
+		// }
 		if ((utf8_strlen($this->request->post['arrival_time']) < 1) || (utf8_strlen($this->request->post['arrival_time']) > 10)) {
 			$this->error['arrival_time'] = $this->language->get('error_arrival_time');
 		}

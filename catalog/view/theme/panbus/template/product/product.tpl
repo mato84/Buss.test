@@ -33,6 +33,11 @@
                 <?php } ?>
               </ul>
               </div>
+              <div class="product-category">
+                <ul class="list-unstyled">
+                  <li><?php echo $text_bus; ?><br> <a><span ><?php echo $main_catagory; ?></span></a></li>
+                </ul>
+              </div>
             </div>
             <div class="details-caption-right">
               <div class="product-title">
