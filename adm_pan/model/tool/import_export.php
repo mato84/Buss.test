@@ -35,9 +35,13 @@ class ModelToolImportExport extends Model{
          else{
            $tempArray[] =  array_reduce(array_keys($head_sheet),
             function($acc,$val) use ($head_sheet,$row){
-             if(!empty($row[$val])){
+             if(!empty($row[$val]) && $row[$val] !== 0){
              $acc[$head_sheet[$val]] = $row[$val];
              }
+                if($row[$val] === 0)
+                {
+                    $acc[$head_sheet[$val]] = '0';
+                }
               return $acc;
              },array());
          }
@@ -131,7 +135,7 @@ class ModelToolImportExport extends Model{
     private function updataProduct($productData) {
         $sqlQuery = 'UPDATE ' . DB_PREFIX . 'product SET';
         $sqlQuery .= array_reduce(array_keys($productData), function($carry,$key) use($productData) {
-            if(!empty($key) && !empty($productData[$key]) ){
+            if(!empty($key)){
                 if((strcasecmp($key,'from_t') == 0 || strcasecmp($key,'to_t') == 0)
                     && !is_numeric($productData[$key]) ){
                     $query = $this->db->query("SELECT c.city_id FROM ".DB_PREFIX."city c WHERE c.name = '".$productData[$key]."'");
