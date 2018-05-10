@@ -91,12 +91,24 @@ class Customer {
 		$this->address_id = '';
 	}
 
+	public function getUrlFromGroupStoreId()
+	{
+        $query = $this->db->query("SELECT s.url, s.ssl FROM oc_customer c INNER JOIN oc_customer_group cg ON c.customer_group_id = cg.customer_group_id INNER JOIN oc_store s ON cg.store_id = s.store_id WHERE c.customer_id = '" . (int)$this->customer_id ."'");
+        if ($query->row['url'] && $query->row['ssl']) {
+            return $query->row;
+        }
+        return [
+            'url' => $this->config->get('config_url'),
+            'ssl' => $this->config->get('config_secure')
+                ? $this->config->get('config_ssl') : $this->config->get('config_url')
+        ];
+	}
 	public function isLogged() {
 		return $this->customer_id;
 	}
 
 	public function getGroupShortName() {
-	    return $this-> customer_group_short_name;
+	    return $this->customer_group_short_name;
     }
 
 	public function getId() {

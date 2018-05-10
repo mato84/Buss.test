@@ -56,6 +56,23 @@
             </div>
           </div>
           <?php } ?>
+
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-tax-class"><?php echo $entry_belong_store; ?></label>
+            <div class="col-sm-10">
+              <select name="store_id" id="input-tax-class" class="form-control">
+                <option value="0">none</option>
+                <?php foreach ($stores as $store) { ?>
+                <?php if ($store['store_id'] == $store_id) { ?>
+                <option value="<?php echo $store['store_id']; ?>" selected="selected"><?php echo $store['name']; ?></option>
+                <?php } else { ?>
+                <option value="<?php echo $store['store_id']; ?>"><?php echo $store['name']; ?></option>
+                <?php } ?>
+                <?php } ?>
+              </select>
+            </div>
+          </div>
+
           <div class="form-group">
             <label class="col-sm-2 control-label"><span data-toggle="tooltip" title="<?php echo $help_approval; ?>"><?php echo $entry_approval; ?></span></label>
             <div class="col-sm-10">
