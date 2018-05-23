@@ -1,0 +1,634 @@
+[12-Dec-2017 10:04:31 UTC] PHP Warning:  unlink(/home/cbbvwkrq/public_html/system/storage/cache/cache.currency.1513072952): No such file or directory in /home/cbbvwkrq/public_html/system/library/cache/file.php on line 17
+[03-Jan-2018 07:38:57 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'Error: E-Mail to required!' in /home/cbbvwkrq/public_html/system/library/mail.php:60
+Stack trace:
+#0 /home/cbbvwkrq/public_html/catalog/model/checkout/order.php(682): Mail->send()
+#1 [internal function]: ModelCheckoutOrder->addOrderHistory(52, '1')
+#2 /home/cbbvwkrq/public_html/system/engine/loader.php(178): call_user_func_array(Array, Array)
+#3 [internal function]: Loader->{closure}(Array, Array)
+#4 /home/cbbvwkrq/public_html/system/engine/proxy.php(25): call_user_func_array(Object(Closure), Array)
+#5 /home/cbbvwkrq/public_html/catalog/controller/extension/payment/cod.php(17): Proxy->__call('addOrderHistory', Array)
+#6 /home/cbbvwkrq/public_html/catalog/controller/extension/payment/cod.php(17): Proxy->addOrderHistory(52, '1')
+#7 [internal function]: ControllerExtensionPaymentCod->confirm()
+#8 /home/cbbvwkrq/public_html/system/engine/action.php(51): call_user_func_array(Array, Array)
+#9 /home/cbbvwkrq/public_html/catalog/controller/startup/router.php(25): Action->e in /home/cbbvwkrq/public_html/system/library/mail.php on line 60
+[03-Jan-2018 07:39:09 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'Error: E-Mail to required!' in /home/cbbvwkrq/public_html/system/library/mail.php:60
+Stack trace:
+#0 /home/cbbvwkrq/public_html/catalog/model/checkout/order.php(682): Mail->send()
+#1 [internal function]: ModelCheckoutOrder->addOrderHistory(53, '1')
+#2 /home/cbbvwkrq/public_html/system/engine/loader.php(178): call_user_func_array(Array, Array)
+#3 [internal function]: Loader->{closure}(Array, Array)
+#4 /home/cbbvwkrq/public_html/system/engine/proxy.php(25): call_user_func_array(Object(Closure), Array)
+#5 /home/cbbvwkrq/public_html/catalog/controller/extension/payment/cod.php(17): Proxy->__call('addOrderHistory', Array)
+#6 /home/cbbvwkrq/public_html/catalog/controller/extension/payment/cod.php(17): Proxy->addOrderHistory(53, '1')
+#7 [internal function]: ControllerExtensionPaymentCod->confirm()
+#8 /home/cbbvwkrq/public_html/system/engine/action.php(51): call_user_func_array(Array, Array)
+#9 /home/cbbvwkrq/public_html/catalog/controller/startup/router.php(25): Action->e in /home/cbbvwkrq/public_html/system/library/mail.php on line 60
+[03-Jan-2018 07:39:33 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'Error: E-Mail to required!' in /home/cbbvwkrq/public_html/system/library/mail.php:60
+Stack trace:
+#0 /home/cbbvwkrq/public_html/catalog/model/checkout/order.php(682): Mail->send()
+#1 [internal function]: ModelCheckoutOrder->addOrderHistory(54, '1')
+#2 /home/cbbvwkrq/public_html/system/engine/loader.php(178): call_user_func_array(Array, Array)
+#3 [internal function]: Loader->{closure}(Array, Array)
+#4 /home/cbbvwkrq/public_html/system/engine/proxy.php(25): call_user_func_array(Object(Closure), Array)
+#5 /home/cbbvwkrq/public_html/catalog/controller/extension/payment/cod.php(17): Proxy->__call('addOrderHistory', Array)
+#6 /home/cbbvwkrq/public_html/catalog/controller/extension/payment/cod.php(17): Proxy->addOrderHistory(54, '1')
+#7 [internal function]: ControllerExtensionPaymentCod->confirm()
+#8 /home/cbbvwkrq/public_html/system/engine/action.php(51): call_user_func_array(Array, Array)
+#9 /home/cbbvwkrq/public_html/catalog/controller/startup/router.php(25): Action->e in /home/cbbvwkrq/public_html/system/library/mail.php on line 60
+[03-Jan-2018 07:39:38 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'Error: E-Mail to required!' in /home/cbbvwkrq/public_html/system/library/mail.php:60
+Stack trace:
+#0 /home/cbbvwkrq/public_html/catalog/model/checkout/order.php(682): Mail->send()
+#1 [internal function]: ModelCheckoutOrder->addOrderHistory(55, '1')
+#2 /home/cbbvwkrq/public_html/system/engine/loader.php(178): call_user_func_array(Array, Array)
+#3 [internal function]: Loader->{closure}(Array, Array)
+#4 /home/cbbvwkrq/public_html/system/engine/proxy.php(25): call_user_func_array(Object(Closure), Array)
+#5 /home/cbbvwkrq/public_html/catalog/controller/extension/payment/cod.php(17): Proxy->__call('addOrderHistory', Array)
+#6 /home/cbbvwkrq/public_html/catalog/controller/extension/payment/cod.php(17): Proxy->addOrderHistory(55, '1')
+#7 [internal function]: ControllerExtensionPaymentCod->confirm()
+#8 /home/cbbvwkrq/public_html/system/engine/action.php(51): call_user_func_array(Array, Array)
+#9 /home/cbbvwkrq/public_html/catalog/controller/startup/router.php(25): Action->e in /home/cbbvwkrq/public_html/system/library/mail.php on line 60
+[03-Jan-2018 07:40:10 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'Error: E-Mail to required!' in /home/cbbvwkrq/public_html/system/library/mail.php:60
+Stack trace:
+#0 /home/cbbvwkrq/public_html/catalog/model/checkout/order.php(682): Mail->send()
+#1 [internal function]: ModelCheckoutOrder->addOrderHistory(56, '1')
+#2 /home/cbbvwkrq/public_html/system/engine/loader.php(178): call_user_func_array(Array, Array)
+#3 [internal function]: Loader->{closure}(Array, Array)
+#4 /home/cbbvwkrq/public_html/system/engine/proxy.php(25): call_user_func_array(Object(Closure), Array)
+#5 /home/cbbvwkrq/public_html/catalog/controller/extension/payment/cod.php(17): Proxy->__call('addOrderHistory', Array)
+#6 /home/cbbvwkrq/public_html/catalog/controller/extension/payment/cod.php(17): Proxy->addOrderHistory(56, '1')
+#7 [internal function]: ControllerExtensionPaymentCod->confirm()
+#8 /home/cbbvwkrq/public_html/system/engine/action.php(51): call_user_func_array(Array, Array)
+#9 /home/cbbvwkrq/public_html/catalog/controller/startup/router.php(25): Action->e in /home/cbbvwkrq/public_html/system/library/mail.php on line 60
+[03-Jan-2018 07:40:16 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'Error: E-Mail to required!' in /home/cbbvwkrq/public_html/system/library/mail.php:60
+Stack trace:
+#0 /home/cbbvwkrq/public_html/catalog/model/checkout/order.php(682): Mail->send()
+#1 [internal function]: ModelCheckoutOrder->addOrderHistory(57, '1')
+#2 /home/cbbvwkrq/public_html/system/engine/loader.php(178): call_user_func_array(Array, Array)
+#3 [internal function]: Loader->{closure}(Array, Array)
+#4 /home/cbbvwkrq/public_html/system/engine/proxy.php(25): call_user_func_array(Object(Closure), Array)
+#5 /home/cbbvwkrq/public_html/catalog/controller/extension/payment/cod.php(17): Proxy->__call('addOrderHistory', Array)
+#6 /home/cbbvwkrq/public_html/catalog/controller/extension/payment/cod.php(17): Proxy->addOrderHistory(57, '1')
+#7 [internal function]: ControllerExtensionPaymentCod->confirm()
+#8 /home/cbbvwkrq/public_html/system/engine/action.php(51): call_user_func_array(Array, Array)
+#9 /home/cbbvwkrq/public_html/catalog/controller/startup/router.php(25): Action->e in /home/cbbvwkrq/public_html/system/library/mail.php on line 60
+[03-Jan-2018 07:42:07 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'Error: E-Mail to required!' in /home/cbbvwkrq/public_html/system/library/mail.php:60
+Stack trace:
+#0 /home/cbbvwkrq/public_html/catalog/model/checkout/order.php(682): Mail->send()
+#1 [internal function]: ModelCheckoutOrder->addOrderHistory(58, '1')
+#2 /home/cbbvwkrq/public_html/system/engine/loader.php(178): call_user_func_array(Array, Array)
+#3 [internal function]: Loader->{closure}(Array, Array)
+#4 /home/cbbvwkrq/public_html/system/engine/proxy.php(25): call_user_func_array(Object(Closure), Array)
+#5 /home/cbbvwkrq/public_html/catalog/controller/extension/payment/cod.php(17): Proxy->__call('addOrderHistory', Array)
+#6 /home/cbbvwkrq/public_html/catalog/controller/extension/payment/cod.php(17): Proxy->addOrderHistory(58, '1')
+#7 [internal function]: ControllerExtensionPaymentCod->confirm()
+#8 /home/cbbvwkrq/public_html/system/engine/action.php(51): call_user_func_array(Array, Array)
+#9 /home/cbbvwkrq/public_html/catalog/controller/startup/router.php(25): Action->e in /home/cbbvwkrq/public_html/system/library/mail.php on line 60
+[03-Jan-2018 07:42:21 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'Error: E-Mail to required!' in /home/cbbvwkrq/public_html/system/library/mail.php:60
+Stack trace:
+#0 /home/cbbvwkrq/public_html/catalog/model/checkout/order.php(682): Mail->send()
+#1 [internal function]: ModelCheckoutOrder->addOrderHistory(59, '1')
+#2 /home/cbbvwkrq/public_html/system/engine/loader.php(178): call_user_func_array(Array, Array)
+#3 [internal function]: Loader->{closure}(Array, Array)
+#4 /home/cbbvwkrq/public_html/system/engine/proxy.php(25): call_user_func_array(Object(Closure), Array)
+#5 /home/cbbvwkrq/public_html/catalog/controller/extension/payment/cod.php(17): Proxy->__call('addOrderHistory', Array)
+#6 /home/cbbvwkrq/public_html/catalog/controller/extension/payment/cod.php(17): Proxy->addOrderHistory(59, '1')
+#7 [internal function]: ControllerExtensionPaymentCod->confirm()
+#8 /home/cbbvwkrq/public_html/system/engine/action.php(51): call_user_func_array(Array, Array)
+#9 /home/cbbvwkrq/public_html/catalog/controller/startup/router.php(25): Action->e in /home/cbbvwkrq/public_html/system/library/mail.php on line 60
+[03-Jan-2018 07:47:18 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'Error: E-Mail to required!' in /home/cbbvwkrq/public_html/system/library/mail.php:60
+Stack trace:
+#0 /home/cbbvwkrq/public_html/catalog/model/checkout/order.php(682): Mail->send()
+#1 [internal function]: ModelCheckoutOrder->addOrderHistory(60, '1')
+#2 /home/cbbvwkrq/public_html/system/engine/loader.php(178): call_user_func_array(Array, Array)
+#3 [internal function]: Loader->{closure}(Array, Array)
+#4 /home/cbbvwkrq/public_html/system/engine/proxy.php(25): call_user_func_array(Object(Closure), Array)
+#5 /home/cbbvwkrq/public_html/catalog/controller/extension/payment/cod.php(17): Proxy->__call('addOrderHistory', Array)
+#6 /home/cbbvwkrq/public_html/catalog/controller/extension/payment/cod.php(17): Proxy->addOrderHistory(60, '1')
+#7 [internal function]: ControllerExtensionPaymentCod->confirm()
+#8 /home/cbbvwkrq/public_html/system/engine/action.php(51): call_user_func_array(Array, Array)
+#9 /home/cbbvwkrq/public_html/catalog/controller/startup/router.php(25): Action->e in /home/cbbvwkrq/public_html/system/library/mail.php on line 60
+[03-Jan-2018 07:54:39 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'Error: E-Mail to required!' in /home/cbbvwkrq/public_html/system/library/mail.php:60
+Stack trace:
+#0 /home/cbbvwkrq/public_html/catalog/model/checkout/order.php(682): Mail->send()
+#1 [internal function]: ModelCheckoutOrder->addOrderHistory(61, '1')
+#2 /home/cbbvwkrq/public_html/system/engine/loader.php(178): call_user_func_array(Array, Array)
+#3 [internal function]: Loader->{closure}(Array, Array)
+#4 /home/cbbvwkrq/public_html/system/engine/proxy.php(25): call_user_func_array(Object(Closure), Array)
+#5 /home/cbbvwkrq/public_html/catalog/controller/extension/payment/cod.php(17): Proxy->__call('addOrderHistory', Array)
+#6 /home/cbbvwkrq/public_html/catalog/controller/extension/payment/cod.php(17): Proxy->addOrderHistory(61, '1')
+#7 [internal function]: ControllerExtensionPaymentCod->confirm()
+#8 /home/cbbvwkrq/public_html/system/engine/action.php(51): call_user_func_array(Array, Array)
+#9 /home/cbbvwkrq/public_html/catalog/controller/startup/router.php(25): Action->e in /home/cbbvwkrq/public_html/system/library/mail.php on line 60
+[03-Jan-2018 07:54:44 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'Error: E-Mail to required!' in /home/cbbvwkrq/public_html/system/library/mail.php:60
+Stack trace:
+#0 /home/cbbvwkrq/public_html/catalog/model/checkout/order.php(682): Mail->send()
+#1 [internal function]: ModelCheckoutOrder->addOrderHistory(62, '1')
+#2 /home/cbbvwkrq/public_html/system/engine/loader.php(178): call_user_func_array(Array, Array)
+#3 [internal function]: Loader->{closure}(Array, Array)
+#4 /home/cbbvwkrq/public_html/system/engine/proxy.php(25): call_user_func_array(Object(Closure), Array)
+#5 /home/cbbvwkrq/public_html/catalog/controller/extension/payment/cod.php(17): Proxy->__call('addOrderHistory', Array)
+#6 /home/cbbvwkrq/public_html/catalog/controller/extension/payment/cod.php(17): Proxy->addOrderHistory(62, '1')
+#7 [internal function]: ControllerExtensionPaymentCod->confirm()
+#8 /home/cbbvwkrq/public_html/system/engine/action.php(51): call_user_func_array(Array, Array)
+#9 /home/cbbvwkrq/public_html/catalog/controller/startup/router.php(25): Action->e in /home/cbbvwkrq/public_html/system/library/mail.php on line 60
+[04-Jan-2018 13:15:33 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'Error: Table 'cbbvwkrq_panbus.oc_cart' doesn't exist<br />Error No: 1146<br />DELETE FROM oc_cart WHERE (api_id > '0' OR customer_id = '0') AND date_added < DATE_SUB(NOW(), INTERVAL 1 HOUR)' in /home/cbbvwkrq/public_html/system/library/db/mysqli.php:40
+Stack trace:
+#0 /home/cbbvwkrq/public_html/system/library/db.php(16): DB\MySQLi->query('DELETE FROM oc_...', Array)
+#1 /home/cbbvwkrq/public_html/system/library/cart/cart.php(15): DB->query('DELETE FROM oc_...')
+#2 /home/cbbvwkrq/public_html/catalog/controller/startup/startup.php(194): Cart\Cart->__construct(Object(Registry))
+#3 [internal function]: ControllerStartupStartup->index()
+#4 /home/cbbvwkrq/public_html/system/engine/action.php(51): call_user_func_array(Array, Array)
+#5 /home/cbbvwkrq/public_html/system/engine/front.php(34): Action->execute(Object(Registry))
+#6 /home/cbbvwkrq/public_html/system/engine/front.php(19): Front->execute(Object(Action))
+#7 /home/cbbvwkrq/public_html/system/framework.php(103): Front in /home/cbbvwkrq/public_html/system/library/db/mysqli.php on line 40
+[04-Jan-2018 13:15:33 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'Error: Table 'cbbvwkrq_panbus.oc_setting' doesn't exist<br />Error No: 1146<br />SELECT value FROM oc_setting WHERE store_id = '0' AND `key`='config_seo_url_type'' in /home/cbbvwkrq/public_html/system/library/db/mysqli.php:40
+Stack trace:
+#0 /home/cbbvwkrq/public_html/system/library/db.php(16): DB\MySQLi->query('SELECT value FR...', Array)
+#1 /home/cbbvwkrq/public_html/system/config/catalog.php(30): DB->query('SELECT value FR...')
+#2 /home/cbbvwkrq/public_html/system/library/config.php(23): require('/home/cbbvwkrq/...')
+#3 /home/cbbvwkrq/public_html/system/framework.php(8): Config->load('catalog')
+#4 /home/cbbvwkrq/public_html/system/startup.php(106): require_once('/home/cbbvwkrq/...')
+#5 /home/cbbvwkrq/public_html/index.php(19): start('catalog')
+#6 {main}
+  thrown in /home/cbbvwkrq/public_html/system/library/db/mysqli.php on line 40
+[04-Jan-2018 13:15:34 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'Error: Table 'cbbvwkrq_panbus.oc_setting' doesn't exist<br />Error No: 1146<br />SELECT value FROM oc_setting WHERE store_id = '0' AND `key`='config_seo_url_type'' in /home/cbbvwkrq/public_html/system/library/db/mysqli.php:40
+Stack trace:
+#0 /home/cbbvwkrq/public_html/system/library/db.php(16): DB\MySQLi->query('SELECT value FR...', Array)
+#1 /home/cbbvwkrq/public_html/system/config/catalog.php(30): DB->query('SELECT value FR...')
+#2 /home/cbbvwkrq/public_html/system/library/config.php(23): require('/home/cbbvwkrq/...')
+#3 /home/cbbvwkrq/public_html/system/framework.php(8): Config->load('catalog')
+#4 /home/cbbvwkrq/public_html/system/startup.php(106): require_once('/home/cbbvwkrq/...')
+#5 /home/cbbvwkrq/public_html/index.php(19): start('catalog')
+#6 {main}
+  thrown in /home/cbbvwkrq/public_html/system/library/db/mysqli.php on line 40
+[04-Jan-2018 13:15:34 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'Error: Table 'cbbvwkrq_panbus.oc_setting' doesn't exist<br />Error No: 1146<br />SELECT value FROM oc_setting WHERE store_id = '0' AND `key`='config_seo_url_type'' in /home/cbbvwkrq/public_html/system/library/db/mysqli.php:40
+Stack trace:
+#0 /home/cbbvwkrq/public_html/system/library/db.php(16): DB\MySQLi->query('SELECT value FR...', Array)
+#1 /home/cbbvwkrq/public_html/system/config/catalog.php(30): DB->query('SELECT value FR...')
+#2 /home/cbbvwkrq/public_html/system/library/config.php(23): require('/home/cbbvwkrq/...')
+#3 /home/cbbvwkrq/public_html/system/framework.php(8): Config->load('catalog')
+#4 /home/cbbvwkrq/public_html/system/startup.php(106): require_once('/home/cbbvwkrq/...')
+#5 /home/cbbvwkrq/public_html/index.php(19): start('catalog')
+#6 {main}
+  thrown in /home/cbbvwkrq/public_html/system/library/db/mysqli.php on line 40
+[04-Jan-2018 13:15:36 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'Error: Table 'cbbvwkrq_panbus.oc_setting' doesn't exist<br />Error No: 1146<br />SELECT value FROM oc_setting WHERE store_id = '0' AND `key`='config_seo_url_type'' in /home/cbbvwkrq/public_html/system/library/db/mysqli.php:40
+Stack trace:
+#0 /home/cbbvwkrq/public_html/system/library/db.php(16): DB\MySQLi->query('SELECT value FR...', Array)
+#1 /home/cbbvwkrq/public_html/system/config/catalog.php(30): DB->query('SELECT value FR...')
+#2 /home/cbbvwkrq/public_html/system/library/config.php(23): require('/home/cbbvwkrq/...')
+#3 /home/cbbvwkrq/public_html/system/framework.php(8): Config->load('catalog')
+#4 /home/cbbvwkrq/public_html/system/startup.php(106): require_once('/home/cbbvwkrq/...')
+#5 /home/cbbvwkrq/public_html/index.php(19): start('catalog')
+#6 {main}
+  thrown in /home/cbbvwkrq/public_html/system/library/db/mysqli.php on line 40
+[04-Jan-2018 13:15:36 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'Error: Table 'cbbvwkrq_panbus.oc_setting' doesn't exist<br />Error No: 1146<br />SELECT value FROM oc_setting WHERE store_id = '0' AND `key`='config_seo_url_type'' in /home/cbbvwkrq/public_html/system/library/db/mysqli.php:40
+Stack trace:
+#0 /home/cbbvwkrq/public_html/system/library/db.php(16): DB\MySQLi->query('SELECT value FR...', Array)
+#1 /home/cbbvwkrq/public_html/system/config/catalog.php(30): DB->query('SELECT value FR...')
+#2 /home/cbbvwkrq/public_html/system/library/config.php(23): require('/home/cbbvwkrq/...')
+#3 /home/cbbvwkrq/public_html/system/framework.php(8): Config->load('catalog')
+#4 /home/cbbvwkrq/public_html/system/startup.php(106): require_once('/home/cbbvwkrq/...')
+#5 /home/cbbvwkrq/public_html/index.php(19): start('catalog')
+#6 {main}
+  thrown in /home/cbbvwkrq/public_html/system/library/db/mysqli.php on line 40
+[04-Jan-2018 13:15:36 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'Error: Table 'cbbvwkrq_panbus.oc_setting' doesn't exist<br />Error No: 1146<br />SELECT value FROM oc_setting WHERE store_id = '0' AND `key`='config_seo_url_type'' in /home/cbbvwkrq/public_html/system/library/db/mysqli.php:40
+Stack trace:
+#0 /home/cbbvwkrq/public_html/system/library/db.php(16): DB\MySQLi->query('SELECT value FR...', Array)
+#1 /home/cbbvwkrq/public_html/system/config/catalog.php(30): DB->query('SELECT value FR...')
+#2 /home/cbbvwkrq/public_html/system/library/config.php(23): require('/home/cbbvwkrq/...')
+#3 /home/cbbvwkrq/public_html/system/framework.php(8): Config->load('catalog')
+#4 /home/cbbvwkrq/public_html/system/startup.php(106): require_once('/home/cbbvwkrq/...')
+#5 /home/cbbvwkrq/public_html/index.php(19): start('catalog')
+#6 {main}
+  thrown in /home/cbbvwkrq/public_html/system/library/db/mysqli.php on line 40
+[04-Jan-2018 13:15:37 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'Error: Table 'cbbvwkrq_panbus.oc_setting' doesn't exist<br />Error No: 1146<br />SELECT value FROM oc_setting WHERE store_id = '0' AND `key`='config_seo_url_type'' in /home/cbbvwkrq/public_html/system/library/db/mysqli.php:40
+Stack trace:
+#0 /home/cbbvwkrq/public_html/system/library/db.php(16): DB\MySQLi->query('SELECT value FR...', Array)
+#1 /home/cbbvwkrq/public_html/system/config/catalog.php(30): DB->query('SELECT value FR...')
+#2 /home/cbbvwkrq/public_html/system/library/config.php(23): require('/home/cbbvwkrq/...')
+#3 /home/cbbvwkrq/public_html/system/framework.php(8): Config->load('catalog')
+#4 /home/cbbvwkrq/public_html/system/startup.php(106): require_once('/home/cbbvwkrq/...')
+#5 /home/cbbvwkrq/public_html/index.php(19): start('catalog')
+#6 {main}
+  thrown in /home/cbbvwkrq/public_html/system/library/db/mysqli.php on line 40
+[04-Jan-2018 13:15:38 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'Error: Table 'cbbvwkrq_panbus.oc_setting' doesn't exist<br />Error No: 1146<br />SELECT value FROM oc_setting WHERE store_id = '0' AND `key`='config_seo_url_type'' in /home/cbbvwkrq/public_html/system/library/db/mysqli.php:40
+Stack trace:
+#0 /home/cbbvwkrq/public_html/system/library/db.php(16): DB\MySQLi->query('SELECT value FR...', Array)
+#1 /home/cbbvwkrq/public_html/system/config/catalog.php(30): DB->query('SELECT value FR...')
+#2 /home/cbbvwkrq/public_html/system/library/config.php(23): require('/home/cbbvwkrq/...')
+#3 /home/cbbvwkrq/public_html/system/framework.php(8): Config->load('catalog')
+#4 /home/cbbvwkrq/public_html/system/startup.php(106): require_once('/home/cbbvwkrq/...')
+#5 /home/cbbvwkrq/public_html/index.php(19): start('catalog')
+#6 {main}
+  thrown in /home/cbbvwkrq/public_html/system/library/db/mysqli.php on line 40
+[04-Jan-2018 13:15:38 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'Error: Table 'cbbvwkrq_panbus.oc_setting' doesn't exist<br />Error No: 1146<br />SELECT value FROM oc_setting WHERE store_id = '0' AND `key`='config_seo_url_type'' in /home/cbbvwkrq/public_html/system/library/db/mysqli.php:40
+Stack trace:
+#0 /home/cbbvwkrq/public_html/system/library/db.php(16): DB\MySQLi->query('SELECT value FR...', Array)
+#1 /home/cbbvwkrq/public_html/system/config/catalog.php(30): DB->query('SELECT value FR...')
+#2 /home/cbbvwkrq/public_html/system/library/config.php(23): require('/home/cbbvwkrq/...')
+#3 /home/cbbvwkrq/public_html/system/framework.php(8): Config->load('catalog')
+#4 /home/cbbvwkrq/public_html/system/startup.php(106): require_once('/home/cbbvwkrq/...')
+#5 /home/cbbvwkrq/public_html/index.php(19): start('catalog')
+#6 {main}
+  thrown in /home/cbbvwkrq/public_html/system/library/db/mysqli.php on line 40
+[04-Jan-2018 13:15:38 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'Error: Table 'cbbvwkrq_panbus.oc_setting' doesn't exist<br />Error No: 1146<br />SELECT value FROM oc_setting WHERE store_id = '0' AND `key`='config_seo_url_type'' in /home/cbbvwkrq/public_html/system/library/db/mysqli.php:40
+Stack trace:
+#0 /home/cbbvwkrq/public_html/system/library/db.php(16): DB\MySQLi->query('SELECT value FR...', Array)
+#1 /home/cbbvwkrq/public_html/system/config/catalog.php(30): DB->query('SELECT value FR...')
+#2 /home/cbbvwkrq/public_html/system/library/config.php(23): require('/home/cbbvwkrq/...')
+#3 /home/cbbvwkrq/public_html/system/framework.php(8): Config->load('catalog')
+#4 /home/cbbvwkrq/public_html/system/startup.php(106): require_once('/home/cbbvwkrq/...')
+#5 /home/cbbvwkrq/public_html/index.php(19): start('catalog')
+#6 {main}
+  thrown in /home/cbbvwkrq/public_html/system/library/db/mysqli.php on line 40
+[04-Jan-2018 13:15:38 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'Error: Table 'cbbvwkrq_panbus.oc_setting' doesn't exist<br />Error No: 1146<br />SELECT value FROM oc_setting WHERE store_id = '0' AND `key`='config_seo_url_type'' in /home/cbbvwkrq/public_html/system/library/db/mysqli.php:40
+Stack trace:
+#0 /home/cbbvwkrq/public_html/system/library/db.php(16): DB\MySQLi->query('SELECT value FR...', Array)
+#1 /home/cbbvwkrq/public_html/system/config/catalog.php(30): DB->query('SELECT value FR...')
+#2 /home/cbbvwkrq/public_html/system/library/config.php(23): require('/home/cbbvwkrq/...')
+#3 /home/cbbvwkrq/public_html/system/framework.php(8): Config->load('catalog')
+#4 /home/cbbvwkrq/public_html/system/startup.php(106): require_once('/home/cbbvwkrq/...')
+#5 /home/cbbvwkrq/public_html/index.php(19): start('catalog')
+#6 {main}
+  thrown in /home/cbbvwkrq/public_html/system/library/db/mysqli.php on line 40
+[04-Jan-2018 13:15:38 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'Error: Table 'cbbvwkrq_panbus.oc_setting' doesn't exist<br />Error No: 1146<br />SELECT value FROM oc_setting WHERE store_id = '0' AND `key`='config_seo_url_type'' in /home/cbbvwkrq/public_html/system/library/db/mysqli.php:40
+Stack trace:
+#0 /home/cbbvwkrq/public_html/system/library/db.php(16): DB\MySQLi->query('SELECT value FR...', Array)
+#1 /home/cbbvwkrq/public_html/system/config/catalog.php(30): DB->query('SELECT value FR...')
+#2 /home/cbbvwkrq/public_html/system/library/config.php(23): require('/home/cbbvwkrq/...')
+#3 /home/cbbvwkrq/public_html/system/framework.php(8): Config->load('catalog')
+#4 /home/cbbvwkrq/public_html/system/startup.php(106): require_once('/home/cbbvwkrq/...')
+#5 /home/cbbvwkrq/public_html/index.php(19): start('catalog')
+#6 {main}
+  thrown in /home/cbbvwkrq/public_html/system/library/db/mysqli.php on line 40
+[04-Jan-2018 13:15:38 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'Error: Table 'cbbvwkrq_panbus.oc_setting' doesn't exist<br />Error No: 1146<br />SELECT value FROM oc_setting WHERE store_id = '0' AND `key`='config_seo_url_type'' in /home/cbbvwkrq/public_html/system/library/db/mysqli.php:40
+Stack trace:
+#0 /home/cbbvwkrq/public_html/system/library/db.php(16): DB\MySQLi->query('SELECT value FR...', Array)
+#1 /home/cbbvwkrq/public_html/system/config/catalog.php(30): DB->query('SELECT value FR...')
+#2 /home/cbbvwkrq/public_html/system/library/config.php(23): require('/home/cbbvwkrq/...')
+#3 /home/cbbvwkrq/public_html/system/framework.php(8): Config->load('catalog')
+#4 /home/cbbvwkrq/public_html/system/startup.php(106): require_once('/home/cbbvwkrq/...')
+#5 /home/cbbvwkrq/public_html/index.php(19): start('catalog')
+#6 {main}
+  thrown in /home/cbbvwkrq/public_html/system/library/db/mysqli.php on line 40
+[04-Jan-2018 13:15:40 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'Error: Table 'cbbvwkrq_panbus.oc_setting' doesn't exist<br />Error No: 1146<br />SELECT value FROM oc_setting WHERE store_id = '0' AND `key`='config_seo_url_type'' in /home/cbbvwkrq/public_html/system/library/db/mysqli.php:40
+Stack trace:
+#0 /home/cbbvwkrq/public_html/system/library/db.php(16): DB\MySQLi->query('SELECT value FR...', Array)
+#1 /home/cbbvwkrq/public_html/system/config/catalog.php(30): DB->query('SELECT value FR...')
+#2 /home/cbbvwkrq/public_html/system/library/config.php(23): require('/home/cbbvwkrq/...')
+#3 /home/cbbvwkrq/public_html/system/framework.php(8): Config->load('catalog')
+#4 /home/cbbvwkrq/public_html/system/startup.php(106): require_once('/home/cbbvwkrq/...')
+#5 /home/cbbvwkrq/public_html/index.php(19): start('catalog')
+#6 {main}
+  thrown in /home/cbbvwkrq/public_html/system/library/db/mysqli.php on line 40
+[04-Jan-2018 13:15:41 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'Error: Table 'cbbvwkrq_panbus.oc_setting' doesn't exist<br />Error No: 1146<br />SELECT value FROM oc_setting WHERE store_id = '0' AND `key`='config_seo_url_type'' in /home/cbbvwkrq/public_html/system/library/db/mysqli.php:40
+Stack trace:
+#0 /home/cbbvwkrq/public_html/system/library/db.php(16): DB\MySQLi->query('SELECT value FR...', Array)
+#1 /home/cbbvwkrq/public_html/system/config/catalog.php(30): DB->query('SELECT value FR...')
+#2 /home/cbbvwkrq/public_html/system/library/config.php(23): require('/home/cbbvwkrq/...')
+#3 /home/cbbvwkrq/public_html/system/framework.php(8): Config->load('catalog')
+#4 /home/cbbvwkrq/public_html/system/startup.php(106): require_once('/home/cbbvwkrq/...')
+#5 /home/cbbvwkrq/public_html/index.php(19): start('catalog')
+#6 {main}
+  thrown in /home/cbbvwkrq/public_html/system/library/db/mysqli.php on line 40
+[04-Jan-2018 13:15:41 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'Error: Table 'cbbvwkrq_panbus.oc_setting' doesn't exist<br />Error No: 1146<br />SELECT value FROM oc_setting WHERE store_id = '0' AND `key`='config_seo_url_type'' in /home/cbbvwkrq/public_html/system/library/db/mysqli.php:40
+Stack trace:
+#0 /home/cbbvwkrq/public_html/system/library/db.php(16): DB\MySQLi->query('SELECT value FR...', Array)
+#1 /home/cbbvwkrq/public_html/system/config/catalog.php(30): DB->query('SELECT value FR...')
+#2 /home/cbbvwkrq/public_html/system/library/config.php(23): require('/home/cbbvwkrq/...')
+#3 /home/cbbvwkrq/public_html/system/framework.php(8): Config->load('catalog')
+#4 /home/cbbvwkrq/public_html/system/startup.php(106): require_once('/home/cbbvwkrq/...')
+#5 /home/cbbvwkrq/public_html/index.php(19): start('catalog')
+#6 {main}
+  thrown in /home/cbbvwkrq/public_html/system/library/db/mysqli.php on line 40
+[04-Jan-2018 13:15:42 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'Error: Table 'cbbvwkrq_panbus.oc_store' doesn't exist<br />Error No: 1146<br />SELECT * FROM oc_store WHERE REPLACE(`ssl`, 'www.', '') = 'https://panbus.com.ua/'' in /home/cbbvwkrq/public_html/system/library/db/mysqli.php:40
+Stack trace:
+#0 /home/cbbvwkrq/public_html/system/library/db.php(16): DB\MySQLi->query('SELECT * FROM o...', Array)
+#1 /home/cbbvwkrq/public_html/catalog/controller/startup/startup.php(6): DB->query('SELECT * FROM o...')
+#2 [internal function]: ControllerStartupStartup->index()
+#3 /home/cbbvwkrq/public_html/system/engine/action.php(51): call_user_func_array(Array, Array)
+#4 /home/cbbvwkrq/public_html/system/engine/front.php(34): Action->execute(Object(Registry))
+#5 /home/cbbvwkrq/public_html/system/engine/front.php(19): Front->execute(Object(Action))
+#6 /home/cbbvwkrq/public_html/system/framework.php(103): Front->dispatch(Object(Action), Object(Action))
+#7 /home/cbbvwkrq/public_html/system/startup.php(106): require_once('/home/cbbvwkrq/...')
+#8 in /home/cbbvwkrq/public_html/system/library/db/mysqli.php on line 40
+[04-Jan-2018 13:15:42 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'Error: Table 'cbbvwkrq_panbus.oc_zone_to_geo_zone' doesn't exist<br />Error No: 1146<br />SELECT tr1.tax_class_id, tr2.tax_rate_id, tr2.name, tr2.rate, tr2.type, tr1.priority FROM oc_tax_rule tr1 LEFT JOIN oc_tax_rate tr2 ON (tr1.tax_rate_id = tr2.tax_rate_id) INNER JOIN oc_tax_rate_to_customer_group tr2cg ON (tr2.tax_rate_id = tr2cg.tax_rate_id) LEFT JOIN oc_zone_to_geo_zone z2gz ON (tr2.geo_zone_id = z2gz.geo_zone_id) LEFT JOIN oc_geo_zone gz ON (tr2.geo_zone_id = gz.geo_zone_id) WHERE tr1.based = 'shipping' AND tr2cg.customer_group_id = '1' AND z2gz.country_id = '220' AND (z2gz.zone_id = '0' OR z2gz.zone_id = '0') ORDER BY tr1.priority ASC' in /home/cbbvwkrq/public_html/system/library/db/mysqli.php:40
+Stack trace:
+#0 /home/cbbvwkrq/public_html/system/library/db.php(16): DB\MySQLi->query('SELECT tr1.tax_...', Array)
+#1 /home/cbbvwkrq/public_html/system/library/cart/tax.php(17): DB->query('SELECT tr1.tax_...')
+#2 /home/cbbvwkrq/public_html/catalog/controller/start in /home/cbbvwkrq/public_html/system/library/db/mysqli.php on line 40
+[05-Jan-2018 15:29:59 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'Error: E-Mail to required!' in /home/cbbvwkrq/public_html/system/library/mail.php:60
+Stack trace:
+#0 /home/cbbvwkrq/public_html/catalog/model/checkout/order.php(682): Mail->send()
+#1 [internal function]: ModelCheckoutOrder->addOrderHistory(64, '1')
+#2 /home/cbbvwkrq/public_html/system/engine/loader.php(178): call_user_func_array(Array, Array)
+#3 [internal function]: Loader->{closure}(Array, Array)
+#4 /home/cbbvwkrq/public_html/system/engine/proxy.php(25): call_user_func_array(Object(Closure), Array)
+#5 /home/cbbvwkrq/public_html/catalog/controller/extension/payment/cod.php(17): Proxy->__call('addOrderHistory', Array)
+#6 /home/cbbvwkrq/public_html/catalog/controller/extension/payment/cod.php(17): Proxy->addOrderHistory(64, '1')
+#7 [internal function]: ControllerExtensionPaymentCod->confirm()
+#8 /home/cbbvwkrq/public_html/system/engine/action.php(51): call_user_func_array(Array, Array)
+#9 /home/cbbvwkrq/public_html/catalog/controller/startup/router.php(25): Action->e in /home/cbbvwkrq/public_html/system/library/mail.php on line 60
+[05-Jan-2018 15:30:06 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'Error: E-Mail to required!' in /home/cbbvwkrq/public_html/system/library/mail.php:60
+Stack trace:
+#0 /home/cbbvwkrq/public_html/catalog/model/checkout/order.php(682): Mail->send()
+#1 [internal function]: ModelCheckoutOrder->addOrderHistory(65, '1')
+#2 /home/cbbvwkrq/public_html/system/engine/loader.php(178): call_user_func_array(Array, Array)
+#3 [internal function]: Loader->{closure}(Array, Array)
+#4 /home/cbbvwkrq/public_html/system/engine/proxy.php(25): call_user_func_array(Object(Closure), Array)
+#5 /home/cbbvwkrq/public_html/catalog/controller/extension/payment/cod.php(17): Proxy->__call('addOrderHistory', Array)
+#6 /home/cbbvwkrq/public_html/catalog/controller/extension/payment/cod.php(17): Proxy->addOrderHistory(65, '1')
+#7 [internal function]: ControllerExtensionPaymentCod->confirm()
+#8 /home/cbbvwkrq/public_html/system/engine/action.php(51): call_user_func_array(Array, Array)
+#9 /home/cbbvwkrq/public_html/catalog/controller/startup/router.php(25): Action->e in /home/cbbvwkrq/public_html/system/library/mail.php on line 60
+[05-Jan-2018 15:30:13 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'Error: E-Mail to required!' in /home/cbbvwkrq/public_html/system/library/mail.php:60
+Stack trace:
+#0 /home/cbbvwkrq/public_html/catalog/model/checkout/order.php(682): Mail->send()
+#1 [internal function]: ModelCheckoutOrder->addOrderHistory(66, '1')
+#2 /home/cbbvwkrq/public_html/system/engine/loader.php(178): call_user_func_array(Array, Array)
+#3 [internal function]: Loader->{closure}(Array, Array)
+#4 /home/cbbvwkrq/public_html/system/engine/proxy.php(25): call_user_func_array(Object(Closure), Array)
+#5 /home/cbbvwkrq/public_html/catalog/controller/extension/payment/cod.php(17): Proxy->__call('addOrderHistory', Array)
+#6 /home/cbbvwkrq/public_html/catalog/controller/extension/payment/cod.php(17): Proxy->addOrderHistory(66, '1')
+#7 [internal function]: ControllerExtensionPaymentCod->confirm()
+#8 /home/cbbvwkrq/public_html/system/engine/action.php(51): call_user_func_array(Array, Array)
+#9 /home/cbbvwkrq/public_html/catalog/controller/startup/router.php(25): Action->e in /home/cbbvwkrq/public_html/system/library/mail.php on line 60
+[05-Jan-2018 17:04:26 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'Error: E-Mail to required!' in /home/cbbvwkrq/public_html/system/library/mail.php:60
+Stack trace:
+#0 /home/cbbvwkrq/public_html/catalog/model/checkout/order.php(682): Mail->send()
+#1 [internal function]: ModelCheckoutOrder->addOrderHistory(67, '1')
+#2 /home/cbbvwkrq/public_html/system/engine/loader.php(178): call_user_func_array(Array, Array)
+#3 [internal function]: Loader->{closure}(Array, Array)
+#4 /home/cbbvwkrq/public_html/system/engine/proxy.php(25): call_user_func_array(Object(Closure), Array)
+#5 /home/cbbvwkrq/public_html/catalog/controller/extension/payment/cod.php(17): Proxy->__call('addOrderHistory', Array)
+#6 /home/cbbvwkrq/public_html/catalog/controller/extension/payment/cod.php(17): Proxy->addOrderHistory(67, '1')
+#7 [internal function]: ControllerExtensionPaymentCod->confirm()
+#8 /home/cbbvwkrq/public_html/system/engine/action.php(51): call_user_func_array(Array, Array)
+#9 /home/cbbvwkrq/public_html/catalog/controller/startup/router.php(25): Action->e in /home/cbbvwkrq/public_html/system/library/mail.php on line 60
+[05-Jan-2018 17:04:36 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'Error: E-Mail to required!' in /home/cbbvwkrq/public_html/system/library/mail.php:60
+Stack trace:
+#0 /home/cbbvwkrq/public_html/catalog/model/checkout/order.php(682): Mail->send()
+#1 [internal function]: ModelCheckoutOrder->addOrderHistory(68, '1')
+#2 /home/cbbvwkrq/public_html/system/engine/loader.php(178): call_user_func_array(Array, Array)
+#3 [internal function]: Loader->{closure}(Array, Array)
+#4 /home/cbbvwkrq/public_html/system/engine/proxy.php(25): call_user_func_array(Object(Closure), Array)
+#5 /home/cbbvwkrq/public_html/catalog/controller/extension/payment/cod.php(17): Proxy->__call('addOrderHistory', Array)
+#6 /home/cbbvwkrq/public_html/catalog/controller/extension/payment/cod.php(17): Proxy->addOrderHistory(68, '1')
+#7 [internal function]: ControllerExtensionPaymentCod->confirm()
+#8 /home/cbbvwkrq/public_html/system/engine/action.php(51): call_user_func_array(Array, Array)
+#9 /home/cbbvwkrq/public_html/catalog/controller/startup/router.php(25): Action->e in /home/cbbvwkrq/public_html/system/library/mail.php on line 60
+[05-Jan-2018 17:09:43 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'Error: E-Mail to required!' in /home/cbbvwkrq/public_html/system/library/mail.php:60
+Stack trace:
+#0 /home/cbbvwkrq/public_html/catalog/model/checkout/order.php(682): Mail->send()
+#1 [internal function]: ModelCheckoutOrder->addOrderHistory(70, '1')
+#2 /home/cbbvwkrq/public_html/system/engine/loader.php(178): call_user_func_array(Array, Array)
+#3 [internal function]: Loader->{closure}(Array, Array)
+#4 /home/cbbvwkrq/public_html/system/engine/proxy.php(25): call_user_func_array(Object(Closure), Array)
+#5 /home/cbbvwkrq/public_html/catalog/controller/extension/payment/cod.php(17): Proxy->__call('addOrderHistory', Array)
+#6 /home/cbbvwkrq/public_html/catalog/controller/extension/payment/cod.php(17): Proxy->addOrderHistory(70, '1')
+#7 [internal function]: ControllerExtensionPaymentCod->confirm()
+#8 /home/cbbvwkrq/public_html/system/engine/action.php(51): call_user_func_array(Array, Array)
+#9 /home/cbbvwkrq/public_html/catalog/controller/startup/router.php(25): Action->e in /home/cbbvwkrq/public_html/system/library/mail.php on line 60
+[06-Jan-2018 12:21:43 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'Error: E-Mail to required!' in /home/cbbvwkrq/public_html/system/library/mail.php:60
+Stack trace:
+#0 /home/cbbvwkrq/public_html/catalog/model/checkout/order.php(682): Mail->send()
+#1 [internal function]: ModelCheckoutOrder->addOrderHistory(71, '1')
+#2 /home/cbbvwkrq/public_html/system/engine/loader.php(178): call_user_func_array(Array, Array)
+#3 [internal function]: Loader->{closure}(Array, Array)
+#4 /home/cbbvwkrq/public_html/system/engine/proxy.php(25): call_user_func_array(Object(Closure), Array)
+#5 /home/cbbvwkrq/public_html/catalog/controller/extension/payment/cod.php(17): Proxy->__call('addOrderHistory', Array)
+#6 /home/cbbvwkrq/public_html/catalog/controller/extension/payment/cod.php(17): Proxy->addOrderHistory(71, '1')
+#7 [internal function]: ControllerExtensionPaymentCod->confirm()
+#8 /home/cbbvwkrq/public_html/system/engine/action.php(51): call_user_func_array(Array, Array)
+#9 /home/cbbvwkrq/public_html/catalog/controller/startup/router.php(25): Action->e in /home/cbbvwkrq/public_html/system/library/mail.php on line 60
+[07-Jan-2018 11:31:41 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'Error: E-Mail to required!' in /home/cbbvwkrq/public_html/system/library/mail.php:60
+Stack trace:
+#0 /home/cbbvwkrq/public_html/system/storage/modification/catalog/model/checkout/order.php(684): Mail->send()
+#1 [internal function]: ModelCheckoutOrder->addOrderHistory(72, '1')
+#2 /home/cbbvwkrq/public_html/system/storage/modification/system/engine/loader.php(178): call_user_func_array(Array, Array)
+#3 [internal function]: Loader->{closure}(Array, Array)
+#4 /home/cbbvwkrq/public_html/system/engine/proxy.php(25): call_user_func_array(Object(Closure), Array)
+#5 /home/cbbvwkrq/public_html/catalog/controller/extension/payment/cod.php(18): Proxy->__call('addOrderHistory', Array)
+#6 /home/cbbvwkrq/public_html/catalog/controller/extension/payment/cod.php(18): Proxy->addOrderHistory(72, '1')
+#7 [internal function]: ControllerExtensionPaymentCod->confirm()
+#8 /home/cbbvwkrq/public_html/system/storage/modification/system/engine/action.php(51): call_user_func_array(Array, Array in /home/cbbvwkrq/public_html/system/library/mail.php on line 60
+[07-Jan-2018 11:39:35 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'Error: E-Mail to required!' in /home/cbbvwkrq/public_html/system/library/mail.php:60
+Stack trace:
+#0 /home/cbbvwkrq/public_html/system/storage/modification/catalog/model/checkout/order.php(684): Mail->send()
+#1 [internal function]: ModelCheckoutOrder->addOrderHistory(74, '1')
+#2 /home/cbbvwkrq/public_html/system/storage/modification/system/engine/loader.php(178): call_user_func_array(Array, Array)
+#3 [internal function]: Loader->{closure}(Array, Array)
+#4 /home/cbbvwkrq/public_html/system/engine/proxy.php(25): call_user_func_array(Object(Closure), Array)
+#5 /home/cbbvwkrq/public_html/catalog/controller/extension/payment/cod.php(18): Proxy->__call('addOrderHistory', Array)
+#6 /home/cbbvwkrq/public_html/catalog/controller/extension/payment/cod.php(18): Proxy->addOrderHistory(74, '1')
+#7 [internal function]: ControllerExtensionPaymentCod->confirm()
+#8 /home/cbbvwkrq/public_html/system/storage/modification/system/engine/action.php(51): call_user_func_array(Array, Array in /home/cbbvwkrq/public_html/system/library/mail.php on line 60
+[07-Jan-2018 11:49:05 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'Error: E-Mail to required!' in /home/cbbvwkrq/public_html/system/library/mail.php:60
+Stack trace:
+#0 /home/cbbvwkrq/public_html/system/storage/modification/catalog/model/checkout/order.php(684): Mail->send()
+#1 [internal function]: ModelCheckoutOrder->addOrderHistory(75, '1')
+#2 /home/cbbvwkrq/public_html/system/storage/modification/system/engine/loader.php(178): call_user_func_array(Array, Array)
+#3 [internal function]: Loader->{closure}(Array, Array)
+#4 /home/cbbvwkrq/public_html/system/engine/proxy.php(25): call_user_func_array(Object(Closure), Array)
+#5 /home/cbbvwkrq/public_html/catalog/controller/extension/payment/cod.php(18): Proxy->__call('addOrderHistory', Array)
+#6 /home/cbbvwkrq/public_html/catalog/controller/extension/payment/cod.php(18): Proxy->addOrderHistory(75, '1')
+#7 [internal function]: ControllerExtensionPaymentCod->confirm()
+#8 /home/cbbvwkrq/public_html/system/storage/modification/system/engine/action.php(51): call_user_func_array(Array, Array in /home/cbbvwkrq/public_html/system/library/mail.php on line 60
+[07-Jan-2018 11:51:27 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'Error: E-Mail to required!' in /home/cbbvwkrq/public_html/system/library/mail.php:60
+Stack trace:
+#0 /home/cbbvwkrq/public_html/system/storage/modification/catalog/model/checkout/order.php(684): Mail->send()
+#1 [internal function]: ModelCheckoutOrder->addOrderHistory(76, '1')
+#2 /home/cbbvwkrq/public_html/system/storage/modification/system/engine/loader.php(178): call_user_func_array(Array, Array)
+#3 [internal function]: Loader->{closure}(Array, Array)
+#4 /home/cbbvwkrq/public_html/system/engine/proxy.php(25): call_user_func_array(Object(Closure), Array)
+#5 /home/cbbvwkrq/public_html/catalog/controller/extension/payment/cod.php(18): Proxy->__call('addOrderHistory', Array)
+#6 /home/cbbvwkrq/public_html/catalog/controller/extension/payment/cod.php(18): Proxy->addOrderHistory(76, '1')
+#7 [internal function]: ControllerExtensionPaymentCod->confirm()
+#8 /home/cbbvwkrq/public_html/system/storage/modification/system/engine/action.php(51): call_user_func_array(Array, Array in /home/cbbvwkrq/public_html/system/library/mail.php on line 60
+[07-Jan-2018 11:54:14 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'Error: E-Mail to required!' in /home/cbbvwkrq/public_html/system/library/mail.php:60
+Stack trace:
+#0 /home/cbbvwkrq/public_html/system/storage/modification/catalog/model/checkout/order.php(684): Mail->send()
+#1 [internal function]: ModelCheckoutOrder->addOrderHistory(77, '1')
+#2 /home/cbbvwkrq/public_html/system/storage/modification/system/engine/loader.php(178): call_user_func_array(Array, Array)
+#3 [internal function]: Loader->{closure}(Array, Array)
+#4 /home/cbbvwkrq/public_html/system/engine/proxy.php(25): call_user_func_array(Object(Closure), Array)
+#5 /home/cbbvwkrq/public_html/catalog/controller/extension/payment/cod.php(18): Proxy->__call('addOrderHistory', Array)
+#6 /home/cbbvwkrq/public_html/catalog/controller/extension/payment/cod.php(18): Proxy->addOrderHistory(77, '1')
+#7 [internal function]: ControllerExtensionPaymentCod->confirm()
+#8 /home/cbbvwkrq/public_html/system/storage/modification/system/engine/action.php(51): call_user_func_array(Array, Array in /home/cbbvwkrq/public_html/system/library/mail.php on line 60
+[07-Jan-2018 11:54:47 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'Error: E-Mail to required!' in /home/cbbvwkrq/public_html/system/library/mail.php:60
+Stack trace:
+#0 /home/cbbvwkrq/public_html/system/storage/modification/catalog/model/checkout/order.php(684): Mail->send()
+#1 [internal function]: ModelCheckoutOrder->addOrderHistory(78, '1')
+#2 /home/cbbvwkrq/public_html/system/storage/modification/system/engine/loader.php(178): call_user_func_array(Array, Array)
+#3 [internal function]: Loader->{closure}(Array, Array)
+#4 /home/cbbvwkrq/public_html/system/engine/proxy.php(25): call_user_func_array(Object(Closure), Array)
+#5 /home/cbbvwkrq/public_html/catalog/controller/extension/payment/cod.php(18): Proxy->__call('addOrderHistory', Array)
+#6 /home/cbbvwkrq/public_html/catalog/controller/extension/payment/cod.php(18): Proxy->addOrderHistory(78, '1')
+#7 [internal function]: ControllerExtensionPaymentCod->confirm()
+#8 /home/cbbvwkrq/public_html/system/storage/modification/system/engine/action.php(51): call_user_func_array(Array, Array in /home/cbbvwkrq/public_html/system/library/mail.php on line 60
+[07-Jan-2018 12:01:16 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'Error: E-Mail to required!' in /home/cbbvwkrq/public_html/system/library/mail.php:60
+Stack trace:
+#0 /home/cbbvwkrq/public_html/system/storage/modification/catalog/model/checkout/order.php(684): Mail->send()
+#1 [internal function]: ModelCheckoutOrder->addOrderHistory(79, '1')
+#2 /home/cbbvwkrq/public_html/system/storage/modification/system/engine/loader.php(178): call_user_func_array(Array, Array)
+#3 [internal function]: Loader->{closure}(Array, Array)
+#4 /home/cbbvwkrq/public_html/system/engine/proxy.php(25): call_user_func_array(Object(Closure), Array)
+#5 /home/cbbvwkrq/public_html/catalog/controller/extension/payment/cod.php(18): Proxy->__call('addOrderHistory', Array)
+#6 /home/cbbvwkrq/public_html/catalog/controller/extension/payment/cod.php(18): Proxy->addOrderHistory(79, '1')
+#7 [internal function]: ControllerExtensionPaymentCod->confirm()
+#8 /home/cbbvwkrq/public_html/system/storage/modification/system/engine/action.php(51): call_user_func_array(Array, Array in /home/cbbvwkrq/public_html/system/library/mail.php on line 60
+[07-Jan-2018 12:14:30 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'Error: E-Mail to required!' in /home/cbbvwkrq/public_html/system/library/mail.php:60
+Stack trace:
+#0 /home/cbbvwkrq/public_html/system/storage/modification/catalog/model/checkout/order.php(684): Mail->send()
+#1 [internal function]: ModelCheckoutOrder->addOrderHistory(81, '1')
+#2 /home/cbbvwkrq/public_html/system/storage/modification/system/engine/loader.php(178): call_user_func_array(Array, Array)
+#3 [internal function]: Loader->{closure}(Array, Array)
+#4 /home/cbbvwkrq/public_html/system/engine/proxy.php(25): call_user_func_array(Object(Closure), Array)
+#5 /home/cbbvwkrq/public_html/catalog/controller/extension/payment/cod.php(18): Proxy->__call('addOrderHistory', Array)
+#6 /home/cbbvwkrq/public_html/catalog/controller/extension/payment/cod.php(18): Proxy->addOrderHistory(81, '1')
+#7 [internal function]: ControllerExtensionPaymentCod->confirm()
+#8 /home/cbbvwkrq/public_html/system/storage/modification/system/engine/action.php(51): call_user_func_array(Array, Array in /home/cbbvwkrq/public_html/system/library/mail.php on line 60
+[07-Jan-2018 12:19:36 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'Error: E-Mail to required!' in /home/cbbvwkrq/public_html/system/library/mail.php:60
+Stack trace:
+#0 /home/cbbvwkrq/public_html/system/storage/modification/catalog/model/checkout/order.php(684): Mail->send()
+#1 [internal function]: ModelCheckoutOrder->addOrderHistory(82, '1')
+#2 /home/cbbvwkrq/public_html/system/storage/modification/system/engine/loader.php(178): call_user_func_array(Array, Array)
+#3 [internal function]: Loader->{closure}(Array, Array)
+#4 /home/cbbvwkrq/public_html/system/engine/proxy.php(25): call_user_func_array(Object(Closure), Array)
+#5 /home/cbbvwkrq/public_html/catalog/controller/extension/payment/cod.php(18): Proxy->__call('addOrderHistory', Array)
+#6 /home/cbbvwkrq/public_html/catalog/controller/extension/payment/cod.php(18): Proxy->addOrderHistory(82, '1')
+#7 [internal function]: ControllerExtensionPaymentCod->confirm()
+#8 /home/cbbvwkrq/public_html/system/storage/modification/system/engine/action.php(51): call_user_func_array(Array, Array in /home/cbbvwkrq/public_html/system/library/mail.php on line 60
+[07-Jan-2018 12:20:45 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'Error: E-Mail to required!' in /home/cbbvwkrq/public_html/system/library/mail.php:60
+Stack trace:
+#0 /home/cbbvwkrq/public_html/system/storage/modification/catalog/model/checkout/order.php(684): Mail->send()
+#1 [internal function]: ModelCheckoutOrder->addOrderHistory(83, '1')
+#2 /home/cbbvwkrq/public_html/system/storage/modification/system/engine/loader.php(178): call_user_func_array(Array, Array)
+#3 [internal function]: Loader->{closure}(Array, Array)
+#4 /home/cbbvwkrq/public_html/system/engine/proxy.php(25): call_user_func_array(Object(Closure), Array)
+#5 /home/cbbvwkrq/public_html/catalog/controller/extension/payment/cod.php(18): Proxy->__call('addOrderHistory', Array)
+#6 /home/cbbvwkrq/public_html/catalog/controller/extension/payment/cod.php(18): Proxy->addOrderHistory(83, '1')
+#7 [internal function]: ControllerExtensionPaymentCod->confirm()
+#8 /home/cbbvwkrq/public_html/system/storage/modification/system/engine/action.php(51): call_user_func_array(Array, Array in /home/cbbvwkrq/public_html/system/library/mail.php on line 60
+[07-Jan-2018 12:21:35 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'Error: E-Mail to required!' in /home/cbbvwkrq/public_html/system/library/mail.php:60
+Stack trace:
+#0 /home/cbbvwkrq/public_html/system/storage/modification/catalog/model/checkout/order.php(684): Mail->send()
+#1 [internal function]: ModelCheckoutOrder->addOrderHistory(84, '1')
+#2 /home/cbbvwkrq/public_html/system/storage/modification/system/engine/loader.php(178): call_user_func_array(Array, Array)
+#3 [internal function]: Loader->{closure}(Array, Array)
+#4 /home/cbbvwkrq/public_html/system/engine/proxy.php(25): call_user_func_array(Object(Closure), Array)
+#5 /home/cbbvwkrq/public_html/catalog/controller/extension/payment/cod.php(18): Proxy->__call('addOrderHistory', Array)
+#6 /home/cbbvwkrq/public_html/catalog/controller/extension/payment/cod.php(18): Proxy->addOrderHistory(84, '1')
+#7 [internal function]: ControllerExtensionPaymentCod->confirm()
+#8 /home/cbbvwkrq/public_html/system/storage/modification/system/engine/action.php(51): call_user_func_array(Array, Array in /home/cbbvwkrq/public_html/system/library/mail.php on line 60
+[07-Jan-2018 12:23:19 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'Error: E-Mail to required!' in /home/cbbvwkrq/public_html/system/library/mail.php:60
+Stack trace:
+#0 /home/cbbvwkrq/public_html/system/storage/modification/catalog/model/checkout/order.php(684): Mail->send()
+#1 [internal function]: ModelCheckoutOrder->addOrderHistory(85, '1')
+#2 /home/cbbvwkrq/public_html/system/storage/modification/system/engine/loader.php(178): call_user_func_array(Array, Array)
+#3 [internal function]: Loader->{closure}(Array, Array)
+#4 /home/cbbvwkrq/public_html/system/engine/proxy.php(25): call_user_func_array(Object(Closure), Array)
+#5 /home/cbbvwkrq/public_html/catalog/controller/extension/payment/cod.php(18): Proxy->__call('addOrderHistory', Array)
+#6 /home/cbbvwkrq/public_html/catalog/controller/extension/payment/cod.php(18): Proxy->addOrderHistory(85, '1')
+#7 [internal function]: ControllerExtensionPaymentCod->confirm()
+#8 /home/cbbvwkrq/public_html/system/storage/modification/system/engine/action.php(51): call_user_func_array(Array, Array in /home/cbbvwkrq/public_html/system/library/mail.php on line 60
+[14-Jan-2018 17:13:44 UTC] PHP Parse error:  syntax error, unexpected '$server' (T_VARIABLE) in /home/cbbvwkrq/public_html/catalog/controller/common/header.php on line 20
+[28-Feb-2018 05:02:00 UTC] PHP Warning:  unlink(/home/cbbvwkrq/public_html/system/storage/cache/cache.currency.1519790902): No such file or directory in /home/cbbvwkrq/public_html/system/library/cache/file.php on line 17
+[07-Apr-2018 17:58:52 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'Error: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'ян ', 'Михайлюк ', '380682637326', 'no_mail@panbus.com.ua' )' at line 1<br />Error No: 1064<br />INSERT INTO oc_passenger (name, surname, phone, email) VALUES ('Мар'ян ', 'Михайлюк ', '380682637326', 'no_mail@panbus.com.ua' )' in /home/cbbvwkrq/public_html/system/library/db/mysqli.php:40
+Stack trace:
+#0 /home/cbbvwkrq/public_html/system/library/db.php(16): DB\MySQLi->query('INSERT INTO oc_...', Array)
+#1 /home/cbbvwkrq/public_html/catalog/model/catalog/passenger.php(14): DB->query('INSERT INTO oc_...')
+#2 [internal function]: ModelCatalogPassenger->addPassengers(Array)
+#3 /home/cbbvwkrq/public_html/system/storage/modification/system/engine/loader.php(178): call_user_func_array(Array, Array)
+#4 [internal function]: Loader->{closure}(Array, Array)
+#5 /home/cbbvwkrq/public_html/system/engine/proxy.php(25 in /home/cbbvwkrq/public_html/system/library/db/mysqli.php on line 40
+[07-Apr-2018 17:58:57 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'Error: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'ян ', 'Михайлюк ', '380682637326', 'no_mail@panbus.com.ua' )' at line 1<br />Error No: 1064<br />INSERT INTO oc_passenger (name, surname, phone, email) VALUES ('Мар'ян ', 'Михайлюк ', '380682637326', 'no_mail@panbus.com.ua' )' in /home/cbbvwkrq/public_html/system/library/db/mysqli.php:40
+Stack trace:
+#0 /home/cbbvwkrq/public_html/system/library/db.php(16): DB\MySQLi->query('INSERT INTO oc_...', Array)
+#1 /home/cbbvwkrq/public_html/catalog/model/catalog/passenger.php(14): DB->query('INSERT INTO oc_...')
+#2 [internal function]: ModelCatalogPassenger->addPassengers(Array)
+#3 /home/cbbvwkrq/public_html/system/storage/modification/system/engine/loader.php(178): call_user_func_array(Array, Array)
+#4 [internal function]: Loader->{closure}(Array, Array)
+#5 /home/cbbvwkrq/public_html/system/engine/proxy.php(25 in /home/cbbvwkrq/public_html/system/library/db/mysqli.php on line 40
+[07-Apr-2018 17:59:00 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'Error: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'ян ', 'Михайлюк ', '380682637326', 'no_mail@panbus.com.ua' )' at line 1<br />Error No: 1064<br />INSERT INTO oc_passenger (name, surname, phone, email) VALUES ('Мар'ян ', 'Михайлюк ', '380682637326', 'no_mail@panbus.com.ua' )' in /home/cbbvwkrq/public_html/system/library/db/mysqli.php:40
+Stack trace:
+#0 /home/cbbvwkrq/public_html/system/library/db.php(16): DB\MySQLi->query('INSERT INTO oc_...', Array)
+#1 /home/cbbvwkrq/public_html/catalog/model/catalog/passenger.php(14): DB->query('INSERT INTO oc_...')
+#2 [internal function]: ModelCatalogPassenger->addPassengers(Array)
+#3 /home/cbbvwkrq/public_html/system/storage/modification/system/engine/loader.php(178): call_user_func_array(Array, Array)
+#4 [internal function]: Loader->{closure}(Array, Array)
+#5 /home/cbbvwkrq/public_html/system/engine/proxy.php(25 in /home/cbbvwkrq/public_html/system/library/db/mysqli.php on line 40
+[07-Apr-2018 17:59:01 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'Error: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'ян ', 'Михайлюк ', '380682637326', 'no_mail@panbus.com.ua' )' at line 1<br />Error No: 1064<br />INSERT INTO oc_passenger (name, surname, phone, email) VALUES ('Мар'ян ', 'Михайлюк ', '380682637326', 'no_mail@panbus.com.ua' )' in /home/cbbvwkrq/public_html/system/library/db/mysqli.php:40
+Stack trace:
+#0 /home/cbbvwkrq/public_html/system/library/db.php(16): DB\MySQLi->query('INSERT INTO oc_...', Array)
+#1 /home/cbbvwkrq/public_html/catalog/model/catalog/passenger.php(14): DB->query('INSERT INTO oc_...')
+#2 [internal function]: ModelCatalogPassenger->addPassengers(Array)
+#3 /home/cbbvwkrq/public_html/system/storage/modification/system/engine/loader.php(178): call_user_func_array(Array, Array)
+#4 [internal function]: Loader->{closure}(Array, Array)
+#5 /home/cbbvwkrq/public_html/system/engine/proxy.php(25 in /home/cbbvwkrq/public_html/system/library/db/mysqli.php on line 40
+[07-Apr-2018 17:59:03 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'Error: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'ян ', 'Михайлюк ', '380682637326', 'no_mail@panbus.com.ua' )' at line 1<br />Error No: 1064<br />INSERT INTO oc_passenger (name, surname, phone, email) VALUES ('Мар'ян ', 'Михайлюк ', '380682637326', 'no_mail@panbus.com.ua' )' in /home/cbbvwkrq/public_html/system/library/db/mysqli.php:40
+Stack trace:
+#0 /home/cbbvwkrq/public_html/system/library/db.php(16): DB\MySQLi->query('INSERT INTO oc_...', Array)
+#1 /home/cbbvwkrq/public_html/catalog/model/catalog/passenger.php(14): DB->query('INSERT INTO oc_...')
+#2 [internal function]: ModelCatalogPassenger->addPassengers(Array)
+#3 /home/cbbvwkrq/public_html/system/storage/modification/system/engine/loader.php(178): call_user_func_array(Array, Array)
+#4 [internal function]: Loader->{closure}(Array, Array)
+#5 /home/cbbvwkrq/public_html/system/engine/proxy.php(25 in /home/cbbvwkrq/public_html/system/library/db/mysqli.php on line 40
+[07-Apr-2018 17:59:04 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'Error: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'ян ', 'Михайлюк ', '380682637326', 'no_mail@panbus.com.ua' )' at line 1<br />Error No: 1064<br />INSERT INTO oc_passenger (name, surname, phone, email) VALUES ('Мар'ян ', 'Михайлюк ', '380682637326', 'no_mail@panbus.com.ua' )' in /home/cbbvwkrq/public_html/system/library/db/mysqli.php:40
+Stack trace:
+#0 /home/cbbvwkrq/public_html/system/library/db.php(16): DB\MySQLi->query('INSERT INTO oc_...', Array)
+#1 /home/cbbvwkrq/public_html/catalog/model/catalog/passenger.php(14): DB->query('INSERT INTO oc_...')
+#2 [internal function]: ModelCatalogPassenger->addPassengers(Array)
+#3 /home/cbbvwkrq/public_html/system/storage/modification/system/engine/loader.php(178): call_user_func_array(Array, Array)
+#4 [internal function]: Loader->{closure}(Array, Array)
+#5 /home/cbbvwkrq/public_html/system/engine/proxy.php(25 in /home/cbbvwkrq/public_html/system/library/db/mysqli.php on line 40
+[14-Apr-2018 16:41:55 UTC] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 892281 bytes) in /home/cbbvwkrq/public_html/catalog/controller/extension/feed/google_sitemap.php on line 95
+[15-Apr-2018 02:11:33 UTC] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 323444 bytes) in /home/cbbvwkrq/public_html/catalog/controller/extension/feed/google_sitemap.php on line 96
+[15-Apr-2018 06:09:26 UTC] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 786625 bytes) in /home/cbbvwkrq/public_html/catalog/controller/extension/feed/google_sitemap.php on line 96
+[15-Apr-2018 22:45:40 UTC] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 323115 bytes) in /home/cbbvwkrq/public_html/catalog/controller/extension/feed/google_sitemap.php on line 95
+[16-Apr-2018 13:01:37 UTC] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 323115 bytes) in /home/cbbvwkrq/public_html/catalog/controller/extension/feed/google_sitemap.php on line 95
+[16-Apr-2018 16:33:20 UTC] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 786625 bytes) in /home/cbbvwkrq/public_html/catalog/controller/extension/feed/google_sitemap.php on line 96
+[17-Apr-2018 04:47:59 UTC] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 323115 bytes) in /home/cbbvwkrq/public_html/catalog/controller/extension/feed/google_sitemap.php on line 95
+[17-Apr-2018 07:36:35 UTC] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 892281 bytes) in /home/cbbvwkrq/public_html/catalog/controller/extension/feed/google_sitemap.php on line 95
+[17-Apr-2018 19:52:16 UTC] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 323115 bytes) in /home/cbbvwkrq/public_html/catalog/controller/extension/feed/google_sitemap.php on line 95
+[18-Apr-2018 00:44:26 UTC] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 323115 bytes) in /home/cbbvwkrq/public_html/catalog/controller/extension/feed/google_sitemap.php on line 95
+[18-Apr-2018 06:29:09 UTC] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 786625 bytes) in /home/cbbvwkrq/public_html/catalog/controller/extension/feed/google_sitemap.php on line 96
+[18-Apr-2018 17:40:12 UTC] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 786625 bytes) in /home/cbbvwkrq/public_html/catalog/controller/extension/feed/google_sitemap.php on line 96
+[19-Apr-2018 06:30:24 UTC] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 323115 bytes) in /home/cbbvwkrq/public_html/catalog/controller/extension/feed/google_sitemap.php on line 95
+[19-Apr-2018 14:49:44 UTC] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 786625 bytes) in /home/cbbvwkrq/public_html/catalog/controller/extension/feed/google_sitemap.php on line 96
+[20-Apr-2018 04:57:39 UTC] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 892281 bytes) in /home/cbbvwkrq/public_html/catalog/controller/extension/feed/google_sitemap.php on line 95
+[20-Apr-2018 16:11:08 UTC] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 323115 bytes) in /home/cbbvwkrq/public_html/catalog/controller/extension/feed/google_sitemap.php on line 95
+[21-Apr-2018 05:17:01 UTC] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 323115 bytes) in /home/cbbvwkrq/public_html/catalog/controller/extension/feed/google_sitemap.php on line 95
+[21-Apr-2018 10:22:25 UTC] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 786619 bytes) in /home/cbbvwkrq/public_html/catalog/controller/extension/feed/google_sitemap.php on line 96
+[22-Apr-2018 07:40:41 UTC] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 80 bytes) in /home/cbbvwkrq/public_html/system/library/db/mysqli.php on line 24
+[22-Apr-2018 13:51:16 UTC] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 323115 bytes) in /home/cbbvwkrq/public_html/catalog/controller/extension/feed/google_sitemap.php on line 95
+[22-Apr-2018 21:47:42 UTC] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 323115 bytes) in /home/cbbvwkrq/public_html/catalog/controller/extension/feed/google_sitemap.php on line 95
+[24-Apr-2018 12:01:01 UTC] PHP Warning:  mysqli::mysqli(): (HY000/2002): Connection refused in /home/cbbvwkrq/public_html/system/library/db/mysqli.php on line 7
+[24-Apr-2018 12:01:01 UTC] PHP Warning:  DB\MySQLi::__construct(): Couldn't fetch mysqli in /home/cbbvwkrq/public_html/system/library/db/mysqli.php on line 10
+[24-Apr-2018 12:01:01 UTC] PHP Warning:  DB\MySQLi::__construct(): Couldn't fetch mysqli in /home/cbbvwkrq/public_html/system/library/db/mysqli.php on line 10
+[24-Apr-2018 12:01:01 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'Error: <br />Error No: ' in /home/cbbvwkrq/public_html/system/library/db/mysqli.php:10
+Stack trace:
+#0 /home/cbbvwkrq/public_html/system/library/db.php(9): DB\MySQLi->__construct('localhost', 'cbbvwkrq_panbus', '2jmzywUves0Wsn2...', 'cbbvwkrq_panbus', NULL)
+#1 /home/cbbvwkrq/public_html/system/config/catalog.php(27): DB->__construct('mysqli', 'localhost', 'cbbvwkrq_panbus', '2jmzywUves0Wsn2...', 'cbbvwkrq_panbus')
+#2 /home/cbbvwkrq/public_html/system/storage/modification/system/library/config.php(23): require('/home/cbbvwkrq/...')
+#3 /home/cbbvwkrq/public_html/system/framework.php(8): Config->load('catalog')
+#4 /home/cbbvwkrq/public_html/system/startup.php(107): require_once('/home/cbbvwkrq/...')
+#5 /home/cbbvwkrq/public_html/index.php(19): start('catalog')
+#6 {main}
+  thrown in /home/cbbvwkrq/public_html/system/library/db/mysqli.php on line 10
+[24-Apr-2018 12:03:13 UTC] PHP Warning:  mysqli::mysqli(): (HY000/2002): Connection refused in /home/cbbvwkrq/public_html/system/library/db/mysqli.php on line 7
+[24-Apr-2018 12:03:13 UTC] PHP Warning:  DB\MySQLi::__construct(): Couldn't fetch mysqli in /home/cbbvwkrq/public_html/system/library/db/mysqli.php on line 10
+[24-Apr-2018 12:03:13 UTC] PHP Warning:  DB\MySQLi::__construct(): Couldn't fetch mysqli in /home/cbbvwkrq/public_html/system/library/db/mysqli.php on line 10
+[24-Apr-2018 12:03:13 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'Error: <br />Error No: ' in /home/cbbvwkrq/public_html/system/library/db/mysqli.php:10
+Stack trace:
+#0 /home/cbbvwkrq/public_html/system/library/db.php(9): DB\MySQLi->__construct('localhost', 'cbbvwkrq_panbus', '2jmzywUves0Wsn2...', 'cbbvwkrq_panbus', NULL)
+#1 /home/cbbvwkrq/public_html/system/config/catalog.php(27): DB->__construct('mysqli', 'localhost', 'cbbvwkrq_panbus', '2jmzywUves0Wsn2...', 'cbbvwkrq_panbus')
+#2 /home/cbbvwkrq/public_html/system/storage/modification/system/library/config.php(23): require('/home/cbbvwkrq/...')
+#3 /home/cbbvwkrq/public_html/system/framework.php(8): Config->load('catalog')
+#4 /home/cbbvwkrq/public_html/system/startup.php(107): require_once('/home/cbbvwkrq/...')
+#5 /home/cbbvwkrq/public_html/index.php(19): start('catalog')
+#6 {main}
+  thrown in /home/cbbvwkrq/public_html/system/library/db/mysqli.php on line 10
+[12-May-2018 22:36:57 Europe/Helsinki] PHP Warning:  require_once(/home/cbbvwkrq/public_html/system/storage/vendor/composer/autoload_real.php): failed to open stream: No such file or directory in /home/cbbvwkrq/public_html/system/storage/vendor/autoload.php on line 5
+[12-May-2018 22:36:57 Europe/Helsinki] PHP Fatal error:  require_once(): Failed opening required '/home/cbbvwkrq/public_html/system/storage/vendor/composer/autoload_real.php' (include_path='.:/opt/alt/php70/usr/share/pear') in /home/cbbvwkrq/public_html/system/storage/vendor/autoload.php on line 5

@@ -282,7 +282,7 @@ class ControllerCatalogWaypoint extends Controller {
 		return !$this->error;
 	}
   protected function getForm() {
-    $this->document->addScript('http://maps.google.com/maps/api/js?key=AIzaSyB79WRG7sgoNE4ksW8S4vw6NOsx20H77_o');
+    $this->document->addScript('https://maps.google.com/maps/api/js?key=AIzaSyB79WRG7sgoNE4ksW8S4vw6NOsx20H77_o');
     $this->document->addScript('view/javascript/geocoding/gmaps.js');
     //CKEditor
     if ($this->config->get('config_editor_default')) {

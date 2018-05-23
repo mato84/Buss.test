@@ -35,7 +35,7 @@
 
             <div class="contact-block col-sm-3">
               <h4><?php echo $entry_email; ?> <i class="fa fa-envelope" aria-hidden="true"></i></h4>
-              <a href="mailto:info@panbus.com.ua">pan_bus@ukr.net</a>
+              <a href="mailto:pan_bus@ukr.net">pan_bus@ukr.net</a>
             </div>
 
           </div>

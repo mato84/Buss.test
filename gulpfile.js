@@ -20,7 +20,7 @@ gulp.task('copy', function() {
     gulp.src(['catalog/**/*' , '!catalog/view/javascript/**/*.js', '!catalog/view/theme/panbus/stylesheet/**/*'])
         .pipe(gulp.dest('dist/catalog'))    
 
-    gulp.src(['system/**/*' , '!system/storage/cache/*'])
+    gulp.src(['system/**/*' , '!system/storage/cache/*' , '!system/library/session.php'])
         .pipe(gulp.dest('dist/system'))  
 
     gulp.src(['index.php', 'php.ini', 'robots.txt'])

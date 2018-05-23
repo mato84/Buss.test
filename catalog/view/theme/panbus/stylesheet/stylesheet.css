@@ -1093,6 +1093,7 @@ span.hidden-lg {
 @media (min-width: 768px) {
     #content {
         padding: 50px 15px;
+        min-height: 300px;        
     }
 }
 
@@ -1513,7 +1514,7 @@ footer .powered {
     text-align: center;    		
 }
 
-@media (min-width: 768px) {
+@media (min-width: 800px) {
     .product-thumb__caption-left {
 		display: inline-block;
 		vertical-align: top;
@@ -1528,18 +1529,23 @@ footer .powered {
 .product-thumb .image img {
     margin-left: auto;
     margin-right: auto;
-    max-width: 180px;
+    max-width: 320px;
+    padding: 20px 10px;
+}
+
+@media (min-width: 800px) {
+    .product-thumb .image img {
+        max-width: 270px;
+    }    
 }
 
 .product-grid .product-thumb .image {
     float: none;
 }
 
-@media (min-width: 768px) {
-    .product-thumb__caption-left {
-        padding: 0  20px;
-
-    }
+.product-thumb__manufacturer,
+.product-thumb__category {
+    padding: 0px 20px;
 }
 
 .product-thumb h3 {
@@ -1581,7 +1587,7 @@ footer .powered {
     padding: 0 20px;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 800px) {
     .product-list .product-thumb .caption {
         display: inline-block;
         vertical-align: top;
@@ -1751,19 +1757,24 @@ h2.price {
 }
 
 .product-details .details-caption-left {
-    padding: 20px;
     text-align: center;
 }
 
 .product-details .details-caption-left .product-img img {
-	max-width: 180px;
+    max-width: 320px;
+    padding: 20px 10px;
+}
+
+@media (min-width: 800px) {
+    .product-details .details-caption-left .product-img img {
+        max-width: 270px;
+    }    
 }
 
 @media (min-width: 800px) {
     .product-details .details-caption-left {
         display: inline-block;
         vertical-align: top;
-        padding: 20px;
         float: left;
         text-align: left;
     }
@@ -1779,6 +1790,11 @@ h2.price {
         float: right;
         padding: 0;
     }
+}
+
+.product-manufacturer,
+.product-category {
+    padding: 0px 20px;
 }
 
 .product-details .product-title {
@@ -2115,6 +2131,7 @@ h2.price {
     .product-options .product-options__button-buy {
         width: 150px;
         vertical-align: bottom;
+        margin-right: 20px;
     }
 }
 
