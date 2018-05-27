@@ -420,9 +420,17 @@ class ControllerCatalogProduct extends Controller {
 				'model'      => $result['model'],
 				'from'       => $result['from_t'],
 				'to'         => $result['to_t'],
-				'price'      => $result['price'],
+				'price'      => $this->currency->format(
+					$this->currency->convert($result['price'],
+						$this->currency->getCodeOrDefault($result['currency_id']),
+						$this->config->get('config_currency')),
+					$this->currency->getCodeOrDefault($result['currency_id'])
+				),
 				'category'   => $category,
-				'special'    => $special,
+				'special' => empty($special) ? false : $this->currency->format(
+					$this->currency->convert($special, $this->currency->getCodeOrDefault($result['currency_id']), $this->config->get('config_currency')),
+					$this->currency->getCodeOrDefault($result['currency_id'])
+				),
 				'quantity'   => $result['quantity'],
 				'status'     => $result['status'] ? $this->language->get('text_enabled') : $this->language->get('text_disabled'),
 				'edit'       => $this->url->link('catalog/product/edit', 'token=' . $this->session->data['token'] . '&product_id=' . $result['product_id'] . $url, true)
@@ -1070,6 +1078,17 @@ class ControllerCatalogProduct extends Controller {
 			$data['shipping'] = $product_info['shipping'];
 		} else {
 			$data['shipping'] = 1;
+		}
+
+		$this->load->model('localisation/currency');
+		$data['currencies'] = $this->model_localisation_currency->getCurrencies();
+
+		if (isset($this->request->post['currency_id'])) {
+			$data['currency_id'] = $this->request->post['currency_id'];
+		} elseif (!empty($product_info)) {
+			$data['currency_id'] = $product_info['currency_id'];
+		} else {
+			$data['currency_id'] = '';
 		}
 
 		if (isset($this->request->post['price'])) {

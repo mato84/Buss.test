@@ -327,7 +327,7 @@ class ControllerProductProduct extends Controller {
 			}
 
 			if ($this->customer->isLogged() || !$this->config->get('config_customer_price')) {
-				$data['price'] = $this->currency->format($this->tax->calculate($product_info['price'], $product_info['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']);
+				$data['price'] = $this->currency->format($this->tax->calculate($product_info['price'], $product_info['tax_class_id'], $this->config->get('config_tax')), $this->currency->getCodeOrDefault($product_info['currency_id']));
 			} else {
 				$data['price'] = false;
 			}
@@ -488,7 +488,12 @@ class ControllerProductProduct extends Controller {
 					'waypoint_arrival_time' => $result['waypoint_arrival_time'],
 					'departure_from' => $result['departure_from'],
 					'description' => utf8_substr(strip_tags(html_entity_decode($result['description'], ENT_QUOTES, 'UTF-8')), 0, $this->config->get($this->config->get('config_theme') . '_product_description_length')) . '..',
-					'price'       => $price,
+					'price'       => $this->currency->format(
+						$this->currency->convert($result['price'],
+							$this->currency->getCodeOrDefault($result['currency_id']),
+							$this->config->get('config_currency')),
+						$this->currency->getCodeOrDefault($result['currency_id'])
+					),
 					'special'     => $special,
 					'tax'         => $tax,
 					'minimum'     => $result['minimum'] > 0 ? $result['minimum'] : 1,

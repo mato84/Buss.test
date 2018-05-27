@@ -10,6 +10,7 @@ class Cart {
 		$this->db = $registry->get('db');
 		$this->tax = $registry->get('tax');
 		$this->weight = $registry->get('weight');
+		$this->currency = $registry->get('currency');
 
 		// Remove all the expired carts with no customer ID
 		$this->db->query("DELETE FROM " . DB_PREFIX . "cart WHERE (api_id > '0' OR customer_id = '0') AND date_added < DATE_SUB(NOW(), INTERVAL 1 HOUR)");
@@ -235,6 +236,8 @@ class Cart {
 					$recurring = false;
 				}
 
+				$price = $this->currency->convert($price, $this->currency->getCodeOrDefault($product_query->row['currency_id']), $this->config->get('config_currency'));
+				$option_price = $this->currency->convert($option_price, $this->currency->getCodeOrDefault($product_query->row['currency_id']), $this->config->get('config_currency'));
 				$product_data[] = array(
 					'cart_id'           => $cart['cart_id'],
 					'product_id'        => $product_query->row['product_id'],
@@ -253,6 +256,7 @@ class Cart {
 					'minimum'           => $product_query->row['minimum'],
 					'subtract'          => $product_query->row['subtract'],
 					'stock'             => $stock,
+					'currency_id'       => $product_query->row['currency_id'],
 					'price'             => ($price + $option_price),
 					'total'             => ($price + $option_price) * $cart['quantity'],
 					'reward'            => $reward * $cart['quantity'],
