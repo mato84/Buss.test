@@ -1,3 +1,8 @@
+<div class="connect">
+    <div class="connect__viber">
+      <a href="viber://pa?chatURI=panbus" class="connect__viber-link" data-toggle="tooltip" title="Написати у Viber" ></a>      
+  </div>
+</div>
 <footer>
   <div class="block-bg-overlay"></div>
   <div class="container">
@@ -28,8 +33,9 @@
       </div>
     </div>
     <hr>
+
     <p class="powered"><?php echo $powered; ?></p>
+
   </div>
 </footer>
-
 </body></html>
