@@ -415,6 +415,7 @@ class ControllerCheckoutCheckout extends Controller {
 					'quantity'           => $product['quantity'],
 					'subtract'           => $product['subtract'],
 					'price'              => $product['price'],
+					'currency_id'        => $product['currency_id'],
 					'total'              => $product['total'],
 					'tax'                => $this->tax->getTax($product['price'], $product['tax_class_id']),
 					'reward'             => $product['reward']
@@ -482,10 +483,13 @@ class ControllerCheckoutCheckout extends Controller {
 				$order_data['tracking'] = '';
 			}
 
+			$productCurrency = reset($order_data['products'])['currency_id']
+				? reset($order_data['products'])['currency_id']
+				: $this->currency->getId($this->session->data['currency']);
 			$order_data['language_id'] = $this->config->get('config_language_id');
-			$order_data['currency_id'] = $this->currency->getId($this->session->data['currency']);
-			$order_data['currency_code'] = $this->session->data['currency'];
-			$order_data['currency_value'] = $this->currency->getValue($this->session->data['currency']);
+			$order_data['currency_id'] = $productCurrency;
+			$order_data['currency_code'] = $this->currency->getCodeOrDefault($productCurrency);
+			$order_data['currency_value'] = $this->currency->getValue($this->currency->getCodeOrDefault($productCurrency));
 			$order_data['ip'] = $this->request->server['REMOTE_ADDR'];
 
 			if (!empty($this->request->server['HTTP_X_FORWARDED_FOR'])) {
