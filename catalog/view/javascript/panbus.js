@@ -42,5 +42,10 @@
         }
     })
 
+    $(".navbar-toggle").click(function(){
+    $("#menu").toggleClass("toggled");
+    $("#logo").toggleClass("toggled");
+    });
+
 
 })(jQuery); // End of use strict
