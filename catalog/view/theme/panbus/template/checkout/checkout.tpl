@@ -19,7 +19,7 @@
     <?php $class = 'col-sm-12'; ?>
     <?php } ?>
     <div id="content"><?php echo $content_top; ?>
-      <h1><?php echo $heading_title; ?></h1>
+      <h1 id="headind_title"><?php echo $heading_title; ?></h1>
       <div class="well">
         <?php if (!isset($redirect)) { ?>
           <?php if ($customer_group_short_name === $entry_agent) { ?>
@@ -99,7 +99,7 @@
                 <td class="text-left"><?php echo $column_name; ?></td>
                 <td class="text-center"><?php echo $column_quantity; ?></td>
                 <td class="text-right"><?php echo $column_price; ?></td>
-                <td class="text-right"><?php echo $column_total; ?></td>
+                <td class="text-right"></td>
                 <td class="text-right"></td>
               </tr>
             </thead>
@@ -129,7 +129,7 @@
                 </td>
                 <td class="text-center"><div style="display: inline-block; padding: 5px 10px; color: #cd4e37; border: 2px solid #cd4e37;"><?php echo $product['quantity']; ?></div></td>
                 <td class="text-right"><?php echo $product['price']; ?></td>
-                <td class="text-right"><?php echo $product['total']; ?></td>
+                <td class="text-right"></td>
                 <td class="text-center">
                   <a class="btn btn-default" data-toggle="tooltip" name = "remove" id="<?php echo $product['cart_id']; ?>" href="#" title="<?php echo $button_remove; ?>" style="display: inherit;"><i class="fa fa-times-circle"></i></a>
                 </td>
@@ -149,7 +149,7 @@
               <?php foreach ($totals as $total) { ?>
               <tr>
                 <td colspan="3" class="text-right"></td>
-                <td colspan="2"class="text-right"><strong><?php echo $total['title']; ?>: <?php echo $total['text']; ?></strong></td>
+                <td colspan="2"class="text-right"><strong><?php echo $total['title']; ?>: <?php echo $product['total']; ?></strong></td>
               </tr>
               <?php } ?>
             </tfoot>
@@ -194,10 +194,8 @@
           </div>
           <div class="table-checkout__column">
             <div class="table-checkout__head"><?php echo $column_total; ?></div>
-            <div class="table-checkout__body table-checkout__body-total">            
-              <?php foreach ($totals as $total) { ?>
-                <strong><?php echo $total['text']; ?></strong>
-              <?php } ?>
+            <div class="table-checkout__body table-checkout__body-total">                          
+                <strong><?php echo $product['total']; ?></strong>             
               <a class="btn btn-default" data-toggle="tooltip" name = "remove" id="<?php echo $product['cart_id']; ?>" href="#" title="<?php echo $button_remove; ?>"><i class="fa fa-times-circle"></i></a>
             </div>
           </div>
