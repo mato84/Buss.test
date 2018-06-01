@@ -32,6 +32,7 @@ class ControllerCheckoutCheckout extends Controller {
 		$this->document->setTitle($this->language->get('heading_title'));
 
 		$this->document->addScript('catalog/view/javascript/maskedinput.js');
+		$this->document->addScript('catalog/view/javascript/scrool_to.js');
 		$this->document->addScript('catalog/view/javascript/jquery/datetimepicker/moment.js');
 		$this->document->addScript('catalog/view/javascript/jquery/datetimepicker/locale/'.$this->session->data['language'].'.js');
 		$this->document->addScript('catalog/view/javascript/jquery/datetimepicker/bootstrap-datetimepicker.min.js');

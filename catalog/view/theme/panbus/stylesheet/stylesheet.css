@@ -305,7 +305,7 @@ header {
 }
 
 #logo img {
-	max-width: 130px;
+    max-width: 130px;
 }
 
 .common-home #logo {
@@ -318,6 +318,11 @@ header {
 }
 
 #logo.affix {
+    position: inherit;
+    margin-left: 10px !important;
+}
+
+#logo.toggled {
     position: inherit;
     margin-left: 10px !important;
 }
@@ -859,15 +864,19 @@ span.hidden-lg {
 
 #menu {
     border: none;
-    padding: 20px 0 0;
     min-height: 80px;
     background-color: transparent;
     transition: all 0.35s;
 }
 
+#menu.toggled {
+    background-color: #eeeeee;
+}
+
 @media (min-width: 768px) {
     #menu {
         text-align: center;
+        padding: 20px 0 0;        
     }
 }
 
@@ -911,14 +920,18 @@ span.hidden-lg {
     position: absolute;
     top: 130px;
     width: 100%;
-    background-color: #dadada;
+    background-color: #eeeeee;
     border: none;
+
 }
 
 @media (max-width: 767px) {
     #menu.affix .navbar-collapse {
         top: 80px;
     }
+    #menu .navbar-collapse {
+        box-shadow: 0 4px 5px 0 rgba(0, 0, 0, .2);        
+    }   
 }
 
 @media (min-width: 768px) {

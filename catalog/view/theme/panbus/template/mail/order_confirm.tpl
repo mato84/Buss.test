@@ -78,9 +78,7 @@
             <p><?php echo $text_departure; ?> <b><?php echo $product['departure_time']; ?></b> <?php echo $product['departure_from']; ?></p>
             <p><?php echo $text_arrival; ?> <b><?php echo $product['arrival_time']; ?></b> <?php echo $product['departure_to']; ?></p>
             <p><?php echo $text_time_road; ?> <b><?php echo $product['time_road']; ?></b></p>
-        <?php foreach ($totals as $total) { ?>
-            <p><?php echo $text_price; ?>: <b><?php echo $total['text']; ?></b></p>
-        <?php } ?>
+            <p><?php echo $text_total; ?> <b><?php echo $product['total']; ?></b></p> 
         </td>
       </tr>
       <?php } ?>
