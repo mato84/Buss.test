@@ -60,7 +60,7 @@ class ControllerCheckoutConfirm extends Controller {
             if((utf8_strlen(trim($this->request->post['lastname'])) < 1) || (utf8_strlen(trim($this->request->post['lastname'])) > 32)) {
                 $json['error']['lastname'] = $this->language->get('error_lastname');
             }
-            if (!preg_match("/^[0-9]{12,14}$/", str_replace(' ', '', $this->request->post['telephone']) )) {
+            if (!preg_match("/^[0-9]{11,12}$/", str_replace(' ', '', $this->request->post['telephone']) )) {
                 $json['error']['telephone'] = $this->language->get('error_telephone');
             }
 
