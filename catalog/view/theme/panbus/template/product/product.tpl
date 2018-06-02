@@ -193,36 +193,32 @@
                     <button type="button" id="button-cart" data-loading-text="<?php echo $text_loading; ?>" class="btn btn-default btn-block"><?php echo $button_tobook; ?>
                     </button>
                   </div>
+                  <div class="product-rating">
+                    <?php if ($review_status) { ?>
+                      <div class="rating">
+                        <?php if ($rating) { ?>
+                          <span itemscope itemprop="aggregateRating" itemtype="http://schema.org/AggregateRating">
+                            <meta itemprop="reviewCount" content="<?php echo $reviewCount; ?>">
+                            <meta itemprop="ratingValue" content="<?php echo $ratingValue; ?>">
+                            <meta itemprop="bestRating" content="5"><meta itemprop="worstRating" content="1">
+                          </span>
+                        <?php } ?>
+                      <?php for ($i = 1; $i <= 5; $i++) { ?>
+                      <?php if ($rating < $i) { ?>
+                      <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i></span>
+                      <?php } else { ?>
+                      <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
+                      <?php } ?>
+                      <?php } ?>                
+                      </div>
+                    <?php } ?>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
 
           <div class="product-description">
-
-            <div class="product-rating">
-              <?php if ($review_status) { ?>
-                <div class="rating">
-                  <?php if ($rating) { ?>
-                    <span itemscope itemprop="aggregateRating" itemtype="http://schema.org/AggregateRating">
-                      <meta itemprop="reviewCount" content="<?php echo $reviewCount; ?>">
-                      <meta itemprop="ratingValue" content="<?php echo $ratingValue; ?>">
-                      <meta itemprop="bestRating" content="5"><meta itemprop="worstRating" content="1">
-                    </span>
-                  <?php } ?>
-                  <p>
-                <?php for ($i = 1; $i <= 5; $i++) { ?>
-                <?php if ($rating < $i) { ?>
-                <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i></span>
-                <?php } else { ?>
-                <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
-                <?php } ?>
-                <?php } ?>
-                <a href="" onclick="$('a[href=\'#tab-review\']').trigger('click'); return false;"><?php echo $reviews; ?></a> / <a href="" onclick="$('a[href=\'#tab-review\']').trigger('click'); return false;"><?php echo $text_write; ?></a></p>
-                  <hr>
-                </div>
-              <?php } ?>
-            </div>
 
             <div class="product-additional-images">
               <?php if ($thumb || $images) { ?>
@@ -236,6 +232,9 @@
               <?php } ?>
             </div>
 
+            <a href="" onclick="$('a[href=\'#tab-review\']').trigger('click'); return false;"><?php echo $reviews; ?></a> / <a href="" onclick="$('a[href=\'#tab-review\']').trigger('click'); return false;"><?php echo $text_write; ?></a>
+
+            <div id="review"></div>
             <div class="product-tabs">
               <ul class="nav nav-tabs" style="display:none;">
                 <li class="active"><a href="#tab-description" data-toggle="tab"><?php echo $tab_description; ?></a></li>
@@ -248,7 +247,7 @@
                 <?php if ($review_status) { ?>
                 <div class="tab-pane" id="tab-review">
                   <form class="form-horizontal" id="form-review">
-                    <div id="review" class="rating table-responsive"></div>
+
                     <h3><?php echo $text_write; ?></h3>
                     <?php if ($review_guest) { ?>
                     <div class="form-group required">

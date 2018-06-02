@@ -918,7 +918,7 @@ span.hidden-lg {
 
 #menu .navbar-collapse {
     position: absolute;
-    top: 130px;
+    top: 80px;
     width: 100%;
     background-color: #eeeeee;
     border: none;
@@ -1752,6 +1752,7 @@ h2.price {
 }
 
 .product-cart .product-details {
+    position: relative;
     display: inline-block;
     vertical-align: top;
     width: 100%;
@@ -2148,6 +2149,12 @@ h2.price {
     }
 }
 
+.product-rating .rating {
+    position: absolute;
+    top: 10px;
+    right: 25px;
+}
+
 .thumbnails {
     overflow: auto;
     clear: both;
@@ -2183,6 +2190,41 @@ h2.price {
 .thumbnails .image-additional {
     display: inline-block;
     vertical-align: top;
+}
+
+/* ------------Review----------------------*/
+
+#review {
+    margin-bottom: 60px;
+}
+
+.review-item {
+    margin-bottom: 30px;
+    background-color: #fff;
+}
+
+.review-item__author {
+    display: inline-block;
+    vertical-align: top;
+    padding: 5px 10px;
+    font-weight: bold;
+}
+
+.review-item__date {
+    display: inline-block;
+    vertical-align: top;
+    padding: 5px 10px;
+}
+
+.review-item__rating {
+    float: right;
+    padding: 5px 10px;
+    font-size: 8px;
+    color: #cd4e37;
+}
+
+.review-item__text {
+    padding: 20px 10px;
 }
 
 #form-review .control-label {
