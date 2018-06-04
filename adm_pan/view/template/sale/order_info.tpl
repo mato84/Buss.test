@@ -167,7 +167,7 @@
                 <?php } else { ?>
                 &nbsp;<small> - <?php echo $option['name']; ?> <a href="<?php echo $option['href']; ?>"><?php echo $option['value']; ?></a></small>
                 <?php } ?>
-                <?php } ?></td>
+                <?php } ?><small> - <?php echo $product['departure_time']; ?></small></td>
 <!--               <td class="text-left"><?php echo $product['model']; ?></td> -->
               <td class="text-center"><?php echo $product['name_manufacturer']; ?></td>
               <td class="text-center"><?php echo $product['name_main_category']; ?></td>

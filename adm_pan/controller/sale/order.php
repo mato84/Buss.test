@@ -1072,6 +1072,8 @@ class ControllerSaleOrder extends Controller {
                 $product['name_main_category'] = $this->model_catalog_product
                     ->getProductMainCategoryName($product['product_id']);
 
+				$product['departure_time'] = $this->model_catalog_product
+					->getProduct($product['product_id'])['departure_time'];
 				$options = $this->model_sale_order->getOrderOptions($this->request->get['order_id'], $product['order_product_id']);
 
 				foreach ($options as $option) {
@@ -1097,6 +1099,7 @@ class ControllerSaleOrder extends Controller {
 
 				$data['products'][] = array(
 					'order_product_id'   => $product['order_product_id'],
+					'departure_time'     => $product['departure_time'],
 					'product_id'         => $product['product_id'],
 					'name_main_category' => $product['name_main_category'],
                     'name_manufacturer'  => $product['name_manufacturer'],
