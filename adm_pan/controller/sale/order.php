@@ -206,6 +206,7 @@ class ControllerSaleOrder extends Controller {
 			'filter_order_id'      => $filter_order_id,
 			'filter_bus_ride_id'   => $filter_bus_ride_id,
 			'filter_carrier_id'	   => $filter_carrier_id,
+			'filter_customer'	     => $filter_customer,
 			'filter_order_status'  => $filter_order_status,
 			'filter_total'         => $filter_total,
 			'filter_date_added'    => $filter_date_added,
