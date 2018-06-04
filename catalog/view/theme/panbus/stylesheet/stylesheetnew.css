@@ -918,7 +918,7 @@ span.hidden-lg {
 
 #menu .navbar-collapse {
     position: absolute;
-    top: 130px;
+    top: 80px;
     width: 100%;
     background-color: #eeeeee;
     border: none;
@@ -1434,10 +1434,10 @@ footer .powered {
 
 .btn-link {
     height: auto;
-    padding: 4px 11px 3px 11px;
+    padding: 4px 2px 3px 2px;
     font-size: 12px;
     color: #cd4e37;
-    border: 1px solid #cd4e37;
+    border: 2px solid #cd4e37;
 }
 
 .btn-link:hover,
@@ -1450,7 +1450,7 @@ footer .powered {
 .btn-link.disabled,
 .btn-link[disabled] {
     color: #cd4e37;
-    border: 1px solid #cd4e37;
+    border: 2px solid #cd4e37;
     background-color: transparent;
     outline: none;
     text-decoration: none;
@@ -1752,6 +1752,7 @@ h2.price {
 }
 
 .product-cart .product-details {
+    position: relative;
     display: inline-block;
     vertical-align: top;
     width: 100%;
@@ -1993,8 +1994,11 @@ h2.price {
 
 
 .route .route__bottons {
-
     margin-bottom: 5px;
+}
+
+.route .route__bottons .btn-link {
+    width: 150px;
 }
 
 @media (min-width: 768px) {
@@ -2019,7 +2023,7 @@ h2.price {
 .route .route__waypoint:before {
     position: absolute;
     content: "";
-    top: 17px;
+    top: 0px;
     left: 1px;
     bottom: -1px;
     border-left: 2px dashed #ccc;
@@ -2067,7 +2071,7 @@ h2.price {
 .route .fa {
     position: absolute;
     top: -5px;
-    left: -5px;
+    left: -1px;
     font-size: 22px;
     width: 13px;
     height: 12px;
@@ -2148,6 +2152,12 @@ h2.price {
     }
 }
 
+.product-rating .rating {
+    position: absolute;
+    top: 10px;
+    right: 25px;
+}
+
 .thumbnails {
     overflow: auto;
     clear: both;
@@ -2165,7 +2175,6 @@ h2.price {
 }
 
 .product-additional-images {
-    margin-bottom: 30px;
 }
 
 .image-additional a {
@@ -2183,6 +2192,49 @@ h2.price {
 .thumbnails .image-additional {
     display: inline-block;
     vertical-align: top;
+}
+
+/* ------------Review----------------------*/
+
+.show-add-review {
+    margin-bottom: 20px;
+}
+
+.add-review {
+    font-weight: bold;
+}
+
+#review {
+    margin-bottom: 60px;
+}
+
+.review-item {
+    margin-bottom: 30px;
+    background-color: #fff;
+}
+
+.review-item__author {
+    display: inline-block;
+    vertical-align: top;
+    padding: 5px 10px;
+    font-weight: bold;
+}
+
+.review-item__date {
+    display: inline-block;
+    vertical-align: top;
+    padding: 5px 10px;
+}
+
+.review-item__rating {
+    float: right;
+    padding: 5px 10px;
+    font-size: 8px;
+    color: #cd4e37;
+}
+
+.review-item__text {
+    padding: 20px 10px;
 }
 
 #form-review .control-label {
@@ -2819,24 +2871,212 @@ h2.price {
 }
 
 /*------------Conect-line-----------------*/
-.connect {
+
+
+.widget-connect {
     position: fixed;
     right: 20px;
-    bottom: 20px;
-    z-index: 999999
-}
-.connect__viber-link {
-    display: inline-block;
-    vertical-align: top;
-    width: 60px;
-    height: 60px;
+    bottom: 30px;
+    z-index: 999999;
     cursor: pointer;
-    -webkit-box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.22);
-    box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.22);
-    border-radius: 50%;
-    background-color: #9a5aca;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20455.7%20455.7%22%3E%3Cpath%20fill%3D%22%23ffffff%22%20d%3D%22M372%20146.9l-.1-.4c-7.3-29.4-40.1-61-70.2-67.6l-.3-.1c-48.8-9.3-98.2-9.3-146.9%200l-.4.1c-30.1%206.6-62.9%2038.2-70.2%2067.6l-.1.4c-9%2041.1-9%2082.8%200%20123.9l.1.4c7%2028.2%2037.4%2058.3%2066.4%2066.6v32.9c0%2011.9%2014.5%2017.7%2022.7%209.1l33.3-34.6c7.2.4%2014.4.6%2021.7.6%2024.5%200%2049.1-2.3%2073.5-7l.3-.1c30.1-6.6%2063-38.1%2070.2-67.6l.1-.4c8.9-41%208.9-82.7-.1-123.8zm-26.3%20117.9c-4.9%2019.2-29.8%2043.1-49.6%2047.5-25.9%204.9-52%207-78.1%206.3-.5%200-1%20.2-1.4.6-3.7%203.8-24.3%2024.9-24.3%2024.9l-25.9%2026.5c-1.9%202-5.2.6-5.2-2.1v-54.4c0-.9-.6-1.7-1.5-1.8-19.8-4.4-44.7-28.3-49.6-47.5-8.1-37.2-8.1-74.8%200-112%204.9-19.2%2029.8-43.1%2049.6-47.5%2045.3-8.6%2091.2-8.6%20136.4%200%2019.8%204.4%2044.7%2028.3%2049.6%2047.5%208.1%2037.2%208.1%2074.9%200%20112z%22/%3E%3Cpath%20fill%3D%22%23ffffff%22%20d%3D%22M270.9%20289.9c-3-.9-5.9-1.5-8.6-2.7-27.9-11.6-53.6-26.5-74-49.4-11.6-13-20.6-27.7-28.3-43.3-3.6-7.4-6.7-15-9.8-22.7-2.8-6.9%201.3-14.1%205.8-19.4%204.1-4.9%209.5-8.7%2015.2-11.4%204.5-2.2%208.9-.9%2012.2%202.9%207.1%208.2%2013.6%2016.9%2018.9%2026.5%203.3%205.9%202.4%2013.1-3.5%2017.1-1.4%201-2.7%202.1-4.1%203.2-1.2%201-2.3%201.9-3.1%203.2-1.5%202.4-1.5%205.2-.6%207.8%207.3%2020%2019.5%2035.5%2039.6%2043.9%203.2%201.3%206.4%202.9%2010.2%202.5%206.2-.7%208.2-7.5%2012.6-11.1%204.2-3.5%209.7-3.5%2014.3-.6%204.6%202.9%209%206%2013.4%209.2%204.3%203.1%208.6%206.1%2012.6%209.6%203.8%203.4%205.2%207.8%203%2012.4-4%208.4-9.7%2015.4-18%2019.9-2.3%201.2-5.1%201.6-7.8%202.4-3-.9%202.7-.8%200%200zM227.9%20131.5c36.5%201%2066.5%2025.3%2072.9%2061.4%201.1%206.2%201.5%2012.4%202%2018.7.2%202.6-1.3%205.1-4.1%205.2-2.9%200-4.2-2.4-4.4-5-.4-5.2-.6-10.4-1.4-15.6-3.8-27.2-25.5-49.7-52.5-54.5-4.1-.7-8.2-.9-12.4-1.4-2.6-.3-6-.4-6.6-3.7-.5-2.7%201.8-4.9%204.4-5%20.7-.2%201.4-.1%202.1-.1%2036.6%201-.7%200%200%200z%22/%3E%3Cpath%20fill%3D%22%23ffffff%22%20d%3D%22M283.4%20203.4c-.1.5-.1%201.5-.4%202.5-1%203.7-6.5%204.1-7.8.4-.4-1.1-.4-2.3-.4-3.5%200-7.7-1.7-15.5-5.6-22.2-4-6.9-10.1-12.7-17.3-16.2-4.3-2.1-9-3.4-13.8-4.2-2.1-.3-4.2-.6-6.3-.8-2.5-.4-3.9-2-3.8-4.5.1-2.3%201.8-4%204.4-3.9%208.4.5%2016.5%202.3%2023.9%206.2%2015.1%208%2023.8%2020.7%2026.3%2037.6.1.8.3%201.5.4%202.3.2%201.9.3%203.8.4%206.3%200%20.5-.1-2.5%200%200z%22/%3E%3Cpath%20fill%3D%22%23ffffff%22%20d%3D%22M260.7%20202.5c-3.1.1-4.7-1.6-5-4.4-.2-2-.4-3.9-.9-5.8-.9-3.7-2.9-7.2-6.1-9.5-1.5-1.1-3.2-1.9-4.9-2.4-2.2-.6-4.6-.5-6.8-1-2.4-.6-3.8-2.6-3.4-4.8.3-2.1%202.4-3.7%204.6-3.5%2014.2%201%2024.3%208.3%2025.7%2025%20.1%201.2.2%202.4%200%203.5-.4%201.9-1.8%202.8-3.2%202.9-3%20.1%201.4-.1%200%200z%22/%3E%3C/svg%3E');
 }
 
+@media (max-width: 500px) {
+    .widget-connect {
+        right: 10px;
+        bottom: 10px;
+    }    
+}
+
+.widget-connect.active .widget-connect__button {
+    display: block;
+}
+
+.widget-connect__button {
+    display: none;
+    height: 55px;
+    width: 55px;
+    margin-bottom: 15px;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 2px 2px 6px rgba(0,0,0,0.4);
+    font-size: 28px;
+    text-align: center;
+    line-height: 50px;
+    color: white;
+    background-position: center center;
+    background-repeat: no-repeat;        
+}
+
+@media (max-width: 500px) {
+    .widget-connect__button {
+        height: 50px;
+        width: 50px;
+    }    
+}
+
+.widget-connect__button:hover {
+    box-shadow: 2px 2px 8px 2px rgba(0,0,0,0.4);    
+}
+
+.widget-connect__button-activator {
+    display: block;
+    margin-bottom: 0;
+    background-color: #cd4e37;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 29"><path fill="#FFFFFF" fill-rule="evenodd" d="M878.289968,975.251189 L878.289968,964.83954 C878.289968,963.46238 876.904379,962 875.495172,962 L857.794796,962 C856.385491,962 855,963.46238 855,964.83954 L855,975.251189 C855,976.924031 856.385491,978.386204 857.794796,978.090729 L860.589592,978.090729 L860.589592,981.876783 L860.589592,983.76981 L861.521191,983.76981 C861.560963,983.76981 861.809636,982.719151 862.45279,982.823297 L866.179185,978.090729 L875.495172,978.090729 C876.904379,978.386204 878.289968,976.924031 878.289968,975.251189 Z M881.084764,971.465135 L881.084764,976.197702 C881.43316,978.604561 879.329051,980.755508 876.426771,980.93027 L868.042382,980.93027 L866.179185,982.823297 C866.400357,983.946455 867.522357,984.94992 868.973981,984.716324 L876.426771,984.716324 L879.221567,988.502377 C879.844559,988.400361 880.153166,989.448891 880.153166,989.448891 L881.084764,989.448891 L881.084764,987.555864 L881.084764,984.716324 L882.947962,984.716324 C884.517696,984.949819 885.742758,983.697082 885.742758,981.876783 L885.742758,974.304675 C885.742659,972.717669 884.517597,971.465135 882.947962,971.465135 L881.084764,971.465135 Z" transform="translate(-855 -962)"></path></svg>');
+
+}
+
+.widget-connect__button-activator.active {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-9 -10 41 44" ><path fill="#FFFFFF" fill-rule="evenodd" d=" M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>');
+}
+
+.widget-connect__button-viber {
+    background-color: #9a5aca;
+    background-image: url('data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20455.7%20455.7%22%3E%3Cpath%20fill%3D%22%23ffffff%22%20d%3D%22M372%20146.9l-.1-.4c-7.3-29.4-40.1-61-70.2-67.6l-.3-.1c-48.8-9.3-98.2-9.3-146.9%200l-.4.1c-30.1%206.6-62.9%2038.2-70.2%2067.6l-.1.4c-9%2041.1-9%2082.8%200%20123.9l.1.4c7%2028.2%2037.4%2058.3%2066.4%2066.6v32.9c0%2011.9%2014.5%2017.7%2022.7%209.1l33.3-34.6c7.2.4%2014.4.6%2021.7.6%2024.5%200%2049.1-2.3%2073.5-7l.3-.1c30.1-6.6%2063-38.1%2070.2-67.6l.1-.4c8.9-41%208.9-82.7-.1-123.8zm-26.3%20117.9c-4.9%2019.2-29.8%2043.1-49.6%2047.5-25.9%204.9-52%207-78.1%206.3-.5%200-1%20.2-1.4.6-3.7%203.8-24.3%2024.9-24.3%2024.9l-25.9%2026.5c-1.9%202-5.2.6-5.2-2.1v-54.4c0-.9-.6-1.7-1.5-1.8-19.8-4.4-44.7-28.3-49.6-47.5-8.1-37.2-8.1-74.8%200-112%204.9-19.2%2029.8-43.1%2049.6-47.5%2045.3-8.6%2091.2-8.6%20136.4%200%2019.8%204.4%2044.7%2028.3%2049.6%2047.5%208.1%2037.2%208.1%2074.9%200%20112z%22/%3E%3Cpath%20fill%3D%22%23ffffff%22%20d%3D%22M270.9%20289.9c-3-.9-5.9-1.5-8.6-2.7-27.9-11.6-53.6-26.5-74-49.4-11.6-13-20.6-27.7-28.3-43.3-3.6-7.4-6.7-15-9.8-22.7-2.8-6.9%201.3-14.1%205.8-19.4%204.1-4.9%209.5-8.7%2015.2-11.4%204.5-2.2%208.9-.9%2012.2%202.9%207.1%208.2%2013.6%2016.9%2018.9%2026.5%203.3%205.9%202.4%2013.1-3.5%2017.1-1.4%201-2.7%202.1-4.1%203.2-1.2%201-2.3%201.9-3.1%203.2-1.5%202.4-1.5%205.2-.6%207.8%207.3%2020%2019.5%2035.5%2039.6%2043.9%203.2%201.3%206.4%202.9%2010.2%202.5%206.2-.7%208.2-7.5%2012.6-11.1%204.2-3.5%209.7-3.5%2014.3-.6%204.6%202.9%209%206%2013.4%209.2%204.3%203.1%208.6%206.1%2012.6%209.6%203.8%203.4%205.2%207.8%203%2012.4-4%208.4-9.7%2015.4-18%2019.9-2.3%201.2-5.1%201.6-7.8%202.4-3-.9%202.7-.8%200%200zM227.9%20131.5c36.5%201%2066.5%2025.3%2072.9%2061.4%201.1%206.2%201.5%2012.4%202%2018.7.2%202.6-1.3%205.1-4.1%205.2-2.9%200-4.2-2.4-4.4-5-.4-5.2-.6-10.4-1.4-15.6-3.8-27.2-25.5-49.7-52.5-54.5-4.1-.7-8.2-.9-12.4-1.4-2.6-.3-6-.4-6.6-3.7-.5-2.7%201.8-4.9%204.4-5%20.7-.2%201.4-.1%202.1-.1%2036.6%201-.7%200%200%200z%22/%3E%3Cpath%20fill%3D%22%23ffffff%22%20d%3D%22M283.4%20203.4c-.1.5-.1%201.5-.4%202.5-1%203.7-6.5%204.1-7.8.4-.4-1.1-.4-2.3-.4-3.5%200-7.7-1.7-15.5-5.6-22.2-4-6.9-10.1-12.7-17.3-16.2-4.3-2.1-9-3.4-13.8-4.2-2.1-.3-4.2-.6-6.3-.8-2.5-.4-3.9-2-3.8-4.5.1-2.3%201.8-4%204.4-3.9%208.4.5%2016.5%202.3%2023.9%206.2%2015.1%208%2023.8%2020.7%2026.3%2037.6.1.8.3%201.5.4%202.3.2%201.9.3%203.8.4%206.3%200%20.5-.1-2.5%200%200z%22/%3E%3Cpath%20fill%3D%22%23ffffff%22%20d%3D%22M260.7%20202.5c-3.1.1-4.7-1.6-5-4.4-.2-2-.4-3.9-.9-5.8-.9-3.7-2.9-7.2-6.1-9.5-1.5-1.1-3.2-1.9-4.9-2.4-2.2-.6-4.6-.5-6.8-1-2.4-.6-3.8-2.6-3.4-4.8.3-2.1%202.4-3.7%204.6-3.5%2014.2%201%2024.3%208.3%2025.7%2025%20.1%201.2.2%202.4%200%203.5-.4%201.9-1.8%202.8-3.2%202.9-3%20.1%201.4-.1%200%200z%22/%3E%3C/svg%3E');
+}
+
+.widget-connect__button-whatsapp {
+    background-color: #4dc247;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32" ><path fill="#FFFFFF" fill-rule="evenodd" d=" M19.11 17.205c-.372 0-1.088 1.39-1.518 1.39a.63.63 0 0 1-.315-.1c-.802-.402-1.504-.817-2.163-1.447-.545-.516-1.146-1.29-1.46-1.963a.426.426 0 0 1-.073-.215c0-.33.99-.945.99-1.49 0-.143-.73-2.09-.832-2.335-.143-.372-.214-.487-.6-.487-.187 0-.36-.043-.53-.043-.302 0-.53.115-.746.315-.688.645-1.032 1.318-1.06 2.264v.114c-.015.99.472 1.977 1.017 2.78 1.23 1.82 2.506 3.41 4.554 4.34.616.287 2.035.888 2.722.888.817 0 2.15-.515 2.478-1.318.13-.33.244-.73.244-1.088 0-.058 0-.144-.03-.215-.1-.172-2.434-1.39-2.678-1.39zm-2.908 7.593c-1.747 0-3.48-.53-4.942-1.49L7.793 24.41l1.132-3.337a8.955 8.955 0 0 1-1.72-5.272c0-4.955 4.04-8.995 8.997-8.995S25.2 10.845 25.2 15.8c0 4.958-4.04 8.998-8.998 8.998zm0-19.798c-5.96 0-10.8 4.842-10.8 10.8 0 1.964.53 3.898 1.546 5.574L5 27.176l5.974-1.92a10.807 10.807 0 0 0 16.03-9.455c0-5.958-4.842-10.8-10.802-10.8z"></path></svg>');
+}
+
+.widget-connect__button-telegram {
+    background-color: #20a4e2;
+    background-position: 40% center;
+    background-image: url('data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20 width="32" height="32" viewBox%3D%220%200%20300%20300%22%3E%3Cpath%20d%3D%22M5.299%2C144.645l69.126%2C25.8l26.756%2C86.047c1.712%2C5.511%2C8.451%2C7.548%2C12.924%2C3.891l38.532-31.412%20%20%20c4.039-3.291%2C9.792-3.455%2C14.013-0.391l69.498%2C50.457c4.785%2C3.478%2C11.564%2C0.856%2C12.764-4.926L299.823%2C29.22%20%20%20c1.31-6.316-4.896-11.585-10.91-9.259L5.218%2C129.402C-1.783%2C132.102-1.722%2C142.014%2C5.299%2C144.645z%20M96.869%2C156.711l135.098-83.207%20%20%20c2.428-1.491%2C4.926%2C1.792%2C2.841%2C3.726L123.313%2C180.87c-3.919%2C3.648-6.447%2C8.53-7.163%2C13.829l-3.798%2C28.146%20%20%20c-0.503%2C3.758-5.782%2C4.131-6.819%2C0.494l-14.607-51.325C89.253%2C166.16%2C91.691%2C159.907%2C96.869%2C156.711z%22%20fill%3D%22%23ffffff%22/%3E%3C/svg%3E%0A');
+}
+
+@-webkit-keyframes button-slide {
+    0% {
+        opacity: 0;
+        display: none;
+        margin-top: 0;
+        margin-bottom: 0;
+        -ms-transform: translateY(15px);
+        -webkit-transform: translateY(15px);
+        -moz-transform: translateY(15px);
+        -o-transform: translateY(15px);
+        transform: translateY(15px)
+    }
+    to {
+        opacity: 1;
+        display: block;
+        margin-top: 0;
+        margin-bottom: 14px;
+        -ms-transform: translateY(0);
+        -webkit-transform: translateY(0);
+        -moz-transform: translateY(0);
+        -o-transform: translateY(0);
+        transform: translateY(0)
+    }
+}
+
+@-moz-keyframes button-slide {
+    0% {
+        opacity: 0;
+        display: none;
+        margin-top: 0;
+        margin-bottom: 0;
+        -ms-transform: translateY(15px);
+        -webkit-transform: translateY(15px);
+        -moz-transform: translateY(15px);
+        -o-transform: translateY(15px);
+        transform: translateY(15px)
+    }
+    to {
+        opacity: 1;
+        display: block;
+        margin-top: 0;
+        margin-bottom: 14px;
+        -ms-transform: translateY(0);
+        -webkit-transform: translateY(0);
+        -moz-transform: translateY(0);
+        -o-transform: translateY(0);
+        transform: translateY(0)
+    }
+}
+
+@-o-keyframes button-slide {
+    0% {
+        opacity: 0;
+        display: none;
+        margin-top: 0;
+        margin-bottom: 0;
+        -ms-transform: translateY(15px);
+        -webkit-transform: translateY(15px);
+        -moz-transform: translateY(15px);
+        -o-transform: translateY(15px);
+        transform: translateY(15px)
+    }
+    to {
+        opacity: 1;
+        display: block;
+        margin-top: 0;
+        margin-bottom: 14px;
+        -ms-transform: translateY(0);
+        -webkit-transform: translateY(0);
+        -moz-transform: translateY(0);
+        -o-transform: translateY(0);
+        transform: translateY(0)
+    }
+}
+
+@keyframes button-slide {
+    0% {
+        opacity: 0;
+        display: none;
+        margin-top: 0;
+        margin-bottom: 0;
+        -ms-transform: translateY(15px);
+        -webkit-transform: translateY(15px);
+        -moz-transform: translateY(15px);
+        -o-transform: translateY(15px);
+        transform: translateY(15px)
+    }
+    to {
+        opacity: 1;
+        display: block;
+        margin-top: 0;
+        margin-bottom: 14px;
+        -ms-transform: translateY(0);
+        -webkit-transform: translateY(0);
+        -moz-transform: translateY(0);
+        -o-transform: translateY(0);
+        transform: translateY(0)
+    }
+}
+
+.button-slide {
+    -webkit-animation-name: button-slide;
+    -moz-animation-name: button-slide;
+    -o-animation-name: button-slide;
+    animation-name: button-slide;
+    -webkit-animation-duration: .2s;
+    -moz-animation-duration: .2s;
+    -o-animation-duration: .2s;
+    animation-duration: .2s;
+    -webkit-animation-fill-mode: forwards;
+    -moz-animation-fill-mode: forwards;
+    -o-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+}
+
+.button-slide-out {
+    -webkit-animation-name: button-slide;
+    -moz-animation-name: button-slide;
+    -o-animation-name: button-slide;
+    animation-name: button-slide;
+    -webkit-animation-duration: .2s;
+    -moz-animation-duration: .2s;
+    -o-animation-duration: .2s;
+    animation-duration: .2s;
+    -webkit-animation-fill-mode: forwards;
+    -moz-animation-fill-mode: forwards;
+    -o-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    -webkit-animation-direction: reverse;
+    -moz-animation-direction: reverse;
+    -o-animation-direction: reverse;
+    animation-direction: reverse;
+}

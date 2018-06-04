@@ -65,48 +65,6 @@
                     </div>
                   </div>
 
-                <!--   <script type="text/javascript">
-                  var map;
-                  var image = '../image/catalog/other/marker.png';
-                  $(document).ready(function(){
-                    map = new GMaps({
-                      el: '#map',
-                      lat:50.833368,
-                      lng: 25.462079,
-                      zoom:5
-                    });
-
-                    map.drawRoute({
-                      origin: [51.1078852, 17.03853760000004],
-                      waypoints: [
-
-                        { location: {lat: 51.8419861, lng: 16.593754499999932 },
-                          stopover:true
-                        },
-
-                        { location: {lat: 52.406374, lng: 16.925168100000064 },
-                          stopover:true
-                        },
-
-                       ],
-                      strokeColor: '#cd4e37',
-                      strokeWeight: 3,
-                      destination: [52.2472962, 15.53357219999998],
-                      travelMode: 'driving',
-
-                    });
-
-                    map.addMarkers([
-                      {
-                        lat: 49.9935,
-                        lng: 36.230383000000074,
-                        title: 'Харків',
-                        icon: image,},
-                    ]);
-
-                  });
-                </script>-->
-
                 <div class="route">
                 <div class=route__bottons>
                   <a class="btn btn-link" data-toggle="collapse" href="#collapse0"><?php echo $button_route; ?></a>
@@ -193,36 +151,32 @@
                     <button type="button" id="button-cart" data-loading-text="<?php echo $text_loading; ?>" class="btn btn-default btn-block"><?php echo $button_tobook; ?>
                     </button>
                   </div>
+                  <?php if ($review_status) { ?>
+                    <?php if ($rating) { ?>
+                      <div class="product-rating">
+                          <div class="rating">
+                              <span itemscope itemprop="aggregateRating" itemtype="http://schema.org/AggregateRating">
+                                <meta itemprop="reviewCount" content="<?php echo $reviewCount; ?>">
+                                <meta itemprop="ratingValue" content="<?php echo $ratingValue; ?>">
+                                <meta itemprop="bestRating" content="5"><meta itemprop="worstRating" content="1">
+                              </span>
+                          <?php for ($i = 1; $i <= 5; $i++) { ?>
+                          <?php if ($rating < $i) { ?>
+                          <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i></span>
+                          <?php } else { ?>
+                          <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
+                          <?php } ?>
+                          <?php } ?>                
+                          </div>                       
+                      </div>
+                    <?php } ?>
+                  <?php } ?>
                 </div>
               </div>
             </div>
           </div>
 
           <div class="product-description">
-
-            <div class="product-rating">
-              <?php if ($review_status) { ?>
-                <div class="rating">
-                  <?php if ($rating) { ?>
-                    <span itemscope itemprop="aggregateRating" itemtype="http://schema.org/AggregateRating">
-                      <meta itemprop="reviewCount" content="<?php echo $reviewCount; ?>">
-                      <meta itemprop="ratingValue" content="<?php echo $ratingValue; ?>">
-                      <meta itemprop="bestRating" content="5"><meta itemprop="worstRating" content="1">
-                    </span>
-                  <?php } ?>
-                  <p>
-                <?php for ($i = 1; $i <= 5; $i++) { ?>
-                <?php if ($rating < $i) { ?>
-                <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i></span>
-                <?php } else { ?>
-                <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
-                <?php } ?>
-                <?php } ?>
-                <a href="" onclick="$('a[href=\'#tab-review\']').trigger('click'); return false;"><?php echo $reviews; ?></a> / <a href="" onclick="$('a[href=\'#tab-review\']').trigger('click'); return false;"><?php echo $text_write; ?></a></p>
-                  <hr>
-                </div>
-              <?php } ?>
-            </div>
 
             <div class="product-additional-images">
               <?php if ($thumb || $images) { ?>
@@ -235,7 +189,11 @@
               </ul>
               <?php } ?>
             </div>
+            <div class="show-add-review">
+              <a><?php echo $reviews; ?></a> / <a class="add-review" href="" onclick="$('a[href=\'#tab-review\']').trigger('click'); return false;"><?php echo $text_write; ?></a>
+            </div>
 
+            <div id="review"></div>
             <div class="product-tabs">
               <ul class="nav nav-tabs" style="display:none;">
                 <li class="active"><a href="#tab-description" data-toggle="tab"><?php echo $tab_description; ?></a></li>
@@ -248,7 +206,7 @@
                 <?php if ($review_status) { ?>
                 <div class="tab-pane" id="tab-review">
                   <form class="form-horizontal" id="form-review">
-                    <div id="review" class="rating table-responsive"></div>
+
                     <h3><?php echo $text_write; ?></h3>
                     <?php if ($review_guest) { ?>
                     <div class="form-group required">
@@ -265,8 +223,8 @@
                     </div>
                     <div class="form-group required">
                       <div class="col-sm-12">
-                        <label class="control-label"><?php echo $entry_rating; ?></label><br>
-                        &nbsp;&nbsp;&nbsp; <?php echo $entry_bad; ?>&nbsp;
+                        <label class="control-label"><?php echo $entry_rating; ?></label>
+                        
                         <input type="radio" name="rating" value="1" />
                         &nbsp;
                         <input type="radio" name="rating" value="2" />
@@ -276,7 +234,7 @@
                         <input type="radio" name="rating" value="4" />
                         &nbsp;
                         <input type="radio" name="rating" value="5" />
-                        &nbsp;<?php echo $entry_good; ?></div>
+                      </div>
                     </div>
                     <?php echo $captcha; ?>
                     <div class="buttons clearfix">
