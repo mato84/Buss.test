@@ -49,3 +49,23 @@
 
 
 })(jQuery); // End of use strict
+
+
+$(document).ready(function() {
+$(".add-review").click(function() {
+  $('html, body').animate({
+    scrollTop: $('#form-review').offset().top - 90
+  }, 500);
+      return false;
+   });
+});
+
+// ---------Widget-connect-------------
+$(document).ready(function() {
+    $(".widget-connect__button-activator").click(function () {
+        $(this).toggleClass("active");
+        $(".widget-connect").toggleClass("active");
+        $("a.widget-connect__button").toggleClass("button-slide-out button-slide");        
+    });
+});
+// -----------------------------------

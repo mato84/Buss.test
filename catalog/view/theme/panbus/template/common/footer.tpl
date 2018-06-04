@@ -1,8 +1,12 @@
-<!-- <div class="connect">
-    <div class="connect__viber">
-      <a href="viber://pa?chatURI=panbus" class="connect__viber-link" data-toggle="tooltip" title="Написати у Viber" ></a>      
-  </div>
-</div> -->
+<div class="widget-connect">
+  <a class="widget-connect__button widget-connect__button-telegram button-slide-out "   target="_blank" title="Написати у Telegram" ></a>
+  <a class="widget-connect__button widget-connect__button-whatsapp button-slide-out "   target="_blank" title="Написати у WhatsApp" ></a>
+  <a class="widget-connect__button widget-connect__button-viber button-slide-out " href="viber://chat?number=380677661876"  title="Написати у Viber" ></a>
+  <div class="widget-connect__button widget-connect__button-activator" title="Написати у месенджер"></div>
+<!--   <a class="widget-connect__button widget-connect__button-telegram button-slide-out " href="https://t.me/COREIT"  target="_blank" title="Написати у Telegram" ></a>
+  <a class="widget-connect__button widget-connect__button-whatsapp button-slide-out " href="https://api.whatsapp.com/send?phone=380979074822"  target="_blank" title="Написати у WhatsApp" ></a>  -->   
+</div>
+
 <footer>
   <div class="block-bg-overlay"></div>
   <div class="container">
