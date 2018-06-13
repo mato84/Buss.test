@@ -23,9 +23,7 @@ class ControllerCheckoutConfirm extends Controller {
             $this->request->post['telephone'] = $this->customer->getTelephone();
             $this->request->post['email']     = $this->customer->getEmail();
 
-        }
-
-        else{
+        } else {
             if (isset($this->request->post['firstname'])) {
                 $this->session->data['guest']['firstname'] = $this->request->post['firstname'];
             } else {
@@ -179,7 +177,7 @@ class ControllerCheckoutConfirm extends Controller {
              else{
                  $currentPassenger['first_name'] = $requestPassengers['passenger_firstname'][$count];
              }
-             if (!preg_match("/^[0-9]{12,14}$/", str_replace(' ', '', $requestPassengers['passenger_telephone'][$count]))){
+             if (!preg_match("/^[0-9]{11,12}$/", str_replace(' ', '', $requestPassengers['passenger_telephone'][$count]))){
                  $currentPassenger['phone']['error'] = $this->language->get('error_telephone');
                  $error = true;
              }
