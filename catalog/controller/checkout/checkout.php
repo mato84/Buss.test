@@ -25,7 +25,7 @@ class ControllerCheckoutCheckout extends Controller {
 		$data['button_add'] = $this->language->get('button_add');
 		$data['text_agent'] = $this->language->get('text_agent');
 		$data['text_agent_number'] = $this->language->get('text_agent_number');		
-
+		$data['text_checkout'] = $this->language->get('text_checkout');	
         $data['notice_only_one'] = $this->language->get('notice_only_one');
 
 

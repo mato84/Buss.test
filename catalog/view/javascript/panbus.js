@@ -61,11 +61,5 @@ $(".add-review").click(function() {
 });
 
 // ---------Widget-connect-------------
-$(document).ready(function() {
-    $(".widget-connect__button-activator").click(function () {
-        $(this).toggleClass("active");
-        $(".widget-connect").toggleClass("active");
-        $("a.widget-connect__button").toggleClass("button-slide-out button-slide");        
-    });
-});
+
 // -----------------------------------

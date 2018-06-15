@@ -163,11 +163,12 @@
                 <?php foreach ($product['option'] as $option) { ?>
                 <br />
                 <?php if ($option['type'] != 'file') { ?>
-                &nbsp;<small> - <?php echo $option['name']; ?> <?php echo $option['value']; ?></small>
+                &nbsp;<?php echo $option['name']; ?> <?php echo $option['value']; ?>
                 <?php } else { ?>
-                &nbsp;<small> - <?php echo $option['name']; ?> <a href="<?php echo $option['href']; ?>"><?php echo $option['value']; ?></a></small>
+                &nbsp;<?php echo $option['name']; ?> <a href="<?php echo $option['href']; ?>"><?php echo $option['value']; ?></a>
                 <?php } ?>
-                <?php } ?><small> - <?php echo $product['departure_time']; ?></small></td>
+                <?php } ?>- <?php echo $product['departure_time']; ?>
+              </td>
 <!--               <td class="text-left"><?php echo $product['model']; ?></td> -->
               <td class="text-center"><?php echo $product['name_manufacturer']; ?></td>
               <td class="text-center"><?php echo $product['name_main_category']; ?></td>

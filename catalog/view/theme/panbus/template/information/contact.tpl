@@ -12,32 +12,61 @@
     <div id="content"><?php echo $content_top; ?>
       <h1><?php echo $heading_title; ?></h1>
       <div class="well">
-
+          <div class="row text-center"><h3>Довідка та Бронювання</h3></div>
           <div class="row">
 
             <div class="contact-block col-sm-3 telephone">
-              <h4><?php echo $text_telephone; ?> <i class="fa fa-mobile" aria-hidden="true"></i></h4>
-              <a href="tel:+380677661876">+38(067)766-18-76</a>
-              <a href="tel:+380637661876">+38(063)766-18-76</a>              
-              <a href="tel:+380509833358">+38(050)983-33-58</a>
-              <a href="tel:+48223079083">+48(22)307-90-83</a>           
+              <h4><?php echo $text_telephone; ?> <i class="fa fa-mobile contact-block__icon" aria-hidden="true"></i></h4>
+              <a href="tel:+380666625562">+38(066)662-55-62</a>
+              <a href="tel:+380676625562">+38(067)662-55-62</a>              
+              <a href="tel:+380736625562">+38(073)662-55-62</a>
+              <a href="tel:+48223079083">+48(22)307-90-83</a>
+              <a href="tel:+48223079084">+48(22)307-90-84</a>                          
             </div>
 
             <div class="contact-block col-sm-3">
-              <h4>VIBER <img src="../image/catalog/other/viber.png"></h4>
-              <a href="tel:+380677661876">+38(067)766-18-76</a>
+              <h4>VIBER <div class="contact-block__icon widget-connect__button-viber"></div></h4>
+              <a href="viber://chat?number=380677661876">+38(067)766-18-76</a>
+              <h4>WhatsApp <div class="contact-block__icon widget-connect__button-whatsapp"></div></h4>
+              <a href="https://api.whatsapp.com/send?phone=380677661876">+38(067)766-18-76</a>
+              <h4>Telegram <div class="contact-block__icon widget-connect__button-telegram"></div></h4>
+              <a href="">+38(067)766-18-76</a>                            
             </div>
 
             <div class="contact-block col-sm-3">
-              <h4>SKYPE <i class="fa fa-skype" aria-hidden="true"></i></h4> 
+              <h4>SKYPE <i class="fa fa-skype contact-block__icon" aria-hidden="true"></i></h4> 
                <a href="callto:panbus">PanBus.com.ua</a>
             </div>            
 
             <div class="contact-block col-sm-3">
-              <h4><?php echo $entry_email; ?> <i class="fa fa-envelope" aria-hidden="true"></i></h4>
+              <h4><?php echo $entry_email; ?> <i class="fa fa-envelope contact-block__icon" aria-hidden="true"></i></h4>
               <a href="mailto:pan_bus@ukr.net">pan_bus@ukr.net</a>
             </div>
 
+          </div>
+          <div class="row">
+            <div class="row text-center"><h3>Агентам та посередникам</h3></div>
+            <div class="contact-block col-sm-3 telephone">
+              <h4><?php echo $text_telephone; ?> <i class="fa fa-mobile contact-block__icon" aria-hidden="true"></i></h4>
+              <a href="tel:+380679930063">+38(067)993-00-63</a>           
+              <a href="tel:+48223079083">+48(22)307-90-83</a>                       
+            </div>
+            <div class="contact-block col-sm-3">
+              <h4>VIBER <div class="contact-block__icon widget-connect__button-viber"></div></h4>
+              <a href="viber://chat?number=380679930063">+38(067)993-00-63</a>                       
+            </div>
+          </div>
+          <div class="row">
+            <div class="row text-center"><h3>Пропозиції та Скарги</h3></div>
+            <div class="contact-block col-sm-3 telephone">
+              <h4><?php echo $text_telephone; ?> <i class="fa fa-mobile contact-block__icon" aria-hidden="true"></i></h4>
+              <a href="tel:+380679930068">+38(067)993-00-68</a>           
+              <a href="tel:+48223079084">+48(22)307-90-84</a>                       
+            </div>
+            <div class="contact-block col-sm-3">
+              <h4>VIBER <div class="contact-block__icon widget-connect__button-viber"></div></h4>
+              <a href="viber://chat?number=380679930068">+38(067)993-00-68</a>                       
+            </div>                        
           </div>
           <div class="row">
             <?php if ($address) { ?>

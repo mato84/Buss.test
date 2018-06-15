@@ -2024,7 +2024,7 @@ h2.price {
     position: absolute;
     content: "";
     top: 0px;
-    left: 1px;
+    left: 5px;
     bottom: -1px;
     border-left: 2px dashed #ccc;
 }
@@ -2256,7 +2256,7 @@ h2.price {
 
 .well {
     min-height: 20px;
-    padding: 40px 20px 20px 20px;
+    padding: 40px 20px;
     margin-bottom: 20px;
     background-color: #ffffff;
     border: none;
@@ -2351,6 +2351,22 @@ h2.price {
      .table-checkout.mobile {
         display: block;
     }  
+}
+
+.checkout-text {
+    font-size: 14px;
+    text-align: justify;
+    margin-bottom: 40px;
+}
+
+@media (min-width: 768px) {
+    .checkout-text {
+    float: left;
+    max-width: 578px;
+    font-size: 16px;
+    padding: 10px;
+    border: 1px dashed #dadada;
+    }    
 }
 
 .table-checkout__column {
@@ -2540,12 +2556,19 @@ h2.price {
     width: 240px;
 }
 
+.information-contact h3 {
+    margin-top: 0;
+    margin-bottom: 30px;
+    font-size: 22px;
+}
+
 .contact-block {
     margin-bottom: 40px;
 }
 
 .contact-block h4 {
-	margin-bottom: 20px;
+    margin-top: 8px;
+	margin-bottom: 10px;
 }
 
 .contact-block a {
@@ -2559,10 +2582,9 @@ h2.price {
 
 .contact-block.telephone a {
 	min-width: 157px;
-	text-align: left;
 }
 
-.information-contact #content>div>div>div:nth-child(1) h4 .fa {
+.contact-block.telephone .fa {
     font-size: 25px;
 }
 
@@ -2573,12 +2595,23 @@ h2.price {
 }
 
 .contact-block h4 .fa {
-    color: #cd4e37;
+    color: #fff;
 }
 
-.contact-block h4 img {
+.contact-block__icon {
     display: inline-block;
-    vertical-align: top;
+    vertical-align: text-top;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background-color: #cd4e37;
+    text-align: center;
+    line-height: 29px !important;
+}
+
+.contact-block__icon.widget-connect__button-telegram {
+    background-size: 60%;
+    background-repeat: no-repeat;
 }
 
 .contact-block .fa {
@@ -3079,4 +3112,18 @@ h2.price {
     -moz-animation-direction: reverse;
     -o-animation-direction: reverse;
     animation-direction: reverse;
+}
+
+/*-------Mobile and Desktop devices View------*/
+
+@media (min-width: 768px) {
+    .mobile-device {
+        display: none!important;
+    }  
+}
+
+@media (max-width: 500px) {
+    .desktop-device {
+        display: none!important;
+    }  
 }

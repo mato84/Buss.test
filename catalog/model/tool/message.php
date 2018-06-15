@@ -23,10 +23,48 @@ class ModelToolMessage extends Model{
                   'password' => $this->config->get('config_sms_gate_password'),
 
 
-                  'message'  => str_replace(array('{NAME}', '{DATE}', '{TIME}', '{DEPAERTURE_FROM}', '{CATEGORY}', '{CARRIER}'),
-                      array($product_info['name'], $order_option['value'], $product_info['departure_time'], $product_info['departure_from'],
-                          $product_name_main_category,$product_manufacturer_name),
-                      'Заброньовано:'."\xA".'{NAME}'."\xA".'{DATE}'."\xA".'{TIME}'."\xA".'{DEPAERTURE_FROM}'."\xA".'Автобус {CATEGORY}'."\xA".'Перевізник {CARRIER}')
+                'message'  => str_replace(
+                		array(
+		                	'{CATEGORY}',
+		                	'{FROM_NAME}',		                	
+		                	'{DATE}',
+		                	'{DEPARTURE_TIME}',
+		                	'{DEPARTURE_FROM}',
+		                	'{TO_NAME}',
+		                	'{ARRIVAL_TIME}',
+		                	'{DEPARTURE_TO}',
+		                	'{NAME}',
+		                	'{PRICE}',		                	                	
+		                	'{CARRIER}'
+		                	),
+		                array(
+		                    $product_name_main_category,
+		                    $product_info['from_name'],
+		                    $order_option['value'],		                    
+		                    $product_info['departure_time'],
+		                    $product_info['departure_from'],
+		                    $product_info['to_name'],
+		                    $product_info['arrival_time'],
+		                    $product_info['departure_to'],
+		                    $product_info['name'],
+		                    $product_info['price'],		                                        
+		                    $product_manufacturer_name
+		                    ),
+		                    'Ви заброньован!'."\xA".
+		                    'Трафарет на лобовому склі: {CATEGORY}.'."\xA".
+		                    'Відправлення: {FROM_NAME} '.
+		                    '{DATE} '.
+		                    '{DEPARTURE_TIME}'.
+		                    'з {DEPARTURE_FROM}.'."\xA".	                    
+		                    'Прибуття в {TO_NAME} '.
+		                    'орієнтовно о {ARRIVAL_TIME} '.
+		                    'на {DEPARTURE_TO}.'."\xA".
+		                   	'Вартість проїзду {NAME} - '.
+		                    '{PRICE}.'."\xA".
+		                    'Підходите до водія і запитуєте чи це рейс перевізника {CARRIER}. Кажете, що Ви заброньовані, називаєте Ваше прізвище, оплачуєте вартість квитка водієві та їдете.'."\xA".
+		                    'Дякуємо за бронювання!'
+
+                    )
 
               ];
           }
@@ -41,13 +79,51 @@ class ModelToolMessage extends Model{
               'password' => $this->config->get('config_sms_gate_password'),
 
 
-              'message'  => str_replace(array('{NAME}', '{DATE}', '{TIME}', '{DEPAERTURE_FROM}', '{CATEGORY}', '{CARRIER}'),
-                  array($product_info['name'], $order_option['value'], $product_info['departure_time'], $product_info['departure_from'],
-                      $product_name_main_category,$product_manufacturer_name),
-                  'Заброньовано:'."\xA".'{NAME}'."\xA".'{DATE}'."\xA".'{TIME}'."\xA".'{DEPAERTURE_FROM}'."\xA".'Автобус {CATEGORY}'."\xA".'Перевізник {CARRIER}')
-          );
+                'message'  => str_replace(
+                		array(
+		                	'{CATEGORY}',
+		                	'{FROM_NAME}',		                	
+		                	'{DATE}',
+		                	'{DEPARTURE_TIME}',
+		                	'{DEPARTURE_FROM}',
+		                	'{TO_NAME}',
+		                	'{ARRIVAL_TIME}',
+		                	'{DEPARTURE_TO}',
+		                	'{NAME}',
+		                	'{PRICE}',		                	                	
+		                	'{CARRIER}'
+		                	),
+		                array(
+		                    $product_name_main_category,
+		                    $product_info['from_name'],
+		                    $order_option['value'],		                    
+		                    $product_info['departure_time'],
+		                    $product_info['departure_from'],
+		                    $product_info['to_name'],
+		                    $product_info['arrival_time'],
+		                    $product_info['departure_to'],
+		                    $product_info['name'],
+		                    $product_info['price'],		                                        
+		                    $product_manufacturer_name
+		                    ),
+		                    'Ви заброньован!'."\xA".
+		                    'Трафарет на лобовому склі: {CATEGORY}.'."\xA".
+		                    'Відправлення: {FROM_NAME} '.
+		                    '{DATE} '.
+		                    '{DEPARTURE_TIME}'.
+		                    'з {DEPARTURE_FROM}.'."\xA".	                    
+		                    'Прибуття в {TO_NAME} '.
+		                    'орієнтовно о {ARRIVAL_TIME} '.
+		                    'на {DEPARTURE_TO}.'."\xA".
+		                   	'Вартість проїзду {NAME} - '.
+		                    '{PRICE}.'."\xA".
+		                    'Підходите до водія і запитуєте чи це рейс перевізника {CARRIER}. Кажете, що Ви заброньовані, називаєте Ваше прізвище, оплачуєте вартість квитка водієві та їдете.'."\xA".
+		                    'Дякуємо за бронювання!'
 
-      }
+                    )
+				);
+
+      		}
 
     return $this;
   }

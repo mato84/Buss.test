@@ -1,15 +1,5 @@
 <?php echo $header; ?>
 <div class="container">
-  <?php if ($error_warning) { ?>
-  <div class="alert alert-danger"><i class="fa fa-exclamation-circle"></i> <?php echo $error_warning; ?>
-    <button type="button" class="close" data-dismiss="alert">&times;</button>
-  </div>
-  <?php } ?>
-  <?php if ($not_only_one) { ?>
-  <div class="alert alert-danger"><i class="fa fa-exclamation-circle"></i><?php echo $notice_only_one; ?> 
-    <button type="button" class="close" data-dismiss="alert">&times;</button>
-  </div>
-  <?php } ?>
   <div class="row"><?php echo $column_left; ?>
     <?php if ($column_left && $column_right) { ?>
     <?php $class = 'col-sm-6'; ?>
@@ -20,6 +10,16 @@
     <?php } ?>
     <div id="content"><?php echo $content_top; ?>
       <h1 id="headind_title"><?php echo $heading_title; ?></h1>
+        <?php if ($error_warning) { ?>
+          <div class="alert alert-danger"><i class="fa fa-exclamation-circle"></i> <?php echo $error_warning; ?>
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+          </div>
+          <?php } ?>
+          <?php if ($not_only_one) { ?>
+          <div class="alert alert-danger"><i class="fa fa-exclamation-circle"></i><?php echo $notice_only_one; ?> 
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+          </div>
+        <?php } ?>
       <div class="well">
         <?php if (!isset($redirect)) { ?>
           <?php if ($customer_group_short_name === $entry_agent) { ?>
@@ -86,7 +86,7 @@
                 <input type="text" name="passenger_email[]"  placeholder=""  class="form-control" />
               </div>
             </div>
-              <?php endfor; ?>
+              <?php endfor; ?>            
             <div class="passengers__add buttons buttons-right">
                 <div class="btn btn-inverse" data-toggle="tooltip" title="<?php echo $button_add; ?>"><i class="fa fa-plus"></i></div>
             </div>
@@ -202,7 +202,8 @@
           <?php } ?>
         </div>
 
-
+        <div class="checkout-text"><?php echo $text_checkout; ?></div>
+        
         <?php echo $payment; ?>
         <?php } else { ?>
         <script type="text/javascript"><!--
