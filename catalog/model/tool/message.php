@@ -5,7 +5,7 @@ class ModelToolMessage extends Model{
   private $passengerOptionMessage = [];
 
   public function prepareMessage($order_info){
-
+	  $baseUrl = $this->config->get('config_ssl');
     list($product_order) = $this->getOrderProducts($order_info['order_id']);
     list($order_option) = $this->getOrderOptions($order_info['order_id'], $product_order['order_product_id']);
 
@@ -35,7 +35,8 @@ class ModelToolMessage extends Model{
 		                	'{DEPARTURE_TO}',
 		                	'{NAME}',
 		                	'{PRICE}',		                	                	
-		                	'{CARRIER}'
+		                	'{CARRIER}',
+							'{BASE_URL}'
 		                	),
 		                array(
 		                    $product_name_main_category,
@@ -48,7 +49,8 @@ class ModelToolMessage extends Model{
 		                    $product_info['departure_to'],
 		                    $product_info['name'],
 		                    $product_info['price'],		                                        
-		                    $product_manufacturer_name
+		                    $product_manufacturer_name,
+							$baseUrl
 		                    ),
 		                    'Ви заброньовані!'."\xA".
 		                    'Трафарет на лобовому склі: {CATEGORY}.'."\xA".
@@ -62,7 +64,7 @@ class ModelToolMessage extends Model{
 		                   	'Вартість проїзду {NAME} - '.
 		                    '{PRICE}'."\xA".
 		                    'Підходите до водія і запитуєте чи це рейс перевізника {CARRIER}. Кажете, що Ви заброньовані, називаєте Ваше прізвище, оплачуєте вартість квитка водієві та їдете.'."\xA".
-		                    'Дякуємо за бронювання!'
+		                    'Дякуємо за бронювання!'."\xA".'{BASE_URL}'
 
                     )
 
