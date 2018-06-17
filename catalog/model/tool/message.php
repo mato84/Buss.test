@@ -50,17 +50,17 @@ class ModelToolMessage extends Model{
 		                    $product_info['price'],		                                        
 		                    $product_manufacturer_name
 		                    ),
-		                    'Ви заброньован!'."\xA".
+		                    'Ви заброньовані!'."\xA".
 		                    'Трафарет на лобовому склі: {CATEGORY}.'."\xA".
 		                    'Відправлення: {FROM_NAME} '.
 		                    '{DATE} '.
-		                    '{DEPARTURE_TIME}'.
+		                    '{DEPARTURE_TIME} '.
 		                    'з {DEPARTURE_FROM}.'."\xA".	                    
-		                    'Прибуття в {TO_NAME} '.
+		                    'Прибуття у {TO_NAME} '.
 		                    'орієнтовно о {ARRIVAL_TIME} '.
 		                    'на {DEPARTURE_TO}.'."\xA".
 		                   	'Вартість проїзду {NAME} - '.
-		                    '{PRICE}.'."\xA".
+		                    '{PRICE}'."\xA".
 		                    'Підходите до водія і запитуєте чи це рейс перевізника {CARRIER}. Кажете, що Ви заброньовані, називаєте Ваше прізвище, оплачуєте вартість квитка водієві та їдете.'."\xA".
 		                    'Дякуємо за бронювання!'
 
@@ -106,17 +106,17 @@ class ModelToolMessage extends Model{
 		                    $product_info['price'],		                                        
 		                    $product_manufacturer_name
 		                    ),
-		                    'Ви заброньован!'."\xA".
+		                    'Ви заброньовані!'."\xA".
 		                    'Трафарет на лобовому склі: {CATEGORY}.'."\xA".
 		                    'Відправлення: {FROM_NAME} '.
 		                    '{DATE} '.
-		                    '{DEPARTURE_TIME}'.
+		                    '{DEPARTURE_TIME} '.
 		                    'з {DEPARTURE_FROM}.'."\xA".	                    
-		                    'Прибуття в {TO_NAME} '.
+		                    'Прибуття у {TO_NAME} '.
 		                    'орієнтовно о {ARRIVAL_TIME} '.
 		                    'на {DEPARTURE_TO}.'."\xA".
 		                   	'Вартість проїзду {NAME} - '.
-		                    '{PRICE}.'."\xA".
+		                    '{PRICE}'."\xA".
 		                    'Підходите до водія і запитуєте чи це рейс перевізника {CARRIER}. Кажете, що Ви заброньовані, називаєте Ваше прізвище, оплачуєте вартість квитка водієві та їдете.'."\xA".
 		                    'Дякуємо за бронювання!'
 
