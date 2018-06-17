@@ -188,7 +188,13 @@ class ModelToolMessage extends Model{
 				'image'            => $query->row['image'],
 				'manufacturer_id'  => $query->row['manufacturer_id'],
 				'manufacturer'     => $query->row['manufacturer'],
-				'price'            => ($query->row['discount'] ? $query->row['discount'] : $query->row['price']),
+//				'price'            => ($query->row['discount'] ? $query->row['discount'] : $query->row['price']),
+				'price'            => $this->currency->format(
+					$this->currency->convert($query->row['price'],
+						$this->currency->getCodeOrDefault($query->row['currency_id']),
+						$this->config->get('config_currency')),
+					$this->currency->getCodeOrDefault($query->row['currency_id'])
+				),
 				'special'          => $query->row['special'],
 				'reward'           => $query->row['reward'],
 				'points'           => $query->row['points'],
