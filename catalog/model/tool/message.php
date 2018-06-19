@@ -5,7 +5,7 @@ class ModelToolMessage extends Model{
   private $passengerOptionMessage = [];
 
   public function prepareMessage($order_info){
-	  $baseUrl = $this->config->get('config_ssl');
+	  $baseUrl = HTTP_CATALOG;
     list($product_order) = $this->getOrderProducts($order_info['order_id']);
     list($order_option) = $this->getOrderOptions($order_info['order_id'], $product_order['order_product_id']);
 
