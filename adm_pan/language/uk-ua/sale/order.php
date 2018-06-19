@@ -71,7 +71,7 @@ $_['text_picklist']                           = 'Повідомлення про
 
 // Column
 $_['column_order_id']                         = '№ замовлення';
-$_['column_qtx_passengers']                   = 'Пасажирів';
+$_['column_qtx_passengers']                   = 'Пасажири';
 $_['column_carrier']                          = 'Перевізник';
 $_['column_tour']                             = 'Рейс';
 $_['column_customer']                         = 'Замовник';
@@ -94,10 +94,13 @@ $_['column_weight']                           = 'Вага товару';
 $_['column_passenger']                        = 'Пасажир';
 $_['column_passenger_telephone']              = 'Телефон';
 $_['column_passenger_email']              	  = 'E-Mail';
+$_['column_ticket']              	          = 'Квиток';
+$_['column_departure_date']              	  = 'Час відправлення';
 
 
 // Entry
 $_['entry_store']                             = 'Магазин';
+$_['entry_all_qtx_passengers']                = 'Загальна кількість пасажирів: ';
 $_['entry_customer']                          = 'Замовник';
 $_['entry_carrier']                           = 'Перевізник';
 $_['entry_tour']                              = 'Рейс';
