@@ -1,5 +1,5 @@
 <div class="widget-connect">
-  <a class="widget-connect__button widget-connect__button-telegram button-slide-out "   target="_blank" title="Написати у Telegram" ></a>
+  <a class="widget-connect__button widget-connect__button-telegram button-slide-out " href="https://t.me/PAN_BUS" target="_blank" title="Написати у Telegram" ></a>
   <a class="widget-connect__button widget-connect__button-whatsapp button-slide-out " href="https://api.whatsapp.com/send?phone=380677661876"  target="_blank" title="Написати у WhatsApp" ></a>
   <a class="widget-connect__button widget-connect__button-viber button-slide-out mobile-device" href="viber://chat?number=380677661876"  title="Написати у Viber" ></a>
   <a class="widget-connect__button widget-connect__button-viber button-slide-out desktop-device" href="viber://chat?number=+380677661876"  title="Написати у Viber" ></a>

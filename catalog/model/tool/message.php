@@ -35,7 +35,7 @@ class ModelToolMessage extends Model{
 		                	'{DEPARTURE_TO}',
 		                	'{NAME}',
 		                	'{PRICE}',		                	                	
-		                	'{CARRIER}',
+		                	'{CARRIER}'
 							'{BASE_URL}'
 		                	),
 		                array(
@@ -56,7 +56,7 @@ class ModelToolMessage extends Model{
 		                    'Трафарет на лобовому склі: {CATEGORY}.'."\xA".
 		                    'Відправлення: {FROM_NAME} '.
 		                    '{DATE} '.
-		                    '{DEPARTURE_TIME} '.
+		                    'о {DEPARTURE_TIME} '.
 		                    'з {DEPARTURE_FROM}.'."\xA".	                    
 		                    'Прибуття у {TO_NAME} '.
 		                    'орієнтовно о {ARRIVAL_TIME} '.
@@ -93,7 +93,8 @@ class ModelToolMessage extends Model{
 		                	'{DEPARTURE_TO}',
 		                	'{NAME}',
 		                	'{PRICE}',		                	                	
-		                	'{CARRIER}'
+		                	'{CARRIER}',
+							'{BASE_URL}'
 		                	),
 		                array(
 		                    $product_name_main_category,
@@ -106,13 +107,14 @@ class ModelToolMessage extends Model{
 		                    $product_info['departure_to'],
 		                    $product_info['name'],
 		                    $product_info['price'],		                                        
-		                    $product_manufacturer_name
+		                    $product_manufacturer_name,
+							$baseUrl
 		                    ),
 		                    'Ви заброньовані!'."\xA".
 		                    'Трафарет на лобовому склі: {CATEGORY}.'."\xA".
 		                    'Відправлення: {FROM_NAME} '.
 		                    '{DATE} '.
-		                    '{DEPARTURE_TIME} '.
+		                    'о {DEPARTURE_TIME} '.
 		                    'з {DEPARTURE_FROM}.'."\xA".	                    
 		                    'Прибуття у {TO_NAME} '.
 		                    'орієнтовно о {ARRIVAL_TIME} '.
@@ -120,7 +122,7 @@ class ModelToolMessage extends Model{
 		                   	'Вартість проїзду {NAME} - '.
 		                    '{PRICE}'."\xA".
 		                    'Підходите до водія і запитуєте чи це рейс перевізника {CARRIER}. Кажете, що Ви заброньовані, називаєте Ваше прізвище, оплачуєте вартість квитка водієві та їдете.'."\xA".
-		                    'Дякуємо за бронювання!'
+		                    'Дякуємо за бронювання!'."\xA".'{BASE_URL}'
 
                     )
 				);

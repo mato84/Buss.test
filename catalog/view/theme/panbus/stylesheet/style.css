@@ -1,8 +1,9 @@
 body {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Open Sans', sans-serif !important;
     font-weight: 400;
     color: #444;
-    font-size: 14px;
+    font-size: 14px !important;
+    font-weight: 400;
     line-height: 20px;
     width: 100%;
     background-color: #eee;
@@ -1118,6 +1119,33 @@ span.hidden-lg {
 
 .row {
     margin: 0;
+}
+
+
+/*.product-category-98 header {
+    height: 15vh;
+}*/
+
+.product-category-98 .header-content .header-search {
+    display: none;
+}
+
+@media (max-width: 760px) {
+
+    .product-category-98 footer {
+        margin-top: 0;
+    } 
+
+    .category-europa {
+        position: absolute;
+        top: 90px;
+    }
+}
+
+.category-europa #content {
+    text-align: center;
+    padding-left: 0;
+    padding-right: 0;
 }
 
 
@@ -3126,4 +3154,57 @@ h2.price {
     .desktop-device {
         display: none!important;
     }  
+}
+
+/*-----------Infobus Search Box*/
+
+#infobus .search_box {
+    padding: 0px 10px;
+    background-color: rgba(255, 255, 255, 0.24);
+}
+
+#infobus .search_box .menu_sb {
+    display: none !important;
+}
+#infobus .search_box .form_cover {
+    background-color: transparent !important;
+    border: none !important; 
+    display: block !important; 
+    height:auto !important; 
+    left: 0 !important; 
+    position: relative !important; 
+    width: 100% !important ; 
+}
+
+#infobus .search_box .title_sb {
+    display: none;
+}
+
+#infobus .search_box .form_sb {
+    width: 100% !important;
+    left: 0 !important;
+}
+
+#infobus .search_box .form_sb form {
+    padding: 0 !important;
+}
+
+#infobus .search_box .form_sb.bus{
+    background-color: transparent !important;
+    border: none !important;
+}
+
+#infobus .search_box .src_bttn {
+    height: 40px !important;
+     width: 100% !important; 
+}
+
+#infobus .search_box .src_bttn > input {
+    height: 40px !important;
+    width: 100% !important;
+    padding: 7.5px 22px !important;
+    text-transform: uppercase !important;
+    color: #ffffff !important;
+    background-color: #cd4e37 !important;
+    border: none !important;     
 }
