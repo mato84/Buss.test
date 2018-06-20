@@ -146,16 +146,17 @@
                     <a href="<?php echo $sort_customer; ?>" class="<?php echo strtolower($order); ?>"><?php echo $column_customer; ?></a>
                     <?php } else { ?>
                     <a href="<?php echo $sort_customer; ?>"><?php echo $column_customer; ?></a>
-                    <?php } ?></td>
+                    <?php } ?>
+                  </td>
+                  <td class="text-left">
+                      <?php echo $column_ticket; ?>
+                  </td>
+                  <td class="text-left">
+                      <?php echo $column_departure_date; ?>
+                  </td>
                   <td class="text-left">
                       <?php echo $column_qtx_passengers; ?>
-                  </td>
-                    <td class="text-left">
-                        <?php echo $column_ticket; ?>
-                    </td>
-                    <td class="text-left">
-                        <?php echo $column_departure_date; ?>
-                    </td>
+                  </td>                  
                   <td class="text-left"><?php if ($sort == 'o.total') { ?>
                     <a href="<?php echo $sort_total; ?>" class="<?php echo strtolower($order); ?>"><?php echo $column_total; ?></a>
                     <?php } else { ?>
@@ -191,6 +192,8 @@
                   <td class="text-left"><?php echo $order['carrier']; ?></td>
                   <td class="text-left"><?php echo $order['tour']; ?></td>
                   <td class="text-left"><?php  echo $order['customer']; ?></td>
+                  <td class="text-left"><?php echo $order['ticket']; ?></td>
+                  <td class="text-left"><?php echo $order['departure_data']; ?></td>                                    
                   <td class="text-left">
                       <?php foreach ($order['passengers'] as $key => $passenger) { ?>
                       <div class="passenger-info">
@@ -200,8 +203,6 @@
                       </div>
                       <?php } ?>
                   </td>
-                    <td class="text-left"><?php echo $order['ticket']; ?></td>
-                    <td class="text-left"><?php echo $order['departure_data']; ?></td>
                   <td class="text-left"><?php echo $order['total']; ?></td>
                   <td class="text-left"><?php  echo $order['date_added']; ?></td>
                   <td class="text-left"><?php  echo $order['order_status']; ?></td>

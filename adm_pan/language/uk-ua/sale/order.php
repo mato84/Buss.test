@@ -70,15 +70,15 @@ $_['text_upload']                             = 'Ваш файл успішно 
 $_['text_picklist']                           = 'Повідомлення про відправку';
 
 // Column
-$_['column_order_id']                         = '№ замовлення';
-$_['column_qtx_passengers']                   = 'Пасажири';
+$_['column_order_id']                         = '№';
+$_['column_qtx_passengers']                   = 'Пасажир';
 $_['column_carrier']                          = 'Перевізник';
 $_['column_tour']                             = 'Рейс';
 $_['column_customer']                         = 'Замовник';
 $_['column_status']                           = 'Статус';
-$_['column_date_added']                       = 'Дата додавання';
+$_['column_date_added']                       = 'Додано';
 $_['column_date_modified']                    = 'Дата зміни';
-$_['column_total']                            = 'Загалом';
+$_['column_total']                            = 'Вартість';
 $_['column_product']                          = 'Квиток';
 $_['column_manufacturer_name']                = 'Перевізник';
 $_['column_main_category_name']               = 'Автобус';
@@ -95,7 +95,7 @@ $_['column_passenger']                        = 'Пасажир';
 $_['column_passenger_telephone']              = 'Телефон';
 $_['column_passenger_email']              	  = 'E-Mail';
 $_['column_ticket']              	          = 'Квиток';
-$_['column_departure_date']              	  = 'Час відправлення';
+$_['column_departure_date']              	  = 'Відправлення';
 
 
 // Entry
@@ -141,7 +141,7 @@ $_['entry_coupon']                            = 'Купон';
 $_['entry_voucher']                           = 'Подарунковий сертифікат';
 $_['entry_reward']                            = 'Премія';
 $_['entry_order_id']                          = '№ замовлення';
-$_['entry_total']                             = 'Загалом';
+$_['entry_total']                             = 'Вартість';
 $_['entry_date_added']                        = 'Дата додавання';
 $_['entry_date_modified']                     = 'Дата зміни';
 
