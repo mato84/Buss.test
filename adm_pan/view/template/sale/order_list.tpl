@@ -120,7 +120,7 @@
                 </div>               
               </div>
               <div class="form-group">
-                <div class="passengers-count">Загальна кількість пасажирів:  <span><?php echo $allPassengers; ?></span> </div>
+                <div class="passengers-count"><?php echo $entry_all_qtx_passengers; ?><span><?php echo $allPassengers; ?></span> </div>
               </div>
             </div>
           </div>
@@ -148,8 +148,14 @@
                     <a href="<?php echo $sort_customer; ?>"><?php echo $column_customer; ?></a>
                     <?php } ?></td>
                   <td class="text-left">
-                    <a href="#"><?php echo $column_qtx_passengers; ?></a>
+                      <?php echo $column_qtx_passengers; ?>
                   </td>
+                    <td class="text-left">
+                        <?php echo $column_ticket; ?>
+                    </td>
+                    <td class="text-left">
+                        <?php echo $column_departure_date; ?>
+                    </td>
                   <td class="text-left"><?php if ($sort == 'o.total') { ?>
                     <a href="<?php echo $sort_total; ?>" class="<?php echo strtolower($order); ?>"><?php echo $column_total; ?></a>
                     <?php } else { ?>
@@ -159,11 +165,6 @@
                     <a href="<?php echo $sort_date_added; ?>" class="<?php echo strtolower($order); ?>"><?php echo $column_date_added; ?></a>
                     <?php } else { ?>
                     <a href="<?php echo $sort_date_added; ?>"><?php echo $column_date_added; ?></a>
-                    <?php } ?></td>
-                  <td class="text-left"><?php if ($sort == 'o.date_modified') { ?>
-                    <a href="<?php echo $sort_date_modified; ?>" class="<?php echo strtolower($order); ?>"><?php echo $column_date_modified; ?></a>
-                    <?php } else { ?>
-                    <a href="<?php echo $sort_date_modified; ?>"><?php echo $column_date_modified; ?></a>
                     <?php } ?></td>
                   <td class="text-left"><?php if ($sort == 'order_status') { ?>
                     <a href="<?php echo $sort_status; ?>" class="<?php echo strtolower($order); ?>"><?php echo $column_status; ?></a>
@@ -190,10 +191,19 @@
                   <td class="text-left"><?php echo $order['carrier']; ?></td>
                   <td class="text-left"><?php echo $order['tour']; ?></td>
                   <td class="text-left"><?php  echo $order['customer']; ?></td>
-                  <td class="text-left"><?php echo $order['passenger']; ?></td>
+                  <td class="text-left">
+                      <?php foreach ($order['passengers'] as $key => $passenger) { ?>
+                      <div class="passenger-info">
+                          <div class="passenger-name">
+                              <?php $key++;  echo $key.': '.$passenger['name'].' '.$passenger['surname']; ?>
+                          </div>
+                      </div>
+                      <?php } ?>
+                  </td>
+                    <td class="text-left"><?php echo $order['ticket']; ?></td>
+                    <td class="text-left"><?php echo $order['departure_data']; ?></td>
                   <td class="text-left"><?php echo $order['total']; ?></td>
                   <td class="text-left"><?php  echo $order['date_added']; ?></td>
-                  <td class="text-left"><?php  echo $order['date_modified']; ?></td>
                   <td class="text-left"><?php  echo $order['order_status']; ?></td>
                   <td class="text-right">
                     <a href="<?php echo $order['edit']; ?>" data-toggle="tooltip" title="<?php echo $button_edit; ?>" class="btn btn-info"><i class="fa fa-pencil"></i></a>
