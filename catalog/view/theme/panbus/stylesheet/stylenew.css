@@ -1043,6 +1043,11 @@ span.hidden-lg {
     text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
 }
 
+#menu .logged-user a{
+    color: #ffffff !important;
+    background-color: #cd4e37 !important;
+}
+
 #menu .btn-navbar {
     font-size: 20px;
     font-stretch: expanded;
@@ -3159,8 +3164,14 @@ h2.price {
 /*-----------Infobus Search Box*/
 
 #infobus .search_box {
-    padding: 0px 10px;
+    padding: 0px 14px;
     background-color: rgba(255, 255, 255, 0.24);
+    height: auto !important;
+}
+
+
+#infobus .search_box input {
+    outline: none !important;
 }
 
 #infobus .search_box .menu_sb {
@@ -3183,6 +3194,7 @@ h2.price {
 #infobus .search_box .form_sb {
     width: 100% !important;
     left: 0 !important;
+    height: auto !important;;
 }
 
 #infobus .search_box .form_sb form {
@@ -3194,11 +3206,6 @@ h2.price {
     border: none !important;
 }
 
-#infobus .search_box .src_bttn {
-    height: 40px !important;
-     width: 100% !important; 
-}
-
 #infobus .search_box .src_bttn > input {
     height: 40px !important;
     width: 100% !important;
@@ -3206,5 +3213,38 @@ h2.price {
     text-transform: uppercase !important;
     color: #ffffff !important;
     background-color: #cd4e37 !important;
-    border: none !important;     
+    border: none !important; 
+    font-size: 15px !important;    
+}
+
+#infobus .search_box .smartInput > label {
+    margin-top: 5px;    
+    color: #fff !important;
+    display: inline-block;
+    font-size: 13pt;
+    text-transform: uppercase;
+    width: 70px;
+}
+
+#infobus .search_box .big.validate {
+    height: 40px !important;
+    width: 100% !important;
+}
+
+#infobus .search_box .form_sb.bus .big.validate {
+    border: none !important;
+    padding: 0px 10px;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+#infobus .search_box .search_box_form span {
+    margin: 0 !important;
+    text-align: left;
+}
+
+#infobus .search_box .form_sb.bus .src_bttn {
+    height: 40px !important;
+     width: 100% !important;
+     margin: 25px 0 20px 0 !important; 
 }

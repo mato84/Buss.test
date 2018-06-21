@@ -29,7 +29,7 @@
 
 <link href="catalog/view/javascript/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen" />
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&amp;subset=cyrillic" rel="stylesheet">
-<link href="catalog/view/theme/panbus/stylesheet/style.css" rel="stylesheet">
+<link href="catalog/view/theme/panbus/stylesheet/stylenew.css" rel="stylesheet">
 <link href="catalog/view/javascript/jquery/easy-autocomplete.css" type="text/css" rel="stylesheet" />
 <link href="catalog/view/javascript/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 <?php foreach ($styles as $style) { ?>
@@ -131,7 +131,7 @@
         <li><a href="/галерея-фото"><?php echo $text_gallery; ?></a></li>
         <li><a href="<?php echo $contact; ?>"><?php echo $text_contact; ?></a></li>
           <?php if ($logged) { ?>
-            <li><a href="<?php echo $account; ?>"><?php echo $text_account; ?></a></li>
+            <li class="logged-user"><?php echo $text_logged; ?></li>
             <?php } else { ?>
             <li><a href="<?php echo $login; ?>"><?php echo $text_login; ?></a></li>
           <?php } ?>
