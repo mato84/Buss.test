@@ -110,8 +110,8 @@ class ControllerCheckoutConfirm extends Controller {
             $passengers[] = $currentCustomer;
         }
 
-		 $uniquePassengers = $this->getUniquePassengers($passengers);
-		 $passengersAddedIds = $this->model_catalog_passenger->addPassengers($uniquePassengers);
+//		 $uniquePassengers = $this->getUniquePassengers($passengers);
+		 $passengersAddedIds = $this->model_catalog_passenger->addPassengers($passengers);
 		 $this->model_checkout_order->addPassengerToOrder($passengersAddedIds, $orderId);
 
 		if(isset($this->session->data['order_id']) && $this->session->data['order_id'] > 0 ){
