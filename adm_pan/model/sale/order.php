@@ -176,7 +176,7 @@ class ModelSaleOrder extends Model {
         return $query->rows;
     }
 	public function getOrders($data = array()) {
-		$sql = "SELECT o.order_id, CONCAT(o.firstname, ' ', o.lastname) AS customer, COUNT(po.pass_id) as passengers, m.name as carrier, cd.name as tour, o.shipping_code, o.total, os.name as order_status, o.currency_code, o.currency_value, o.date_added, o.date_modified
+		$sql = "SELECT o.order_id, CONCAT(o.lastname, ' ', o.firstname) AS customer, COUNT(po.pass_id) as passengers, m.name as carrier, cd.name as tour, o.shipping_code, o.total, os.name as order_status, o.currency_code, o.currency_value, o.date_added, o.date_modified
                 FROM oc_order o 
                 JOIN oc_order_status os ON os.order_status_id = o.order_status_id 
                 JOIN oc_passenger_to_order po ON o.order_id = po.order_id 

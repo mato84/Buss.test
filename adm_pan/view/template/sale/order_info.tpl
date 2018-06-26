@@ -51,9 +51,9 @@
             <tr>
               <td style="width: 1%;"><button data-toggle="tooltip" title="<?php echo $text_customer; ?>" class="btn btn-info btn-xs"><i class="fa fa-user fa-fw"></i></button></td>
               <td><?php if ($customer) { ?>
-                <a href="<?php echo $customer; ?>" target="_blank"><?php echo $firstname; ?> <?php echo $lastname; ?></a>
+                <a href="<?php echo $customer; ?>" target="_blank"><?php echo $lastname; ?> <?php echo $firstname; ?></a>
                 <?php } else { ?>
-                <?php echo $firstname; ?> <?php echo $lastname; ?>
+                <?php echo $lastname; ?> <?php echo $firstname; ?> 
                 <?php } ?></td>
             </tr>
             <tr>

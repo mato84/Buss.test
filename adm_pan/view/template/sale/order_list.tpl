@@ -198,7 +198,7 @@
                       <?php foreach ($order['passengers'] as $key => $passenger) { ?>
                       <div class="passenger-info">
                           <div class="passenger-name">
-                              <?php $key++;  echo $key.': '.$passenger['name'].' '.$passenger['surname']; ?>
+                              <?php $key++;  echo $key.': '.$passenger['surname'].' '.$passenger['name']; ?>
                           </div>
                       </div>
                       <?php } ?>

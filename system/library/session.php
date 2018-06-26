@@ -26,8 +26,8 @@ class Session {
 				exit('Error: Invalid session ID!');
 			}
 			
-			ini_set('session.gc_maxlifetime',43200);
-			session_set_cookie_params(43200, '/');
+			ini_set('session.gc_maxlifetime',time()+43200);
+			session_set_cookie_params(time()+43200, '/');
 			session_start();
 		}			
 	}
