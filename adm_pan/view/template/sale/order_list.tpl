@@ -56,6 +56,10 @@
                   <?php } ?>
                 </select>
               </div>
+                <div class="form-group">
+                    <label class="control-label" for="input-customer"><?php echo $entry_passenger_phone; ?></label>
+                    <input type="number" name="filter_passenger_phone" value="<?php echo $filter_passenger_phone; ?>" placeholder="<?php echo $entry_passenger_phone; ?>" id="input-passenger-phone" class="form-control" />
+                </div>
             </div>
             <div class="col-sm-4">
               <div class="form-group">
@@ -106,12 +110,21 @@
               <div class="form-group">
                 <label class="control-label" for="input-date-modified"><?php echo $entry_date_modified; ?></label>
                 <div class="input-group date">
-                  <input type="text" name="filter_date_modified" value="<?php echo $filter_date_modified; ?>" placeholder="<?php echo $entry_date_modified; ?>" data-date-format="YYYY-MM-DD" id="input-date-modified" class="form-control" />
+                  <input type="text" name="filter_date_modified" value="<?php echo $filter_date_modified; ?>" placeholder="<?php echo $entry_date_modified; ?>" data-date-format="YYYY-MM-DD" id="input-date-departure" class="form-control" />
                   <span class="input-group-btn">
                   <button type="button" class="btn btn-default"><i class="fa fa-calendar"></i></button>
                   </span>
                 </div>
               </div>
+                <div class="form-group">
+                    <label class="control-label" for="input-date-modified"><?php echo $entry_departure_data; ?></label>
+                    <div class="input-group date">
+                        <input type="text" name="filter_date_departure" value="<?php echo $filter_date_departure; ?>" placeholder="<?php echo $entry_departure_data; ?>" data-date-format="YYYY-MM-DD" id="input-date-departure" class="form-control" />
+                  <span class="input-group-btn">
+                  <button type="button" class="btn btn-default"><i class="fa fa-calendar"></i></button>
+                  </span>
+                    </div>
+                </div>
               <div class="form-group">
                 <label class="control-label"></label>
                 <div>
@@ -279,6 +292,16 @@ $('#button-filter').on('click', function() {
 
 	if (filter_date_modified) {
 		url += '&filter_date_modified=' + encodeURIComponent(filter_date_modified);
+	}
+    var filter_date_departure = $('input[name=\'filter_date_departure\']').val();
+
+	if (filter_date_departure) {
+		url += '&filter_date_departure=' + encodeURIComponent(filter_date_departure);
+	}
+    var filter_passenger_phone = $('input[name=\'filter_passenger_phone\']').val();
+
+	if (filter_passenger_phone) {
+		url += '&filter_passenger_phone=' + encodeURIComponent(filter_passenger_phone);
 	}
 
 	location = url;

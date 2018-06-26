@@ -134,7 +134,7 @@ $_['entry_order_status']                      = 'Статус замовленн
 $_['entry_notify']                            = 'Повідомити покупця';
 $_['entry_override']             			  = 'Відхилити';
 $_['entry_comment']                           = 'Коментарій';
-$_['entry_currency']             = 'Currency';
+$_['entry_currency']                          = 'Currency';
 $_['entry_shipping_method']                   = 'Спосіб доставки';
 $_['entry_payment_method']                    = 'Спосіб оплати';
 $_['entry_coupon']                            = 'Купон';
@@ -144,6 +144,8 @@ $_['entry_order_id']                          = '№ замовлення';
 $_['entry_total']                             = 'Вартість';
 $_['entry_date_added']                        = 'Дата додавання';
 $_['entry_date_modified']                     = 'Дата зміни';
+$_['entry_departure_data']                    = 'Дата відправлення';
+$_['entry_passenger_phone']                   = 'Телефон пасажира';
 
 // Help
 $_['help_override']              = 'If the customers order is being blocked from changing the order status due to an anti-fraud extension enable override.';

@@ -90,6 +90,16 @@ class ControllerSaleOrder extends Controller {
         } else {
             $filter_carrier_id = null;
         }
+		if (isset($this->request->get['filter_date_departure'])) {
+			$filter_date_departure = $this->request->get['filter_date_departure'];
+		} else {
+			$filter_date_departure = null;
+		}
+		if (isset($this->request->get['filter_passenger_phone'])) {
+			$filter_passenger_phone = $this->request->get['filter_passenger_phone'];
+		} else {
+			$filter_passenger_phone = null;
+		}
 
 		if (isset($this->request->get['filter_order_id'])) {
 			$filter_order_id = $this->request->get['filter_order_id'];
@@ -203,18 +213,20 @@ class ControllerSaleOrder extends Controller {
 		$data['orders'] = array();
 
 		$filter_data = array(
-			'filter_order_id'      => $filter_order_id,
-			'filter_bus_ride_id'   => $filter_bus_ride_id,
-			'filter_carrier_id'	   => $filter_carrier_id,
-			'filter_customer'	     => $filter_customer,
-			'filter_order_status'  => $filter_order_status,
-			'filter_total'         => $filter_total,
-			'filter_date_added'    => $filter_date_added,
-			'filter_date_modified' => $filter_date_modified,
-			'sort'                 => $sort,
-			'order'                => $order,
-			'start'                => ($page - 1) * $this->config->get('config_limit_admin'),
-			'limit'                => $this->config->get('config_limit_admin')
+			'filter_order_id'       => $filter_order_id,
+			'filter_bus_ride_id'    => $filter_bus_ride_id,
+			'filter_carrier_id'	    => $filter_carrier_id,
+			'filter_date_departure' => $filter_date_departure,
+			'filter_passenger_phone'=> $filter_passenger_phone,
+			'filter_customer'	    => $filter_customer,
+			'filter_order_status'   => $filter_order_status,
+			'filter_total'          => $filter_total,
+			'filter_date_added'     => $filter_date_added,
+			'filter_date_modified'  => $filter_date_modified,
+			'sort'                  => $sort,
+			'order'                 => $order,
+			'start'                 => ($page - 1) * $this->config->get('config_limit_admin'),
+			'limit'                 => $this->config->get('config_limit_admin')
 		);
 
 		$order_total = $this->model_sale_order->getTotalOrders($filter_data);
@@ -268,6 +280,8 @@ class ControllerSaleOrder extends Controller {
 
 		$data['entry_order_id']           = $this->language->get('entry_order_id');
 		$data['entry_customer']           = $this->language->get('entry_customer');
+		$data['entry_passenger_phone']    = $this->language->get('entry_passenger_phone');
+		$data['entry_departure_data']     = $this->language->get('entry_departure_data');
 		$data['entry_carrier']            = $this->language->get('entry_carrier');
 		$data['entry_tour']               = $this->language->get('entry_tour');
 		$data['entry_order_status']       = $this->language->get('entry_order_status');
@@ -403,6 +417,8 @@ class ControllerSaleOrder extends Controller {
 		$data['filter_total'] = $filter_total;
 		$data['filter_date_added'] = $filter_date_added;
 		$data['filter_date_modified'] = $filter_date_modified;
+		$data['filter_date_departure'] = $filter_date_departure;
+		$data['filter_passenger_phone'] = $filter_passenger_phone;
 
 		$data['sort'] = $sort;
 		$data['order'] = $order;
