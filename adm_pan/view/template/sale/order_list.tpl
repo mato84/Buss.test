@@ -97,6 +97,15 @@
                   <?php } ?>
                 </select>
               </div>
+              <div class="form-group">
+                    <label class="control-label" for="input-date-modified"><?php echo $entry_departure_data; ?></label>
+                    <div class="input-group date">
+                        <input type="text" name="filter_date_departure" value="<?php echo $filter_date_departure; ?>" placeholder="<?php echo $entry_departure_data; ?>" data-date-format="YYYY-MM-DD" id="input-date-departure" class="form-control" />
+                  <span class="input-group-btn">
+                  <button type="button" class="btn btn-default"><i class="fa fa-calendar"></i></button>
+                  </span>
+                    </div>
+              </div>              
             </div>
             <div class="col-sm-4">
               <div class="form-group">
@@ -116,15 +125,6 @@
                   </span>
                 </div>
               </div>
-                <div class="form-group">
-                    <label class="control-label" for="input-date-modified"><?php echo $entry_departure_data; ?></label>
-                    <div class="input-group date">
-                        <input type="text" name="filter_date_departure" value="<?php echo $filter_date_departure; ?>" placeholder="<?php echo $entry_departure_data; ?>" data-date-format="YYYY-MM-DD" id="input-date-departure" class="form-control" />
-                  <span class="input-group-btn">
-                  <button type="button" class="btn btn-default"><i class="fa fa-calendar"></i></button>
-                  </span>
-                    </div>
-                </div>
               <div class="form-group">
                 <label class="control-label"></label>
                 <div>
