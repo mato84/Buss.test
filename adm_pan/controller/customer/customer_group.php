@@ -271,6 +271,7 @@ class ControllerCustomerCustomerGroup extends Controller {
 		$data['entry_approval'] = $this->language->get('entry_approval');
 		$data['entry_sort_order'] = $this->language->get('entry_sort_order');
 		$data['entry_short_name'] = $this->language->get('entry_short_name');
+		$data['entry_belong_store'] = $this->language->get('entry_belong_store');
 
 		$data['help_approval'] = $this->language->get('help_approval');
 
@@ -338,7 +339,7 @@ class ControllerCustomerCustomerGroup extends Controller {
 		} else {
 			$data['customer_group_description'] = array();
 		}
-
+		
 		if (isset($this->request->post['approval'])) {
 			$data['approval'] = $this->request->post['approval'];
 		} elseif (!empty($customer_group_info)) {
@@ -354,6 +355,13 @@ class ControllerCustomerCustomerGroup extends Controller {
 		} else {
 			$data['sort_order'] = '';
 		}
+		$this->load->model('setting/store');
+
+		if (isset($this->request->get['customer_group_id']) && ($this->request->server['REQUEST_METHOD'] != 'POST')) {
+			$data['store_id'] = $this->model_customer_customer_group->getGroupStoreId($this->request->get['customer_group_id']);
+		}
+		$data['stores'] = $this->model_setting_store->getStores();
+
 
 		$data['header'] = $this->load->controller('common/header');
 		$data['column_left'] = $this->load->controller('common/column_left');

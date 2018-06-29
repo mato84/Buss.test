@@ -3,7 +3,7 @@ dist
 tasks
 sftp-config.jso
 sftp-config.json
-system/storage/vendor
+system/storage/vendor/*
 
 # Config and Htaccess Files
 .htaccess

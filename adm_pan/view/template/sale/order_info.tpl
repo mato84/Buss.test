@@ -51,9 +51,9 @@
             <tr>
               <td style="width: 1%;"><button data-toggle="tooltip" title="<?php echo $text_customer; ?>" class="btn btn-info btn-xs"><i class="fa fa-user fa-fw"></i></button></td>
               <td><?php if ($customer) { ?>
-                <a href="<?php echo $customer; ?>" target="_blank"><?php echo $firstname; ?> <?php echo $lastname; ?></a>
+                <a href="<?php echo $customer; ?>" target="_blank"><?php echo $lastname; ?> <?php echo $firstname; ?></a>
                 <?php } else { ?>
-                <?php echo $firstname; ?> <?php echo $lastname; ?>
+                <?php echo $lastname; ?> <?php echo $firstname; ?> 
                 <?php } ?></td>
             </tr>
             <tr>
@@ -163,11 +163,12 @@
                 <?php foreach ($product['option'] as $option) { ?>
                 <br />
                 <?php if ($option['type'] != 'file') { ?>
-                &nbsp;<small> - <?php echo $option['name']; ?> <?php echo $option['value']; ?></small>
+                &nbsp;<?php echo $option['name']; ?> <?php echo $option['value']; ?>
                 <?php } else { ?>
-                &nbsp;<small> - <?php echo $option['name']; ?> <a href="<?php echo $option['href']; ?>"><?php echo $option['value']; ?></a></small>
+                &nbsp;<?php echo $option['name']; ?> <a href="<?php echo $option['href']; ?>"><?php echo $option['value']; ?></a>
                 <?php } ?>
-                <?php } ?></td>
+                <?php } ?>- <?php echo $product['departure_time']; ?>
+              </td>
 <!--               <td class="text-left"><?php echo $product['model']; ?></td> -->
               <td class="text-center"><?php echo $product['name_manufacturer']; ?></td>
               <td class="text-center"><?php echo $product['name_main_category']; ?></td>

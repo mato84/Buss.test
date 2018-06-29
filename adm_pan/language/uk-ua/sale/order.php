@@ -70,15 +70,15 @@ $_['text_upload']                             = 'Ваш файл успішно 
 $_['text_picklist']                           = 'Повідомлення про відправку';
 
 // Column
-$_['column_order_id']                         = '№ замовлення';
-$_['column_qtx_passengers']                   = 'Пасажирів';
+$_['column_order_id']                         = '№';
+$_['column_qtx_passengers']                   = 'Пасажир';
 $_['column_carrier']                          = 'Перевізник';
 $_['column_tour']                             = 'Рейс';
 $_['column_customer']                         = 'Замовник';
 $_['column_status']                           = 'Статус';
-$_['column_date_added']                       = 'Дата додавання';
+$_['column_date_added']                       = 'Додано';
 $_['column_date_modified']                    = 'Дата зміни';
-$_['column_total']                            = 'Загалом';
+$_['column_total']                            = 'Вартість';
 $_['column_product']                          = 'Квиток';
 $_['column_manufacturer_name']                = 'Перевізник';
 $_['column_main_category_name']               = 'Автобус';
@@ -94,10 +94,13 @@ $_['column_weight']                           = 'Вага товару';
 $_['column_passenger']                        = 'Пасажир';
 $_['column_passenger_telephone']              = 'Телефон';
 $_['column_passenger_email']              	  = 'E-Mail';
+$_['column_ticket']              	          = 'Квиток';
+$_['column_departure_date']              	  = 'Відправлення';
 
 
 // Entry
 $_['entry_store']                             = 'Магазин';
+$_['entry_all_qtx_passengers']                = 'Загальна кількість пасажирів: ';
 $_['entry_customer']                          = 'Замовник';
 $_['entry_carrier']                           = 'Перевізник';
 $_['entry_tour']                              = 'Рейс';
@@ -131,16 +134,18 @@ $_['entry_order_status']                      = 'Статус замовленн
 $_['entry_notify']                            = 'Повідомити покупця';
 $_['entry_override']             			  = 'Відхилити';
 $_['entry_comment']                           = 'Коментарій';
-$_['entry_currency']             = 'Currency';
+$_['entry_currency']                          = 'Currency';
 $_['entry_shipping_method']                   = 'Спосіб доставки';
 $_['entry_payment_method']                    = 'Спосіб оплати';
 $_['entry_coupon']                            = 'Купон';
 $_['entry_voucher']                           = 'Подарунковий сертифікат';
 $_['entry_reward']                            = 'Премія';
 $_['entry_order_id']                          = '№ замовлення';
-$_['entry_total']                             = 'Загалом';
+$_['entry_total']                             = 'Вартість';
 $_['entry_date_added']                        = 'Дата додавання';
 $_['entry_date_modified']                     = 'Дата зміни';
+$_['entry_departure_data']                    = 'Дата відправлення';
+$_['entry_passenger_phone']                   = 'Телефон пасажира';
 
 // Help
 $_['help_override']              = 'If the customers order is being blocked from changing the order status due to an anti-fraud extension enable override.';

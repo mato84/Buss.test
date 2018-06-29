@@ -4,6 +4,7 @@ class Currency {
 	private $currencies = array();
 
 	public function __construct($registry) {
+		$this->config = $registry->get('config');
 		$this->db = $registry->get('db');
 		$this->language = $registry->get('language');
 
@@ -107,6 +108,15 @@ class Currency {
 		} else {
 			return 0;
 		}
+	}
+
+	public function getCodeOrDefault($id=false) {
+		foreach($this->currencies as $code=>$currency) {
+			if($id === $currency['currency_id']) {
+				return $code;
+			}
+		}
+		return $this->config->get('config_currency');
 	}
 
 	public function has($currency) {

@@ -59,7 +59,8 @@ class ControllerCommonHeader extends Controller {
 		}
 
 		$data['text_shopping_cart'] = $this->language->get('text_shopping_cart');
-		$data['text_logged'] = sprintf($this->language->get('text_logged'), $this->url->link('account/account', '', true), $this->customer->getFirstName(), $this->url->link('account/logout', '', true));
+		$data['text_logged'] = sprintf($this->language->get('text_logged'), $this->url->link('account/account', '', true),
+		 sprintf('%s %s', $this->customer->getLastName(), $this->customer->getFirstName()) , $this->url->link('account/logout', '', true));
 
 		$data['text_account'] = $this->language->get('text_account');
 		$data['text_register'] = $this->language->get('text_register');

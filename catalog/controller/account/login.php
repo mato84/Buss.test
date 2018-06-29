@@ -42,6 +42,7 @@ class ControllerAccountLogin extends Controller {
 		}
 
 		if ($this->customer->isLogged()) {
+
 			$this->response->redirect($this->url->link('account/account', '', true));
 		}
 
@@ -91,6 +92,10 @@ class ControllerAccountLogin extends Controller {
 			if (isset($this->request->post['redirect']) && $this->request->post['redirect'] != $this->url->link('account/logout', '', true) && (strpos($this->request->post['redirect'], $this->config->get('config_url')) !== false || strpos($this->request->post['redirect'], $this->config->get('config_ssl')) !== false)) {
 				$this->response->redirect(str_replace('&amp;', '&', $this->request->post['redirect']));
 			} else {
+
+				$redirectStore = $this->customer->getUrlFromGroupStoreId();
+				$this->registry->set('url', new Url($redirectStore['url'], $redirectStore['ssl']));
+
 				$this->response->redirect($this->url->link('account/account', '', true));
 			}
 		}
@@ -208,5 +213,9 @@ class ControllerAccountLogin extends Controller {
 		}
 
 		return !$this->error;
+	}
+	private function redirectManager()
+	{
+		
 	}
 }

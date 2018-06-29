@@ -25,13 +25,14 @@ class ControllerCheckoutCheckout extends Controller {
 		$data['button_add'] = $this->language->get('button_add');
 		$data['text_agent'] = $this->language->get('text_agent');
 		$data['text_agent_number'] = $this->language->get('text_agent_number');		
-
+		$data['text_checkout'] = $this->language->get('text_checkout');	
         $data['notice_only_one'] = $this->language->get('notice_only_one');
 
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
 		$this->document->addScript('catalog/view/javascript/maskedinput.js');
+		$this->document->addScript('catalog/view/javascript/scrool_to.js');
 		$this->document->addScript('catalog/view/javascript/jquery/datetimepicker/moment.js');
 		$this->document->addScript('catalog/view/javascript/jquery/datetimepicker/locale/'.$this->session->data['language'].'.js');
 		$this->document->addScript('catalog/view/javascript/jquery/datetimepicker/bootstrap-datetimepicker.min.js');
@@ -414,6 +415,7 @@ class ControllerCheckoutCheckout extends Controller {
 					'quantity'           => $product['quantity'],
 					'subtract'           => $product['subtract'],
 					'price'              => $product['price'],
+					'currency_id'        => $product['currency_id'],
 					'total'              => $product['total'],
 					'tax'                => $this->tax->getTax($product['price'], $product['tax_class_id']),
 					'reward'             => $product['reward']
@@ -481,10 +483,13 @@ class ControllerCheckoutCheckout extends Controller {
 				$order_data['tracking'] = '';
 			}
 
+			$productCurrency = reset($order_data['products'])['currency_id']
+				? reset($order_data['products'])['currency_id']
+				: $this->currency->getId($this->session->data['currency']);
 			$order_data['language_id'] = $this->config->get('config_language_id');
-			$order_data['currency_id'] = $this->currency->getId($this->session->data['currency']);
-			$order_data['currency_code'] = $this->session->data['currency'];
-			$order_data['currency_value'] = $this->currency->getValue($this->session->data['currency']);
+			$order_data['currency_id'] = $productCurrency;
+			$order_data['currency_code'] = $this->currency->getCodeOrDefault($productCurrency);
+			$order_data['currency_value'] = $this->currency->getValue($this->currency->getCodeOrDefault($productCurrency));
 			$order_data['ip'] = $this->request->server['REMOTE_ADDR'];
 
 			if (!empty($this->request->server['HTTP_X_FORWARDED_FOR'])) {
@@ -619,8 +624,8 @@ class ControllerCheckoutCheckout extends Controller {
 					'recurring'          => $recurring,
 					'quantity'           => $product['quantity'],
 					'subtract'           => $product['subtract'],
-					'price'              => $this->currency->format($this->tax->calculate($product['price'], $product['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']),
-					'total'              => $this->currency->format($this->tax->calculate($product['price'], $product['tax_class_id'], $this->config->get('config_tax')) * $product['quantity'], $this->session->data['currency']),
+					'price'              => $this->currency->format($this->tax->calculate($product['price'], $product['tax_class_id'], $this->config->get('config_tax')), $this->currency->getCodeOrDefault($product['currency_id'])),
+					'total'              => $this->currency->format($this->tax->calculate($product['price'], $product['tax_class_id'], $this->config->get('config_tax')) * $product['quantity'], $this->currency->getCodeOrDefault($product['currency_id'])),
 					'href'               => $this->url->link('product/product', 'product_id=' . $product['product_id'])
 				);
 			}

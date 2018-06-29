@@ -140,7 +140,7 @@
       </div>
       <?php } ?>
       <?php if (!$categories && !$products) { ?>
-      <div class="well">
+      <div class="well"> 
       <p><?php echo $text_empty; ?></p>
       <div class="buttons buttons-right">
         <a href="<?php echo $continue; ?>" class="btn btn-default"><?php echo $button_continue; ?></a>

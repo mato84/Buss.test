@@ -5,7 +5,7 @@ class ModelToolMessage extends Model{
   private $passengerOptionMessage = [];
 
   public function prepareMessage($order_info){
-
+	$baseUrl = 'https://panbus.com.ua/';
     list($product_order) = $this->getOrderProducts($order_info['order_id']);
     list($order_option) = $this->getOrderOptions($order_info['order_id'], $product_order['order_product_id']);
 
@@ -23,10 +23,50 @@ class ModelToolMessage extends Model{
                   'password' => $this->config->get('config_sms_gate_password'),
 
 
-                  'message'  => str_replace(array('{NAME}', '{DATE}', '{TIME}', '{DEPAERTURE_FROM}', '{CATEGORY}', '{CARRIER}'),
-                      array($product_info['name'], $order_option['value'], $product_info['departure_time'], $product_info['departure_from'],
-                          $product_name_main_category,$product_manufacturer_name),
-                      'Заброньовано:'."\xA".'{NAME}'."\xA".'{DATE}'."\xA".'{TIME}'."\xA".'{DEPAERTURE_FROM}'."\xA".'Автобус {CATEGORY}'."\xA".'Перевізник {CARRIER}')
+                'message'  => str_replace(
+                		array(
+		                	'{CATEGORY}',
+		                	'{FROM_NAME}',		                	
+		                	'{DATE}',
+		                	'{DEPARTURE_TIME}',
+		                	'{DEPARTURE_FROM}',
+		                	'{TO_NAME}',
+		                	'{ARRIVAL_TIME}',
+		                	'{DEPARTURE_TO}',
+		                	'{NAME}',
+		                	'{PRICE}',		                	                	
+		                	'{CARRIER}',
+							'{BASE_URL}'
+		                	),
+		                array(
+		                    $product_name_main_category,
+		                    $product_info['from_name'],
+		                    $order_option['value'],		                    
+		                    $product_info['departure_time'],
+		                    $product_info['departure_from'],
+		                    $product_info['to_name'],
+		                    $product_info['arrival_time'],
+		                    $product_info['departure_to'],
+		                    $product_info['name'],
+		                    $product_info['price'],		                                        
+		                    $product_manufacturer_name,
+							$baseUrl
+		                    ),
+		                    'Ви заброньовані!'."\xA".
+		                    'Трафарет на лобовому склі: {CATEGORY}.'."\xA".
+		                    'Відправлення: {FROM_NAME} '.
+		                    '{DATE} '.
+		                    'о {DEPARTURE_TIME} '.
+		                    'з {DEPARTURE_FROM}.'."\xA".	                    
+		                    'Прибуття у {TO_NAME} '.
+		                    'орієнтовно о {ARRIVAL_TIME} '.
+		                    'на {DEPARTURE_TO}.'."\xA".
+		                   	'Вартість проїзду {NAME} - '.
+		                    '{PRICE}'."\xA".
+		                    'Підходите до водія і запитуєте чи це рейс перевізника {CARRIER}. Кажете, що Ви заброньовані, називаєте Ваше прізвище, оплачуєте вартість квитка водієві та їдете.'."\xA".
+		                    'Дякуємо за бронювання!'."\xA".'{BASE_URL}'
+
+                    )
 
               ];
           }
@@ -41,13 +81,53 @@ class ModelToolMessage extends Model{
               'password' => $this->config->get('config_sms_gate_password'),
 
 
-              'message'  => str_replace(array('{NAME}', '{DATE}', '{TIME}', '{DEPAERTURE_FROM}', '{CATEGORY}', '{CARRIER}'),
-                  array($product_info['name'], $order_option['value'], $product_info['departure_time'], $product_info['departure_from'],
-                      $product_name_main_category,$product_manufacturer_name),
-                  'Заброньовано:'."\xA".'{NAME}'."\xA".'{DATE}'."\xA".'{TIME}'."\xA".'{DEPAERTURE_FROM}'."\xA".'Автобус {CATEGORY}'."\xA".'Перевізник {CARRIER}')
-          );
+                'message'  => str_replace(
+                		array(
+		                	'{CATEGORY}',
+		                	'{FROM_NAME}',		                	
+		                	'{DATE}',
+		                	'{DEPARTURE_TIME}',
+		                	'{DEPARTURE_FROM}',
+		                	'{TO_NAME}',
+		                	'{ARRIVAL_TIME}',
+		                	'{DEPARTURE_TO}',
+		                	'{NAME}',
+		                	'{PRICE}',		                	                	
+		                	'{CARRIER}',
+							'{BASE_URL}'
+		                	),
+		                array(
+		                    $product_name_main_category,
+		                    $product_info['from_name'],
+		                    $order_option['value'],		                    
+		                    $product_info['departure_time'],
+		                    $product_info['departure_from'],
+		                    $product_info['to_name'],
+		                    $product_info['arrival_time'],
+		                    $product_info['departure_to'],
+		                    $product_info['name'],
+		                    $product_info['price'],		                                        
+		                    $product_manufacturer_name,
+							$baseUrl
+		                    ),
+		                    'Ви заброньовані!'."\xA".
+		                    'Трафарет на лобовому склі: {CATEGORY}.'."\xA".
+		                    'Відправлення: {FROM_NAME} '.
+		                    '{DATE} '.
+		                    'о {DEPARTURE_TIME} '.
+		                    'з {DEPARTURE_FROM}.'."\xA".	                    
+		                    'Прибуття у {TO_NAME} '.
+		                    'орієнтовно о {ARRIVAL_TIME} '.
+		                    'на {DEPARTURE_TO}.'."\xA".
+		                   	'Вартість проїзду {NAME} - '.
+		                    '{PRICE}'."\xA".
+		                    'Підходите до водія і запитуєте чи це рейс перевізника {CARRIER}. Кажете, що Ви заброньовані, називаєте Ваше прізвище, оплачуєте вартість квитка водієві та їдете.'."\xA".
+		                    'Дякуємо за бронювання!'."\xA".'{BASE_URL}'
 
-      }
+                    )
+				);
+
+      		}
 
     return $this;
   }
@@ -112,7 +192,13 @@ class ModelToolMessage extends Model{
 				'image'            => $query->row['image'],
 				'manufacturer_id'  => $query->row['manufacturer_id'],
 				'manufacturer'     => $query->row['manufacturer'],
-				'price'            => ($query->row['discount'] ? $query->row['discount'] : $query->row['price']),
+//				'price'            => ($query->row['discount'] ? $query->row['discount'] : $query->row['price']),
+				'price'            => $this->currency->format(
+					$this->currency->convert($query->row['price'],
+						$this->currency->getCodeOrDefault($query->row['currency_id']),
+						$this->config->get('config_currency')),
+					$this->currency->getCodeOrDefault($query->row['currency_id'])
+				),
 				'special'          => $query->row['special'],
 				'reward'           => $query->row['reward'],
 				'points'           => $query->row['points'],

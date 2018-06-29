@@ -23,9 +23,7 @@ class ControllerCheckoutConfirm extends Controller {
             $this->request->post['telephone'] = $this->customer->getTelephone();
             $this->request->post['email']     = $this->customer->getEmail();
 
-        }
-
-        else{
+        } else {
             if (isset($this->request->post['firstname'])) {
                 $this->session->data['guest']['firstname'] = $this->request->post['firstname'];
             } else {
@@ -60,7 +58,7 @@ class ControllerCheckoutConfirm extends Controller {
             if((utf8_strlen(trim($this->request->post['lastname'])) < 1) || (utf8_strlen(trim($this->request->post['lastname'])) > 32)) {
                 $json['error']['lastname'] = $this->language->get('error_lastname');
             }
-            if (!preg_match("/^[0-9]{12,14}$/", str_replace(' ', '', $this->request->post['telephone']) )) {
+            if (!preg_match("/^[0-9]{11,12}$/", str_replace(' ', '', $this->request->post['telephone']) )) {
                 $json['error']['telephone'] = $this->language->get('error_telephone');
             }
 
@@ -112,8 +110,8 @@ class ControllerCheckoutConfirm extends Controller {
             $passengers[] = $currentCustomer;
         }
 
-		 $uniquePassengers = $this->getUniquePassengers($passengers);
-		 $passengersAddedIds = $this->model_catalog_passenger->addPassengers($uniquePassengers);
+//		 $uniquePassengers = $this->getUniquePassengers($passengers);
+		 $passengersAddedIds = $this->model_catalog_passenger->addPassengers($passengers);
 		 $this->model_checkout_order->addPassengerToOrder($passengersAddedIds, $orderId);
 
 		if(isset($this->session->data['order_id']) && $this->session->data['order_id'] > 0 ){
@@ -179,7 +177,7 @@ class ControllerCheckoutConfirm extends Controller {
              else{
                  $currentPassenger['first_name'] = $requestPassengers['passenger_firstname'][$count];
              }
-             if (!preg_match("/^[0-9]{12,14}$/", str_replace(' ', '', $requestPassengers['passenger_telephone'][$count]))){
+             if (!preg_match("/^[0-9]{11,12}$/", str_replace(' ', '', $requestPassengers['passenger_telephone'][$count]))){
                  $currentPassenger['phone']['error'] = $this->language->get('error_telephone');
                  $error = true;
              }

@@ -56,6 +56,10 @@
                   <?php } ?>
                 </select>
               </div>
+                <div class="form-group">
+                    <label class="control-label" for="input-customer"><?php echo $entry_passenger_phone; ?></label>
+                    <input type="number" name="filter_passenger_phone" value="<?php echo $filter_passenger_phone; ?>" placeholder="<?php echo $entry_passenger_phone; ?>" id="input-passenger-phone" class="form-control" />
+                </div>
             </div>
             <div class="col-sm-4">
               <div class="form-group">
@@ -106,12 +110,21 @@
               <div class="form-group">
                 <label class="control-label" for="input-date-modified"><?php echo $entry_date_modified; ?></label>
                 <div class="input-group date">
-                  <input type="text" name="filter_date_modified" value="<?php echo $filter_date_modified; ?>" placeholder="<?php echo $entry_date_modified; ?>" data-date-format="YYYY-MM-DD" id="input-date-modified" class="form-control" />
+                  <input type="text" name="filter_date_modified" value="<?php echo $filter_date_modified; ?>" placeholder="<?php echo $entry_date_modified; ?>" data-date-format="YYYY-MM-DD" id="input-date-departure" class="form-control" />
                   <span class="input-group-btn">
                   <button type="button" class="btn btn-default"><i class="fa fa-calendar"></i></button>
                   </span>
                 </div>
               </div>
+                <div class="form-group">
+                    <label class="control-label" for="input-date-modified"><?php echo $entry_departure_data; ?></label>
+                    <div class="input-group date">
+                        <input type="text" name="filter_date_departure" value="<?php echo $filter_date_departure; ?>" placeholder="<?php echo $entry_departure_data; ?>" data-date-format="YYYY-MM-DD" id="input-date-departure" class="form-control" />
+                  <span class="input-group-btn">
+                  <button type="button" class="btn btn-default"><i class="fa fa-calendar"></i></button>
+                  </span>
+                    </div>
+                </div>
               <div class="form-group">
                 <label class="control-label"></label>
                 <div>
@@ -120,7 +133,7 @@
                 </div>               
               </div>
               <div class="form-group">
-                <div class="passengers-count">Загальна кількість пасажирів:  <span><?php echo $allPassengers; ?></span> </div>
+                <div class="passengers-count"><?php echo $entry_all_qtx_passengers; ?><span><?php echo $allPassengers; ?></span> </div>
               </div>
             </div>
           </div>
@@ -146,10 +159,17 @@
                     <a href="<?php echo $sort_customer; ?>" class="<?php echo strtolower($order); ?>"><?php echo $column_customer; ?></a>
                     <?php } else { ?>
                     <a href="<?php echo $sort_customer; ?>"><?php echo $column_customer; ?></a>
-                    <?php } ?></td>
-                  <td class="text-left">
-                    <a href="#"><?php echo $column_qtx_passengers; ?></a>
+                    <?php } ?>
                   </td>
+                  <td class="text-left">
+                      <?php echo $column_ticket; ?>
+                  </td>
+                  <td class="text-left">
+                      <?php echo $column_departure_date; ?>
+                  </td>
+                  <td class="text-left">
+                      <?php echo $column_qtx_passengers; ?>
+                  </td>                  
                   <td class="text-left"><?php if ($sort == 'o.total') { ?>
                     <a href="<?php echo $sort_total; ?>" class="<?php echo strtolower($order); ?>"><?php echo $column_total; ?></a>
                     <?php } else { ?>
@@ -159,11 +179,6 @@
                     <a href="<?php echo $sort_date_added; ?>" class="<?php echo strtolower($order); ?>"><?php echo $column_date_added; ?></a>
                     <?php } else { ?>
                     <a href="<?php echo $sort_date_added; ?>"><?php echo $column_date_added; ?></a>
-                    <?php } ?></td>
-                  <td class="text-left"><?php if ($sort == 'o.date_modified') { ?>
-                    <a href="<?php echo $sort_date_modified; ?>" class="<?php echo strtolower($order); ?>"><?php echo $column_date_modified; ?></a>
-                    <?php } else { ?>
-                    <a href="<?php echo $sort_date_modified; ?>"><?php echo $column_date_modified; ?></a>
                     <?php } ?></td>
                   <td class="text-left"><?php if ($sort == 'order_status') { ?>
                     <a href="<?php echo $sort_status; ?>" class="<?php echo strtolower($order); ?>"><?php echo $column_status; ?></a>
@@ -190,10 +205,19 @@
                   <td class="text-left"><?php echo $order['carrier']; ?></td>
                   <td class="text-left"><?php echo $order['tour']; ?></td>
                   <td class="text-left"><?php  echo $order['customer']; ?></td>
-                  <td class="text-left"><?php echo $order['passenger']; ?></td>
+                  <td class="text-left"><?php echo $order['ticket']; ?></td>
+                  <td class="text-left"><?php echo $order['departure_data']; ?></td>                                    
+                  <td class="text-left">
+                      <?php foreach ($order['passengers'] as $key => $passenger) { ?>
+                      <div class="passenger-info">
+                          <div class="passenger-name">
+                              <?php $key++;  echo $key.': '.$passenger['surname'].' '.$passenger['name']; ?>
+                          </div>
+                      </div>
+                      <?php } ?>
+                  </td>
                   <td class="text-left"><?php echo $order['total']; ?></td>
                   <td class="text-left"><?php  echo $order['date_added']; ?></td>
-                  <td class="text-left"><?php  echo $order['date_modified']; ?></td>
                   <td class="text-left"><?php  echo $order['order_status']; ?></td>
                   <td class="text-right">
                     <a href="<?php echo $order['edit']; ?>" data-toggle="tooltip" title="<?php echo $button_edit; ?>" class="btn btn-info"><i class="fa fa-pencil"></i></a>
@@ -268,6 +292,16 @@ $('#button-filter').on('click', function() {
 
 	if (filter_date_modified) {
 		url += '&filter_date_modified=' + encodeURIComponent(filter_date_modified);
+	}
+    var filter_date_departure = $('input[name=\'filter_date_departure\']').val();
+
+	if (filter_date_departure) {
+		url += '&filter_date_departure=' + encodeURIComponent(filter_date_departure);
+	}
+    var filter_passenger_phone = $('input[name=\'filter_passenger_phone\']').val();
+
+	if (filter_passenger_phone) {
+		url += '&filter_passenger_phone=' + encodeURIComponent(filter_passenger_phone);
 	}
 
 	location = url;

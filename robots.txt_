@@ -4,7 +4,7 @@ Disallow: /*route=affiliate/
 Disallow: /*route=checkout/
 Disallow: /*route=product/search
 Disallow: /index.php?route=product/product*&manufacturer_id=
-Disallow: /admin_pan
+Disallow: /admin
 Disallow: /catalog
 Disallow: /system
 Disallow: /*?sort=
@@ -32,7 +32,7 @@ Disallow: /*route=affiliate/
 Disallow: /*route=checkout/
 Disallow: /*route=product/search
 Disallow: /index.php?route=product/product*&manufacturer_id=
-Disallow: /adm_pan
+Disallow: /admin
 Disallow: /catalog
 Disallow: /system
 Disallow: /*?sort=

@@ -42,5 +42,24 @@
         }
     })
 
+    $(".navbar-toggle").click(function(){
+    $("#menu").toggleClass("toggled");
+    $("#logo").toggleClass("toggled");
+    });
+
 
 })(jQuery); // End of use strict
+
+
+$(document).ready(function() {
+$(".add-review").click(function() {
+  $('html, body').animate({
+    scrollTop: $('#form-review').offset().top - 90
+  }, 500);
+      return false;
+   });
+});
+
+// ---------Widget-connect-------------
+
+// -----------------------------------

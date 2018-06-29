@@ -15,6 +15,7 @@ $_['text_gallery']       = 'Галерея';
 $_['text_promotion']     = 'Акції';
 $_['text_contact']       = 'Контакти';
 $_['text_login']         = 'Вхід';
+$_['text_logged'] 		 = '<a href="%s">%s</a>';
 $_['text_order']         = 'Історія замовлень';
 $_['text_transaction']   = 'Оплати';
 $_['text_download']      = 'Завантаження';

@@ -90,6 +90,16 @@ class ControllerSaleOrder extends Controller {
         } else {
             $filter_carrier_id = null;
         }
+		if (isset($this->request->get['filter_date_departure'])) {
+			$filter_date_departure = $this->request->get['filter_date_departure'];
+		} else {
+			$filter_date_departure = null;
+		}
+		if (isset($this->request->get['filter_passenger_phone'])) {
+			$filter_passenger_phone = $this->request->get['filter_passenger_phone'];
+		} else {
+			$filter_passenger_phone = null;
+		}
 
 		if (isset($this->request->get['filter_order_id'])) {
 			$filter_order_id = $this->request->get['filter_order_id'];
@@ -203,17 +213,20 @@ class ControllerSaleOrder extends Controller {
 		$data['orders'] = array();
 
 		$filter_data = array(
-			'filter_order_id'      => $filter_order_id,
-			'filter_bus_ride_id'   => $filter_bus_ride_id,
-			'filter_carrier_id'	   => $filter_carrier_id,
-			'filter_order_status'  => $filter_order_status,
-			'filter_total'         => $filter_total,
-			'filter_date_added'    => $filter_date_added,
-			'filter_date_modified' => $filter_date_modified,
-			'sort'                 => $sort,
-			'order'                => $order,
-			'start'                => ($page - 1) * $this->config->get('config_limit_admin'),
-			'limit'                => $this->config->get('config_limit_admin')
+			'filter_order_id'       => $filter_order_id,
+			'filter_bus_ride_id'    => $filter_bus_ride_id,
+			'filter_carrier_id'	    => $filter_carrier_id,
+			'filter_date_departure' => $filter_date_departure,
+			'filter_passenger_phone'=> $filter_passenger_phone,
+			'filter_customer'	    => $filter_customer,
+			'filter_order_status'   => $filter_order_status,
+			'filter_total'          => $filter_total,
+			'filter_date_added'     => $filter_date_added,
+			'filter_date_modified'  => $filter_date_modified,
+			'sort'                  => $sort,
+			'order'                 => $order,
+			'start'                 => ($page - 1) * $this->config->get('config_limit_admin'),
+			'limit'                 => $this->config->get('config_limit_admin')
 		);
 
 		$order_total = $this->model_sale_order->getTotalOrders($filter_data);
@@ -222,20 +235,25 @@ class ControllerSaleOrder extends Controller {
 
 		$data['allPassengers'] = 0;
 		foreach ($results as $result) {
+			$passengers = $this->model_sale_order->getPassengersInOrder($result['order_id']);
+			list($product) = $this->model_sale_order->getOrderProducts($result['order_id']);
+			list($optionDate) = $this->model_sale_order->getOrderOptions($result['order_id'], $product['order_product_id']);
             $data['allPassengers'] += $result['passengers'];
 			$data['orders'][] = array(
-				'order_id'      => $result['order_id'],
-                'passenger'     => $result['passengers'],
-                'carrier'       => $result['carrier'],
-                'tour'          => $result['tour'],
-				'customer'      => $result['customer'],
-				'order_status'  => $result['order_status'] ? $result['order_status'] : $this->language->get('text_missing'),
-				'total'         => $this->currency->format($result['total'], $result['currency_code'], $result['currency_value']),
-				'date_added'    => date($this->language->get('date_format_short'), strtotime($result['date_added'])),
-				'date_modified' => date($this->language->get('date_format_short'), strtotime($result['date_modified'])),
-				'shipping_code' => $result['shipping_code'],
-				'view'          => $this->url->link('sale/order/info', 'token=' . $this->session->data['token'] . '&order_id=' . $result['order_id'] . $url, true),
-				'edit'          => $this->url->link('sale/order/edit', 'token=' . $this->session->data['token'] . '&order_id=' . $result['order_id'] . $url, true)
+				'order_id'        => $result['order_id'],
+				'ticket'      	  => $product['name'],
+				'departure_data'  => sprintf('%s - %s', $optionDate['value'], $product['departure_time']),
+                'passengers'      => $passengers,
+                'carrier'         => $result['carrier'],
+                'tour'            => $result['tour'],
+				'customer'        => $result['customer'],
+				'order_status'    => $result['order_status'] ? $result['order_status'] : $this->language->get('text_missing'),
+				'total'           => $this->currency->format($result['total'], $result['currency_code'], $result['currency_value']),
+				'date_added'      => date($this->language->get('date_format_short'), strtotime($result['date_added'])),
+				'date_modified'   => date($this->language->get('date_format_short'), strtotime($result['date_modified'])),
+				'shipping_code'   => $result['shipping_code'],
+				'view'            => $this->url->link('sale/order/info', 'token=' . $this->session->data['token'] . '&order_id=' . $result['order_id'] . $url, true),
+				'edit'            => $this->url->link('sale/order/edit', 'token=' . $this->session->data['token'] . '&order_id=' . $result['order_id'] . $url, true)
 			);
 		}
 
@@ -249,6 +267,8 @@ class ControllerSaleOrder extends Controller {
 
 		$data['column_order_id']        = $this->language->get('column_order_id');
 		$data['column_qtx_passengers']  = $this->language->get('column_qtx_passengers');
+		$data['column_ticket']  		= $this->language->get('column_ticket');
+		$data['column_departure_date']  = $this->language->get('column_departure_date');
 		$data['column_carrier']         = $this->language->get('column_carrier');
 		$data['column_tour']            = $this->language->get('column_tour');
 		$data['column_customer']        = $this->language->get('column_customer');
@@ -258,14 +278,17 @@ class ControllerSaleOrder extends Controller {
 		$data['column_date_modified']   = $this->language->get('column_date_modified');
 		$data['column_action'] = $this->language->get('column_action');
 
-		$data['entry_order_id'] = $this->language->get('entry_order_id');
-		$data['entry_customer'] = $this->language->get('entry_customer');
-		$data['entry_carrier']  = $this->language->get('entry_carrier');
-		$data['entry_tour']     = $this->language->get('entry_tour');
-		$data['entry_order_status'] = $this->language->get('entry_order_status');
-		$data['entry_total'] = $this->language->get('entry_total');
-		$data['entry_date_added'] = $this->language->get('entry_date_added');
-		$data['entry_date_modified'] = $this->language->get('entry_date_modified');
+		$data['entry_order_id']           = $this->language->get('entry_order_id');
+		$data['entry_customer']           = $this->language->get('entry_customer');
+		$data['entry_passenger_phone']    = $this->language->get('entry_passenger_phone');
+		$data['entry_departure_data']     = $this->language->get('entry_departure_data');
+		$data['entry_carrier']            = $this->language->get('entry_carrier');
+		$data['entry_tour']               = $this->language->get('entry_tour');
+		$data['entry_order_status']       = $this->language->get('entry_order_status');
+		$data['entry_total']              = $this->language->get('entry_total');
+		$data['entry_date_added']         = $this->language->get('entry_date_added');
+		$data['entry_date_modified']      = $this->language->get('entry_date_modified');
+		$data['entry_all_qtx_passengers'] = $this->language->get('entry_all_qtx_passengers');
 
 		$data['button_invoice_print'] = $this->language->get('button_invoice_print');
 		$data['button_shipping_print'] = $this->language->get('button_shipping_print');
@@ -394,6 +417,8 @@ class ControllerSaleOrder extends Controller {
 		$data['filter_total'] = $filter_total;
 		$data['filter_date_added'] = $filter_date_added;
 		$data['filter_date_modified'] = $filter_date_modified;
+		$data['filter_date_departure'] = $filter_date_departure;
+		$data['filter_passenger_phone'] = $filter_passenger_phone;
 
 		$data['sort'] = $sort;
 		$data['order'] = $order;
@@ -1071,6 +1096,8 @@ class ControllerSaleOrder extends Controller {
                 $product['name_main_category'] = $this->model_catalog_product
                     ->getProductMainCategoryName($product['product_id']);
 
+				$product['departure_time'] = $this->model_catalog_product
+					->getProduct($product['product_id'])['departure_time'];
 				$options = $this->model_sale_order->getOrderOptions($this->request->get['order_id'], $product['order_product_id']);
 
 				foreach ($options as $option) {
@@ -1096,6 +1123,7 @@ class ControllerSaleOrder extends Controller {
 
 				$data['products'][] = array(
 					'order_product_id'   => $product['order_product_id'],
+					'departure_time'     => $product['departure_time'],
 					'product_id'         => $product['product_id'],
 					'name_main_category' => $product['name_main_category'],
                     'name_manufacturer'  => $product['name_manufacturer'],

@@ -158,84 +158,136 @@
 
       });
 
-      // map.drawRoute({
-      //   origin: [49.9935, 36.230383000000074],
-      //   waypoints: [
+      map.drawRoute({
+        origin: [49.9935, 36.230383000000074],
+        waypoints: [
 
-      //     { location: {lat: 49.58826699999999, lng: 34.55141690000005 },
-      //       stopover:true
-      //     },
-      //     { location: {lat: 50.4501, lng: 30.523400000000038 },
-      //       stopover:true
-      //     },
-      //     { location: {lat: 50.25465, lng: 28.65866690000007 },
-      //       stopover:true
-      //     },
-      //     { location: {lat: 50.6199, lng: 26.25161700000001 },
-      //       stopover:true
-      //     },
-      //     { location: {lat: 50.74723299999999, lng: 25.325382999999988 },
-      //       stopover:true
-      //     },
-      //     { location: {lat: 51.2464536, lng: 22.568446300000005 },
-      //       stopover:true
-      //     },
-      //     { location: {lat: 52.2296756, lng: 21.012228700000037 },
-      //       stopover:true
-      //     },
-      //     { location: {lat: 52.6230132, lng: 20.375358900000037 },
-      //       stopover:true
-      //     },
-      //     { location: {lat: 53.69630069999999, lng: 19.964795200000026 },
-      //       stopover:true
-      //     },
-      //     { location: {lat: 54.1560613, lng: 19.4044897 },
-      //       stopover:true
-      //     },
-      //     { location: {lat: 54.35202520000001, lng: 18.64663840000003 },
-      //       stopover:true
-      //     },
+          { location: {lat: 49.58826699999999, lng: 34.55141690000005 },
+            stopover:true
+          },
+          { location: {lat: 50.4501, lng: 30.523400000000038 },
+            stopover:true
+          },
+          { location: {lat: 50.25465, lng: 28.65866690000007 },
+            stopover:true
+          },
+          { location: {lat: 50.6199, lng: 26.25161700000001 },
+            stopover:true
+          },
+          { location: {lat: 50.74723299999999, lng: 25.325382999999988 },
+            stopover:true
+          },
+          { location: {lat: 51.2464536, lng: 22.568446300000005 },
+            stopover:true
+          },
+          { location: {lat: 52.2296756, lng: 21.012228700000037 },
+            stopover:true
+          },
+          { location: {lat: 52.6230132, lng: 20.375358900000037 },
+            stopover:true
+          },
+          { location: {lat: 53.69630069999999, lng: 19.964795200000026 },
+            stopover:true
+          },
+          { location: {lat: 54.1560613, lng: 19.4044897 },
+            stopover:true
+          },
+          { location: {lat: 54.35202520000001, lng: 18.64663840000003 },
+            stopover:true
+          },
 
-      //    ],
-      //   strokeColor: '#cd4e37',
-      //   strokeWeight: 3,
-      //   destination: [54.35202520000001, 18.64663840000003,],
-      //   travelMode: 'driving',
+         ],
+        strokeColor: '#cd4e37',
+        strokeWeight: 3,
+        destination: [54.35202520000001, 18.64663840000003,],
+        travelMode: 'driving',
 
-      // });
+      });
+
+
+
+      map.drawRoute({
+        origin: [48.291640, 25.934947],
+        // Чернівці
+        waypoints: [
+          { location: {lat: 48.446881, lng: 25.564217 },
+            stopover:true
+            // Снятин
+          },
+          { location: {lat: 48.526484, lng: 25.029698 },
+            stopover:true
+            // Коломия
+          },
+          { location: {lat: 48.919958, lng: 24.714260 },
+            stopover:true
+            // Івано Франк.
+          },                                              
+         ],
+        strokeColor: '#cd4e37',
+        strokeWeight: 3,
+        destination: [49.553517, 25.594767000000047],
+        // Тернопіль
+        travelMode: 'driving',
+        
+      });
+
+      map.drawRoute({
+        origin: [51.7730971, 19.4105534],
+        // Лодзь
+        waypoints: [
+          { location: {lat: 52.223301, lng: 18.250695 },
+            stopover:true
+            // Конін
+          },
+          { location: {lat: 52.406374, lng: 16.925168100000064 },
+            stopover:true
+            // Познань
+          },
+          { location: {lat: 53.153498, lng: 16.745026 },
+            stopover:true
+            // Піла
+          },                                            
+         ],
+        strokeColor: '#cd4e37',
+        strokeWeight: 3,
+        destination: [53.4296143, 14.4845429],
+        // Щецин
+        travelMode: 'driving',
+        
+      });             
 
 
       map.addMarkers([
-        // {
-        //   lat: 49.9935,
-        //   lng: 36.230383000000074,
-        //   title: 'Харків',
-        //   icon: image,},
-        // {
-        //   lat: 49.58826699999999,
-        //   lng: 34.55141690000005,
-        //   title: 'Полтава',
-        //   icon: image,},
-        // {
-        //   lat: 50.4501,
-        //   lng: 30.523400000000038,
-        //   title: 'Київ',
-        //   icon: image,},
-        // {
-        //   lat: 50.25465,
-        //   lng: 28.65866690000007,
-        //   title: 'Житомир',
-        //   icon: image,},
-        // {
-        //   lat: 50.6199,
-        //   lng: 26.25161700000001,
-        //   title: 'Рівне',
-        //   icon: image,},
-        // {
-        //   lat: 50.74723299999999,
-        //   lng: 25.325382999999988,
-        //   title: 'Луцьк',
-        //   icon: image,},
+        {
+          lat: 49.9935,
+          lng: 36.230383000000074,
+          title: 'Харків',
+          icon: image,},
+        {
+          lat: 49.58826699999999,
+          lng: 34.55141690000005,
+          title: 'Полтава',
+          icon: image,},
+        {
+          lat: 50.4501,
+          lng: 30.523400000000038,
+          title: 'Київ',
+          icon: image,},
+        {
+          lat: 50.25465,
+          lng: 28.65866690000007,
+          title: 'Житомир',
+          icon: image,},
+        {
+          lat: 50.6199,
+          lng: 26.25161700000001,
+          title: 'Рівне',
+          icon: image,},
+        {
+          lat: 50.74723299999999,
+          lng: 25.325382999999988,
+          title: 'Луцьк',
+          icon: image,},
         {
           lat: 46.635417,
           lng: 32.61686699999996,
@@ -285,22 +337,42 @@
           lat: 49.839683,
           lng: 24.029717000000005,
           title: 'Львів',
-          icon: image,},        
-        // {
-        //   lat: 52.6230132,
-        //   lng: 20.375358900000037,
-        //   title: 'Плонськ',
-        //   icon: image,},
-        // {
-        //   lat: 53.69630069999999,
-        //   lng: 19.964795200000026,
-        //   title: 'Оструда',
-        //   icon: image,},
-        // {
-        //   lat: 54.1560613,
-        //   lng: 19.4044897,
-        //   title: 'Ельблонг',
-        //   icon: image,},       
+          icon: image,},
+        {
+          lat: 48.291640,
+          lng: 25.934947,
+          title: 'Чернівці',
+          icon: image,}, 
+        {
+          lat: 48.446881,
+          lng: 25.564217,
+          title: 'Снятин',
+          icon: image,},
+        {
+          lat: 48.526484,
+          lng: 25.029698,
+          title: 'Коломия',
+          icon: image,},
+        {
+          lat: 48.919958,
+          lng: 24.714260,
+          title: 'Івано-Франківськ',
+          icon: image,},                 
+        {
+          lat: 52.6230132,
+          lng: 20.375358900000037,
+          title: 'Плонськ',
+          icon: image,},
+        {
+          lat: 53.69630069999999,
+          lng: 19.964795200000026,
+          title: 'Оструда',
+          icon: image,},
+        {
+          lat: 54.1560613,
+          lng: 19.4044897,
+          title: 'Ельблонг',
+          icon: image,},       
         {
           lat: 50.0411867,
           lng: 21.999119599999972,
@@ -436,7 +508,17 @@
           lng: 17.02848240000003,
           title: 'Слупськ',
           icon: image,},
-
+        {
+          lat: 52.223301,
+          lng: 18.250695,
+          title: 'Конін',
+          icon: image, }, 
+        {
+          lat: 53.153498,
+          lng: 16.745026,
+          title: 'Піла',
+          icon: image, },
+          
       ]);
 
     });

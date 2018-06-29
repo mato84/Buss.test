@@ -165,7 +165,15 @@
               <div class="form-group">
                 <label class="col-sm-2 control-label" for="input-price"><?php echo $entry_price; ?></label>
                 <div class="col-sm-10">
-                  <input type="text" name="price" value="<?php echo $price; ?>" placeholder="<?php echo $entry_price; ?>" id="input-price" class="form-control" />
+                  <input type="text" name="price" value="<?php echo $price; ?>" placeholder="<?php echo $entry_price; ?>" id="input-price" class="form-control" style="width: 150px; display: inline;" />
+                  <?php if(count($currencies) >= 2) : ?>
+                  <select name="currency_id" class="form-control" style="width: 250px; display: inline; vertical-align: top;">
+                    <option value="0"><?php echo $text_default; ?></option>
+                    <?php foreach($currencies as $currency) : ?>
+                    <option value="<?=$currency['currency_id']; ?>" <?php if($currency_id == $currency['currency_id']) {echo ' selected';} ?>><?=$currency['title']; ?> (<?=$currency['code']; ?>)</option>
+                    <?php endforeach; ?>
+                  </select>
+                  <?php endif; ?>
                 </div>
               </div>
               <div class="form-group hidden">

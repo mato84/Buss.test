@@ -7,16 +7,17 @@ use Box\Spout\Common\Type;
 
 class ModelToolImportExport extends Model{
   public function import($path){
-    $exclusion_sheet = ['product','waypoint_to_route','url_alias']; //this is exclusion for setDependentTable function
+    $exclusion_sheet = ['product','waypoint_to_route','url_alias', 'product_to_category']; //this is exclusion for setDependentTable function
     try{
-    $reading_data = $this->readFile($path);
-    $last_id = $this->setProducts($reading_data['product']);
-    $this->setDependentTable($reading_data, $last_id, $exclusion_sheet);
-    $this->setUrlAliace($reading_data['url_alias'], $last_id);
-    $this->setWayPointToRoute($reading_data['waypoint_to_route'], $last_id);
-    return $last_id;
+        $reading_data = $this->readFile($path);
+        $last_id = $this->setProducts($reading_data['product']);
+        $this->setDependentTable($reading_data, $last_id, $exclusion_sheet);
+        $this->updateDataCategory($reading_data['product_to_category']);
+        $this->setUrlAliace($reading_data['url_alias'], $last_id);
+        $this->setWayPointToRoute($reading_data['waypoint_to_route'], $last_id);
+        return $last_id;
      }
-  catch(Exception $e){
+    catch(Exception $e){
        echo 'Catch exception: ',  $e->getMessage(), "\n";
      }
   }
@@ -35,9 +36,13 @@ class ModelToolImportExport extends Model{
          else{
            $tempArray[] =  array_reduce(array_keys($head_sheet),
             function($acc,$val) use ($head_sheet,$row){
-             if(!empty($row[$val])){
+             if(!empty($row[$val]) && $row[$val] !== 0){
              $acc[$head_sheet[$val]] = $row[$val];
              }
+                if(isset($row[$val]) && $row[$val] === 0)
+                {
+                    $acc[$head_sheet[$val]] = '0';
+                }
               return $acc;
              },array());
          }
@@ -51,7 +56,7 @@ class ModelToolImportExport extends Model{
     $last_id = array();
     foreach ($array_product as $key => $value) {
         if (array_key_exists('product_id', $value)) {
-            $this->updataProduct($value);
+            $this->updateProduct($value);
             $last_id[] = $value['product_id'];
         } else {
             $sql = "INSERT INTO " .DB_PREFIX. "product SET ";
@@ -80,58 +85,61 @@ class ModelToolImportExport extends Model{
   protected function setDependentTable($array_dependent, $products_last_id, $exclusion_sheet_name = []){
     $new_array = array();
     foreach ($array_dependent as $name_sheet => $values) {
-      if(in_array($name_sheet, $exclusion_sheet_name )) continue;
-        $temp_array = array_map(function($a, $product_id){
-          $a['product_id'] = $product_id;
-          return $a;
+      if (in_array($name_sheet, $exclusion_sheet_name )) continue;
+        $temp_array = array_map(function($value, $product_id){
+          $value['product_id'] = $product_id;
+          return $value;
         },$values,$products_last_id);
       $new_array[$name_sheet] = $temp_array;
     }
 
     foreach ($new_array as $nameTable => $values) {
         $updateValue = $this->existDataInTable($nameTable, $products_last_id);
-        $this->setDataInDependentTable($nameTable, $values, $updateValue);
+        $this->updateDataInDependentTable($nameTable, $values, $updateValue);
     }
 
   }
   protected function setUrlAliace($array_url_alice, $products_id){
     $temp_array = array();
-     $temp_array[] = array_map(function($a, $b){
-       $a['query'] = trim("product_id=$b");
-       $a['keyword'] =trim("квиток-на-автобус-".$a['keyword']."-купити-онлайн");
-       return $a;
-     },$array_url_alice,$products_id);
+      if ($array_url_alice) {
+          $temp_array[] = array_map(function($a, $b){
+              $a['query'] = trim("product_id=$b");
+              $a['keyword'] =trim("квиток-на-автобус-".$a['keyword']."-купити-онлайн");
+              return $a;
+          },$array_url_alice,$products_id);
 
-      foreach ($temp_array as $nameTable => $values) {
-          foreach ($values as $key => $value) {
-            $sql = "INSERT INTO ".DB_PREFIX."url_alias SET ";
-            $sql .= array_reduce(array_keys($value), function($carry,$val) use($value){
-            return $carry." ".$val." = '" .$value[$val]."',";
-            },"");
-          $this->db->query(rtrim($sql,", "));
-        }
-    }
-
+          foreach ($temp_array as $nameTable => $values) {
+              foreach ($values as $key => $value) {
+                  $sql = "INSERT INTO ".DB_PREFIX."url_alias SET ";
+                  $sql .= array_reduce(array_keys($value), function($carry,$val) use($value){
+                      return $carry." ".$val." = '" .$value[$val]."',";
+                  },"");
+                  $this->db->query(rtrim($sql,", "));
+              }
+          }
+      }
   }
-  protected function setWayPointToRoute($array_waypoint, $products_id){
-    $formatted_array = array_reduce($array_waypoint, function($acc, $item) use ($products_id){
-      list($name, $value) = explode('=',$item['product_id'] );
-         if(empty($products_id[$value-1])) return $acc;
-         $acc[$products_id[$value-1]][] = $item['waypoint_id'];
-      return $acc;
-    }, []);
-    foreach ($formatted_array as $product_id => $waypoints) {
-        $sql = "INSERT INTO ".DB_PREFIX."waypoint_to_route VALUES ";
-        $sql.= array_reduce($waypoints, function($acc, $waypoint_id) use ($product_id) {
-          return $acc.="('$product_id', '$waypoint_id',''),";
-        },"");
-       $this->db->query(rtrim($sql,", "));
-    }
+  protected function setWayPointToRoute($array_waypoint, $products_id) {
+      if ($array_waypoint) {
+          $formatted_array = array_reduce($array_waypoint, function($acc, $item) use ($products_id){
+              list($name, $value) = explode('=',$item['product_id'] );
+              if(empty($products_id[$value-1])) return $acc;
+              $acc[$products_id[$value-1]][] = $item['waypoint_id'];
+              return $acc;
+          }, []);
+          foreach ($formatted_array as $product_id => $waypoints) {
+              $sql = "INSERT INTO ".DB_PREFIX."waypoint_to_route VALUES ";
+              $sql.= array_reduce($waypoints, function($acc, $waypoint_id) use ($product_id) {
+                  return $acc.="('$product_id', '$waypoint_id',''),";
+              },"");
+              $this->db->query(rtrim($sql,", "));
+          }
+      }
   }
-    private function updataProduct($productData) {
+    private function updateProduct($productData) {
         $sqlQuery = 'UPDATE ' . DB_PREFIX . 'product SET';
         $sqlQuery .= array_reduce(array_keys($productData), function($carry,$key) use($productData) {
-            if(!empty($key) && !empty($productData[$key]) ){
+            if(!empty($key)){
                 if((strcasecmp($key,'from_t') == 0 || strcasecmp($key,'to_t') == 0)
                     && !is_numeric($productData[$key]) ){
                     $query = $this->db->query("SELECT c.city_id FROM ".DB_PREFIX."city c WHERE c.name = '".$productData[$key]."'");
@@ -149,24 +157,42 @@ class ModelToolImportExport extends Model{
         $sqlQuery .= sprintf(' WHERE product_id = \'%s\'', $productData['product_id']);
         $this->db->query($sqlQuery);
     }
-    private function setDataInDependentTable($nameTable, $data, $updateData)
+    private function updateDataInDependentTable($nameTable, $data, $updateData)
     {
-        $sqlOperation = 'INSERT INTO';
         foreach ($data as $key => $value) {
             $isUpdate = array_key_exists($value['product_id'], $updateData);
-            $isUpdate ? $sqlOperation = 'UPDATE':null;
-            $sql = sprintf('%s %s%s SET ',$sqlOperation, DB_PREFIX, $nameTable);
-            $sql .= array_reduce(array_keys($value), function($carry,$val) use($value){
-                if(!empty($val) && !empty($value[$val]) ){
-                    return $carry." ".$val." = '" .$value[$val]." ',";
-                }
-                else{
-                    return $carry;
-                }
-            },"");
-            $isUpdate ? $sql = rtrim($sql,", ").sprintf(' WHERE product_id = \'%s\'', $value['product_id']):null;
-            $this->db->query(rtrim($sql,", "));
+            if ($isUpdate) {
+                $sqlOperation = 'UPDATE';
+                $sql = sprintf('%s %s%s SET ',$sqlOperation, DB_PREFIX, $nameTable);
+                $sql .= array_reduce(array_keys($value), function($carry,$val) use($value){
+                    if(!empty($val) && !empty($value[$val]) ){
+                        return $carry." ".$val." = '" .$value[$val]." ',";
+                    }
+                    else{
+                        return $carry;
+                    }
+                },"");
+
+                $sql = rtrim($sql,", ").sprintf(' WHERE product_id = \'%s\'', $value['product_id']);
+                $this->db->query(rtrim($sql,", "));
+            }
+
         }
+
+    }
+    private function updateDataCategory($arrayCategoryToProduct) {
+        $this->db->query('TRUNCATE TABLE oc_product_to_category');
+            $sql = "INSERT INTO ".DB_PREFIX."product_to_category VALUES ";
+            $sql.= array_reduce($arrayCategoryToProduct, function($acc, $productToCategory) {
+                 $acc .= sprintf(
+                    "(%s, %s, %s),",
+                    $productToCategory['product_id'],
+                    $productToCategory['category_id'],
+                    $productToCategory['main_category']
+                    );
+                return $acc;
+            },"");
+            $this->db->query(rtrim($sql,", "));
 
     }
     private function existDataInTable($tableName, $data)

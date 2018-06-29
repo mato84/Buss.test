@@ -176,10 +176,12 @@ class ModelSaleOrder extends Model {
         return $query->rows;
     }
 	public function getOrders($data = array()) {
-		$sql = "SELECT o.order_id, CONCAT(o.firstname, ' ', o.lastname) AS customer, COUNT(po.pass_id) as passengers, m.name as carrier, cd.name as tour, o.shipping_code, o.total, os.name as order_status, o.currency_code, o.currency_value, o.date_added, o.date_modified
+		$sql = "SELECT o.order_id, CONCAT(o.lastname, ' ', o.firstname) AS customer, COUNT(po.pass_id) as passengers, m.name as carrier, cd.name as tour, o.shipping_code, o.total, os.name as order_status, o.currency_code, o.currency_value, o.date_added, o.date_modified
                 FROM oc_order o 
+                JOIN oc_order_option oo ON oo.order_id = o.order_id
                 JOIN oc_order_status os ON os.order_status_id = o.order_status_id 
                 JOIN oc_passenger_to_order po ON o.order_id = po.order_id 
+                JOIN oc_passenger pfo ON po.pass_id = pfo.pass_id
                 JOIN oc_order_product op ON op.order_id = o.order_id 
                 JOIN oc_product p ON p.product_id = op.product_id 
                 JOIN oc_manufacturer m ON m.manufacturer_id = p.manufacturer_id 
@@ -211,6 +213,12 @@ class ModelSaleOrder extends Model {
 
 		if (!empty($data['filter_carrier_id'])) {
 			$sql .= " AND  m.manufacturer_id = '" . (int)$data['filter_carrier_id'] . "'";
+		}
+		if (!empty($data['filter_passenger_phone'])) {
+			$sql .= " AND  pfo.phone = '" . $this->db->escape($data['filter_passenger_phone']) . "'";
+		}
+		if (!empty($data['filter_date_departure'])) {
+			$sql .= " AND DATE(STR_TO_DATE(oo.value, '%d.%m.%Y')) = DATE('" . $this->db->escape($data['filter_date_departure']) . "')";
 		}
 		if (!empty($data['filter_customer'])) {
 			$sql .= " AND CONCAT(o.firstname, ' ', o.lastname) LIKE '%" . $this->db->escape($data['filter_customer']) . "%'";
@@ -268,7 +276,7 @@ class ModelSaleOrder extends Model {
 	}
 
 	public function getOrderProducts($order_id) {
-		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "order_product WHERE order_id = '" . (int)$order_id . "'");
+		$query = $this->db->query("SELECT op.*, p.departure_time FROM " . DB_PREFIX . "order_product AS op JOIN " . DB_PREFIX . "product AS p ON op.product_id = p.product_id  WHERE order_id = '" . (int)$order_id . "'");
 
 		return $query->rows;
 	}
