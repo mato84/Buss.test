@@ -54,7 +54,7 @@
                     <div class="region-selector">
                       <select class="select-box"><option value="UA">UA</option><option value="PL">PL</option></select>
                     </div>
-                <input type="tel" name="telephone" value="<?php echo $telephone; ?>" placeholder="" id="input-payment-telephone" class="form-control input-phone" />
+                <input type="text" name="telephone" value="<?php echo $telephone; ?>" placeholder="" id="input-payment-telephone" class="form-control input-phone" />
               </div>
               <div class="form-group">
                 <label class="control-label" for="input-payment-email"><?php echo $entry_email_address; ?></label>
@@ -79,7 +79,7 @@
                   <div class="region-selector">
                     <select class="select-box"><option value="UA">UA</option><option value="PL">PL</option></select>
                   </div>
-                <input type="tel" name="passenger_telephone[]" placeholder=""  id="phone" class="form-control  input-phone" />
+                <input type="text" name="passenger_telephone[]" placeholder=""  id="phone" class="form-control  input-phone" />
               </div>
               <div class="form-group">
                 <label class="control-label" for="input-payment-email"><?php echo $entry_email_address; ?></label>

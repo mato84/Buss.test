@@ -4,6 +4,7 @@ tasks
 sftp-config.jso
 sftp-config.json
 system/storage/vendor/*
+.gulpfile.js
 
 # Config and Htaccess Files
 .htaccess
