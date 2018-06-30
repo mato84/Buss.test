@@ -5,6 +5,9 @@ sftp-config.jso
 sftp-config.json
 system/storage/vendor/*
 gulpfile.js
+composer.lock
+package-lock.json
+error_log
 
 # Config and Htaccess Files
 .htaccess
