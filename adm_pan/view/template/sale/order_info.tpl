@@ -12,12 +12,53 @@
     </div>
   </div>
   <div class="container-fluid">
+      <?php if ($has_permission_assign_agent) { ?>
+      <div class="row">
+          <form action="<?php echo $url_agent_assign; ?>"method="post" class="form-horizontal">
+              <div class="current-agent col-md-6">
+                  <div class="form-group">
+                      <label class="col-sm-3 control-label" for="input-agent-assign">
+                          <?php echo $text_agent_assign; ?>
+                      </label>
+                      <div class="col-sm-5">
+                          <select <?php echo $disabled_select_assign_agent ? 'disabled' : ''; ?>  name="assign_user_id" id="input-agent-assign" class="form-control">
+                              <?php if ($assign_agent_id == 'none') { ?>
+                              <option value="none" selected="selected">
+                                  <?php echo $entry_on_agent_assign; ?>
+                              </option>
+                              <?php } ?>
+                              <?php foreach ($agents as $agent) { ?>
+                              <?php if ($agent['user_id'] == $assign_agent_id) { ?>
+                              <option value="<?php echo $agent['user_id']; ?>" selected="selected">
+                                  <?php echo sprintf('%s %s', $agent['firstname'], $agent['lastname']) ; ?>
+                              </option>
+                              <?php } else { ?>
+                              <option value="<?php echo $agent['user_id']; ?>">
+                                  <?php echo sprintf('%s %s', $agent['firstname'], $agent['lastname']) ?>
+                              </option>
+                              <?php } ?>
+                              <?php } ?>
+                          </select>
+                      </div>
+                      <input name="order_id" type="hidden" value="<?php echo $order_id; ?>">
+                      <?php if ($is_button_change) { ?>
+                      <div class="col-sm-4">
+                          <button type="submit"><?php echo $text_work_order; ?></button>
+                      </div>
+                      <?php } ?>
+                  </div>
+
+              </div>
+          </form>
+      </div>
+      <?php } ?>
     <div class="row">
       <div class="col-md-4">
         <div class="panel panel-default">
           <div class="panel-heading">
             <h3 class="panel-title"><i class="fa fa-shopping-cart"></i> <?php echo $text_order_detail; ?></h3>
           </div>
+
           <table class="table">
             <tbody>
               <tr>
