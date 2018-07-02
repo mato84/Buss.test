@@ -481,4 +481,15 @@ class ModelSaleOrder extends Model {
         $query = $this->db->query("SELECT p.pass_id, p.name, p.surname, p.phone, p.email FROM ". DB_PREFIX ."passenger p LEFT JOIN ". DB_PREFIX ."passenger_to_order po ON (p.pass_id = po.pass_id) WHERE po.order_id = ".(int)$order_id);
         return $query->rows;
     }
+	public function getResponsibleAgentFromOrder($order_id) {
+		$query = $this->db->query("SELECT agent_id FROM `" . DB_PREFIX . "agent_to_order` WHERE order_id =  ". (int)$order_id);
+
+		return isset($query->row['agent_id']) ? $query->row['agent_id']: 'none';
+	}
+	public function setResponsibleAgentToOrder($agent_id, $order_id)
+	{
+		$this->db->query("INSERT INTO " . DB_PREFIX . "agent_to_order SET order_id = '" . (int)$order_id . "', agent_id = '" . (int)$agent_id . "' ON DUPLICATE KEY UPDATE order_id = '" . (int)$order_id . "', agent_id = '". (int)$agent_id  . "'");
+
+		return $this->db->getLastId();
+	}
 }

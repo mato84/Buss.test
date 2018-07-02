@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<modification>
+    <name>permission_agent_to_order</name>
+    <code>permission</code>
+    <version>0.1.0.0</version>
+    <author>mtmato6@gmail.com</author>
+    <link>http://coreit.com.ua/</link>
+    <file path="admin/controller/user/user_permission.php">
+        <operation>
+            <search><![CDATA[if (isset($this->request->post['permission']['hiden'])) {]]></search>
+            <add position="before"><![CDATA[ $data['permissions'][] = 'sale/order/assignAgent'; ]]></add>
+        </operation>
+    </file>
+</modification>
