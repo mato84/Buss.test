@@ -68,8 +68,8 @@ $_['text_commission_removed']                 = 'Комісію успішно �
 $_['text_restock']                            = 'Запаси товарів успішно поповнено!';
 $_['text_upload']                             = 'Ваш файл успішно завантажено!';
 $_['text_picklist']                           = 'Повідомлення про відправку';
-$_['text_agent_assign']                       = 'Відповідальний:';
-$_['text_not_agent_assign']                   = 'Відповідальний не вибраний:';
+$_['text_agent_assign']                       = 'Відповідальний';
+$_['text_not_agent_assign']                   = 'Відповідальний не вибраний';
 $_['text_work_order']                         = 'Опрацювати замовлення';
 
 
@@ -150,7 +150,7 @@ $_['entry_date_added']                        = 'Дата додавання';
 $_['entry_date_modified']                     = 'Дата зміни';
 $_['entry_departure_data']                    = 'Дата відправлення';
 $_['entry_passenger_phone']                   = 'Телефон пасажира';
-$_['entry_on_agent_assign']                   = 'Виберіть виконавця';
+$_['entry_on_agent_assign']                   = 'Вибрати відповідального';
 
 // Help
 $_['help_override']              = 'If the customers order is being blocked from changing the order status due to an anti-fraud extension enable override.';
