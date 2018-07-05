@@ -72,7 +72,7 @@
                 <?php if ($product['price']) { ?>
                 <div class="price-group">
                   <p class="price" itemscope itemprop="offers" itemtype="http://schema.org/Offer">
-                    <meta itemprop="price" content="<?php echo rtrim(preg_replace("/[^0-9\.]/", "", ($product['special'] ? $product['special'] : $product['price'])), '.'); ?>">
+                    <meta itemprop="price" content="<?php echo $product['price']; ?>">
                     <meta itemprop="priceCurrency" content="<?php echo $product['currency'] ?>">
                     <link itemprop="availability" href="http://schema.org/<?php echo ($product['availability'] ? "InStock" : "OutOfStock") ?>" />
                     <?php if (!$product['special']) { ?>
