@@ -218,6 +218,7 @@ class ControllerProductSearch extends Controller {
 					'rating'      => $rating,
 					'href'        => $this->url->link('product/product', 'product_id=' . $result['product_id'] . $url),
 					'currency'    => $this->currency->getCodeOrDefault($result['currency_id']),
+					'availability'=> true
 				);
 			}
 
