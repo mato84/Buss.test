@@ -58,7 +58,24 @@
               </div>
                 <div class="form-group">
                     <label class="control-label" for="input-customer"><?php echo $entry_passenger_phone; ?></label>
-                    <input type="number" name="filter_passenger_phone" value="<?php echo $filter_passenger_phone; ?>" placeholder="<?php echo $entry_passenger_phone; ?>" id="input-passenger-phone" class="form-control" />
+                    <input type="number" name="filter_passenger_phone" value="<?php echo $filter_passenger_phone; ?>" placeholder="<?php echo $entry_passenger_phone; ?>" id="input-customer" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="input-customer"><?php echo $entry_assigned_user; ?></label>
+                    <select name="filter_assigned_user" id="input-assigned_user" class="form-control">
+                        <option value="*"></option>
+                        <?php foreach ($assigned_users as $assigned_user) { ?>
+                        <?php if ($assigned_user['user_id'] === $filtered_assigned_user_id) { ?>
+                        <option value="<?php echo $assigned_user['user_id']; ?>"
+                                selected="selected"><?php echo sprintf('%s %s', $assigned_user['firstname'], $assigned_user['lastname']); ?>
+                        </option>
+                        <?php } else { ?>
+                        <option value="<?php echo $assigned_user['user_id']; ?>">
+                            <?php echo sprintf('%s %s', $assigned_user['firstname'], $assigned_user['lastname']); ?>
+                        </option>
+                        <?php } ?>
+                        <?php } ?>
+                    </select>
                 </div>
             </div>
             <div class="col-sm-4">
@@ -257,6 +274,11 @@ $('#button-filter').on('click', function() {
 
 	if (filter_bus_ride_id !== '*') {
 		url += '&filter_bus_ride_id=' + encodeURIComponent(filter_bus_ride_id);
+	}
+    var filter_assigned_user = $('select[name=\'filter_assigned_user\']').val();
+
+	if (filter_assigned_user !== '*') {
+		url += '&filter_assigned_user=' + encodeURIComponent(filter_assigned_user);
 	}
 	var filter_carrier_id = $('select[name=\'filter_carrier_id\']').val();
 

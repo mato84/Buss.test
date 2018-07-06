@@ -150,7 +150,9 @@ $_['entry_date_added']                        = 'Дата додавання';
 $_['entry_date_modified']                     = 'Дата зміни';
 $_['entry_departure_data']                    = 'Дата відправлення';
 $_['entry_passenger_phone']                   = 'Телефон пасажира';
+$_['entry_assigned_user']                     = 'Відповідальний';
 $_['entry_on_agent_assign']                   = 'Вибрати відповідального';
+$_['entry_not processed']                     = 'Не опрацьовано';
 
 // Help
 $_['help_override']              = 'If the customers order is being blocked from changing the order status due to an anti-fraud extension enable override.';
