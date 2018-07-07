@@ -104,7 +104,7 @@ $_['column_departure_date']              	  = 'Відправлення';
 
 // Entry
 $_['entry_store']                             = 'Магазин';
-$_['entry_all_qtx_passengers']                = 'Загальна кількість пасажирів: ';
+$_['entry_all_qtx_passengers']                = 'Кількість пасажирів: ';
 $_['entry_customer']                          = 'Замовник';
 $_['entry_carrier']                           = 'Перевізник';
 $_['entry_tour']                              = 'Рейс';

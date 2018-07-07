@@ -40,46 +40,6 @@
                 <input type="text" name="filter_order_id" value="<?php echo $filter_order_id; ?>" placeholder="<?php echo $entry_order_id; ?>" id="input-order-id" class="form-control" />
               </div>
               <div class="form-group">
-                <label class="control-label" for="input-customer"><?php echo $entry_customer; ?></label>
-                <input type="text" name="filter_customer" value="<?php echo $filter_customer; ?>" placeholder="<?php echo $entry_customer; ?>" id="input-customer" class="form-control" />
-              </div>
-              <div class="form-group">
-                <label class="control-label" for="input-customer"><?php echo $entry_carrier; ?></label>
-                <select name="filter_carrier_id" id="input-customer" class="form-control">
-                  <option value="*"></option>
-                  <?php foreach ($carriers as $carrier) { ?>
-                  <?php if ($carrier['manufacturer_id'] == $filter_carrier_id) { ?>
-                  <option value="<?php echo $carrier['manufacturer_id']; ?>" selected="selected"><?php echo $carrier['name']; ?></option>
-                  <?php } else { ?>
-                  <option value="<?php echo $carrier['manufacturer_id']; ?>"><?php echo $carrier['name']; ?></option>
-                  <?php } ?>
-                  <?php } ?>
-                </select>
-              </div>
-                <div class="form-group">
-                    <label class="control-label" for="input-customer"><?php echo $entry_passenger_phone; ?></label>
-                    <input type="number" name="filter_passenger_phone" value="<?php echo $filter_passenger_phone; ?>" placeholder="<?php echo $entry_passenger_phone; ?>" id="input-customer" class="form-control" />
-                </div>
-                <div class="form-group">
-                    <label class="control-label" for="input-customer"><?php echo $entry_assigned_user; ?></label>
-                    <select name="filter_assigned_user" id="input-assigned_user" class="form-control">
-                        <option value="*"></option>
-                        <?php foreach ($assigned_users as $assigned_user) { ?>
-                        <?php if ($assigned_user['user_id'] === $filtered_assigned_user_id) { ?>
-                        <option value="<?php echo $assigned_user['user_id']; ?>"
-                                selected="selected"><?php echo sprintf('%s %s', $assigned_user['firstname'], $assigned_user['lastname']); ?>
-                        </option>
-                        <?php } else { ?>
-                        <option value="<?php echo $assigned_user['user_id']; ?>">
-                            <?php echo sprintf('%s %s', $assigned_user['firstname'], $assigned_user['lastname']); ?>
-                        </option>
-                        <?php } ?>
-                        <?php } ?>
-                    </select>
-                </div>
-            </div>
-            <div class="col-sm-4">
-              <div class="form-group">
                 <label class="control-label" for="input-order-status"><?php echo $entry_order_status; ?></label>
                 <select name="filter_order_status" id="input-order-status" class="form-control">
                   <option value="*"></option>
@@ -96,11 +56,47 @@
                   <?php } ?>
                   <?php } ?>
                 </select>
+              </div>              
+              <div class="form-group">
+                <label class="control-label" for="input-customer"><?php echo $entry_customer; ?></label>
+                <input type="text" name="filter_customer" value="<?php echo $filter_customer; ?>" placeholder="<?php echo $entry_customer; ?>" id="input-customer" class="form-control" />
               </div>
               <div class="form-group">
+                    <label class="control-label" for="input-customer"><?php echo $entry_assigned_user; ?></label>
+                    <select name="filter_assigned_user" id="input-assigned_user" class="form-control">
+                        <option value="*"></option>
+                        <?php foreach ($assigned_users as $assigned_user) { ?>
+                        <?php if ($assigned_user['user_id'] === $filtered_assigned_user_id) { ?>
+                        <option value="<?php echo $assigned_user['user_id']; ?>"
+                                selected="selected"><?php echo sprintf('%s %s', $assigned_user['firstname'], $assigned_user['lastname']); ?>
+                        </option>
+                        <?php } else { ?>
+                        <option value="<?php echo $assigned_user['user_id']; ?>">
+                            <?php echo sprintf('%s %s', $assigned_user['firstname'], $assigned_user['lastname']); ?>
+                        </option>
+                        <?php } ?>
+                        <?php } ?>
+                    </select>
+              </div>              
+            </div>
+            <div class="col-sm-4">
+              <div class="form-group">
+                <label class="control-label" for="input-customer"><?php echo $entry_carrier; ?></label>
+                <select name="filter_carrier_id" id="input-customer" class="form-control">
+                  <option value="*"></option>
+                  <?php foreach ($carriers as $carrier) { ?>
+                  <?php if ($carrier['manufacturer_id'] == $filter_carrier_id) { ?>
+                  <option value="<?php echo $carrier['manufacturer_id']; ?>" selected="selected"><?php echo $carrier['name']; ?></option>
+                  <?php } else { ?>
+                  <option value="<?php echo $carrier['manufacturer_id']; ?>"><?php echo $carrier['name']; ?></option>
+                  <?php } ?>
+                  <?php } ?>
+                </select>
+              </div>            
+<!--               <div class="form-group">
                 <label class="control-label" for="input-total"><?php echo $entry_total; ?></label>
                 <input type="text" name="filter_total" value="<?php echo $filter_total; ?>" placeholder="<?php echo $entry_total; ?>" id="input-total" class="form-control" />
-              </div>
+              </div> -->
               <div class="form-group">
                 <label class="control-label" for="input-customer"><?php echo $entry_tour; ?></label>
                 <select name="filter_bus_ride_id" id="input-tour" class="form-control">
@@ -115,14 +111,18 @@
                 </select>
               </div>
               <div class="form-group">
-                    <label class="control-label" for="input-date-modified"><?php echo $entry_departure_data; ?></label>
+                <label class="control-label" for="input-date-modified"><?php echo $entry_departure_data; ?></label>
                     <div class="input-group date">
                         <input type="text" name="filter_date_departure" value="<?php echo $filter_date_departure; ?>" placeholder="<?php echo $entry_departure_data; ?>" data-date-format="YYYY-MM-DD" id="input-date-departure" class="form-control" />
                   <span class="input-group-btn">
                   <button type="button" class="btn btn-default"><i class="fa fa-calendar"></i></button>
                   </span>
                     </div>
-              </div>              
+              </div>
+              <div class="form-group">
+                  <label class="control-label" for="input-customer"><?php echo $entry_passenger_phone; ?></label>
+                  <input type="number" name="filter_passenger_phone" value="<?php echo $filter_passenger_phone; ?>" placeholder="<?php echo $entry_passenger_phone; ?>" id="input-customer" class="form-control" />
+              </div>                            
             </div>
             <div class="col-sm-4">
               <div class="form-group">
