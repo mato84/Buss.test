@@ -90,6 +90,11 @@ class ControllerSaleOrder extends Controller {
         } else {
             $filter_carrier_id = null;
         }
+		if (isset($this->request->get['filter_assigned_user'])) {
+			$filter_assigned_user = $this->request->get['filter_assigned_user'];
+		} else {
+			$filter_assigned_user = null;
+		}
 		if (isset($this->request->get['filter_date_departure'])) {
 			$filter_date_departure = $this->request->get['filter_date_departure'];
 		} else {
@@ -215,6 +220,7 @@ class ControllerSaleOrder extends Controller {
 		$filter_data = array(
 			'filter_order_id'       => $filter_order_id,
 			'filter_bus_ride_id'    => $filter_bus_ride_id,
+			'filter_assigned_user'  => $filter_assigned_user,
 			'filter_carrier_id'	    => $filter_carrier_id,
 			'filter_date_departure' => $filter_date_departure,
 			'filter_passenger_phone'=> $filter_passenger_phone,
@@ -281,6 +287,7 @@ class ControllerSaleOrder extends Controller {
 		$data['entry_order_id']           = $this->language->get('entry_order_id');
 		$data['entry_customer']           = $this->language->get('entry_customer');
 		$data['entry_passenger_phone']    = $this->language->get('entry_passenger_phone');
+		$data['entry_assigned_user']    = $this->language->get('entry_assigned_user');
 		$data['entry_departure_data']     = $this->language->get('entry_departure_data');
 		$data['entry_carrier']            = $this->language->get('entry_carrier');
 		$data['entry_tour']               = $this->language->get('entry_tour');
@@ -412,6 +419,7 @@ class ControllerSaleOrder extends Controller {
 		$data['filter_order_id'] = $filter_order_id;
 		$data['filter_customer'] = $filter_customer;
 		$data['filter_bus_ride_id'] = $filter_bus_ride_id;
+		$data['filtered_assigned_user_id'] = $filter_assigned_user;
 		$data['filter_carrier_id'] = $filter_carrier_id;
 		$data['filter_order_status'] = $filter_order_status;
 		$data['filter_total'] = $filter_total;
@@ -426,10 +434,13 @@ class ControllerSaleOrder extends Controller {
 		$this->load->model('localisation/order_status');
 		$this->load->model('catalog/category');
 		$this->load->model('catalog/manufacturer');
+		$this->load->model('user/user');
 
-		$data['order_statuses']  = $this->model_localisation_order_status->getOrderStatuses();
-		$data['bus_rides']        = $this->model_catalog_category->getCategories();
-		$data['carriers']    = $this->model_catalog_manufacturer->getManufacturers();
+		$data['order_statuses']    = $this->model_localisation_order_status->getOrderStatuses();
+		$data['bus_rides']         = $this->model_catalog_category->getCategories();
+		$data['carriers']          = $this->model_catalog_manufacturer->getManufacturers();
+		$data['assigned_users']    = $this->model_user_user->getUsers();
+		$data['assigned_users'][]  = ['user_id' => '0', 'firstname'=> $this->language->get('entry_not processed'), 'lastname' => ''];
 
 		$data['header'] = $this->load->controller('common/header');
 		$data['column_left'] = $this->load->controller('common/column_left');
@@ -861,6 +872,9 @@ class ControllerSaleOrder extends Controller {
 			$data['text_history'] = $this->language->get('text_history');
 			$data['text_history_add'] = $this->language->get('text_history_add');
 			$data['text_loading'] = $this->language->get('text_loading');
+			$data['text_agent_assign'] = $this->language->get('text_agent_assign');
+			$data['text_work_order'] = $this->language->get('text_work_order');
+
 
 			$data['column_product'] = $this->language->get('column_product');
             $data['column_manufacturer_name'] = $this->language->get('column_manufacturer_name');
@@ -878,6 +892,7 @@ class ControllerSaleOrder extends Controller {
 			$data['entry_notify'] = $this->language->get('entry_notify');
 			$data['entry_override'] = $this->language->get('entry_override');
 			$data['entry_comment'] = $this->language->get('entry_comment');
+			$data['entry_on_agent_assign'] = $this->language->get('entry_on_agent_assign');
 
 			$data['help_override'] = $this->language->get('help_override');
 
@@ -934,6 +949,7 @@ class ControllerSaleOrder extends Controller {
 				$url .= '&page=' . $this->request->get['page'];
 			}
 
+
 			$data['breadcrumbs'] = array();
 
 			$data['breadcrumbs'][] = array(
@@ -974,6 +990,7 @@ class ControllerSaleOrder extends Controller {
 
 			$data['firstname'] = $order_info['firstname'];
 			$data['lastname'] = $order_info['lastname'];
+
 
 			if ($order_info['customer_id']) {
 				$data['customer'] = $this->url->link('customer/customer/edit', 'token=' . $this->session->data['token'] . '&customer_id=' . $order_info['customer_id'], true);
@@ -1163,7 +1180,41 @@ class ControllerSaleOrder extends Controller {
 			$data['comment'] = nl2br($order_info['comment']);
 
 			$this->load->model('customer/customer');
+			$this->load->model('user/user');
+			
+			$data['has_permission_assign_agent'] = $this->user->hasPermission('access', 'sale/order/assignAgent');
+			$hasUserPermissionModify = $this->user->hasPermission('modify', 'sale/order/assignAgent');
+			$allAgents = $this->model_user_user->getUsers();
+			$isButtonIsActive = false;
+			$disabledSelectAssignAgent = true;
 
+			//all agent how not have permission
+			$assignAgentId = $this->model_sale_order->getResponsibleAgentFromOrder($order_info['order_id']);
+			if ($assignAgentId == 'none') {
+				$assignAgentId = $this->user->getId();
+				$isButtonIsActive = true;
+				$disabledSelectAssignAgent = false;
+				$data['text_agent_assign'] = $this->language->get('text_not_agent_assign');
+			}
+			$agents = array_filter($allAgents, function ($agent) use ($assignAgentId)  {
+				return $agent['user_id'] == $assignAgentId;
+			});
+			
+			//all admin how have permission
+			if ($hasUserPermissionModify) {
+				$agents = $allAgents;
+				$isButtonIsActive = true;
+				$disabledSelectAssignAgent = false;
+				$assignAgentId = $this->model_sale_order->getResponsibleAgentFromOrder($order_info['order_id']);
+			}
+
+			$data['is_button_change'] = $isButtonIsActive;
+			$data['agents'] = $agents;
+			$data['assign_agent_id'] = $assignAgentId;
+			$data['disabled_select_assign_agent'] = $disabledSelectAssignAgent;
+			$data['url_agent_assign'] = $this->url->link('sale/order/assignAgent', 'token=' . $this->session->data['token'], true);
+
+			
 			$data['reward'] = $order_info['reward'];
 
 			$data['reward_total'] = $this->model_customer_customer->getTotalCustomerRewardsByOrderId($this->request->get['order_id']);
@@ -2084,5 +2135,23 @@ class ControllerSaleOrder extends Controller {
 		}
 
 		$this->response->setOutput($this->load->view('sale/order_shipping', $data));
+	}
+
+	public function assignAgent()
+	{
+		$orderId = $this->request->post['order_id'];
+		$agentId = $this->request->post['assign_user_id'];
+		if (!empty($orderId) && !empty($agentId)) {
+			if ($this->user->hasPermission('access', 'sale/order/assignAgent')) {
+				$this->load->model('sale/order');
+				$this->model_sale_order->setResponsibleAgentToOrder($agentId, $orderId);
+			} else {
+				$this->error['warning'] = $this->language->get('error_permission');
+			}
+			$this->response->redirect($this->url->link('sale/order/info', 'token='
+				. $this->session->data['token'].'&order_id='.$orderId, true));
+		}
+		$this->response->redirect($this->url->link('sale/order', 'token='
+			. $this->session->data['token'], true));
 	}
 }

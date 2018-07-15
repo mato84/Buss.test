@@ -178,6 +178,7 @@ class ModelSaleOrder extends Model {
 	public function getOrders($data = array()) {
 		$sql = "SELECT o.order_id, CONCAT(o.lastname, ' ', o.firstname) AS customer, COUNT(po.pass_id) as passengers, m.name as carrier, cd.name as tour, o.shipping_code, o.total, os.name as order_status, o.currency_code, o.currency_value, o.date_added, o.date_modified
                 FROM oc_order o 
+                LEFT JOIN oc_agent_to_order ato ON ato.order_id = o.order_id
                 JOIN oc_order_option oo ON oo.order_id = o.order_id
                 JOIN oc_order_status os ON os.order_status_id = o.order_status_id 
                 JOIN oc_passenger_to_order po ON o.order_id = po.order_id 
@@ -209,6 +210,13 @@ class ModelSaleOrder extends Model {
 		}
 		if (!empty($data['filter_bus_ride_id'])) {
 			$sql .= " AND cd.category_id = '" . (int)$data['filter_bus_ride_id'] . "'";
+		}
+		if (isset($data['filter_assigned_user'])) {
+			if ($data['filter_assigned_user'] === '0') {
+				$sql .= " AND ato.agent_id IS NULL AND o.order_id IS NOT NULL ";
+			} elseif ($data['filter_assigned_user'] !== '*') {
+				$sql .= " AND ato.agent_id = '" . (int)$data['filter_assigned_user'] . "'";
+			}
 		}
 
 		if (!empty($data['filter_carrier_id'])) {
@@ -481,4 +489,15 @@ class ModelSaleOrder extends Model {
         $query = $this->db->query("SELECT p.pass_id, p.name, p.surname, p.phone, p.email FROM ". DB_PREFIX ."passenger p LEFT JOIN ". DB_PREFIX ."passenger_to_order po ON (p.pass_id = po.pass_id) WHERE po.order_id = ".(int)$order_id);
         return $query->rows;
     }
+	public function getResponsibleAgentFromOrder($order_id) {
+		$query = $this->db->query("SELECT agent_id FROM `" . DB_PREFIX . "agent_to_order` WHERE order_id =  ". (int)$order_id);
+
+		return isset($query->row['agent_id']) ? $query->row['agent_id']: 'none';
+	}
+	public function setResponsibleAgentToOrder($agent_id, $order_id)
+	{
+		$this->db->query("INSERT INTO " . DB_PREFIX . "agent_to_order SET order_id = '" . (int)$order_id . "', agent_id = '" . (int)$agent_id . "' ON DUPLICATE KEY UPDATE order_id = '" . (int)$order_id . "', agent_id = '". (int)$agent_id  . "'");
+
+		return $this->db->getLastId();
+	}
 }

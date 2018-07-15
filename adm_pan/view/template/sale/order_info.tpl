@@ -12,12 +12,12 @@
     </div>
   </div>
   <div class="container-fluid">
-    <div class="row">
       <div class="col-md-4">
         <div class="panel panel-default">
           <div class="panel-heading">
             <h3 class="panel-title"><i class="fa fa-shopping-cart"></i> <?php echo $text_order_detail; ?></h3>
           </div>
+
           <table class="table">
             <tbody>
               <tr>
@@ -71,6 +71,46 @@
           </table>
         </div>
       </div>
+      <?php if ($has_permission_assign_agent) { ?>
+        <div class="col-md-4">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title"><i class="fa fa-user"></i> <?php echo $text_agent_assign; ?></h3>
+            </div>
+            <form action="<?php echo $url_agent_assign; ?>"method="post" class="form-horizontal">
+                <div class="current-agent" style="padding: 15px;">
+                      <select <?php echo $disabled_select_assign_agent ? 'disabled' : ''; ?>  name="assign_user_id" id="input-agent-assign" class="form-control">
+                                <?php if ($assign_agent_id == 'none') { ?>
+                                <option value="none" selected="selected">
+                                    <?php echo $entry_on_agent_assign; ?>
+                                </option>
+                                <?php } ?>
+                                <?php foreach ($agents as $agent) { ?>
+                                <?php if ($agent['user_id'] == $assign_agent_id) { ?>
+                                <option value="<?php echo $agent['user_id']; ?>" selected="selected">
+                                    <?php echo sprintf('%s %s', $agent['firstname'], $agent['lastname']) ; ?>
+                                </option>
+                                <?php } else { ?>
+                                <option value="<?php echo $agent['user_id']; ?>">
+                                    <?php echo sprintf('%s %s', $agent['firstname'], $agent['lastname']) ?>
+                                </option>
+                                <?php } ?>
+                                <?php } ?>
+                      </select>
+                        <input name="order_id" type="hidden" value="<?php echo $order_id; ?>">
+                        <?php if ($is_button_change) { ?>
+                          <div class="text-right" style="margin-top: 15px;">
+                            <button type="submit" class="btn btn-primary"><?php echo $text_work_order; ?></button>
+                          </div>                            
+                        <?php } ?>
+
+                </div>
+            </form>                      
+          </div>
+        </div>       
+      <?php } ?>
+      <div class="row">
+     
 <!--       <div class="col-md-4">
         <div class="panel panel-default">
           <div class="panel-heading">
@@ -270,12 +310,12 @@
                     </select>
                   </div>
                 </div>
-                <div class="form-group">
+<!--                 <div class="form-group">
                   <label class="col-sm-2 control-label" for="input-override"><span data-toggle="tooltip" title="<?php echo $help_override; ?>"><?php echo $entry_override; ?></span></label>
                   <div class="col-sm-10">
                     <input type="checkbox" name="override" value="1" id="input-override" />
                   </div>
-                </div>
+                </div> -->
                 <div class="form-group">
                   <label class="col-sm-2 control-label" for="input-notify"><?php echo $entry_notify; ?></label>
                   <div class="col-sm-10">
