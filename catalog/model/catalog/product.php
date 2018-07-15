@@ -655,6 +655,7 @@ class ModelCatalogProduct extends Model {
 	}
 
 	public function getProductSearchToAutocomplite($q = '') {
+		$time_start = microtime(true);
 		$allCityIds = $this->cache->get('cityData');
 
 		if (!$allCityIds) {
@@ -669,6 +670,11 @@ class ModelCatalogProduct extends Model {
 			}
 			return $acc;
 		}, []);
+		$time_end = microtime(true);
+		$execution_time = sprintf('query is \'%s\' execute %g ', $q, ($time_end - $time_start)/60);
+
+		$queryLog = new Log('queryLog');
+		$queryLog->write($execution_time);
 
 		return $filterData;
 	}
