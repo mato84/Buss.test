@@ -6035,6 +6035,7 @@ button.close {
 }
 .tooltip {
   position: absolute;
+  right: 40px;
   z-index: 1070;
   display: block;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -6054,7 +6055,6 @@ button.close {
   white-space: normal;
   filter: alpha(opacity=0);
   opacity: 0;
-
   line-break: auto;
 }
 .tooltip.in {
