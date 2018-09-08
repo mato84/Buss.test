@@ -45,7 +45,7 @@
 
     <p class="powered"><?php echo $powered; ?></p>
     <a id="coreit" href="https://coreit.com.ua" target="_blank">
-      <span>made by</span><img src="image/catalog/other/coreit.svg" alt="">
+      made by<img src="image/catalog/other/coreit.svg" alt="">
     </a> 
   </div>
 </footer>
