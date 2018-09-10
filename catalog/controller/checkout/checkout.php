@@ -20,9 +20,11 @@ class ControllerCheckoutCheckout extends Controller {
 		$data['entry_email_address'] = $this->language->get('entry_email_address');
 		$data['entry_email'] = $this->language->get('entry_email');
 		$data['entry_telephone'] = $this->language->get('entry_telephone');
+		$data['entry_viber'] = $this->language->get('entry_viber');
 		$data['entry_telephone_format'] = $this->language->get('entry_telephone_format');
 		$data['entry_passengers'] = $this->language->get('entry_passengers');
 		$data['button_add'] = $this->language->get('button_add');
+		$data['text_same'] = $this->language->get('text_same');
 		$data['text_agent'] = $this->language->get('text_agent');
 		$data['text_agent_number'] = $this->language->get('text_agent_number');		
 		$data['text_checkout'] = $this->language->get('text_checkout');	
