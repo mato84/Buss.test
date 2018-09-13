@@ -97,6 +97,7 @@ $_['column_action']                           = 'Дія';
 $_['column_weight']                           = 'Вага товару';
 $_['column_passenger']                        = 'Пасажир';
 $_['column_passenger_telephone']              = 'Телефон';
+$_['column_passenger_viber']              	  = 'Viber';
 $_['column_passenger_email']              	  = 'E-Mail';
 $_['column_ticket']              	          = 'Квиток';
 $_['column_departure_date']              	  = 'Відправлення';
