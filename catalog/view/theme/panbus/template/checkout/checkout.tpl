@@ -56,7 +56,7 @@
                     </div>
                 <input type="text" name="telephone" value="<?php echo $telephone; ?>" placeholder="" id="input-payment-telephone" class="form-control input-phone" autocomplete="off"/>
               </div>
-              <div class="form-group input-phone-group">
+<!--               <div class="form-group input-phone-group">
                 <label class="control-label" for="input-payment-viber"><?php echo $entry_viber; ?></label>
                     <div class="region-selector">
                       <select class="select-box"><option value="UA">UA</option><option value="PL">PL</option></select>
@@ -66,7 +66,7 @@
               <div class="form-group viber-same">
                 <label for="viber-same"><?php echo $text_same; ?></label>
                 <input type="checkbox" name="vibersame" id="viber-same">  
-              </div>              
+              </div>   -->            
               <div class="form-group">
                 <label class="control-label" for="input-payment-email"><?php echo $entry_email_address; ?></label>
                 <input type="text" name="email" value="<?php echo $email; ?>" placeholder="" id="input-payment-email" class="form-control" />

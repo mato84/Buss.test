@@ -71,6 +71,8 @@ $_['text_picklist']                           = 'Повідомлення про
 $_['text_agent_assign']                       = 'Відповідальний';
 $_['text_not_agent_assign']                   = 'Відповідальний не вибраний';
 $_['text_work_order']                         = 'Опрацювати замовлення';
+$_['text_show_more']                          = 'БІЛЬШЕ <i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i> ФІЛЬТРІВ';
+
 
 
 // Column
@@ -107,7 +109,9 @@ $_['column_departure_date']              	  = 'Відправлення';
 $_['entry_store']                             = 'Магазин';
 $_['entry_all_qtx_passengers']                = 'Кількість пасажирів: ';
 $_['entry_customer']                          = 'Замовник';
+$_['entry_passenger']                         = 'Пасажир';
 $_['entry_carrier']                           = 'Перевізник';
+$_['entry_ticket']                            = 'Квиток';
 $_['entry_tour']                              = 'Рейс';
 $_['entry_customer_group']                    = 'Група покупців';
 $_['entry_firstname']                         = 'Ім’я';
@@ -151,6 +155,7 @@ $_['entry_date_added']                        = 'Дата додавання';
 $_['entry_date_modified']                     = 'Дата зміни';
 $_['entry_departure_data']                    = 'Дата відправлення';
 $_['entry_passenger_phone']                   = 'Телефон пасажира';
+$_['entry_passenger_viber']                   = 'Viber пасажира';
 $_['entry_assigned_user']                     = 'Відповідальний';
 $_['entry_on_agent_assign']                   = 'Вибрати відповідального';
 $_['entry_not processed']                     = 'Не опрацьовано';
