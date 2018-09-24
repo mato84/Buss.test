@@ -70,6 +70,8 @@ label {
 }
 
 .checkout-checkout label {
+    display: inline-block;
+    vertical-align: bottom;
     font-weight: normal;
     font-size: 16px;
 }
@@ -139,6 +141,22 @@ input[type=checkbox]:checked {
 
 .input-phone {
     padding-left: 60px;
+}
+
+
+.viber-same {
+    margin-top: -10px;
+    margin-bottom: 30px;
+    text-align: right;
+}
+
+.viber-same label {
+    margin-bottom: 10px;
+}
+
+#viber-same {
+    margin-right: 0 !important;
+    margin-top: 3px !important;
 }
 
 .input-phone-group {

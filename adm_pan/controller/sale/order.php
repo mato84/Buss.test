@@ -270,9 +270,12 @@ class ControllerSaleOrder extends Controller {
 		$data['text_confirm'] = $this->language->get('text_confirm');
 		$data['text_missing'] = $this->language->get('text_missing');
 		$data['text_loading'] = $this->language->get('text_loading');
+		$data['text_show_more'] = $this->language->get('text_show_more');		
 
 		$data['column_order_id']        = $this->language->get('column_order_id');
 		$data['column_qtx_passengers']  = $this->language->get('column_qtx_passengers');
+		$data['column_passenger_telephone'] = $this->language->get('column_passenger_telephone');
+		$data['column_passenger_viber'] = $this->language->get('column_passenger_viber');			
 		$data['column_ticket']  		= $this->language->get('column_ticket');
 		$data['column_departure_date']  = $this->language->get('column_departure_date');
 		$data['column_carrier']         = $this->language->get('column_carrier');
@@ -286,11 +289,14 @@ class ControllerSaleOrder extends Controller {
 
 		$data['entry_order_id']           = $this->language->get('entry_order_id');
 		$data['entry_customer']           = $this->language->get('entry_customer');
+		$data['entry_passenger']          = $this->language->get('entry_passenger');		
 		$data['entry_passenger_phone']    = $this->language->get('entry_passenger_phone');
+		$data['entry_passenger_viber']    = $this->language->get('entry_passenger_viber');		
 		$data['entry_assigned_user']    = $this->language->get('entry_assigned_user');
 		$data['entry_departure_data']     = $this->language->get('entry_departure_data');
 		$data['entry_carrier']            = $this->language->get('entry_carrier');
 		$data['entry_tour']               = $this->language->get('entry_tour');
+		$data['entry_ticket']               = $this->language->get('entry_ticket');		
 		$data['entry_order_status']       = $this->language->get('entry_order_status');
 		$data['entry_total']              = $this->language->get('entry_total');
 		$data['entry_date_added']         = $this->language->get('entry_date_added');
@@ -885,6 +891,7 @@ class ControllerSaleOrder extends Controller {
 			$data['column_total'] = $this->language->get('column_total');
 			$data['column_passenger'] = $this->language->get('column_passenger');			
 			$data['column_passenger_telephone'] = $this->language->get('column_passenger_telephone');
+			$data['column_passenger_viber'] = $this->language->get('column_passenger_viber');			
 			$data['column_passenger_email'] = $this->language->get('column_passenger_email');				
 
 
