@@ -703,6 +703,7 @@ div.ckeditor {
 }
 
 .additional-filters__more{
+	margin-top: 10px;
 	max-height: 0px;
 	overflow: hidden;
 	transition: max-height 0.15s ease-out;

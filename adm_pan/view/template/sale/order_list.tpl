@@ -63,8 +63,8 @@
             <div class="col-sm-4">
               <div class="form-group">
                 <label class="control-label" for="input-ticket"><?php echo $entry_ticket; ?></label>
-                <select name="filter_carrier_id" id="input-ticket" class="form-control" disabled="disabled">
-
+                <select name="" id="input-ticket" class="form-control" disabled="disabled">
+                  <option value="*"></option>
                 </select>
               </div>            
               <div class="form-group">
@@ -81,8 +81,8 @@
                 </select>
               </div>
               <div class="form-group">
-                <label class="control-label" for="input-customer"><?php echo $entry_carrier; ?></label>
-                <select name="filter_carrier_id" id="input-customer" class="form-control">
+                <label class="control-label" for="input-carrier"><?php echo $entry_carrier; ?></label>
+                <select name="filter_carrier_id" id="input-carrier" class="form-control">
                   <option value="*"></option>
                   <?php foreach ($carriers as $carrier) { ?>
                   <?php if ($carrier['manufacturer_id'] == $filter_carrier_id) { ?>
