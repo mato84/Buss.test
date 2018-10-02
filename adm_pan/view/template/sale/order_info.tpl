@@ -252,7 +252,7 @@
             <tr>
               <td class="text-left"><?php echo $passenger['passenger_surname']." ". $passenger['passenger_name']; ?>
               <td class="text-center"><?php echo $passenger['passenger_phone']; ?></td>              
-              <td class="text-center"><a href="viber://chat?number=+"><?php echo $passenger['passenger_phone']; ?></a></td>
+              <td class="text-center"><a href="viber://chat?number=+<?php echo $passenger['passenger_phone']; ?>"><?php echo $passenger['passenger_phone']; ?></a></td>
               <td class="text-center"><?php echo $passenger['passenger_email']; ?></td>
             </tr>
             <?php } ?>

@@ -274,7 +274,15 @@
                       </div>
                       <?php } ?>
                   </td>
-                  <td class="text-left"></td>
+                  <td class="text-left">
+                      <?php foreach ($order['passengers'] as $key => $passenger) { ?>
+                      <div class="passenger-info">
+                          <div class="passenger-phone">
+                              <?php echo $passenger['phone']; ?>
+                          </div>
+                      </div>
+                      <?php } ?>
+                  </td>
                   <td class="text-left"><?php echo $order['total']; ?></td>
                   <td class="text-left"></td>                                                                          
                   <td class="text-left"><?php echo $order['carrier']; ?></td>
