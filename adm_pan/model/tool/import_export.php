@@ -12,7 +12,7 @@ class ModelToolImportExport extends Model{
         $reading_data = $this->readFile($path);
         $last_id = $this->setProducts($reading_data['product']);
         $this->setDependentTable($reading_data, $last_id, $exclusion_sheet);
-        $this->updateDataCategory($reading_data['product_to_category']);
+        $this->updateDataCategory($reading_data['product_to_category'], $last_id);
         $this->setUrlAliace($reading_data['url_alias'], $last_id);
         $this->setWayPointToRoute($reading_data['waypoint_to_route'], $last_id);
         return $last_id;
@@ -121,10 +121,12 @@ class ModelToolImportExport extends Model{
   }
   protected function setWayPointToRoute($array_waypoint, $products_id) {
       if ($array_waypoint) {
-          $formatted_array = array_reduce($array_waypoint, function($acc, $item) use ($products_id){
-              list($name, $value) = explode('=',$item['product_id'] );
-              if(empty($products_id[$value-1])) return $acc;
-              $acc[$products_id[$value-1]][] = $item['waypoint_id'];
+          $formatted_array = array_reduce($array_waypoint, function($acc, $item) use ($products_id) {
+              if (isset($item['product_id'])) {
+                  list($name, $value) = explode('=',$item['product_id'] );
+                  if(empty($products_id[$value-1])) return $acc;
+                  $acc[$products_id[$value-1]][] = $item['waypoint_id'];
+              }
               return $acc;
           }, []);
           foreach ($formatted_array as $product_id => $waypoints) {
@@ -180,19 +182,25 @@ class ModelToolImportExport extends Model{
         }
 
     }
-    private function updateDataCategory($arrayCategoryToProduct) {
-        $this->db->query('TRUNCATE TABLE oc_product_to_category');
+    private function updateDataCategory($arrayCategoryToProduct, $last_id) {
+            $this->db->query('TRUNCATE TABLE oc_product_to_category');
             $sql = "INSERT INTO ".DB_PREFIX."product_to_category VALUES ";
-            $sql.= array_reduce($arrayCategoryToProduct, function($acc, $productToCategory) {
-                 $acc .= sprintf(
-                    "(%s, %s, %s),",
-                    $productToCategory['product_id'],
-                    $productToCategory['category_id'],
-                    $productToCategory['main_category']
+
+            if (!empty($arrayCategoryToProduct)) {
+                foreach ($arrayCategoryToProduct as $key => $value) {
+                    $sql .= sprintf(
+                        "(%s, %s, %s),",
+                        isset($value['product_id']) ? $value['product_id']: $last_id[$key] ,
+                        $value['category_id'],
+                        $value['main_category']
                     );
-                return $acc;
-            },"");
-            $this->db->query(rtrim($sql,", "));
+                }
+                $this->db->query(rtrim($sql,", "));
+            } else {
+
+                throw new \Exception('table oc_product_to_category  not created');
+            }
+
 
     }
     private function existDataInTable($tableName, $data)
