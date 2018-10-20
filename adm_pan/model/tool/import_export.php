@@ -7,12 +7,12 @@ use Box\Spout\Common\Type;
 
 class ModelToolImportExport extends Model{
   public function import($path){
-    $exclusion_sheet = ['product','waypoint_to_route','url_alias', 'product_to_category']; //this is exclusion for setDependentTable function
+    $exclusion_sheet = ['product','waypoint_to_route','url_alias']; //this is exclusion for setDependentTable function
     try{
         $reading_data = $this->readFile($path);
         $last_id = $this->setProducts($reading_data['product']);
         $this->setDependentTable($reading_data, $last_id, $exclusion_sheet);
-        $this->updateDataCategory($reading_data['product_to_category'], $last_id);
+//        $this->updateDataCategory($reading_data['product_to_category'], $last_id);
         $this->setUrlAliace($reading_data['url_alias'], $last_id);
         $this->setWayPointToRoute($reading_data['waypoint_to_route'], $last_id);
         return $last_id;
@@ -251,7 +251,7 @@ class ModelToolImportExport extends Model{
      * @throws Exception
      */
     private function updateDataCategory($arrayCategoryToProduct, $last_id) {
-//            $this->db->query('TRUNCATE TABLE oc_product_to_category');
+            $this->db->query('TRUNCATE TABLE oc_product_to_category');
             $sql = "INSERT INTO ".DB_PREFIX."product_to_category VALUES ";
 
             if (!empty($arrayCategoryToProduct)) {
