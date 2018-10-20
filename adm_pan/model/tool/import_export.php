@@ -22,6 +22,12 @@ class ModelToolImportExport extends Model{
      }
   }
 
+    /**
+     * @param $path
+     * @return array
+     * @throws \Box\Spout\Common\Exception\UnsupportedTypeException
+     */
+
   protected function readFile($path){
     $reader = ReaderFactory::create(Type::XLSX);
     $reader->open($path);
@@ -52,6 +58,11 @@ class ModelToolImportExport extends Model{
     $reader->close();
     return $dataArray;
   }
+
+    /**
+     * @param $array_product
+     * @return array
+     */
   protected function setProducts($array_product){
     $last_id = array();
     foreach ($array_product as $key => $value) {
@@ -82,6 +93,12 @@ class ModelToolImportExport extends Model{
     }
    return $last_id;
   }
+
+    /**
+     * @param $array_dependent
+     * @param $products_last_id
+     * @param array $exclusion_sheet_name
+     */
   protected function setDependentTable($array_dependent, $products_last_id, $exclusion_sheet_name = []){
     $new_array = array();
     foreach ($array_dependent as $name_sheet => $values) {
@@ -95,11 +112,21 @@ class ModelToolImportExport extends Model{
 
     foreach ($new_array as $nameTable => $values) {
         $updateValue = $this->existDataInTable($nameTable, $products_last_id);
-        $this->updateDataInDependentTable($nameTable, $values, $updateValue);
+        if (!empty($updateValue)) {
+            $this->updateDataInDependentTable($nameTable, $values, $updateValue);
+        } else {
+            $this->insertDataInDependentTable($nameTable, $values);
+        }
+
     }
 
   }
-  protected function setUrlAliace($array_url_alice, $products_id){
+
+    /**
+     * @param $array_url_alice
+     * @param $products_id
+     */
+    protected function setUrlAliace($array_url_alice, $products_id){
     $temp_array = array();
       if ($array_url_alice) {
           $temp_array[] = array_map(function($a, $b){
@@ -119,7 +146,12 @@ class ModelToolImportExport extends Model{
           }
       }
   }
-  protected function setWayPointToRoute($array_waypoint, $products_id) {
+
+    /**
+     * @param $array_waypoint
+     * @param $products_id
+     */
+    protected function setWayPointToRoute($array_waypoint, $products_id) {
       if ($array_waypoint) {
           $formatted_array = array_reduce($array_waypoint, function($acc, $item) use ($products_id) {
               if (isset($item['product_id'])) {
@@ -138,6 +170,10 @@ class ModelToolImportExport extends Model{
           }
       }
   }
+
+    /**
+     * @param $productData
+     */
     private function updateProduct($productData) {
         $sqlQuery = 'UPDATE ' . DB_PREFIX . 'product SET';
         $sqlQuery .= array_reduce(array_keys($productData), function($carry,$key) use($productData) {
@@ -159,6 +195,12 @@ class ModelToolImportExport extends Model{
         $sqlQuery .= sprintf(' WHERE product_id = \'%s\'', $productData['product_id']);
         $this->db->query($sqlQuery);
     }
+
+    /**
+     * @param $nameTable
+     * @param $data
+     * @param $updateData
+     */
     private function updateDataInDependentTable($nameTable, $data, $updateData)
     {
         foreach ($data as $key => $value) {
@@ -182,6 +224,32 @@ class ModelToolImportExport extends Model{
         }
 
     }
+
+    private function insertDataInDependentTable($nameTable, $data)
+    {
+        $sql = "INSERT INTO " .DB_PREFIX. "$nameTable ";
+        if (!empty($data) && is_array($data)) {
+            $first = $data[0];
+            $sql .= "(" . implode(", ", array_keys($first)) . ") VALUES ";
+
+            $sql .= array_reduce($data, function ($acc, $data) {
+                $quoteData = array_map(function ($value){
+                    return "'". quotemeta($value) ."'";
+                }, array_values($data));
+                $acc .=  "(" . implode(", ",  $quoteData) . "), ";
+                return $acc;
+            }, " ");
+            
+            $sql = rtrim($sql,", ") . ";";
+            $this->db->query($sql);
+        }
+    }
+
+    /**
+     * @param $arrayCategoryToProduct
+     * @param $last_id
+     * @throws Exception
+     */
     private function updateDataCategory($arrayCategoryToProduct, $last_id) {
             $this->db->query('TRUNCATE TABLE oc_product_to_category');
             $sql = "INSERT INTO ".DB_PREFIX."product_to_category VALUES ";
@@ -203,6 +271,12 @@ class ModelToolImportExport extends Model{
 
 
     }
+
+    /**
+     * @param $tableName
+     * @param $data
+     * @return mixed
+     */
     private function existDataInTable($tableName, $data)
     {
         $sqlQuery = 'SELECT product_id FROM '.DB_PREFIX.$tableName.' WHERE product_id IN ';
