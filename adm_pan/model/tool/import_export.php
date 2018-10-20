@@ -12,7 +12,7 @@ class ModelToolImportExport extends Model{
         $reading_data = $this->readFile($path);
         $last_id = $this->setProducts($reading_data['product']);
         $this->setDependentTable($reading_data, $last_id, $exclusion_sheet);
-//        $this->updateDataCategory($reading_data['product_to_category'], $last_id);
+       $this->updateDataCategory($reading_data['product_to_category'], $last_id);
         $this->setUrlAliace($reading_data['url_alias'], $last_id);
         $this->setWayPointToRoute($reading_data['waypoint_to_route'], $last_id);
         return $last_id;
@@ -181,10 +181,12 @@ class ModelToolImportExport extends Model{
                 if((strcasecmp($key,'from_t') == 0 || strcasecmp($key,'to_t') == 0)
                     && !is_numeric($productData[$key]) ){
                     $query = $this->db->query("SELECT c.city_id FROM ".DB_PREFIX."city c WHERE c.name = '".$productData[$key]."'");
-                    if(array_key_exists('city_id',$query->row)){
+                    if(array_key_exists('city_id', $query->row)){
                         return $carry." ".$key." = '" .$query->row['city_id']."',";
                     }
-                    throw new \Exception('not find city_id in ' . $productData[$key]);
+                    throw new 
+                    \Exception('not find city_id in ' 
+                        . $productData[$key] . 'problem with product has id = ' . $productData['product_id'] );
                 }
                 return $carry." ".$key." = '" .$productData[$key]."',";
             } else {
