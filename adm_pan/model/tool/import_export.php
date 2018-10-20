@@ -79,15 +79,20 @@ class ModelToolImportExport extends Model{
                         if(array_key_exists('city_id',$query->row)){
                             return $carry." ".$key." = '" .$query->row['city_id']."',";
                         }
-                        throw new \Exception('not find city_id in ' . $value[$key]);
+                        throw new \Exception('not find city_id in ' . $value[$key] . 'problem with product has id = ' . $value['product_id']);
                     }
                     return $carry." ".$key." = '" .$value[$key]."',";
                 } else {
                     return $carry;
                 }
             },"");
-            $this->db->query(rtrim($sql,", "));
-            $last_id[] = $this->db->getLastId();
+            try {
+                $this->db->query(rtrim($sql,", "));
+                $last_id[] = $this->db->getLastId();
+            } catch (\Throwable $e) {
+                throw new \Exception('problem with product id= ' . $value['product_id'] ."error " . $e->getMessage());
+            }
+
         }
 
     }
