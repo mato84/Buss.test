@@ -251,7 +251,7 @@ class ModelToolImportExport extends Model{
      * @throws Exception
      */
     private function updateDataCategory($arrayCategoryToProduct, $last_id) {
-            $this->db->query('TRUNCATE TABLE oc_product_to_category');
+//            $this->db->query('TRUNCATE TABLE oc_product_to_category');
             $sql = "INSERT INTO ".DB_PREFIX."product_to_category VALUES ";
 
             if (!empty($arrayCategoryToProduct)) {
