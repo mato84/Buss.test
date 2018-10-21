@@ -7,12 +7,12 @@ use Box\Spout\Common\Type;
 
 class ModelToolImportExport extends Model{
   public function import($path){
-    $exclusion_sheet = ['product','waypoint_to_route','url_alias']; //this is exclusion for setDependentTable function
+    $exclusion_sheet = ['product','waypoint_to_route','url_alias' ]; //this is exclusion for setDependentTable function
     try{
         $reading_data = $this->readFile($path);
         $last_id = $this->setProducts($reading_data['product']);
         $this->setDependentTable($reading_data, $last_id, $exclusion_sheet);
-       $this->updateDataCategory($reading_data['product_to_category'], $last_id);
+//       $this->updateDataCategory($reading_data['product_to_category'], $last_id);
         $this->setUrlAliace($reading_data['url_alias'], $last_id);
         $this->setWayPointToRoute($reading_data['waypoint_to_route'], $last_id);
         return $last_id;
@@ -62,6 +62,7 @@ class ModelToolImportExport extends Model{
     /**
      * @param $array_product
      * @return array
+     * @throws Exception
      */
   protected function setProducts($array_product){
     $last_id = array();
@@ -105,26 +106,13 @@ class ModelToolImportExport extends Model{
      * @param array $exclusion_sheet_name
      */
   protected function setDependentTable($array_dependent, $products_last_id, $exclusion_sheet_name = []){
-    $new_array = array();
     foreach ($array_dependent as $name_sheet => $values) {
       if (in_array($name_sheet, $exclusion_sheet_name )) continue;
-        $temp_array = array_map(function($value, $product_id){
-          $value['product_id'] = $product_id;
-          return $value;
-        },$values,$products_last_id);
-      $new_array[$name_sheet] = $temp_array;
-    }
-
-    foreach ($new_array as $nameTable => $values) {
-        $updateValue = $this->existDataInTable($nameTable, $products_last_id);
-        if (!empty($updateValue)) {
-            $this->updateDataInDependentTable($nameTable, $values, $updateValue);
-        } else {
-            $this->insertDataInDependentTable($nameTable, $values);
+        $updateValue = $this->existDataInTable($name_sheet, $products_last_id, $values);
+        $insertValue = $this->getInsertData($values, $updateValue);
+        $this->updateDataInDependentTable($name_sheet, $updateValue);
+        $this->insertDataInDependentTable($name_sheet, $insertValue);
         }
-
-    }
-
   }
 
     /**
@@ -206,16 +194,14 @@ class ModelToolImportExport extends Model{
     /**
      * @param $nameTable
      * @param $data
-     * @param $updateData
      */
-    private function updateDataInDependentTable($nameTable, $data, $updateData)
+    private function updateDataInDependentTable($nameTable, $data)
     {
-        foreach ($data as $key => $value) {
-            $isUpdate = array_key_exists($value['product_id'], $updateData);
-            if ($isUpdate) {
+        if (is_array($data) && !empty($data)) {
+            foreach ($data as $key => $value) {
                 $sqlOperation = 'UPDATE';
                 $sql = sprintf('%s %s%s SET ',$sqlOperation, DB_PREFIX, $nameTable);
-                $sql .= array_reduce(array_keys($value), function($carry,$val) use($value){
+                $sql .= array_reduce(array_keys($value), function($carry, $val) use($value){
                     if(!empty($val) && !empty($value[$val]) ){
                         return $carry." ".$val." = '" .$value[$val]." ',";
                     }
@@ -227,9 +213,8 @@ class ModelToolImportExport extends Model{
                 $sql = rtrim($sql,", ").sprintf(' WHERE product_id = \'%s\'', $value['product_id']);
                 $this->db->query(rtrim($sql,", "));
             }
-
         }
-
+        return ;
     }
 
     private function insertDataInDependentTable($nameTable, $data)
@@ -284,14 +269,25 @@ class ModelToolImportExport extends Model{
      * @param $data
      * @return mixed
      */
-    private function existDataInTable($tableName, $data)
+    private function existDataInTable($tableName, $data, $values)
     {
         $sqlQuery = 'SELECT product_id FROM '.DB_PREFIX.$tableName.' WHERE product_id IN ';
         $sqlQuery .= sprintf('(%s)', implode(',', $data));
         $result = $this->db->query($sqlQuery);
-        return array_reduce($result->rows, function($acc, $value) {
+        $preparedResult =  array_reduce($result->rows, function($acc, $value) {
             $acc[$value['product_id']] = 0;
             return $acc;
         }, []);
+        return array_filter($values, function ($value) use ($preparedResult) {
+            return array_key_exists($value['product_id'], $preparedResult);
+        });
+    }
+
+    private function getInsertData($values, $updateValue)
+    {
+        $s = 's';
+        return array_filter($values, function ($value) use ($updateValue) {
+            return !in_array($value['product_id'], $updateValue);
+        });
     }
 }
