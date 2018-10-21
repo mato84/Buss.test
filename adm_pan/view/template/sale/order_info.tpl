@@ -250,7 +250,7 @@
          <tbody>
             <?php foreach ($passengers as $passenger) { ?>
             <tr>
-              <td class="text-left"><?php echo $passenger['passenger_surname']." ". $passenger['passenger_name']; ?>
+              <td class="text-left"><?php echo $passenger['passenger_surname']." ". $passenger['passenger_name']; ?></td>
               <td class="text-center"><?php echo $passenger['passenger_phone']; ?></td>              
               <td class="text-center"><a href="viber://chat?number=+<?php echo $passenger['passenger_phone']; ?>"><?php echo $passenger['passenger_phone']; ?></a></td>
               <td class="text-center"><?php echo $passenger['passenger_email']; ?></td>
@@ -259,9 +259,42 @@
           </tbody>
         </table>
         <?php } ?>
+        <div class="form-horizontal">     
+          <div class="form-group">
+            <label class="control-label" for="message-text" style="padding: 10px 15px;">Повідомлення <i class="fa fa-comment-o"></i></label>
+                <div class="col-sm-12">
+                  <?php foreach ($products as $product) { ?>
+                    <textarea rows="12" id="message-text" class="form-control">
+Ви заброньовані!
 
+Трафарет на лобовому склі: <?php echo $product['name_main_category']; ?>
 
+Відправлення: from_name 0 <?php echo $product['departure_time']; ?> з <?php echo $product['departure_from']; ?>.
+Прибуття у to_name орієнтовно о <?php echo $product['arrival_time']; ?> на <?php echo $product['departure_to']; ?>.
+Вартість проїзду <?php echo $product['name']; ?> - <?php echo $product['price']; ?>
 
+Підходите до водія і запитуєте чи це рейс перевізника <?php echo $product['name_manufacturer']; ?>. Кажете, що Ви заброньовані, називаєте Ваше прізвище, оплачуєте вартість квитка водієві та їдете.
+
+Дякуємо за бронювання!
+https://panbus.com.ua                      
+                    </textarea>
+                  <?php } ?>
+
+                </div>
+          </div>
+          <div class="pull-right">
+            <a onclick="copyToClipboard()" href="viber://chat?number=+<?php echo $passenger['passenger_phone']; ?>" class="btn btn-primary"><i class="fa fa-clipboard" aria-hidden="true"></i>  Скопіювати та відкрити Viber</a>
+          </div>
+
+          <script>
+            function copyToClipboard() {
+              var copyText = document.getElementById("message-text");
+              copyText.select();
+              document.execCommand("copy");
+            }
+          </script>
+        </div>    
+    
 
         <?php if ($comment) { ?>
         <table class="table table-bordered">
