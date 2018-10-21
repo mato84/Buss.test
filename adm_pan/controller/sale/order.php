@@ -1124,6 +1124,18 @@ class ControllerSaleOrder extends Controller {
 					->getProduct($product['product_id'])['departure_time'];
 				$options = $this->model_sale_order->getOrderOptions($this->request->get['order_id'], $product['order_product_id']);
 
+				$product['departure_from'] = $this->model_catalog_product
+					->getProduct($product['product_id'])['departure_from'];
+				$options = $this->model_sale_order->getOrderOptions($this->request->get['order_id'], $product['order_product_id']);				
+
+				$product['departure_to'] = $this->model_catalog_product
+					->getProduct($product['product_id'])['departure_to'];
+				$options = $this->model_sale_order->getOrderOptions($this->request->get['order_id'], $product['order_product_id']);	
+
+				$product['arrival_time'] = $this->model_catalog_product
+					->getProduct($product['product_id'])['arrival_time'];
+				$options = $this->model_sale_order->getOrderOptions($this->request->get['order_id'], $product['order_product_id']);					
+
 				foreach ($options as $option) {
 					if ($option['type'] != 'file') {
 						$option_data[] = array(
@@ -1148,6 +1160,9 @@ class ControllerSaleOrder extends Controller {
 				$data['products'][] = array(
 					'order_product_id'   => $product['order_product_id'],
 					'departure_time'     => $product['departure_time'],
+					'departure_from'     => $product['departure_from'],
+					'arrival_time'  	 => $product['arrival_time'],
+					'departure_to'     	 => $product['departure_to'],															
 					'product_id'         => $product['product_id'],
 					'name_main_category' => $product['name_main_category'],
                     'name_manufacturer'  => $product['name_manufacturer'],
