@@ -269,8 +269,8 @@
 
 Трафарет на лобовому склі: <?php echo $product['name_main_category']; ?>
 
-Відправлення: from_name 0 <?php echo $product['departure_time']; ?> з <?php echo $product['departure_from']; ?>.
-Прибуття у to_name орієнтовно о <?php echo $product['arrival_time']; ?> на <?php echo $product['departure_to']; ?>.
+Відправлення: <?php echo $product['from_city']; ?> о <?php echo $product['departure_time']; ?> з <?php echo $product['departure_from']; ?>.
+Прибуття у <?php echo $product['to_city']; ?> орієнтовно о <?php echo $product['arrival_time']; ?> на <?php echo $product['departure_to']; ?>.
 Вартість проїзду <?php echo $product['name']; ?> - <?php echo $product['price']; ?>
 
 Підходите до водія і запитуєте чи це рейс перевізника <?php echo $product['name_manufacturer']; ?>. Кажете, що Ви заброньовані, називаєте Ваше прізвище, оплачуєте вартість квитка водієві та їдете.
