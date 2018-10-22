@@ -12,8 +12,8 @@ class ModelToolImportExport extends Model{
         $reading_data = $this->readFile($path);
         $last_id = $this->setProducts($reading_data['product']);
         $this->setDependentTable($reading_data, $last_id, $exclusion_sheet);
-        $this->setUrlAliace($reading_data['url_alias'], $last_id);
-        $this->setWayPointToRoute($reading_data['waypoint_to_route'], $last_id);
+        $this->setUrlAliace($reading_data, $last_id);
+        $this->setWayPointToRoute($reading_data, $last_id);
         return $last_id;
      }
     catch(Exception $e){
@@ -119,9 +119,11 @@ class ModelToolImportExport extends Model{
      * @param $array_url_alice
      * @param $products_id
      */
-    protected function setUrlAliace($array_url_alice, $products_id){
-    $temp_array = array();
-      if ($array_url_alice) {
+    protected function setUrlAliace($array_url_alice, $products_id)
+    {
+        $array_url_alice =  isset($array_url_alice['url_alias']) ? $array_url_alice['url_alias'] :[];
+        $temp_array = array();
+        if (!empty($array_url_alice) ) {
           $temp_array[] = array_map(function($a, $b){
               $a['query'] = trim("product_id=$b");
               $a['keyword'] =trim("квиток-на-автобус-".$a['keyword']."-купити-онлайн");
@@ -145,8 +147,10 @@ class ModelToolImportExport extends Model{
      * @param $products_id
      */
     protected function setWayPointToRoute($array_waypoint, $products_id) {
-      if ($array_waypoint) {
-          $formatted_array = array_reduce($array_waypoint, function($acc, $item) use ($products_id) {
+        $array_waypoint = isset($array_waypoint['waypoint_to_route']) ? $array_waypoint['waypoint_to_route'] : [];
+        
+        if (!empty($array_waypoint)) {
+           $formatted_array = array_reduce($array_waypoint, function($acc, $item) use ($products_id) {
               if (isset($item['product_id'])) {
                   list($name, $value) = explode('=',$item['product_id'] );
                   if(empty($products_id[$value-1])) return $acc;
@@ -154,7 +158,7 @@ class ModelToolImportExport extends Model{
               }
               return $acc;
           }, []);
-          foreach ($formatted_array as $product_id => $waypoints) {
+           foreach ($formatted_array as $product_id => $waypoints) {
               $sql = "INSERT INTO ".DB_PREFIX."waypoint_to_route VALUES ";
               $sql.= array_reduce($waypoints, function($acc, $waypoint_id) use ($product_id) {
                   return $acc.="('$product_id', '$waypoint_id',''),";
