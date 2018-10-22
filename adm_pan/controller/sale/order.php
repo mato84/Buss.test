@@ -1122,18 +1122,18 @@ class ControllerSaleOrder extends Controller {
 
 				$product['departure_time'] = $this->model_catalog_product
 					->getProduct($product['product_id'])['departure_time'];
-				$options = $this->model_sale_order->getOrderOptions($this->request->get['order_id'], $product['order_product_id']);
-
+				
 				$product['departure_from'] = $this->model_catalog_product
 					->getProduct($product['product_id'])['departure_from'];
-				$options = $this->model_sale_order->getOrderOptions($this->request->get['order_id'], $product['order_product_id']);				
-
+				
 				$product['departure_to'] = $this->model_catalog_product
-					->getProduct($product['product_id'])['departure_to'];
-				$options = $this->model_sale_order->getOrderOptions($this->request->get['order_id'], $product['order_product_id']);	
+					->getProduct($product['product_id'])['departure_to'];		
 
 				$product['arrival_time'] = $this->model_catalog_product
 					->getProduct($product['product_id'])['arrival_time'];
+
+							
+
 				$options = $this->model_sale_order->getOrderOptions($this->request->get['order_id'], $product['order_product_id']);					
 
 				foreach ($options as $option) {
@@ -1158,6 +1158,8 @@ class ControllerSaleOrder extends Controller {
 				}
 
 				$data['products'][] = array(
+					'from_city' 		 => $product['city_from_name'],
+					'to_city' 			 => $product['city_to_name'],		
 					'order_product_id'   => $product['order_product_id'],
 					'departure_time'     => $product['departure_time'],
 					'departure_from'     => $product['departure_from'],

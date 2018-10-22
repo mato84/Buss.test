@@ -284,7 +284,7 @@ class ModelSaleOrder extends Model {
 	}
 
 	public function getOrderProducts($order_id) {
-		$query = $this->db->query("SELECT op.*, p.departure_time FROM " . DB_PREFIX . "order_product AS op JOIN " . DB_PREFIX . "product AS p ON op.product_id = p.product_id  WHERE order_id = '" . (int)$order_id . "'");
+		$query = $this->db->query("SELECT op.*, p.departure_time,  ct.name as city_to_name, cf.name as city_from_name FROM " . DB_PREFIX . "order_product AS op JOIN " . DB_PREFIX . "product AS p ON op.product_id = p.product_id JOIN oc_city as ct ON p.to_t = ct.city_id JOIN oc_city cf ON p.from_t = cf.city_id WHERE order_id = '" . (int)$order_id . "'");
 
 		return $query->rows;
 	}
