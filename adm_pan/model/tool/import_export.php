@@ -12,7 +12,6 @@ class ModelToolImportExport extends Model{
         $reading_data = $this->readFile($path);
         $last_id = $this->setProducts($reading_data['product']);
         $this->setDependentTable($reading_data, $last_id, $exclusion_sheet);
-//       $this->updateDataCategory($reading_data['product_to_category'], $last_id);
         $this->setUrlAliace($reading_data['url_alias'], $last_id);
         $this->setWayPointToRoute($reading_data['waypoint_to_route'], $last_id);
         return $last_id;
@@ -198,20 +197,26 @@ class ModelToolImportExport extends Model{
      */
     private function updateDataInDependentTable($nameTable, $data)
     {
+        $primary_keys = $this->db->query("SHOW KEYS FROM oc_" .$nameTable . " WHERE Key_name = 'PRIMARY'");
         if (is_array($data) && !empty($data)) {
             foreach ($data as $key => $value) {
+                if ($primary_keys->num_rows != count($value) || $primary_keys->num_rows < count($value) ) continue;
                 $sqlOperation = 'UPDATE';
                 $sql = sprintf('%s %s%s SET ',$sqlOperation, DB_PREFIX, $nameTable);
-                $sql .= array_reduce(array_keys($value), function($carry, $val) use($value){
+                $sql .= array_reduce(array_keys($value), function($carry, $val) use ($value) {
                     if(!empty($val) && !empty($value[$val]) ){
                         return $carry." ".$val." = '" .$value[$val]." ',";
-                    }
-                    else{
+                    } else {
                         return $carry;
                     }
                 },"");
 
-                $sql = rtrim($sql,", ").sprintf(' WHERE product_id = \'%s\'', $value['product_id']);
+                $where = array_reduce($primary_keys->rows, function ($acc, $val) use ($value) {
+                    $acc .= sprintf('%s = %s AND ', $val['Column_name'], $value[$val['Column_name']]);
+                    return $acc;
+                }, '');
+                $where = preg_replace('/\W\w+\s*(\W*)$/', '$1', $where);
+                $sql = rtrim($sql,", ").sprintf(' WHERE \'%s\'', $where);
                 $this->db->query(rtrim($sql,", "));
             }
         }
@@ -239,33 +244,6 @@ class ModelToolImportExport extends Model{
     }
 
     /**
-     * @param $arrayCategoryToProduct
-     * @param $last_id
-     * @throws Exception
-     */
-    private function updateDataCategory($arrayCategoryToProduct, $last_id) {
-            $this->db->query('TRUNCATE TABLE oc_product_to_category');
-            $sql = "INSERT INTO ".DB_PREFIX."product_to_category VALUES ";
-
-            if (!empty($arrayCategoryToProduct)) {
-                foreach ($arrayCategoryToProduct as $key => $value) {
-                    $sql .= sprintf(
-                        "(%s, %s, %s),",
-                        isset($value['product_id']) ? $value['product_id']: $last_id[$key] ,
-                        $value['category_id'],
-                        $value['main_category']
-                    );
-                }
-                $this->db->query(rtrim($sql,", "));
-            } else {
-
-                throw new \Exception('table oc_product_to_category  not created');
-            }
-
-
-    }
-
-    /**
      * @param $tableName
      * @param $data
      * @return mixed
@@ -286,8 +264,13 @@ class ModelToolImportExport extends Model{
 
     private function getInsertData($values, $updateValue)
     {
-        return array_filter($values, function ($value) use ($updateValue) {
-            return !in_array($value['product_id'], $updateValue);
+        $update = array_reduce($updateValue, function($acc, $value){
+             $acc[$value['product_id']] = 0;
+            return $acc;
+        }, []);
+
+        return array_filter($values, function ($value) use ($update) {
+            return !array_key_exists($value['product_id'], $update);
         });
     }
 
