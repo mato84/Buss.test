@@ -108,6 +108,7 @@ class ModelToolImportExport extends Model{
   protected function setDependentTable($array_dependent, $products_last_id, $exclusion_sheet_name = []){
     foreach ($array_dependent as $name_sheet => $values) {
       if (in_array($name_sheet, $exclusion_sheet_name )) continue;
+        $values = $this->prepareDependentTableData($values, $products_last_id);
         $updateValue = $this->existDataInTable($name_sheet, $products_last_id, $values);
         $insertValue = $this->getInsertData($values, $updateValue);
         $this->updateDataInDependentTable($name_sheet, $updateValue);
@@ -285,9 +286,21 @@ class ModelToolImportExport extends Model{
 
     private function getInsertData($values, $updateValue)
     {
-        $s = 's';
         return array_filter($values, function ($value) use ($updateValue) {
             return !in_array($value['product_id'], $updateValue);
         });
+    }
+
+    /**
+     * @param $values
+     * @param $products_last_id
+     * @return array
+     */
+    private function prepareDependentTableData($values, $products_last_id)
+    {
+        return array_map(function ($value, $product_id) {
+            $value['product_id'] = $product_id;
+            return $value;
+        }, $values, $products_last_id);
     }
 }
