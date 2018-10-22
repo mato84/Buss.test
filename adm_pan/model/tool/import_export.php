@@ -204,7 +204,7 @@ class ModelToolImportExport extends Model{
         $primary_keys = $this->db->query("SHOW KEYS FROM oc_" .$nameTable . " WHERE Key_name = 'PRIMARY'");
         if (is_array($data) && !empty($data)) {
             foreach ($data as $key => $value) {
-                if ($primary_keys->num_rows != count($value) || $primary_keys->num_rows < count($value) ) continue;
+                if ($primary_keys->num_rows > count($value)) continue;
                 $sqlOperation = 'UPDATE';
                 $sql = sprintf('%s %s%s SET ',$sqlOperation, DB_PREFIX, $nameTable);
                 $sql .= array_reduce(array_keys($value), function($carry, $val) use ($value) {
@@ -286,7 +286,9 @@ class ModelToolImportExport extends Model{
     private function prepareDependentTableData($values, $products_last_id)
     {
         return array_map(function ($value, $product_id) {
-            $value['product_id'] = $product_id;
+            if (!isset($value['product_id'])) {
+                $value['product_id'] = $product_id;
+            }
             return $value;
         }, $values, $products_last_id);
     }
